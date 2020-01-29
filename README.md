@@ -1,4 +1,2 @@
 # L2-GLP
-Our software engineering project at CY Paris Université
-
-test commit
+Our software engineering project at CY Paris UniversitÃ©
