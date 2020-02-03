@@ -1,5 +1,9 @@
 package cli.data;
 
+/**
+ * @author Adel
+ *
+ */
 public abstract class Selectable {
 	private int health;
 	private int maxHealth;
@@ -8,7 +12,6 @@ public abstract class Selectable {
 	private String name;
 	private Coordinates position;
 	private Description description;
-	
 	
 	public Coordinates getPosition() {
 		return position;
@@ -57,6 +60,5 @@ public abstract class Selectable {
 		return "Selectable [health=" + health + ", maxHealth=" + maxHealth + ", selected=" + selected + ", factionName="
 				+ factionName + ", name=" + name + ", position=" + position + ", description=" + description + "]";
 	}
-	
 	
 }

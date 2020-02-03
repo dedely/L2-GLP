@@ -1,5 +1,9 @@
 package cli.data;
 
+/**
+ * @author Adel
+ *
+ */
 public class Description {
 	private String description;
 

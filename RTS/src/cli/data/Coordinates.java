@@ -1,5 +1,9 @@
 package cli.data;
 
+/**
+ * @author Adel
+ *
+ */
 public class Coordinates {
 	private int absciss;
 	private int ordinate;
@@ -9,6 +13,7 @@ public class Coordinates {
 	public void setAbsciss(int absciss) {
 		this.absciss = absciss;
 	}
+
 	public int getOrdinate() {
 		return ordinate;
 	}
@@ -19,6 +24,5 @@ public class Coordinates {
 	public String toString() {
 		return "Coordinates [absciss=" + absciss + ", ordinate=" + ordinate + "]";
 	}
-	
 	
 }
