@@ -7,7 +7,7 @@ package cli.abstracts;
  * 
  *
  */
-public abstract class Unit {
+public abstract class Unit extends Selectable {
 
 	/**
 	 * Attribute depicting how fast a unit moves on the map
@@ -33,6 +33,8 @@ public abstract class Unit {
 	 */
 	private int range;
 	
+	
+
 	
 
 	public Unit(int speed, int damagePerShot, float fireRate, int range) {

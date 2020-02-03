@@ -4,7 +4,7 @@ package cli.abstracts;
  * @author Awen
  *
  */
-public class Infantry extends Unit {
+public abstract class Infantry extends Unit {
 	
 	/**
 	 * boolean to know whether the unit is inside something

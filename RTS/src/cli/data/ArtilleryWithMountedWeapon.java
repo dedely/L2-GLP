@@ -2,20 +2,13 @@ package cli.data;
 
 import cli.abstracts.Infantry;
 
-/**
- * Heavy TerrestrialVehicle, basically tanks but with a machine-gun on top
- * 
- * @author Awen
- *
- */
-
-public class HeavyTVWithMountedWeapon extends HeavyTV {
-
+public class ArtilleryWithMountedWeapon extends Artillery {
+	
 	/**
-	 * the infantry serving mounted weapon if any
+	 * the soldier operating the mounted weapon if any
 	 */
 	private Infantry infanteryIn;
-
+	
 	/**
 	 * condition about if the weapon is installed or not
 	 */
@@ -31,25 +24,28 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	 */
 	private int mountedWeaponFireRate;
 
-	public HeavyTVWithMountedWeapon(int speed, int damagePerShot, float fireRate, int range, boolean carried,
-			int unitSlots, Infantry infanteryIn, boolean Mounted, int mountedWeaponDamage,
+
+	
+
+	public ArtilleryWithMountedWeapon(int speed, int damagePerShot, float fireRate, int range, boolean carried,
+			int unitSlots, int minimumRange, Infantry infanteryIn, boolean isMounted, int mountedWeaponDamage,
 			int mountedWeaponFireRate) {
-		super(speed, damagePerShot, fireRate, range, carried, unitSlots);
+		super(speed, damagePerShot, fireRate, range, carried, unitSlots, minimumRange);
 		this.infanteryIn = infanteryIn;
-		this.Mounted = Mounted;
-		this.setMountedWeaponDamage(mountedWeaponDamage);
-		this.setMountedWeaponFireRate(mountedWeaponFireRate);
+		this.Mounted = isMounted;
+		this.mountedWeaponDamage = mountedWeaponDamage;
+		this.mountedWeaponFireRate = mountedWeaponFireRate;
 	}
 
 	/**
-	 * @return the infantry serving the mounted weapon if any
+	 * @return the Infantry operating the mounted weapon if any
 	 */
 	public Infantry getInfanteryIn() {
 		return infanteryIn;
 	}
 
 	/**
-	 * @param infanteryIn the infantry that uses the mounted weapon
+	 * @param infanteryIn the Infantry operating the mounted weapon
 	 */
 	public void setInfanteryIn(Infantry infanteryIn) {
 		this.infanteryIn = infanteryIn;
@@ -63,7 +59,7 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	}
 
 	/**
-	 * @param Mounted the truth value of the weapon installation
+	 * @param isMounted the truth value of the weapon installation
 	 */
 	public void setMounted(boolean Mounted) {
 		this.Mounted = Mounted;
@@ -97,5 +93,7 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	public void setMountedWeaponFireRate(int mountedWeaponFireRate) {
 		this.mountedWeaponFireRate = mountedWeaponFireRate;
 	}
+	
+	
 
 }
