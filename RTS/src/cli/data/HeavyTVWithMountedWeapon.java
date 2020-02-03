@@ -1,7 +1,7 @@
 package cli.data;
 
-import cli.Infantry;
-import cli.TerrestrialVehicle;
+import cli.abstracts.Infantry;
+import cli.abstracts.TerrestrialVehicle;
 
 /**
  * Heavy TerrestrialVehicle, basically tanks but with a machine-gun on top

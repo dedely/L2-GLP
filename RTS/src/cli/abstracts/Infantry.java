@@ -1,4 +1,4 @@
-package cli;
+package cli.abstracts;
 
 /**Abstract class representing the foot soldiers of various types.
  * @author Awen

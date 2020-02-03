@@ -1,4 +1,4 @@
-package cli;
+package cli.abstracts;
 
 import cli.data.Coordinates;
 import cli.data.Description;

@@ -1,4 +1,4 @@
-package cli.data;
+package cli.abstracts;
 
 public abstract class Building {
 

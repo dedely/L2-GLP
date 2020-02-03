@@ -1,4 +1,4 @@
-package cli;
+package cli.abstracts;
 
 /**
  * the abstract class representing all mobile objects
