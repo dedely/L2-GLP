@@ -1,0 +1,58 @@
+package cli;
+
+/**
+ * The abstract class representing all the mechanical terrestrial units
+ * 
+ * @author Awen
+ *
+ */
+public abstract class TerrestrialVehicle extends Unit {
+
+	/**
+	 * the test attribute to know if the vehicle is inside something
+	 */
+	private boolean carried;
+
+	/**
+	 * the space the vehicle takes when inside something
+	 */
+	private int unitSlots;
+	
+	
+
+
+	public TerrestrialVehicle(int speed, int damagePerShot, float fireRate, int range, boolean carried, int unitSlots) {
+		super(speed, damagePerShot, fireRate, range);
+		this.carried = carried;
+		this.unitSlots = unitSlots;
+	}
+
+	/**
+	 * @return true if the vehicle is inside something, false otherwise
+	 */
+	public boolean isCarried() {
+		return carried;
+	}
+
+	/**
+	 * @param carried the boolean value about if the vehicle is inside something
+	 */
+	public void setCarried(boolean carried) {
+		this.carried = carried;
+	}
+
+	/**
+	 * @return the space the vehicle takes when inside something
+	 */
+	public int getUnitSlots() {
+		return unitSlots;
+	}
+
+	/**
+	 * @param unitSlots how much space the vehicle takes
+	 */
+	public void setUnitSlots(int unitSlots) {
+		this.unitSlots = unitSlots;
+	}
+
+}

@@ -1,4 +1,7 @@
-package cli.data;
+package cli;
+
+import cli.data.Coordinates;
+import cli.data.Description;
 
 public abstract class Selectable {
 	private int health;
