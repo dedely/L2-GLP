@@ -1,12 +1,21 @@
 package cli.data.unit;
 
+import cli.data.Coordinates;
+import cli.data.Description;
+
+/**
+ * Artillery vehicle but with a weapon installable on top
+ * 
+ * @author Awen
+ *
+ */
 public class ArtilleryWithMountedWeapon extends Artillery {
-	
+
 	/**
 	 * the soldier operating the mounted weapon if any
 	 */
 	private Infantry infanteryIn;
-	
+
 	/**
 	 * condition about if the weapon is installed or not
 	 */
@@ -22,15 +31,14 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	 */
 	private int mountedWeaponFireRate;
 
-
-	
-
-	public ArtilleryWithMountedWeapon(int speed, int damagePerShot, float fireRate, int range, boolean carried,
-			int unitSlots, int minimumRange, Infantry infanteryIn, boolean isMounted, int mountedWeaponDamage,
-			int mountedWeaponFireRate) {
-		super(speed, damagePerShot, fireRate, range, carried, unitSlots, minimumRange);
+	public ArtilleryWithMountedWeapon(int health, int maxHealth, boolean selected, String factionName, String name,
+			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
+			boolean carried, int unitSlots, int minimumRange, Infantry infanteryIn, boolean mounted,
+			int mountedWeaponDamage, int mountedWeaponFireRate) {
+		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
+				range, carried, unitSlots, minimumRange);
 		this.infanteryIn = infanteryIn;
-		this.Mounted = isMounted;
+		Mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeaponFireRate = mountedWeaponFireRate;
 	}
@@ -91,7 +99,5 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	public void setMountedWeaponFireRate(int mountedWeaponFireRate) {
 		this.mountedWeaponFireRate = mountedWeaponFireRate;
 	}
-	
-	
 
 }

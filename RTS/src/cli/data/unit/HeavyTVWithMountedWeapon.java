@@ -1,5 +1,8 @@
 package cli.data.unit;
 
+import cli.data.Coordinates;
+import cli.data.Description;
+
 /**
  * Heavy TerrestrialVehicle, basically tanks but with a machine-gun on top
  * 
@@ -29,14 +32,18 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	 */
 	private int mountedWeaponFireRate;
 
-	public HeavyTVWithMountedWeapon(int speed, int damagePerShot, float fireRate, int range, boolean carried,
-			int unitSlots, Infantry infanteryIn, boolean Mounted, int mountedWeaponDamage,
+
+
+	public HeavyTVWithMountedWeapon(int health, int maxHealth, boolean selected, String factionName, String name,
+			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
+			boolean carried, int unitSlots, Infantry infanteryIn, boolean mounted, int mountedWeaponDamage,
 			int mountedWeaponFireRate) {
-		super(speed, damagePerShot, fireRate, range, carried, unitSlots);
+		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
+				range, carried, unitSlots);
 		this.infanteryIn = infanteryIn;
-		this.Mounted = Mounted;
-		this.setMountedWeaponDamage(mountedWeaponDamage);
-		this.setMountedWeaponFireRate(mountedWeaponFireRate);
+		Mounted = mounted;
+		this.mountedWeaponDamage = mountedWeaponDamage;
+		this.mountedWeaponFireRate = mountedWeaponFireRate;
 	}
 
 	/**

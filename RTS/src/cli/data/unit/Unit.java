@@ -1,6 +1,8 @@
 package cli.data.unit;
 
-import cli.data.Selectable;
+import cli.abstracts.Selectable;
+import cli.data.Coordinates;
+import cli.data.Description;
 
 /**
  * the abstract class representing all mobile objects
@@ -39,13 +41,16 @@ public abstract class Unit extends Selectable {
 
 	
 
-	public Unit(int speed, int damagePerShot, float fireRate, int range) {
-		super();
+	
+	public Unit(int health, int maxHealth, boolean selected, String factionName, String name, Coordinates position,
+			Description description, int speed, int damagePerShot, float fireRate, int range) {
+		super(health, maxHealth, selected, factionName, name, position, description);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
 		this.fireRate = fireRate;
 		this.range = range;
 	}
+
 
 	/**
 	 * @return the attribute depicting how fast a unit moves on the map

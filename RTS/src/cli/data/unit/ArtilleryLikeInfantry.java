@@ -1,5 +1,8 @@
 package cli.data.unit;
 
+import cli.data.Coordinates;
+import cli.data.Description;
+
 /**
  * the class for instantiating human unit with an indirect fire weapon
  * 
@@ -14,9 +17,13 @@ public class ArtilleryLikeInfantry extends Infantry {
 	 */
 	private int minimumRange;
 
-	public ArtilleryLikeInfantry(int speed, int damagePerShot, float fireRate, int range, boolean carried,
-			int unitSlots, int minimumRange) {
-		super(speed, damagePerShot, fireRate, range, carried, unitSlots);
+	
+
+	public ArtilleryLikeInfantry(int health, int maxHealth, boolean selected, String factionName, String name,
+			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
+			boolean carried, int unitSlots, int minimumRange) {
+		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
+				range, carried, unitSlots);
 		this.minimumRange = minimumRange;
 	}
 
