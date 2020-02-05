@@ -2,6 +2,7 @@ package cli.data.unit;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 
 /**
  * The abstract class representing all the mechanical terrestrial units
@@ -21,7 +22,7 @@ public abstract class TerrestrialVehicle extends Unit {
 	 */
 	private int unitSlots;
 
-	public TerrestrialVehicle(int health, int maxHealth, boolean selected, String factionName, String name,
+	public TerrestrialVehicle(int health, int maxHealth, boolean selected, Faction factionName, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
 			boolean carried, int unitSlots) {
 		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
@@ -56,6 +57,11 @@ public abstract class TerrestrialVehicle extends Unit {
 	 */
 	public void setUnitSlots(int unitSlots) {
 		this.unitSlots = unitSlots;
+	}
+
+	@Override
+	public String toString() {
+		return "TerrestrialVehicle [carried=" + carried + ", unitSlots=" + unitSlots + super.toString() + "]";
 	}
 
 }

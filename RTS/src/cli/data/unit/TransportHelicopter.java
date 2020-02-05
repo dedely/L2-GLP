@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 
 /**
  * Class for instantiating transport helis
@@ -28,14 +29,13 @@ public class TransportHelicopter extends AerialVehicles {
 	 */
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
 
-	public TransportHelicopter(int health, int maxHealth, boolean selected, String factionName, String name,
+	public TransportHelicopter(int health, int maxHealth, boolean selected, Faction factionName, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
 			int unitSlotsAvailable, int unitSlots, ArrayList<Unit> unitsIn) {
 		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
 				range);
 		this.unitSlotsAvailable = unitSlotsAvailable;
 		UnitSlots = unitSlots;
-		this.unitsIn = unitsIn;
 	}
 
 	/**
@@ -79,5 +79,13 @@ public class TransportHelicopter extends AerialVehicles {
 	public void setUnitsIn(ArrayList<Unit> unitsIn) {
 		this.unitsIn = unitsIn;
 	}
+
+	@Override
+	public String toString() {
+		return "TransportHelicopter [unitSlotsAvailable=" + unitSlotsAvailable + ", UnitSlots=" + UnitSlots
+				+ ", unitsIn=" + unitsIn + super.toString() + "]";
+	}
+	
+	
 
 }

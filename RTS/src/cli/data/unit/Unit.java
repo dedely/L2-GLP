@@ -1,6 +1,7 @@
 package cli.data.unit;
 
 import cli.data.Selectable;
+import cli.data.faction.Faction;
 import cli.data.Coordinates;
 import cli.data.Description;
 
@@ -37,7 +38,7 @@ public abstract class Unit extends Selectable {
 	 */
 	private int range;
 
-	public Unit(int health, int maxHealth, boolean selected, String factionName, String name, Coordinates position,
+	public Unit(int health, int maxHealth, boolean selected, Faction factionName, String name, Coordinates position,
 			Description description, int speed, int damagePerShot, float fireRate, int range) {
 		super(health, maxHealth, selected, factionName, name, position, description);
 		this.speed = speed;
@@ -101,5 +102,13 @@ public abstract class Unit extends Selectable {
 	public void setRange(int range) {
 		this.range = range;
 	}
+
+	@Override
+	public String toString() {
+		return "Unit [speed=" + speed + ", damagePerShot=" + damagePerShot + ", fireRate=" + fireRate + ", range="
+				+ range + ", toString()=" + super.toString() + "]";
+	}
+	
+	
 
 }

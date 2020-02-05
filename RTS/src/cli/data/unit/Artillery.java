@@ -2,6 +2,7 @@ package cli.data.unit;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 
 /**
  * the class for instantiating Artillery support vehicles
@@ -17,9 +18,9 @@ public class Artillery extends TerrestrialVehicle {
 	 */
 	private int minimumRange;
 
-	public Artillery(int health, int maxHealth, boolean selected, String factionName, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, float fireRate, int range, boolean carried,
-			int unitSlots, int minimumRange) {
+	public Artillery(int health, int maxHealth, boolean selected, Faction factionName, String name,
+			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
+			boolean carried, int unitSlots, int minimumRange) {
 		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
 				range, carried, unitSlots);
 		this.minimumRange = minimumRange;
@@ -38,6 +39,11 @@ public class Artillery extends TerrestrialVehicle {
 	 */
 	public void setMinimumRange(int minimumRange) {
 		this.minimumRange = minimumRange;
+	}
+
+	@Override
+	public String toString() {
+		return "Artillery [minimumRange=" + minimumRange + super.toString() + "]";
 	}
 
 }
