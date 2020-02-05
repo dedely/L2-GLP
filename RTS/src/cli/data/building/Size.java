@@ -1,4 +1,4 @@
-package cli.data;
+package cli.data.building;
 
 public class Size {
 	private int height;

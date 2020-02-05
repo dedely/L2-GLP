@@ -1,4 +1,6 @@
-package cli.data;
+package cli.data.building;
+
+import cli.data.Coordinates;
 
 public abstract class Building {
 	private Coordinates rallyPoint;
