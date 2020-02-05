@@ -23,6 +23,24 @@ public class WorkerInfantery extends Worker {
 		this.carried = carried;
 		this.unitSlots = unitSlots;
 	}
+
+	public boolean isCarried() {
+		return carried;
+	}
+
+	public void setCarried(boolean carried) {
+		this.carried = carried;
+	}
+
+	public int getUnitSlots() {
+		return unitSlots;
+	}
+
+	public void setUnitSlots(int unitSlots) {
+		this.unitSlots = unitSlots;
+	}
+	
+	
 	
 	
 
