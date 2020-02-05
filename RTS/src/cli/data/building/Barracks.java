@@ -2,10 +2,15 @@ package cli.data.building;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 
-public class Barracks extends UnitFactory{
+/**
+ * @author Adel
+ *
+ */
+public class Barracks extends UnitFactory {
 
-	public Barracks(int health, int maxHealth, boolean selected, String factionName, String name, Coordinates position,
+	public Barracks(int health, int maxHealth, boolean selected, Faction factionName, String name, Coordinates position,
 			Description description, Coordinates rallyPoint) {
 		super(health, maxHealth, selected, factionName, name, position, description, rallyPoint);
 	}

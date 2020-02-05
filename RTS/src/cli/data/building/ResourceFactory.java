@@ -2,15 +2,20 @@ package cli.data.building;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 import cli.data.resource.Resource;
 
+/**
+ * @author Adel
+ *
+ */
 public class ResourceFactory extends Building {
 
 	private Resource resourceProduced;
 	private int timeToProduce;
 	private int numberProduced;
-	
-	public ResourceFactory(int health, int maxHealth, boolean selected, String factionName, String name,
+
+	public ResourceFactory(int health, int maxHealth, boolean selected, Faction factionName, String name,
 			Coordinates position, Description description, Coordinates rallyPoint, Resource resourceProduced,
 			int timeToProduce, int numberProduced) {
 		super(health, maxHealth, selected, factionName, name, position, description, rallyPoint);

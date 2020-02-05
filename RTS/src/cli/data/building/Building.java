@@ -3,11 +3,16 @@ package cli.data.building;
 import cli.data.Coordinates;
 import cli.data.Description;
 import cli.data.Selectable;
+import cli.data.faction.Faction;
 
+/**
+ * @author Adel
+ *
+ */
 public abstract class Building extends Selectable {
 	private Coordinates rallyPoint;
 
-	public Building(int health, int maxHealth, boolean selected, String factionName, String name, Coordinates position,
+	public Building(int health, int maxHealth, boolean selected, Faction factionName, String name, Coordinates position,
 			Description description, Coordinates rallyPoint) {
 		super(health, maxHealth, selected, factionName, name, position, description);
 		this.rallyPoint = rallyPoint;

@@ -1,11 +1,23 @@
 package cli.data.building;
 
-public class DefenseBuilding {
+import cli.data.Coordinates;
+import cli.data.Description;
+import cli.data.faction.Faction;
+
+/**
+ * @author Adel
+ *
+ */
+public class DefenseBuilding extends Building {
+
 	private int range;
 	private int damage;
 	private int fireRate;
-	
-	public DefenseBuilding(int range, int damage, int fireRate) {
+
+	public DefenseBuilding(int health, int maxHealth, boolean selected, Faction factionName, String name,
+			Coordinates position, Description description, Coordinates rallyPoint, int range, int damage,
+			int fireRate) {
+		super(health, maxHealth, selected, factionName, name, position, description, rallyPoint);
 		this.range = range;
 		this.damage = damage;
 		this.fireRate = fireRate;
@@ -39,5 +51,5 @@ public class DefenseBuilding {
 	public String toString() {
 		return "DefenseBuilding [range=" + range + ", damage=" + damage + ", fireRate=" + fireRate + "]";
 	}
-	
+
 }

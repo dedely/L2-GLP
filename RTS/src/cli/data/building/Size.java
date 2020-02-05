@@ -1,9 +1,13 @@
 package cli.data.building;
 
+/**
+ * @author Adel
+ *
+ */
 public class Size {
 	private int height;
 	private int lenght;
-	
+
 	public Size(int height, int lenght) {
 		this.height = height;
 		this.lenght = lenght;
@@ -29,7 +33,5 @@ public class Size {
 	public String toString() {
 		return "Size [height=" + height + ", lenght=" + lenght + "]";
 	}
-	
-	
-	
+
 }

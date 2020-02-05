@@ -1,5 +1,9 @@
 package cli.data.resource;
 
+/**
+ * @author Adel
+ *
+ */
 public class Energy implements Resource{
 	private int resourceCount;
 

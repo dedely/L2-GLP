@@ -1,5 +1,9 @@
 package cli.data.resource;
 
+/**
+ * @author Adel
+ *
+ */
 public class Material implements Resource {
 	private int resourceCount;
 

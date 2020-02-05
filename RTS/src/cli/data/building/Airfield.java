@@ -2,10 +2,15 @@ package cli.data.building;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 
-public class Airfield extends UnitFactory{
+/**
+ * @author Adel
+ *
+ */
+public class Airfield extends UnitFactory {
 
-	public Airfield(int health, int maxHealth, boolean selected, String factionName, String name, Coordinates position,
+	public Airfield(int health, int maxHealth, boolean selected, Faction factionName, String name, Coordinates position,
 			Description description, Coordinates rallyPoint) {
 		super(health, maxHealth, selected, factionName, name, position, description, rallyPoint);
 	}
@@ -14,6 +19,5 @@ public class Airfield extends UnitFactory{
 	public String toString() {
 		return "Airfield [toString()=" + super.toString() + "]";
 	}
-	
-	
+
 }
