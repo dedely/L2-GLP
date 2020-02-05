@@ -1,5 +1,8 @@
 package cli.data.unit;
 
+import cli.data.Coordinates;
+import cli.data.Description;
+
 /**
  * Class for instantiating attack helis with multiple weapons
  * 
@@ -28,9 +31,14 @@ public class AttackHelicopter extends AerialVehicles {
 	 */
 	private int secondaryWeaponReloadTime;
 
-	public AttackHelicopter(int speed, int damagePerShot, float fireRate, int range, int secondaryWeaponDamage,
-			int secondaryWeaponFireRate, int secondaryWeaponAmmount, int secondaryWeaponReloadTime) {
-		super(speed, damagePerShot, fireRate, range);
+	
+
+	public AttackHelicopter(int health, int maxHealth, boolean selected, String factionName, String name,
+			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
+			int secondaryWeaponDamage, int secondaryWeaponFireRate, int secondaryWeaponAmmount,
+			int secondaryWeaponReloadTime) {
+		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
+				range);
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponFireRate = secondaryWeaponFireRate;
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;

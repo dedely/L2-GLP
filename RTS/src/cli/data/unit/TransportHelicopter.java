@@ -2,6 +2,9 @@ package cli.data.unit;
 
 import java.util.ArrayList;
 
+import cli.data.Coordinates;
+import cli.data.Description;
+
 /** Class for instantiating transport helis
  * @author Awen
  *
@@ -23,11 +26,16 @@ public class TransportHelicopter extends AerialVehicles {
 	 */
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
 
-	public TransportHelicopter(int speed, int damagePerShot, float fireRate, int range, int unitSlotsAvailable,
-			int UnitSlots) {
-		super(speed, damagePerShot, fireRate, range);
-		unitSlotsAvailable = UnitSlots;
-		this.UnitSlots = UnitSlots;
+	
+
+	public TransportHelicopter(int health, int maxHealth, boolean selected, String factionName, String name,
+			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
+			int unitSlotsAvailable, int unitSlots, ArrayList<Unit> unitsIn) {
+		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
+				range);
+		this.unitSlotsAvailable = unitSlotsAvailable;
+		UnitSlots = unitSlots;
+		this.unitsIn = unitsIn;
 	}
 
 	/**

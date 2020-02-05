@@ -1,5 +1,8 @@
 package cli.data.unit;
 
+import cli.data.Coordinates;
+import cli.data.Description;
+
 /**
  * The abstract class representing all the mechanical terrestrial units
  * 
@@ -21,11 +24,16 @@ public abstract class TerrestrialVehicle extends Unit {
 	
 
 
-	public TerrestrialVehicle(int speed, int damagePerShot, float fireRate, int range, boolean carried, int unitSlots) {
-		super(speed, damagePerShot, fireRate, range);
+
+	public TerrestrialVehicle(int health, int maxHealth, boolean selected, String factionName, String name,
+			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
+			boolean carried, int unitSlots) {
+		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
+				range);
 		this.carried = carried;
 		this.unitSlots = unitSlots;
 	}
+
 
 	/**
 	 * @return true if the vehicle is inside something, false otherwise
