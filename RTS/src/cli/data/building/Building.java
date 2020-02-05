@@ -23,7 +23,7 @@ public abstract class Building extends Selectable {
 
 	@Override
 	public String toString() {
-		return "Building [rallyPoint=" + rallyPoint + "]";
+		return "Building [rallyPoint=" + rallyPoint + ", toString()=" + super.toString() + "]";
 	}
-	
+
 }

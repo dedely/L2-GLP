@@ -1,5 +1,7 @@
 package cli.data;
 
+import cli.data.faction.Faction;
+
 /**
  * @author Adel
  *
@@ -8,12 +10,12 @@ public abstract class Selectable {
 	private int health;
 	private int maxHealth;
 	private boolean selected;
-	private String factionName;
+	private Faction factionName;
 	private String name;
 	private Coordinates position;
 	private Description description;
 
-	public Selectable(int health, int maxHealth, boolean selected, String factionName, String name,
+	public Selectable(int health, int maxHealth, boolean selected, Faction factionName, String name,
 			Coordinates position, Description description) {
 		this.health = health;
 		this.maxHealth = maxHealth;
@@ -64,11 +66,11 @@ public abstract class Selectable {
 		this.selected = selected;
 	}
 
-	public String getFactionName() {
+	public Faction getFactionName() {
 		return factionName;
 	}
 
-	public void setFactionName(String factionName) {
+	public void setFactionName(Faction factionName) {
 		this.factionName = factionName;
 	}
 
