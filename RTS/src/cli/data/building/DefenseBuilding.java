@@ -1,6 +1,6 @@
 package cli.data.building;
 
-public abstract class DefenseBuilding {
+public class DefenseBuilding {
 	private int range;
 	private int damage;
 	private int fireRate;
