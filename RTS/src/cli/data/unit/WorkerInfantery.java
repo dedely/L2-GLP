@@ -2,6 +2,7 @@ package cli.data.unit;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 
 /**
  * The human workers
@@ -21,7 +22,7 @@ public class WorkerInfantery extends Worker {
 	 */
 	private int unitSlots;
 
-	public WorkerInfantery(int health, int maxHealth, boolean selected, String factionName, String name,
+	public WorkerInfantery(int health, int maxHealth, boolean selected, Faction factionName, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
 			boolean carried, int unitSlots) {
 		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,

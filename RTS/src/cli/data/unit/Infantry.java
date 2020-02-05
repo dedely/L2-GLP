@@ -2,6 +2,7 @@ package cli.data.unit;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 
 /**
  * Abstract class representing the foot soldiers of various types.
@@ -21,7 +22,7 @@ public abstract class Infantry extends Unit {
 	 */
 	private int unitSlots;
 
-	public Infantry(int health, int maxHealth, boolean selected, String factionName, String name, Coordinates position,
+	public Infantry(int health, int maxHealth, boolean selected, Faction factionName, String name, Coordinates position,
 			Description description, int speed, int damagePerShot, float fireRate, int range, boolean carried,
 			int unitSlots) {
 		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,

@@ -2,6 +2,7 @@ package cli.data.unit;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 
 /**
  * Artillery vehicle but with a weapon installable on top
@@ -31,7 +32,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	 */
 	private int mountedWeaponFireRate;
 
-	public ArtilleryWithMountedWeapon(int health, int maxHealth, boolean selected, String factionName, String name,
+	public ArtilleryWithMountedWeapon(int health, int maxHealth, boolean selected, Faction factionName, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
 			boolean carried, int unitSlots, int minimumRange, Infantry infanteryIn, boolean mounted,
 			int mountedWeaponDamage, int mountedWeaponFireRate) {

@@ -2,6 +2,7 @@ package cli.data.unit;
 
 import cli.data.Coordinates;
 import cli.data.Description;
+import cli.data.faction.Faction;
 
 /**
  * Heavy TerrestrialVehicle, basically tanks but with a machine-gun on top
@@ -32,7 +33,7 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	 */
 	private int mountedWeaponFireRate;
 
-	public HeavyTVWithMountedWeapon(int health, int maxHealth, boolean selected, String factionName, String name,
+	public HeavyTVWithMountedWeapon(int health, int maxHealth, boolean selected, Faction factionName, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
 			boolean carried, int unitSlots, Infantry infanteryIn, boolean mounted, int mountedWeaponDamage,
 			int mountedWeaponFireRate) {
