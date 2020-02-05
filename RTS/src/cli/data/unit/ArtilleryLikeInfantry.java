@@ -17,8 +17,6 @@ public class ArtilleryLikeInfantry extends Infantry {
 	 */
 	private int minimumRange;
 
-	
-
 	public ArtilleryLikeInfantry(int health, int maxHealth, boolean selected, String factionName, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
 			boolean carried, int unitSlots, int minimumRange) {

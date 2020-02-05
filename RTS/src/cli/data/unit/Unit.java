@@ -36,12 +36,7 @@ public abstract class Unit extends Selectable {
 	 * 
 	 */
 	private int range;
-	
-	
 
-	
-
-	
 	public Unit(int health, int maxHealth, boolean selected, String factionName, String name, Coordinates position,
 			Description description, int speed, int damagePerShot, float fireRate, int range) {
 		super(health, maxHealth, selected, factionName, name, position, description);
@@ -50,7 +45,6 @@ public abstract class Unit extends Selectable {
 		this.fireRate = fireRate;
 		this.range = range;
 	}
-
 
 	/**
 	 * @return the attribute depicting how fast a unit moves on the map

@@ -3,8 +3,14 @@ package cli.data.unit;
 import cli.data.Coordinates;
 import cli.data.Description;
 
+/**
+ * The human workers
+ * 
+ * @author Awen
+ *
+ */
 public class WorkerInfantery extends Worker {
-	
+
 	/**
 	 * boolean to know whether the unit is inside something
 	 */
@@ -39,9 +45,5 @@ public class WorkerInfantery extends Worker {
 	public void setUnitSlots(int unitSlots) {
 		this.unitSlots = unitSlots;
 	}
-	
-	
-	
-	
 
 }
