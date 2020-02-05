@@ -20,4 +20,9 @@ public class HeavyTV extends TerrestrialVehicle {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "HeavyTV [" + super.toString() + "]";
+	}
+
 }

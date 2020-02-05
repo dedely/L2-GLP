@@ -59,4 +59,9 @@ public abstract class Infantry extends Unit {
 		this.unitSlots = unitSlots;
 	}
 
+	@Override
+	public String toString() {
+		return "Infantry [carried=" + carried + ", unitSlots=" + unitSlots + super.toString() + "]";
+	}
+
 }

@@ -103,4 +103,12 @@ public abstract class Unit extends Selectable {
 		this.range = range;
 	}
 
+	@Override
+	public String toString() {
+		return "Unit [speed=" + speed + ", damagePerShot=" + damagePerShot + ", fireRate=" + fireRate + ", range="
+				+ range + ", toString()=" + super.toString() + "]";
+	}
+	
+	
+
 }

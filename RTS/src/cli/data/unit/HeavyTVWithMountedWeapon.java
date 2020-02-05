@@ -102,4 +102,11 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 		this.mountedWeaponFireRate = mountedWeaponFireRate;
 	}
 
+	@Override
+	public String toString() {
+		return "HeavyTVWithMountedWeapon [infanteryIn=" + infanteryIn + ", Mounted=" + Mounted
+				+ ", mountedWeaponDamage=" + mountedWeaponDamage + ", mountedWeaponFireRate=" + mountedWeaponFireRate
+				+ super.toString() + "]";
+	}
+
 }

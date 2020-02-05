@@ -20,4 +20,9 @@ public class GenericInfantry extends Infantry {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "GenericInfantry [" + super.toString() + "]";
+	}
+
 }

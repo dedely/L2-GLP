@@ -59,4 +59,9 @@ public abstract class TerrestrialVehicle extends Unit {
 		this.unitSlots = unitSlots;
 	}
 
+	@Override
+	public String toString() {
+		return "TerrestrialVehicle [carried=" + carried + ", unitSlots=" + unitSlots + super.toString() + "]";
+	}
+
 }

@@ -41,4 +41,9 @@ public class Artillery extends TerrestrialVehicle {
 		this.minimumRange = minimumRange;
 	}
 
+	@Override
+	public String toString() {
+		return "Artillery [minimumRange=" + minimumRange + super.toString() + "]";
+	}
+
 }

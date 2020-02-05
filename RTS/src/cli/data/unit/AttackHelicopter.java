@@ -102,4 +102,11 @@ public class AttackHelicopter extends AerialVehicles {
 		this.secondaryWeaponReloadTime = secondaryWeaponReloadTime;
 	}
 
+	@Override
+	public String toString() {
+		return "AttackHelicopter [secondaryWeaponDamage=" + secondaryWeaponDamage + ", secondaryWeaponFireRate="
+				+ secondaryWeaponFireRate + ", secondaryWeaponAmmount=" + secondaryWeaponAmmount
+				+ ", secondaryWeaponReloadTime=" + secondaryWeaponReloadTime + super.toString() + "]";
+	}
+
 }

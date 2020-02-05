@@ -101,4 +101,13 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 		this.mountedWeaponFireRate = mountedWeaponFireRate;
 	}
 
+	@Override
+	public String toString() {
+		return "ArtilleryWithMountedWeapon [infanteryIn=" + infanteryIn + ", Mounted=" + Mounted
+				+ ", mountedWeaponDamage=" + mountedWeaponDamage + ", mountedWeaponFireRate=" + mountedWeaponFireRate
+				+ super.toString() + "]";
+	}
+	
+	
+
 }

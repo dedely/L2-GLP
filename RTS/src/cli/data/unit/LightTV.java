@@ -83,4 +83,10 @@ public class LightTV extends TerrestrialVehicle {
 		this.infantrySeatsRemaining = infantrySeatsRemaining;
 	}
 
+	@Override
+	public String toString() {
+		return "LightTV [infantrySeats=" + infantrySeats + ", infantrySeatsRemaining=" + infantrySeatsRemaining
+				+ ", infanteryIn=" + infanteryIn + super.toString() + "]";
+	}
+
 }

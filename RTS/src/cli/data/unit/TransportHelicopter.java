@@ -36,7 +36,6 @@ public class TransportHelicopter extends AerialVehicles {
 				range);
 		this.unitSlotsAvailable = unitSlotsAvailable;
 		UnitSlots = unitSlots;
-		this.unitsIn = unitsIn;
 	}
 
 	/**
@@ -80,5 +79,13 @@ public class TransportHelicopter extends AerialVehicles {
 	public void setUnitsIn(ArrayList<Unit> unitsIn) {
 		this.unitsIn = unitsIn;
 	}
+
+	@Override
+	public String toString() {
+		return "TransportHelicopter [unitSlotsAvailable=" + unitSlotsAvailable + ", UnitSlots=" + UnitSlots
+				+ ", unitsIn=" + unitsIn + super.toString() + "]";
+	}
+	
+	
 
 }
