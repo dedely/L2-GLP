@@ -1,4 +1,6 @@
-package cli.abstracts;
+package cli.data.unit;
+
+import cli.abstracts.Selectable;
 
 /**
  * the abstract class representing all mobile objects

@@ -1,6 +1,4 @@
-package cli.data;
-
-import cli.abstracts.Infantry;
+package cli.data.unit;
 
 /**
  * Heavy TerrestrialVehicle, basically tanks but with a machine-gun on top

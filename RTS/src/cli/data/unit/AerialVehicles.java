@@ -1,4 +1,4 @@
-package cli.abstracts;
+package cli.data.unit;
 
 /**abstract class representing flying vehicles
  * @author Awen

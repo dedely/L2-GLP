@@ -1,4 +1,4 @@
-package cli.abstracts;
+package cli.data.unit;
 
 /**
  * The abstract class representing all the mechanical terrestrial units

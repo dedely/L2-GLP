@@ -1,9 +1,6 @@
-package cli.data;
+package cli.data.unit;
 
 import java.util.ArrayList;
-
-import cli.abstracts.AerialVehicles;
-import cli.abstracts.Unit;
 
 /** Class for instantiating transport helis
  * @author Awen

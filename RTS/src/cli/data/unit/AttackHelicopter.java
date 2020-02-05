@@ -1,6 +1,4 @@
-package cli.data;
-
-import cli.abstracts.AerialVehicles;
+package cli.data.unit;
 
 /**
  * Class for instantiating attack helis with multiple weapons

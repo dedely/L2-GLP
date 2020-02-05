@@ -1,6 +1,4 @@
-package cli.data;
-
-import cli.abstracts.Infantry;
+package cli.data.unit;
 
 /** the class for instantiating human unit with a direct fire weapon 
  * @author Awen

@@ -1,9 +1,6 @@
-package cli.data;
+package cli.data.unit;
 
 import java.util.ArrayList;
-
-import cli.abstracts.Infantry;
-import cli.abstracts.TerrestrialVehicle;
 
 /**
  * Light terrestrial vehicle, something like armored car.

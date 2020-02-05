@@ -1,6 +1,4 @@
-package cli.data;
-
-import cli.abstracts.Infantry;
+package cli.data.unit;
 
 public class ArtilleryWithMountedWeapon extends Artillery {
 	

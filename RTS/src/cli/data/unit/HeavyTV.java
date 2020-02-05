@@ -1,6 +1,4 @@
-package cli.data;
-
-import cli.abstracts.TerrestrialVehicle;
+package cli.data.unit;
 
 /**Heavy TerrestrialVehicle, basically tanks
  * @author Awen

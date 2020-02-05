@@ -1,14 +1,12 @@
-package cli.data;
-
-import cli.abstracts.TerrestrialVehicle;
+package cli.data.unit;
 
 /**
- * the class for instantiating Artillery support vehicles
+ * the class for instantiating human unit with an indirect fire weapon
  * 
  * @author Awen
  *
  */
-public class Artillery extends TerrestrialVehicle {
+public class ArtilleryLikeInfantry extends Infantry {
 
 	/**
 	 * the minimum distance where the unit can fire
@@ -16,7 +14,7 @@ public class Artillery extends TerrestrialVehicle {
 	 */
 	private int minimumRange;
 
-	public Artillery(int speed, int damagePerShot, float fireRate, int range, boolean carried,
+	public ArtilleryLikeInfantry(int speed, int damagePerShot, float fireRate, int range, boolean carried,
 			int unitSlots, int minimumRange) {
 		super(speed, damagePerShot, fireRate, range, carried, unitSlots);
 		this.minimumRange = minimumRange;
