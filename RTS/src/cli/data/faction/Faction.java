@@ -15,6 +15,8 @@ import cli.data.unit.Unit;
  *
  */
 public class Faction {
+	
+	private String name;
 
 	/**
 	 * the list of buildings belonging to the faction
@@ -41,9 +43,16 @@ public class Faction {
 	 */
 	private Description description;
 
-	public Faction(ArrayList<Building> buildingList, ArrayList<Unit> unitsList, ResearchTree researchTree,
+	private ArrayList<Faction> allies = new ArrayList<Faction>();
+
+	private ArrayList<Faction> ennemies = new ArrayList<Faction>();
+
+	
+
+	public Faction(String name, ArrayList<Building> buildingList, ArrayList<Unit> unitsList, ResearchTree researchTree,
 			ArrayList<Resource> resources, Description description) {
 		super();
+		this.name = name;
 		this.buildingList = buildingList;
 		this.unitsList = unitsList;
 		this.researchTree = researchTree;
@@ -90,5 +99,58 @@ public class Faction {
 	public void setDescription(Description description) {
 		this.description = description;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ArrayList<Faction> getAllies() {
+		return allies;
+	}
+
+	public void setAllies(ArrayList<Faction> allies) {
+		this.allies = allies;
+	}
+
+	public ArrayList<Faction> getEnnemies() {
+		return ennemies;
+	}
+
+	public void setEnnemies(ArrayList<Faction> ennemies) {
+		this.ennemies = ennemies;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Faction other = (Faction) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
 
 }
