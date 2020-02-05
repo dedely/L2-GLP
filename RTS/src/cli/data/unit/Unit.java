@@ -1,6 +1,6 @@
 package cli.data.unit;
 
-import cli.abstracts.Selectable;
+import cli.data.Selectable;
 import cli.data.Coordinates;
 import cli.data.Description;
 
