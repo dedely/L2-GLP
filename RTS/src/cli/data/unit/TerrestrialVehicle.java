@@ -20,10 +20,6 @@ public abstract class TerrestrialVehicle extends Unit {
 	 * the space the vehicle takes when inside something
 	 */
 	private int unitSlots;
-	
-	
-
-
 
 	public TerrestrialVehicle(int health, int maxHealth, boolean selected, String factionName, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
@@ -33,7 +29,6 @@ public abstract class TerrestrialVehicle extends Unit {
 		this.carried = carried;
 		this.unitSlots = unitSlots;
 	}
-
 
 	/**
 	 * @return true if the vehicle is inside something, false otherwise

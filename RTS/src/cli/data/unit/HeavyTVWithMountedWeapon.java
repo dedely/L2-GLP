@@ -32,8 +32,6 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	 */
 	private int mountedWeaponFireRate;
 
-
-
 	public HeavyTVWithMountedWeapon(int health, int maxHealth, boolean selected, String factionName, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
 			boolean carried, int unitSlots, Infantry infanteryIn, boolean mounted, int mountedWeaponDamage,

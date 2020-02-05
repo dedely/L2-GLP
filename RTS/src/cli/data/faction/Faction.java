@@ -15,7 +15,7 @@ import cli.data.unit.Unit;
  *
  */
 public class Faction {
-	
+
 	private String name;
 
 	/**
@@ -46,8 +46,6 @@ public class Faction {
 	private ArrayList<Faction> allies = new ArrayList<Faction>();
 
 	private ArrayList<Faction> ennemies = new ArrayList<Faction>();
-
-	
 
 	public Faction(String name, ArrayList<Building> buildingList, ArrayList<Unit> unitsList, ResearchTree researchTree,
 			ArrayList<Resource> resources, Description description) {
@@ -148,9 +146,5 @@ public class Faction {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }

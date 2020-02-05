@@ -5,28 +5,28 @@ import java.util.ArrayList;
 import cli.data.Coordinates;
 import cli.data.Description;
 
-/** Class for instantiating transport helis
+/**
+ * Class for instantiating transport helis
+ * 
  * @author Awen
  *
  */
 public class TransportHelicopter extends AerialVehicles {
-	
+
 	/**
 	 * the space left for units to embark
 	 */
 	private int unitSlotsAvailable;
-	
+
 	/**
 	 * the total space for units to embark
 	 */
 	private int UnitSlots;
-	
+
 	/**
 	 * the units inside the vehicle
 	 */
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
-
-	
 
 	public TransportHelicopter(int health, int maxHealth, boolean selected, String factionName, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
@@ -59,7 +59,6 @@ public class TransportHelicopter extends AerialVehicles {
 		return UnitSlots;
 	}
 
-	
 	/**
 	 * @param totalUnitSlots how much space there is inside the vehicle when empty
 	 */
@@ -80,16 +79,5 @@ public class TransportHelicopter extends AerialVehicles {
 	public void setUnitsIn(ArrayList<Unit> unitsIn) {
 		this.unitsIn = unitsIn;
 	}
-	
-	
-	
-	
-	
-
-
-
-
-	
-	
 
 }
