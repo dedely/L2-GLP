@@ -1,7 +1,4 @@
-package cli.abstracts;
-
-import cli.data.Coordinates;
-import cli.data.Description;
+package cli.data;
 
 /**
  * @author Adel
