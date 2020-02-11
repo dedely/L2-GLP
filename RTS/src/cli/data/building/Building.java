@@ -12,9 +12,9 @@ import cli.data.faction.Faction;
 public abstract class Building extends Selectable {
 	private Coordinates rallyPoint;
 
-	public Building(int health, int maxHealth, boolean selected, Faction factionName, String name, Coordinates position,
+	public Building(int maxHealth, Faction factionName, String name, Coordinates position,
 			Description description, Coordinates rallyPoint) {
-		super(health, maxHealth, selected, factionName, name, position, description);
+		super(maxHealth, factionName, name, position, description);
 		this.rallyPoint = rallyPoint;
 	}
 

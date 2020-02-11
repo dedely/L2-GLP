@@ -15,11 +15,19 @@ public abstract class Selectable {
 	private Coordinates position;
 	private Description description;
 
-	public Selectable(int health, int maxHealth, boolean selected, Faction factionName, String name,
-			Coordinates position, Description description) {
-		this.health = health;
+	/**
+	 * @param maxHealth
+	 * @param factionName
+	 * @param name
+	 * @param position
+	 * @param description
+	 * 
+	 * health and selected do not need to be specified.
+	 */
+	public Selectable(int maxHealth, Faction factionName, String name, Coordinates position, Description description) {
+		health = maxHealth;
 		this.maxHealth = maxHealth;
-		this.selected = selected;
+		selected = false;
 		this.factionName = factionName;
 		this.name = name;
 		this.position = position;
