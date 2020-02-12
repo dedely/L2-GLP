@@ -14,10 +14,9 @@ public class DefenseBuilding extends Building {
 	private int damage;
 	private int fireRate;
 
-	public DefenseBuilding(int health, int maxHealth, boolean selected, Faction factionName, String name,
-			Coordinates position, Description description, Coordinates rallyPoint, int range, int damage,
-			int fireRate) {
-		super(health, maxHealth, selected, factionName, name, position, description, rallyPoint);
+	public DefenseBuilding(int maxHealth, Faction factionName, String name, Coordinates position,
+			Description description, Size size, int range, int damage, int fireRate) {
+		super(maxHealth, factionName, name, position, description, size);
 		this.range = range;
 		this.damage = damage;
 		this.fireRate = fireRate;
@@ -49,7 +48,8 @@ public class DefenseBuilding extends Building {
 
 	@Override
 	public String toString() {
-		return "DefenseBuilding [range=" + range + ", damage=" + damage + ", fireRate=" + fireRate + "]";
+		return "DefenseBuilding [range=" + range + ", damage=" + damage + ", fireRate=" + fireRate + ", toString()="
+				+ super.toString() + "]";
 	}
 
 }

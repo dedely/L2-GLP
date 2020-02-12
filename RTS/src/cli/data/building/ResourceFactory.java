@@ -15,10 +15,9 @@ public class ResourceFactory extends Building {
 	private int timeToProduce;
 	private int numberProduced;
 
-	public ResourceFactory(int health, int maxHealth, boolean selected, Faction factionName, String name,
-			Coordinates position, Description description, Coordinates rallyPoint, Resource resourceProduced,
-			int timeToProduce, int numberProduced) {
-		super(health, maxHealth, selected, factionName, name, position, description, rallyPoint);
+	public ResourceFactory(int maxHealth, Faction factionName, String name, Coordinates position,
+			Description description, Size size, Resource resourceProduced, int timeToProduce, int numberProduced) {
+		super(maxHealth, factionName, name, position, description, size);
 		this.resourceProduced = resourceProduced;
 		this.timeToProduce = timeToProduce;
 		this.numberProduced = numberProduced;
