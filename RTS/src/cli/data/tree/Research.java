@@ -1,10 +1,12 @@
 package cli.data.tree;
 
 public class Research {
+
 	private String name;
 	private boolean unlocked;
 	private int cost;
 	private Upgrade upgrade;
+	
 	public Research(String name, boolean unlocked, int cost, Upgrade upgrade) {
 		this.name = name;
 		this.unlocked = unlocked;
@@ -39,6 +41,4 @@ public class Research {
 	public String toString() {
 		return "Research [name=" + name + ", unlocked=" + unlocked + ", cost=" + cost + "]";
 	}
-	
-	
 }

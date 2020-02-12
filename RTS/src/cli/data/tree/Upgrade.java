@@ -1,6 +1,7 @@
 package cli.data.tree;
 
 public class Upgrade {
+
 	private String name;
 	private int value;
 	public Upgrade(String name, int value) {
@@ -23,6 +24,5 @@ public class Upgrade {
 	public String toString() {
 		return "Upgrade [name=" + name + ", value=" + value + "]";
 	}
-	
-	
+
 }
