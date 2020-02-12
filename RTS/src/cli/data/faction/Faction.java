@@ -47,8 +47,7 @@ public class Faction {
 
 	private ArrayList<Faction> ennemies = new ArrayList<Faction>();
 
-	public Faction(String name, ArrayList<Building> buildingList, ArrayList<Unit> unitsList, ResearchTree researchTree,
-			ArrayList<Resource> resources, Description description) {
+	public Faction(String name, Description description) {
 		super();
 		this.name = name;
 		this.buildingList = buildingList;
