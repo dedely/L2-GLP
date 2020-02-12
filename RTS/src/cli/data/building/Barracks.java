@@ -10,9 +10,9 @@ import cli.data.faction.Faction;
  */
 public class Barracks extends UnitFactory {
 
-	public Barracks(int health, int maxHealth, boolean selected, Faction factionName, String name, Coordinates position,
-			Description description, Coordinates rallyPoint) {
-		super(health, maxHealth, selected, factionName, name, position, description, rallyPoint);
+	public Barracks(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
+			Size size, Coordinates rallyPoint) {
+		super(maxHealth, factionName, name, position, description, size, rallyPoint);
 	}
 
 	@Override

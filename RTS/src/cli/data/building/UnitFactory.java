@@ -9,10 +9,24 @@ import cli.data.faction.Faction;
  *
  */
 public abstract class UnitFactory extends Building {
+	Coordinates rallyPoint;
 
-	public UnitFactory(int health, int maxHealth, boolean selected, Faction factionName, String name,
-			Coordinates position, Description description, Coordinates rallyPoint) {
-		super(health, maxHealth, selected, factionName, name, position, description, rallyPoint);
+	public UnitFactory(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
+			Size size, Coordinates rallyPoint) {
+		super(maxHealth, factionName, name, position, description, size);
+		this.rallyPoint = rallyPoint;
 	}
 
+	public Coordinates getRallyPoint() {
+		return rallyPoint;
+	}
+
+	public void setRallyPoint(Coordinates rallyPoint) {
+		this.rallyPoint = rallyPoint;
+	}
+
+	@Override
+	public String toString() {
+		return "UnitFactory [rallyPoint=" + rallyPoint + ", toString()=" + super.toString() + "]";
+	}
 }

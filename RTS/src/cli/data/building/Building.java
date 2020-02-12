@@ -10,25 +10,24 @@ import cli.data.faction.Faction;
  *
  */
 public abstract class Building extends Selectable {
-	private Coordinates rallyPoint;
+	Size size;
 
-	public Building(int maxHealth, Faction factionName, String name, Coordinates position,
-			Description description, Coordinates rallyPoint) {
+	public Building(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
+			Size size) {
 		super(maxHealth, factionName, name, position, description);
-		this.rallyPoint = rallyPoint;
+		this.size = size;
 	}
 
-	public Coordinates getRallyPoint() {
-		return rallyPoint;
+	public Size getSize() {
+		return size;
 	}
 
-	public void setRallyPoint(Coordinates rallyPoint) {
-		this.rallyPoint = rallyPoint;
+	public void setSize(Size size) {
+		this.size = size;
 	}
 
 	@Override
 	public String toString() {
-		return "Building [rallyPoint=" + rallyPoint + ", toString()=" + super.toString() + "]";
+		return "Building [size=" + size + ", toString()=" + super.toString() + "]";
 	}
-
 }
