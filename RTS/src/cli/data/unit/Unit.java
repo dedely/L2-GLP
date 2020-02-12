@@ -38,9 +38,10 @@ public abstract class Unit extends Selectable {
 	 */
 	private int range;
 
-	public Unit(int health, int maxHealth, boolean selected, Faction factionName, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, float fireRate, int range) {
-		super(health, maxHealth, selected, factionName, name, position, description);
+	
+	public Unit(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
+			int speed, int damagePerShot, float fireRate, int range) {
+		super(maxHealth, factionName, name, position, description);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
 		this.fireRate = fireRate;

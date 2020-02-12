@@ -22,11 +22,11 @@ public abstract class Infantry extends Unit {
 	 */
 	private int unitSlots;
 
-	public Infantry(int health, int maxHealth, boolean selected, Faction factionName, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, float fireRate, int range, boolean carried,
-			int unitSlots) {
-		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
-				range);
+	
+
+	public Infantry(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
+			int speed, int damagePerShot, float fireRate, int range, boolean carried, int unitSlots) {
+		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range);
 		this.carried = carried;
 		this.unitSlots = unitSlots;
 	}

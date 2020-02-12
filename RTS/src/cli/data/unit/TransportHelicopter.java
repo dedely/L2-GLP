@@ -29,11 +29,12 @@ public class TransportHelicopter extends AerialVehicles {
 	 */
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
 
-	public TransportHelicopter(int health, int maxHealth, boolean selected, Faction factionName, String name,
-			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
-			int unitSlotsAvailable, int unitSlots, ArrayList<Unit> unitsIn) {
-		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
-				range);
+	
+
+	public TransportHelicopter(int maxHealth, Faction factionName, String name, Coordinates position,
+			Description description, int speed, int damagePerShot, float fireRate, int range, int unitSlotsAvailable,
+			int unitSlots, ArrayList<Unit> unitsIn) {
+		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range);
 		this.unitSlotsAvailable = unitSlotsAvailable;
 		UnitSlots = unitSlots;
 	}
