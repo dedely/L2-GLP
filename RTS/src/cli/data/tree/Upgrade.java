@@ -1,12 +1,15 @@
 package cli.data.tree;
 
 public class Upgrade {
+
 	private String name;
 	private int value;
+
 	public Upgrade(String name, int value) {
 		this.name = name;
 		this.value = value;
 	}
+  
 	public String getName() {
 		return name;
 	}
@@ -19,10 +22,10 @@ public class Upgrade {
 	public void setValue(int value) {
 		this.value = value;
 	}
+
 	@Override
 	public String toString() {
 		return "Upgrade [name=" + name + ", value=" + value + "]";
 	}
-	
-	
+
 }
