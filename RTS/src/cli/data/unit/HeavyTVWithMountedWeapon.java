@@ -35,11 +35,12 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 
 	
 
-	public HeavyTVWithMountedWeapon(int maxHealth, Faction factionName, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, float fireRate, int range, boolean carried,
-			int unitSlots, boolean mounted, int mountedWeaponDamage, int mountedWeaponFireRate) {
-		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range, carried,
-				unitSlots);
+	public HeavyTVWithMountedWeapon(int maxHealth, Faction faction, String name, Coordinates position,
+			Description description, int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState,
+			int unitSlots, Infantry infanteryIn, boolean mounted, int mountedWeaponDamage, int mountedWeaponFireRate) {
+		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
+				positionState, unitSlots);
+		this.infanteryIn = infanteryIn;
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeaponFireRate = mountedWeaponFireRate;

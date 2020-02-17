@@ -32,11 +32,12 @@ public class AttackHelicopter extends AerialVehicles {
 	 */
 	private int secondaryWeaponReloadTime;
 
-	
-	public AttackHelicopter(int maxHealth, Faction factionName, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, float fireRate, int range, int secondaryWeaponDamage,
-			int secondaryWeaponFireRate, int secondaryWeaponAmmount, int secondaryWeaponReloadTime) {
-		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range);
+	public AttackHelicopter(int maxHealth, Faction faction, String name, Coordinates position, Description description,
+			int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState,
+			int secondaryWeaponDamage, int secondaryWeaponFireRate, int secondaryWeaponAmmount,
+			int secondaryWeaponReloadTime) {
+		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
+				positionState);
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponFireRate = secondaryWeaponFireRate;
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;

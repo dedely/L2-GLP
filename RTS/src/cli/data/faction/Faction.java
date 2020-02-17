@@ -36,7 +36,7 @@ public class Faction {
 	/**
 	 * The resources that the faction possesses
 	 */
-	private ArrayList<Resource> resources;
+	private ArrayList<Resource> resources = new ArrayList<Resource>();
 
 	/**
 	 * The description of the faction
@@ -47,13 +47,10 @@ public class Faction {
 
 	private ArrayList<Faction> ennemies = new ArrayList<Faction>();
 
-	public Faction(String name, Description description) {
+	public Faction(String name,ResearchTree researchTree,  Description description) {
 		super();
 		this.name = name;
-		this.buildingList = buildingList;
-		this.unitsList = unitsList;
 		this.researchTree = researchTree;
-		this.resources = resources;
 		this.description = description;
 	}
 

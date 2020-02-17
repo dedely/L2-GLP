@@ -12,13 +12,11 @@ import cli.data.faction.Faction;
  */
 public abstract class AerialVehicles extends Unit {
 
-	public AerialVehicles(int maxHealth, Faction factionName, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, float fireRate, int range) {
-		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range);
+	public AerialVehicles(int maxHealth, Faction faction, String name, Coordinates position, Description description,
+			int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState) {
+		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
+				positionState);
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	
 }

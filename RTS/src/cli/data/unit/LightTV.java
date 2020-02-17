@@ -31,13 +31,14 @@ public class LightTV extends TerrestrialVehicle {
 
 	
 
-	public LightTV(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
-			int speed, int damagePerShot, float fireRate, int range, boolean carried, int unitSlots, int infantrySeats,
-			ArrayList<Infantry> infanteryIn) {
-		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range, carried,
-				unitSlots);
+
+	public LightTV(int maxHealth, Faction faction, String name, Coordinates position, Description description,
+			int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState, int unitSlots,
+			int infantrySeats, int infantrySeatsRemaining) {
+		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
+				positionState, unitSlots);
 		this.infantrySeats = infantrySeats;
-		infantrySeatsRemaining = infantrySeats;
+		this.infantrySeatsRemaining = infantrySeatsRemaining;
 	}
 
 	/**
