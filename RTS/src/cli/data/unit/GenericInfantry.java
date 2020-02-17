@@ -12,11 +12,12 @@ import cli.data.faction.Faction;
  */
 public class GenericInfantry extends Infantry {
 
-	public GenericInfantry(int health, int maxHealth, boolean selected, Faction factionName, String name,
-			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
-			boolean carried, int unitSlots) {
-		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
-				range, carried, unitSlots);
+	
+
+	public GenericInfantry(int maxHealth, Faction factionName, String name, Coordinates position,
+			Description description, int speed, int damagePerShot, float fireRate, int range, boolean carried,
+			int unitSlots) {
+		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range, carried, unitSlots);
 		// TODO Auto-generated constructor stub
 	}
 

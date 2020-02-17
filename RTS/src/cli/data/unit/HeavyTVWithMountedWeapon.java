@@ -21,7 +21,7 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	/**
 	 * condition about if the weapon is installed or not
 	 */
-	private boolean Mounted;
+	private boolean mounted;
 
 	/**
 	 * the damage dealt by the mounted weapon
@@ -33,14 +33,14 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	 */
 	private int mountedWeaponFireRate;
 
-	public HeavyTVWithMountedWeapon(int health, int maxHealth, boolean selected, Faction factionName, String name,
-			Coordinates position, Description description, int speed, int damagePerShot, float fireRate, int range,
-			boolean carried, int unitSlots, Infantry infanteryIn, boolean mounted, int mountedWeaponDamage,
-			int mountedWeaponFireRate) {
-		super(health, maxHealth, selected, factionName, name, position, description, speed, damagePerShot, fireRate,
-				range, carried, unitSlots);
-		this.infanteryIn = infanteryIn;
-		Mounted = mounted;
+	
+
+	public HeavyTVWithMountedWeapon(int maxHealth, Faction factionName, String name, Coordinates position,
+			Description description, int speed, int damagePerShot, float fireRate, int range, boolean carried,
+			int unitSlots, boolean mounted, int mountedWeaponDamage, int mountedWeaponFireRate) {
+		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range, carried,
+				unitSlots);
+		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeaponFireRate = mountedWeaponFireRate;
 	}
@@ -63,14 +63,14 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	 * @return return true if the weapon is installed, false otherwise
 	 */
 	public boolean isMounted() {
-		return Mounted;
+		return mounted;
 	}
 
 	/**
 	 * @param Mounted the truth value of the weapon installation
 	 */
 	public void setMounted(boolean Mounted) {
-		this.Mounted = Mounted;
+		this.mounted = Mounted;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 
 	@Override
 	public String toString() {
-		return "HeavyTVWithMountedWeapon [infanteryIn=" + infanteryIn + ", Mounted=" + Mounted
+		return "HeavyTVWithMountedWeapon [infanteryIn=" + infanteryIn + ", Mounted=" + mounted
 				+ ", mountedWeaponDamage=" + mountedWeaponDamage + ", mountedWeaponFireRate=" + mountedWeaponFireRate
 				+ super.toString() + "]";
 	}
