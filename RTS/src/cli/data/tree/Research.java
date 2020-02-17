@@ -1,9 +1,5 @@
 package cli.data.tree;
 
-/**
- * @author Adel
- *
- */
 public class Research {
 
 	private String name;

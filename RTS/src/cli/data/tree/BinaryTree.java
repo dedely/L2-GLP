@@ -2,10 +2,6 @@ package cli.data.tree;
 
 import java.util.HashMap;
 
-/**
- * @author Adel
- *
- */
 public class BinaryTree implements ResearchTree {
 
 	private HashMap<Integer, Research> researches = new HashMap<Integer, Research>();
