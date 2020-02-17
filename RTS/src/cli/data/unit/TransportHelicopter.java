@@ -22,21 +22,20 @@ public class TransportHelicopter extends AerialVehicles {
 	/**
 	 * the total space for units to embark
 	 */
-	private int UnitSlots;
+	private int unitSlots;
 
 	/**
 	 * the units inside the vehicle
 	 */
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
 
-	
-
-	public TransportHelicopter(int maxHealth, Faction factionName, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, float fireRate, int range, int unitSlotsAvailable,
-			int unitSlots, ArrayList<Unit> unitsIn) {
-		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range);
+	public TransportHelicopter(int maxHealth, Faction faction, String name, Coordinates position,
+			Description description, int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState,
+			int unitSlotsAvailable, int unitSlots) {
+		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
+				positionState);
 		this.unitSlotsAvailable = unitSlotsAvailable;
-		UnitSlots = unitSlots;
+		this.unitSlots = unitSlots;
 	}
 
 	/**
@@ -57,14 +56,14 @@ public class TransportHelicopter extends AerialVehicles {
 	 * @return how much space there is inside the vehicle when empty
 	 */
 	public int getUnitSlots() {
-		return UnitSlots;
+		return unitSlots;
 	}
 
 	/**
 	 * @param totalUnitSlots how much space there is inside the vehicle when empty
 	 */
 	public void setUnitSlots(int totalUnitSlots) {
-		this.UnitSlots = totalUnitSlots;
+		this.unitSlots = totalUnitSlots;
 	}
 
 	/**
@@ -83,10 +82,8 @@ public class TransportHelicopter extends AerialVehicles {
 
 	@Override
 	public String toString() {
-		return "TransportHelicopter [unitSlotsAvailable=" + unitSlotsAvailable + ", UnitSlots=" + UnitSlots
+		return "TransportHelicopter [unitSlotsAvailable=" + unitSlotsAvailable + ", UnitSlots=" + unitSlots
 				+ ", unitsIn=" + unitsIn + super.toString() + "]";
 	}
-	
-	
 
 }

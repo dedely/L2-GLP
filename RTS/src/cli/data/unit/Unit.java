@@ -27,10 +27,11 @@ public abstract class Unit extends Selectable {
 	private int damagePerShot;
 
 	/**
-	 * The number of shots per second
+	 * The number of ticks between shots
 	 * 
 	 */
-	private float fireRate;
+	private int timeBeetweenShots;
+	private int timeLeftToReload;
 
 	/**
 	 * The minimal distance between the unit and the target for it to shoot
@@ -38,14 +39,21 @@ public abstract class Unit extends Selectable {
 	 */
 	private int range;
 
-	
-	public Unit(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
-			int speed, int damagePerShot, float fireRate, int range) {
-		super(maxHealth, factionName, name, position, description);
+	/**
+	 * Whether the unit is on the ground, in the air...
+	 * 
+	 */
+	private int positionState;
+
+	public Unit(int maxHealth, Faction faction, String name, Coordinates position, Description description, int speed,
+			int damagePerShot, int timeBeetweenShots, int range, int positionState) {
+		super(maxHealth, faction, name, position, description);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
-		this.fireRate = fireRate;
+		this.timeBeetweenShots = timeBeetweenShots;
+		timeLeftToReload = timeBeetweenShots;
 		this.range = range;
+		this.setPositionState(positionState);
 	}
 
 	/**
@@ -77,17 +85,31 @@ public abstract class Unit extends Selectable {
 	}
 
 	/**
-	 * @return the number of shots per second
+	 * @return the time between two shots
 	 */
-	public float getFireRate() {
-		return fireRate;
+	public float getTimeBeetweenShots() {
+		return timeBeetweenShots;
 	}
 
 	/**
-	 * @param fireRate how fast the unit fires (in shots/seconds)
+	 * @param timeBeetweenShots time between two shots
 	 */
-	public void setFireRate(float fireRate) {
-		this.fireRate = fireRate;
+	public void setTimeBeetweenShots(int timeBeetweenShots) {
+		this.timeBeetweenShots = timeBeetweenShots;
+	}
+
+	/**
+	 * @return the number of ticks before the unit can shoot
+	 */
+	public float getTimeLeftToReload() {
+		return timeLeftToReload;
+	}
+
+	/**
+	 * @param fireRate how many ticks before the unit can shoot
+	 */
+	public void settimeLeftToReload(int timeLeftToReload) {
+		this.timeLeftToReload = timeLeftToReload;
 	}
 
 	/**
@@ -104,12 +126,18 @@ public abstract class Unit extends Selectable {
 		this.range = range;
 	}
 
+	public int getPositionState() {
+		return positionState;
+	}
+
+	public void setPositionState(int positionState) {
+		this.positionState = positionState;
+	}
+
 	@Override
 	public String toString() {
-		return "Unit [speed=" + speed + ", damagePerShot=" + damagePerShot + ", fireRate=" + fireRate + ", range="
-				+ range + ", toString()=" + super.toString() + "]";
+		return "Unit [speed=" + speed + ", damagePerShot=" + damagePerShot + ", fireRate=" + timeBeetweenShots
+				+ ", range=" + range + ", toString()=" + super.toString() + "]";
 	}
-	
-	
 
 }

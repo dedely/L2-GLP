@@ -12,31 +12,19 @@ import cli.data.faction.Faction;
  */
 public class Worker extends Unit {
 
-	/**
-	 * boolean to know whether the unit is inside something
-	 */
-	private boolean carried;
 
 	/**
 	 * the space the unit takes
 	 */
 	private int unitSlots;
 
-	
 
-	public Worker(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
-			int speed, int damagePerShot, float fireRate, int range, boolean carried, int unitSlots) {
-		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range);
-		this.carried = carried;
+
+	public Worker(int maxHealth, Faction faction, String name, Coordinates position, Description description, int speed,
+			int damagePerShot, int timeBeetweenShots, int range, int positionState, int unitSlots) {
+		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
+				positionState);
 		this.unitSlots = unitSlots;
-	}
-
-	public boolean isCarried() {
-		return carried;
-	}
-
-	public void setCarried(boolean carried) {
-		this.carried = carried;
 	}
 
 	public int getUnitSlots() {
@@ -46,5 +34,12 @@ public class Worker extends Unit {
 	public void setUnitSlots(int unitSlots) {
 		this.unitSlots = unitSlots;
 	}
+
+	@Override
+	public String toString() {
+		return "Worker [unitSlots=" + unitSlots + "," + super.toString() + "]";
+	}
+	
+	
 
 }

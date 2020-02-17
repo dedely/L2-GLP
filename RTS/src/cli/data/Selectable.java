@@ -10,7 +10,7 @@ public abstract class Selectable {
 	private int health;
 	private int maxHealth;
 	private boolean selected;
-	private Faction factionName;
+	private Faction faction;
 	private String name;
 	private Coordinates position;
 	private Description description;
@@ -24,11 +24,11 @@ public abstract class Selectable {
 	 * 
 	 * health and selected do not need to be specified.
 	 */
-	public Selectable(int maxHealth, Faction factionName, String name, Coordinates position, Description description) {
+	public Selectable(int maxHealth, Faction faction, String name, Coordinates position, Description description) {
 		health = maxHealth;
 		this.maxHealth = maxHealth;
 		selected = false;
-		this.factionName = factionName;
+		this.faction = faction;
 		this.name = name;
 		this.position = position;
 		this.description = description;
@@ -74,12 +74,12 @@ public abstract class Selectable {
 		this.selected = selected;
 	}
 
-	public Faction getFactionName() {
-		return factionName;
+	public Faction getFaction() {
+		return faction;
 	}
 
 	public void setFactionName(Faction factionName) {
-		this.factionName = factionName;
+		this.faction = factionName;
 	}
 
 	public String getName() {
@@ -93,7 +93,7 @@ public abstract class Selectable {
 	@Override
 	public String toString() {
 		return "Selectable [health=" + health + ", maxHealth=" + maxHealth + ", selected=" + selected + ", factionName="
-				+ factionName + ", name=" + name + ", position=" + position + ", description=" + description + "]";
+				+ faction.toString() + ", name=" + name + ", position=" + position + ", description=" + description + "]";
 	}
 
 }

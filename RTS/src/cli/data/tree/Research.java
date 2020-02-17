@@ -8,7 +8,6 @@ public class Research {
 	private Upgrade upgrade;
 
 	public Research(String name, int cost, Upgrade upgrade) {
-
 		this.name = name;
 		unlocked = false;
 		this.cost = cost;

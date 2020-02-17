@@ -32,16 +32,11 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	 */
 	private int mountedWeaponFireRate;
 
-
-
-
-	public ArtilleryWithMountedWeapon(int maxHealth, Faction factionName, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, float fireRate, int range, boolean carried,
-			int unitSlots, int minimumRange, Infantry infanteryIn, boolean mounted, int mountedWeaponDamage,
-			int mountedWeaponFireRate) {
-		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range, carried,
-				unitSlots, minimumRange);
-		this.infanteryIn = infanteryIn;
+	public ArtilleryWithMountedWeapon(int maxHealth, Faction faction, String name, Coordinates position,
+			Description description, int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState,
+			int unitSlots, int minimumRange, boolean mounted, int mountedWeaponDamage, int mountedWeaponFireRate) {
+		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
+				positionState, unitSlots, minimumRange);
 		Mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeaponFireRate = mountedWeaponFireRate;
@@ -110,7 +105,5 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 				+ ", mountedWeaponDamage=" + mountedWeaponDamage + ", mountedWeaponFireRate=" + mountedWeaponFireRate
 				+ super.toString() + "]";
 	}
-	
-	
 
 }

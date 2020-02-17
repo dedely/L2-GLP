@@ -13,38 +13,19 @@ import cli.data.faction.Faction;
 public abstract class TerrestrialVehicle extends Unit {
 
 	/**
-	 * the test attribute to know if the vehicle is inside something
-	 */
-	private boolean carried;
-
-	/**
 	 * the space the vehicle takes when inside something
 	 */
 	private int unitSlots;
 
-	
 
-	public TerrestrialVehicle(int maxHealth, Faction factionName, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, float fireRate, int range, boolean carried,
+	public TerrestrialVehicle(int maxHealth, Faction faction, String name, Coordinates position,
+			Description description, int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState,
 			int unitSlots) {
-		super(maxHealth, factionName, name, position, description, speed, damagePerShot, fireRate, range);
-		this.carried = carried;
+		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
+				positionState);
 		this.unitSlots = unitSlots;
 	}
 
-	/**
-	 * @return true if the vehicle is inside something, false otherwise
-	 */
-	public boolean isCarried() {
-		return carried;
-	}
-
-	/**
-	 * @param carried the boolean value about if the vehicle is inside something
-	 */
-	public void setCarried(boolean carried) {
-		this.carried = carried;
-	}
 
 	/**
 	 * @return the space the vehicle takes when inside something
@@ -62,7 +43,7 @@ public abstract class TerrestrialVehicle extends Unit {
 
 	@Override
 	public String toString() {
-		return "TerrestrialVehicle [carried=" + carried + ", unitSlots=" + unitSlots + super.toString() + "]";
+		return "TerrestrialVehicle [ unitSlots=" + unitSlots + super.toString() + "]";
 	}
 
 }
