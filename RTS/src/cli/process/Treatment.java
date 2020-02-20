@@ -1,13 +1,13 @@
-package cli.treatment;
+package cli.process;
 
 import java.util.HashMap;
 
-import cli.data.Constants;
 import cli.data.Coordinates;
 import cli.data.Description;
 import cli.data.Selectable;
 import cli.data.faction.Faction;
 import cli.data.map.Map;
+import cli.data.map.Positions;
 import cli.data.tree.BinaryTree;
 import cli.data.tree.ResearchTree;
 import cli.data.unit.GenericInfantry;
@@ -15,7 +15,7 @@ import cli.data.unit.Unit;
 
 public class Treatment {
 	public static void main(String[] args) {
-		int range = 2;
+		int range =2;
 		CoordinatesTreatment coordsTreatment= new CoordinatesTreatment();
 		
 		HashMap<Coordinates, Selectable> unitsPos = new HashMap<Coordinates, Selectable>();
@@ -29,10 +29,10 @@ public class Treatment {
 		goodGuys.getEnnemies().add(badGuys);
 		badGuys.getEnnemies().add(goodGuys);
 		
-		Unit aUnit = new GenericInfantry(50,5,Constants.SUPER_LIGHT, goodGuys, "john", new Coordinates(5, 5), new Description("yeeeeeeessss"), 10, 50, 10, 3, Constants.GROUND, 1);
-		Unit aSecondUnit = new GenericInfantry(50,5,Constants.SUPER_LIGHT, badGuys, "Tom", new Coordinates(5, 6), new Description("uuuuuraaaaa"), 10, 50, 10, 3, Constants.GROUND, 1);
-		Unit aThirdUnit = new GenericInfantry(50,5,Constants.SUPER_LIGHT, badGuys, "Dave", new Coordinates(5, 7), new Description("blyat"), 10, 50, 10, 3, Constants.GROUND, 1);
-		Unit aFourthUnit = new GenericInfantry(50,5,Constants.SUPER_LIGHT, neutral, "James", new Coordinates(4, 5), new Description("why am I here ?"), 10, 50, 10, 3, Constants.GROUND, 1);
+		Unit aUnit = new GenericInfantry(50, goodGuys, "john", new Coordinates(5, 5), new Description("yeeeeeeessss"), 10, 50, 10, 3, Positions.GROUND, 1);
+		Unit aSecondUnit = new GenericInfantry(50, badGuys, "Tom", new Coordinates(5, 6), new Description("uuuuuraaaaa"), 10, 50, 10, 3, Positions.GROUND, 1);
+		Unit aThirdUnit = new GenericInfantry(50, badGuys, "Dave", new Coordinates(5, 7), new Description("blyat"), 10, 50, 10, 3, Positions.GROUND, 1);
+		Unit aFourthUnit = new GenericInfantry(50, neutral, "James", new Coordinates(4, 5), new Description("why am I here ?"), 10, 50, 10, 3, Positions.GROUND, 1);
 
 		
 		unitsPos.put(aUnit.getPosition(), aUnit);

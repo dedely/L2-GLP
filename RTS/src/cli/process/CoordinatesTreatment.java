@@ -1,4 +1,4 @@
-package cli.treatment;
+package cli.process;
 
 import java.util.ArrayList;
 
