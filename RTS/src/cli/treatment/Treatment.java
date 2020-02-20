@@ -14,7 +14,7 @@ import cli.process.CoordinatesTreatment;
 
 public class Treatment {
 	public static void main(String[] args) {
-		int range = 2;
+		int range = 20;
 		CoordinatesTreatment coordsTreatment = new CoordinatesTreatment();
 
 		HashMap<Coordinates, Selectable> unitsPos = new HashMap<Coordinates, Selectable>();
@@ -31,6 +31,7 @@ public class Treatment {
 		Unit aUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, goodGuys, "john", new Coordinates(5, 5),
 
 				new Description("yeeeeeeessss"), 10 , Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
+
 		Unit aSecondUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Tom", new Coordinates(5, 6),
 				new Description("uuuuuraaaaa"), 10, Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
 		Unit aThirdUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Dave", new Coordinates(5, 7),
@@ -48,11 +49,13 @@ public class Treatment {
 		for (Coordinates c : coordsTreatment.tilesAroundSpiral(aUnit.getPosition(), aUnit.getRange())) {
 			if (unitsPos.containsKey(c)) {
 				Selectable currentUnit = unitsPos.get(c);
-				System.out.println("a unit from " + unitsPos.get(c).getFaction().getName() + " is around");
+				System.out.println(
+						"a unit from " + unitsPos.get(c).getFaction().getName() + " is around" + aUnit.getName());
 				if (currentUnit.getFaction().getEnnemies().contains(aUnit.getFaction())) {
 					System.out.println("it's an ennemy !!");
 				}
 			}
+
 		}
 
 		long endTime = System.nanoTime();
@@ -63,7 +66,8 @@ public class Treatment {
 		for (Coordinates c : coordsTreatment.tilesAroundLineByLine(aUnit.getPosition(), aUnit.getRange())) {
 			if (unitsPos.containsKey(c)) {
 				Selectable currentUnit = unitsPos.get(c);
-				System.out.println("a unit from " + currentUnit.getFaction().getName() + " is around");
+				System.out
+						.println("a unit from " + currentUnit.getFaction().getName() + " is around" + aUnit.getName());
 				if (currentUnit.getFaction().getEnnemies().contains(aUnit.getFaction())) {
 					System.out.println("it's an ennemy !!");
 				}
