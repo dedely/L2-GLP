@@ -1,6 +1,5 @@
 package cli.tests;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import cli.data.Coordinates;
