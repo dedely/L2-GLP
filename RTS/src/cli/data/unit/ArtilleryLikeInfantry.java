@@ -18,13 +18,11 @@ public class ArtilleryLikeInfantry extends Infantry {
 	 */
 	private int minimumRange;
 
-	
-
-	public ArtilleryLikeInfantry(int maxHealth, Faction faction, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState,
-			int unitSlots, int minimumRange) {
-		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
-				positionState, unitSlots);
+	public ArtilleryLikeInfantry(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
+			Coordinates position, Description description, int speed, int damagePerShot, int timeBeetweenShots,
+			int range, int positionState, int unitSlots, int minimumRange) {
+		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
+				timeBeetweenShots, range, positionState, unitSlots);
 		this.minimumRange = minimumRange;
 	}
 
