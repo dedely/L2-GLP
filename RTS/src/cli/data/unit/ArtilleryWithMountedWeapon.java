@@ -20,7 +20,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	/**
 	 * condition about if the weapon is installed or not
 	 */
-	private boolean Mounted;
+	private boolean mounted;
 
 	/**
 	 * the damage dealt by the mounted weapon
@@ -32,12 +32,13 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	 */
 	private int mountedWeaponFireRate;
 
-	public ArtilleryWithMountedWeapon(int maxHealth, Faction faction, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState,
-			int unitSlots, int minimumRange, boolean mounted, int mountedWeaponDamage, int mountedWeaponFireRate) {
-		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
-				positionState, unitSlots, minimumRange);
-		Mounted = mounted;
+	public ArtilleryWithMountedWeapon(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
+			Coordinates position, Description description, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int range, int positionState, int unitSlots, int minimumRange, boolean mounted,
+			int mountedWeaponDamage, int mountedWeaponFireRate) {
+		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, positionState, unitSlots, minimumRange);
+		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeaponFireRate = mountedWeaponFireRate;
 	}
@@ -60,14 +61,14 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	 * @return return true if the weapon is installed, false otherwise
 	 */
 	public boolean isMounted() {
-		return Mounted;
+		return mounted;
 	}
 
 	/**
 	 * @param isMounted the truth value of the weapon installation
 	 */
 	public void setMounted(boolean Mounted) {
-		this.Mounted = Mounted;
+		this.mounted = Mounted;
 	}
 
 	/**
@@ -101,7 +102,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 
 	@Override
 	public String toString() {
-		return "ArtilleryWithMountedWeapon [infanteryIn=" + infanteryIn + ", Mounted=" + Mounted
+		return "ArtilleryWithMountedWeapon [infanteryIn=" + infanteryIn + ", Mounted=" + mounted
 				+ ", mountedWeaponDamage=" + mountedWeaponDamage + ", mountedWeaponFireRate=" + mountedWeaponFireRate
 				+ super.toString() + "]";
 	}

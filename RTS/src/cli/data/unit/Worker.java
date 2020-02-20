@@ -12,18 +12,16 @@ import cli.data.faction.Faction;
  */
 public class Worker extends Unit {
 
-
 	/**
 	 * the space the unit takes
 	 */
 	private int unitSlots;
 
-
-
-	public Worker(int maxHealth, Faction faction, String name, Coordinates position, Description description, int speed,
-			int damagePerShot, int timeBeetweenShots, int range, int positionState, int unitSlots) {
-		super(maxHealth, faction, name, position, description, speed, damagePerShot, timeBeetweenShots, range,
-				positionState);
+	public Worker(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
+			Description description, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+			int positionState, int unitSlots) {
+		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, positionState);
 		this.unitSlots = unitSlots;
 	}
 
@@ -39,7 +37,5 @@ public class Worker extends Unit {
 	public String toString() {
 		return "Worker [unitSlots=" + unitSlots + "," + super.toString() + "]";
 	}
-	
-	
 
 }

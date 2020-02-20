@@ -7,8 +7,11 @@ import cli.data.faction.Faction;
  *
  */
 public abstract class Selectable {
+	
 	private int health;
 	private int maxHealth;
+	private int armorPoints;
+	private int armorType;
 	private boolean selected;
 	private Faction faction;
 	private String name;
@@ -22,11 +25,13 @@ public abstract class Selectable {
 	 * @param position
 	 * @param description
 	 * 
-	 * health and selected do not need to be specified.
+	 *                    health and selected do not need to be specified.
 	 */
-	public Selectable(int maxHealth, Faction faction, String name, Coordinates position, Description description) {
+	public Selectable(int maxHealth,int armorPoints,int armorType, Faction faction, String name, Coordinates position, Description description) {
 		health = maxHealth;
 		this.maxHealth = maxHealth;
+		this.armorPoints = armorPoints;
+		this.armorType = armorType;
 		selected = false;
 		this.faction = faction;
 		this.name = name;
@@ -74,10 +79,6 @@ public abstract class Selectable {
 		this.selected = selected;
 	}
 
-	public Faction getFaction() {
-		return faction;
-	}
-
 	public void setFactionName(Faction factionName) {
 		this.faction = factionName;
 	}
@@ -88,12 +89,38 @@ public abstract class Selectable {
 
 	public void setName(String name) {
 		this.name = name;
+
+	}
+
+	public int getArmorPoints() {
+		return armorPoints;
+	}
+
+	public void setArmorPoints(int armorPoints) {
+		this.armorPoints = armorPoints;
+	}
+
+	public int getArmorType() {
+		return armorType;
+	}
+
+	public void setArmorType(int armorType) {
+		this.armorType = armorType;
+	}
+	
+	public Faction getFaction() {
+		return faction;
+	}
+
+	public void setFaction(Faction faction) {
+		this.faction = faction;
 	}
 
 	@Override
 	public String toString() {
 		return "Selectable [health=" + health + ", maxHealth=" + maxHealth + ", selected=" + selected + ", factionName="
-				+ faction.toString() + ", name=" + name + ", position=" + position + ", description=" + description + "]";
+				+ faction.toString() + ", name=" + name + ", position=" + position + ", description=" + description
+				+ "]";
 	}
 
 }
