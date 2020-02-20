@@ -7,7 +7,7 @@ import cli.data.Coordinates;
 public class CoordinatesTreatment {
 	public ArrayList<Coordinates> tilesAroundLineByLine(Coordinates center, int radius) {
 		ArrayList<Coordinates> tilesAround = new ArrayList<Coordinates>();
-		
+
 		radius++;
 
 		double x = center.getAbsciss();
@@ -29,7 +29,7 @@ public class CoordinatesTreatment {
 
 	public ArrayList<Coordinates> tilesAroundSpiral(Coordinates center, int radius) {
 		ArrayList<Coordinates> tilesAround = new ArrayList<Coordinates>();
-		
+
 		radius++;
 
 		double x = center.getAbsciss();
@@ -71,4 +71,5 @@ public class CoordinatesTreatment {
 		}
 		return tilesAround;
 	}
+
 }

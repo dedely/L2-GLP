@@ -45,7 +45,7 @@ public class ArtilleryLikeInfantry extends Infantry {
 
 	@Override
 	public String toString() {
-		return "ArtilleryLikeInfantry [minimumRange=" + minimumRange + super.toString() + "]";
+		return super.toString() + "\nminimumRange = " + minimumRange;
 	}
 
 }

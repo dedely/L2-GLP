@@ -41,7 +41,7 @@ public abstract class Infantry extends Unit {
 
 	@Override
 	public String toString() {
-		return "Infantry [ unitSlots=" + unitSlots + super.toString() + "]";
+		return super.toString() + "\nunitSlots = " + unitSlots;
 	}
 
 }

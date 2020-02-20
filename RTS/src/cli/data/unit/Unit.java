@@ -152,8 +152,8 @@ public abstract class Unit extends Selectable {
 
 	@Override
 	public String toString() {
-		return "Unit [speed=" + speed + ", damagePerShot=" + damagePerShot + ", fireRate=" + timeBeetweenShots
-				+ ", range=" + range + ", toString()=" + super.toString() + "]";
+		return super.toString()+"\nspeed = " + speed + "\ndamagePerShot = " + damagePerShot + "\ntimeBetweenShots = " + timeBeetweenShots
+				+ "\nrange = " + range;
 	}
 
 }

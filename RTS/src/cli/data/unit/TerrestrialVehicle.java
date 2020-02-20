@@ -17,8 +17,6 @@ public abstract class TerrestrialVehicle extends Unit {
 	 */
 	private int unitSlots;
 
-	
-
 	public TerrestrialVehicle(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, int typeOfDammage,
 			int timeBeetweenShots, int range, int positionState, int unitSlots) {
@@ -43,7 +41,7 @@ public abstract class TerrestrialVehicle extends Unit {
 
 	@Override
 	public String toString() {
-		return "TerrestrialVehicle [ unitSlots=" + unitSlots + super.toString() + "]";
+		return super.toString() + "\nunitSlots = " + unitSlots;
 	}
 
 }
