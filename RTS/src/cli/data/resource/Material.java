@@ -11,6 +11,7 @@ public class Material extends Resource {
 		super(resourceCount);
 	}
 
+
 	public int getResourceCount() {
 		return resourceCount;
 	}
