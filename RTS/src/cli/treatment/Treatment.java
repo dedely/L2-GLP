@@ -7,11 +7,10 @@ import cli.data.Coordinates;
 import cli.data.Description;
 import cli.data.Selectable;
 import cli.data.faction.Faction;
-import cli.data.map.Map;
 import cli.data.tree.BinaryTree;
-import cli.data.tree.ResearchTree;
 import cli.data.unit.GenericInfantry;
 import cli.data.unit.Unit;
+import cli.process.CoordinatesTreatment;
 
 public class Treatment {
 	public static void main(String[] args) {
@@ -30,13 +29,14 @@ public class Treatment {
 		badGuys.getEnnemies().add(goodGuys);
 
 		Unit aUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, goodGuys, "john", new Coordinates(5, 5),
-				new Description("yeeeeeeessss"), 10 , Constants.SUPER_LIGHT, 50, 10, 3, Constants.GROUND, 1);
+
+				new Description("yeeeeeeessss"), 10 , Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
 		Unit aSecondUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Tom", new Coordinates(5, 6),
-				new Description("uuuuuraaaaa"), 10, Constants.SUPER_LIGHT, 50, 10, 3, Constants.GROUND, 1);
+				new Description("uuuuuraaaaa"), 10, Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
 		Unit aThirdUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Dave", new Coordinates(5, 7),
 				new Description("blyat"), 10, Constants.SUPER_LIGHT, 50, 10, 3, Constants.GROUND, 1);
 		Unit aFourthUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, neutral, "James", new Coordinates(4, 5),
-				new Description("why am I here ?"), 10, Constants.SUPER_LIGHT, 50, 10, 3, Constants.GROUND, 1);
+				new Description("why am I here ?"), 10, Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
 
 		unitsPos.put(aUnit.getPosition(), aUnit);
 		unitsPos.put(aSecondUnit.getPosition(), aSecondUnit);

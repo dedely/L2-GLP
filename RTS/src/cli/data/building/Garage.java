@@ -10,9 +10,10 @@ import cli.data.faction.Faction;
  */
 public class Garage extends UnitFactory {
 
-	public Garage(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
-			Size size, Coordinates rallyPoint) {
-		super(maxHealth, factionName, name, position, description, size, rallyPoint);
+	public Garage(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
+			Description description) {
+		super(maxHealth, armorPoints, armorType, faction, name, position, description);
+
 	}
 
 	@Override

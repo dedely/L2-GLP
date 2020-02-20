@@ -23,6 +23,5 @@ public class Description {
 	public String toString() {
 		return "Description [description=" + description + "]";
 	}
-	
-	
+
 }
