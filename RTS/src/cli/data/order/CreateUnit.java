@@ -4,9 +4,19 @@ import cli.data.Coordinates;
 import cli.data.unit.Unit;
 
 public class CreateUnit implements ProdBuildingOrder{
+	
 	private Unit unitToCreate;
+	
 	private Coordinates position;
+	
 	private int timeUntilConstructed;
+	
+	public CreateUnit (Unit unitToCreate, Coordinates position, int timeUntilConstructed) {
+		this.position=position;
+		this.timeUntilConstructed=timeUntilConstructed;
+		this.unitToCreate=unitToCreate;
+	}
+	
 	public Unit getUnitToCreate() {
 		return unitToCreate;
 	}

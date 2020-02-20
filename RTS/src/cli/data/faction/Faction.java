@@ -43,6 +43,8 @@ public class Faction {
 	 */
 	private Description description;
 
+	private Boolean CurrentResearch ;
+	
 	private ArrayList<Faction> allies = new ArrayList<Faction>();
 
 	private ArrayList<Faction> ennemies = new ArrayList<Faction>();
@@ -116,6 +118,15 @@ public class Faction {
 
 	public void setEnnemies(ArrayList<Faction> ennemies) {
 		this.ennemies = ennemies;
+	}
+
+	
+	public Boolean getCurrentResearch() {
+		return CurrentResearch;
+	}
+
+	public void setCurrentResearch(Boolean currentResearch) {
+		CurrentResearch = currentResearch;
 	}
 
 	@Override

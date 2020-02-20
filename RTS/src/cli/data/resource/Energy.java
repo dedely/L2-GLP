@@ -4,11 +4,11 @@ package cli.data.resource;
  * @author Adel
  *
  */
-public class Energy implements Resource{
+public class Energy extends Resource{
 	private int resourceCount;
 
 	public Energy(int resourceCount) {
-		this.resourceCount = resourceCount;
+		super(resourceCount);
 	}
 
 	public int getResourceCount() {

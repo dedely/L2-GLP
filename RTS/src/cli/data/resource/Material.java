@@ -4,11 +4,11 @@ package cli.data.resource;
  * @author Adel
  *
  */
-public class Material implements Resource {
+public class Material extends Resource {
 	private int resourceCount;
 
 	public Material(int resourceCount) {
-		this.resourceCount = resourceCount;
+		super(resourceCount);
 	}
 
 	public int getResourceCount() {
