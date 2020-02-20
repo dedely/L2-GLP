@@ -29,6 +29,7 @@ public class Treatment {
 		badGuys.getEnnemies().add(goodGuys);
 
 		Unit aUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, goodGuys, "john", new Coordinates(5, 5),
+
 				new Description("yeeeeeeessss"), 10 , Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
 		Unit aSecondUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Tom", new Coordinates(5, 6),
 				new Description("uuuuuraaaaa"), 10, Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
