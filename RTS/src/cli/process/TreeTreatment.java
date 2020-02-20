@@ -4,10 +4,9 @@ import cli.data.faction.Faction;
 
 public class TreeTreatment {
 
-	public void startResearch (Faction faction) {
-		
-	}
+	public Boolean startResearch (Faction faction) {
 	
+	}	
 	public void isResearching (Faction faction) {
 		if (startResearch)
 	}
