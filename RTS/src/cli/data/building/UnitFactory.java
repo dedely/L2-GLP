@@ -11,10 +11,9 @@ import cli.data.faction.Faction;
 public abstract class UnitFactory extends Building {
 	Coordinates rallyPoint;
 
-	public UnitFactory(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
-			Size size, Coordinates rallyPoint) {
-		super(maxHealth, factionName, name, position, description, size);
-		this.rallyPoint = rallyPoint;
+	public UnitFactory(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
+			Coordinates position, Description description) {
+		super(maxHealth, armorPoints, armorType, faction, name, position, description);
 	}
 
 	public Coordinates getRallyPoint() {

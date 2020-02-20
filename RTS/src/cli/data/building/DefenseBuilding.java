@@ -14,12 +14,9 @@ public class DefenseBuilding extends Building {
 	private int damage;
 	private int fireRate;
 
-	public DefenseBuilding(int maxHealth, Faction factionName, String name, Coordinates position,
-			Description description, Size size, int range, int damage, int fireRate) {
-		super(maxHealth, factionName, name, position, description, size);
-		this.range = range;
-		this.damage = damage;
-		this.fireRate = fireRate;
+	public DefenseBuilding(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
+			Coordinates position, Description description) {
+		super(maxHealth, armorPoints, armorType, faction, name, position, description);
 	}
 
 	public int getRange() {

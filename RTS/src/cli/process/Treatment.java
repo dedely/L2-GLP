@@ -72,11 +72,6 @@ public class Treatment {
 		endTime = System.nanoTime();
 		System.out.println("Took "+(endTime - startTime)/1000000.0 + " ms");
 		
-
-		
-		
-		
-		
 	}
 		
 

@@ -13,10 +13,9 @@ public abstract class Building extends Selectable {
 	
 		private Size size;
 
-	public Building(int maxHealth, Faction factionName, String name, Coordinates position, Description description,
-			Size size) {
-		super(maxHealth, factionName, name, position, description);
-		this.size = size;
+	public Building(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
+			Description description) {
+		super(maxHealth, armorPoints, armorType, faction, name, position, description);
 	}
 
 	public Size getSize() {
