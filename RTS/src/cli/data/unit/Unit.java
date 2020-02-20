@@ -25,6 +25,12 @@ public abstract class Unit extends Selectable {
 	 * 
 	 */
 	private int damagePerShot;
+	
+	/**
+	 * Whether it is Light, SuperLight or heavy armor
+	 * 
+	 */	
+	private int TypeOfDammage;
 
 	/**
 	 * The number of ticks between shots
@@ -46,10 +52,11 @@ public abstract class Unit extends Selectable {
 	private int positionState;
 
 	public Unit(int maxHealth,int armorPoints,int armorType, Faction faction, String name, Coordinates position, Description description, int speed,
-			int damagePerShot, int timeBeetweenShots, int range, int positionState) {
+			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, int positionState) {
 		super(maxHealth,armorPoints, armorType, faction, name, position, description);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
+		this.TypeOfDammage = typeOfDammage;
 		this.timeBeetweenShots = timeBeetweenShots;
 		timeLeftToReload = timeBeetweenShots;
 		this.range = range;
@@ -83,6 +90,15 @@ public abstract class Unit extends Selectable {
 	public void setDamagePerShot(int damagePerShot) {
 		this.damagePerShot = damagePerShot;
 	}
+	
+
+	public int getTypeOfDammage() {
+		return TypeOfDammage;
+	}
+
+	public void setTypeOfDammage(int typeOfDammage) {
+		TypeOfDammage = typeOfDammage;
+	}
 
 	/**
 	 * @return the time between two shots
@@ -108,7 +124,7 @@ public abstract class Unit extends Selectable {
 	/**
 	 * @param fireRate how many ticks before the unit can shoot
 	 */
-	public void settimeLeftToReload(int timeLeftToReload) {
+	public void setTimeLeftToReload(int timeLeftToReload) {
 		this.timeLeftToReload = timeLeftToReload;
 	}
 

@@ -32,13 +32,12 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	 */
 	private int mountedWeaponFireRate;
 
-	
 	public ArtilleryWithMountedWeapon(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description, int speed, int damagePerShot, int timeBeetweenShots,
-			int range, int positionState, int unitSlots, int minimumRange, boolean mounted, int mountedWeaponDamage,
-			int mountedWeaponFireRate) {
+			Coordinates position, Description description, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int range, int positionState, int unitSlots, int minimumRange, boolean mounted,
+			int mountedWeaponDamage, int mountedWeaponFireRate) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				timeBeetweenShots, range, positionState, unitSlots, minimumRange);
+				typeOfDammage, timeBeetweenShots, range, positionState, unitSlots, minimumRange);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeaponFireRate = mountedWeaponFireRate;

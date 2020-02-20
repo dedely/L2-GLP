@@ -19,10 +19,10 @@ public class Artillery extends TerrestrialVehicle {
 	private int minimumRange;
 
 	public Artillery(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState,
-			int unitSlots, int minimumRange) {
+			Description description, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+			int positionState, int unitSlots, int minimumRange) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				timeBeetweenShots, range, positionState, unitSlots);
+				typeOfDammage, timeBeetweenShots, range, positionState, unitSlots);
 		this.minimumRange = minimumRange;
 	}
 

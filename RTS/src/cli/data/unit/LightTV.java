@@ -30,10 +30,10 @@ public class LightTV extends TerrestrialVehicle {
 	private ArrayList<Infantry> infanteryIn = new ArrayList<Infantry>();
 
 	public LightTV(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, int timeBeetweenShots, int range, int positionState,
-			int unitSlots, int infantrySeats, int infantrySeatsRemaining) {
+			Description description, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+			int positionState, int unitSlots, int infantrySeats, int infantrySeatsRemaining) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				timeBeetweenShots, range, positionState, unitSlots);
+				typeOfDammage, timeBeetweenShots, range, positionState, unitSlots);
 		this.infantrySeats = infantrySeats;
 		this.infantrySeatsRemaining = infantrySeatsRemaining;
 	}
