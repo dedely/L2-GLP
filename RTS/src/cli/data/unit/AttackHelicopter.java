@@ -104,9 +104,9 @@ public class AttackHelicopter extends AerialVehicles {
 
 	@Override
 	public String toString() {
-		return "AttackHelicopter [secondaryWeaponDamage=" + secondaryWeaponDamage + ", secondaryWeaponFireRate="
-				+ secondaryWeaponFireRate + ", secondaryWeaponAmmount=" + secondaryWeaponAmmount
-				+ ", secondaryWeaponReloadTime=" + secondaryWeaponReloadTime + super.toString() + "]";
+		return super.toString() + "\nsecondaryWeaponDamage = " + secondaryWeaponDamage + "\nsecondaryWeaponFireRate = "
+				+ secondaryWeaponFireRate + "\nsecondaryWeaponAmmount = " + secondaryWeaponAmmount
+				+ "\nsecondaryWeaponReloadTime = " + secondaryWeaponReloadTime;
 	}
 
 }

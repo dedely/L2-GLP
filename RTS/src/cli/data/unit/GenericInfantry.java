@@ -22,7 +22,7 @@ public class GenericInfantry extends Infantry {
 
 	@Override
 	public String toString() {
-		return "GenericInfantry [" + super.toString() + "]";
+		return super.toString();
 	}
 
 }

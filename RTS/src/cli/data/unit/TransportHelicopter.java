@@ -82,8 +82,7 @@ public class TransportHelicopter extends AerialVehicles {
 
 	@Override
 	public String toString() {
-		return "TransportHelicopter [unitSlotsAvailable=" + unitSlotsAvailable + ", UnitSlots=" + unitSlots
-				+ ", unitsIn=" + unitsIn + super.toString() + "]";
+		return super.toString() + "\nunitSlotsAvailable = " + unitSlotsAvailable + "\nUnitSlots = " + unitSlots;
 	}
 
 }

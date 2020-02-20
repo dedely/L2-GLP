@@ -102,9 +102,8 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 
 	@Override
 	public String toString() {
-		return "ArtilleryWithMountedWeapon [infanteryIn=" + infanteryIn + ", Mounted=" + mounted
-				+ ", mountedWeaponDamage=" + mountedWeaponDamage + ", mountedWeaponFireRate=" + mountedWeaponFireRate
-				+ super.toString() + "]";
+		return super.toString() + "\nMounted = " + mounted + "\nmountedWeaponDamage = " + mountedWeaponDamage
+				+ "\nmountedWeaponFireRate = " + mountedWeaponFireRate;
 	}
 
 }

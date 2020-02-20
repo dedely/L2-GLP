@@ -24,7 +24,7 @@ public class HeavyTV extends TerrestrialVehicle {
 
 	@Override
 	public String toString() {
-		return "HeavyTV [" + super.toString() + "]";
+		return super.toString();
 	}
 
 }

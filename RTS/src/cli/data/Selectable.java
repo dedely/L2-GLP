@@ -7,7 +7,7 @@ import cli.data.faction.Faction;
  *
  */
 public abstract class Selectable {
-	
+
 	private int health;
 	private int maxHealth;
 	private int armorPoints;
@@ -27,7 +27,8 @@ public abstract class Selectable {
 	 * 
 	 *                    health and selected do not need to be specified.
 	 */
-	public Selectable(int maxHealth,int armorPoints,int armorType, Faction faction, String name, Coordinates position, Description description) {
+	public Selectable(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
+			Description description) {
 		health = maxHealth;
 		this.maxHealth = maxHealth;
 		this.armorPoints = armorPoints;
@@ -107,7 +108,7 @@ public abstract class Selectable {
 	public void setArmorType(int armorType) {
 		this.armorType = armorType;
 	}
-	
+
 	public Faction getFaction() {
 		return faction;
 	}
@@ -118,9 +119,8 @@ public abstract class Selectable {
 
 	@Override
 	public String toString() {
-		return "Selectable [health=" + health + ", maxHealth=" + maxHealth + ", selected=" + selected + ", factionName="
-				+ faction.toString() + ", name=" + name + ", position=" + position + ", description=" + description
-				+ "]";
+		return name + " :" + "\nhealth = " + health + "\nmaxHealth = " + maxHealth + "\nselected = " + selected
+				+ "\nfactionName = " + faction.getName() + "\nposition = " + position + "\ndescription = " + description;
 	}
 
 }
