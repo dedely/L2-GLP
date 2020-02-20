@@ -13,10 +13,23 @@ public class DefenseBuilding extends Building {
 	private int range;
 	private int damage;
 	private int fireRate;
+	private int damageType;
 
 	public DefenseBuilding(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description) {
+			Coordinates position, Description description, int range, int damage, int fireRate, int damageType) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description);
+		this.range = range;
+		this.damage = damage;
+		this.fireRate = fireRate;
+		this.damageType = damageType;
+	}
+
+	public int getDamageType() {
+		return damageType;
+	}
+
+	public void setDamageType(int damageType) {
+		this.damageType = damageType;
 	}
 
 	public int getRange() {
