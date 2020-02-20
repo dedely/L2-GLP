@@ -8,6 +8,7 @@ public class Defense {
 	private int damagePerShot;
 	private int fireRate;
 	private ArrayList<DefBuildingOrder> orders = new ArrayList<DefBuildingOrder>();
+	
 	public int getRange() {
 		return range;
 	}
@@ -32,5 +33,5 @@ public class Defense {
 	public void setOrders(ArrayList<DefBuildingOrder> orders) {
 		this.orders = orders;
 	}
-	
+
 }

@@ -25,6 +25,5 @@ public class CreateUnit implements ProdBuildingOrder{
 	public void setTimeUntilConstructed(int timeUntilConstructed) {
 		this.timeUntilConstructed = timeUntilConstructed;
 	}
-	
-	
+		
 }
