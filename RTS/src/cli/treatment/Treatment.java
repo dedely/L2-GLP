@@ -14,7 +14,8 @@ import cli.process.CoordinatesTreatment;
 
 public class Treatment {
 	public static void main(String[] args) {
-		int range = 20;
+		int range = 3;
+		
 		CoordinatesTreatment coordsTreatment = new CoordinatesTreatment();
 
 		HashMap<Coordinates, Selectable> unitsPos = new HashMap<Coordinates, Selectable>();
@@ -50,7 +51,7 @@ public class Treatment {
 			if (unitsPos.containsKey(c)) {
 				Selectable currentUnit = unitsPos.get(c);
 				System.out.println(
-						"a unit from " + unitsPos.get(c).getFaction().getName() + " is around" + aUnit.getName());
+						"a unit from " + unitsPos.get(c).getFaction().getName() + " is around " + aUnit.getName());
 				if (currentUnit.getFaction().getEnnemies().contains(aUnit.getFaction())) {
 					System.out.println("it's an ennemy !!");
 				}
@@ -67,7 +68,7 @@ public class Treatment {
 			if (unitsPos.containsKey(c)) {
 				Selectable currentUnit = unitsPos.get(c);
 				System.out
-						.println("a unit from " + currentUnit.getFaction().getName() + " is around" + aUnit.getName());
+						.println("a unit from " + currentUnit.getFaction().getName() + " is around " + aUnit.getName());
 				if (currentUnit.getFaction().getEnnemies().contains(aUnit.getFaction())) {
 					System.out.println("it's an ennemy !!");
 				}
@@ -77,6 +78,12 @@ public class Treatment {
 		endTime = System.nanoTime();
 		System.out.println("Took " + (endTime - startTime) / 1000000.0 + " ms");
 
-	}
+		startTime = System.nanoTime();
+		
+		
+		endTime = System.nanoTime();
+		System.out.println("Took " + (endTime - startTime) / 1000000.0 + " ms");
 
+		
+	}
 }

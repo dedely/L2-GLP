@@ -11,7 +11,6 @@ public class TestCircle {
 		double x = 5;
 		double y = 5;
 		double r = 4;
-		int k = 0;
 		double j = x + 1;
 		double i = y + 1;
 		
@@ -24,7 +23,6 @@ public class TestCircle {
 				i--;
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(r, 2)) {
 					pos.put(new Coordinates((int)j, (int)i), "("+j+","+i+")");
-					k++;
 				}
 				else {
 					pos.put(new Coordinates((int)j, (int)i), "     ");
@@ -34,7 +32,6 @@ public class TestCircle {
 				j--;
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(r, 2)) {
 					pos.put(new Coordinates((int)j, (int)i), "("+j+","+i+")");
-					k++;
 				}
 				else {
 					pos.put(new Coordinates((int)j, (int)i), "     ");
@@ -44,7 +41,6 @@ public class TestCircle {
 				i++;
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(r, 2)) {
 					pos.put(new Coordinates((int)j, (int)i), "("+j+","+i+")");
-					k++;
 				}
 				else {
 					pos.put(new Coordinates((int)j, (int)i), "     ");
@@ -54,7 +50,6 @@ public class TestCircle {
 				j++;
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(r, 2)) {
 					pos.put(new Coordinates((int)j, (int)i), "("+j+","+i+")");
-					k++;
 				}
 				else {
 					pos.put(new Coordinates((int)j, (int)i), "     ");
