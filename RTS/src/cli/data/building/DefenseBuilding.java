@@ -12,16 +12,19 @@ public class DefenseBuilding extends Building {
 
 	private int range;
 	private int damage;
-	private int fireRate;
+	private int timeBeetweenShots;
+	private int timeLeftToReload;
 	private int damageType;
 
 	public DefenseBuilding(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description, int range, int damage, int fireRate, int damageType) {
+			Coordinates position, Description description, int range, int damage, int timeBeetweenShots,
+			int damageType) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description);
 		this.range = range;
 		this.damage = damage;
-		this.fireRate = fireRate;
+		this.timeBeetweenShots = timeBeetweenShots;
 		this.damageType = damageType;
+		timeLeftToReload = 0;
 	}
 
 	public int getDamageType() {
@@ -48,17 +51,26 @@ public class DefenseBuilding extends Building {
 		this.damage = damage;
 	}
 
-	public int getFireRate() {
-		return fireRate;
+	public int getTimeBeetweenShots() {
+		return timeBeetweenShots;
 	}
 
-	public void setFireRate(int fireRate) {
-		this.fireRate = fireRate;
+	public void setTimeBeetweenShots(int timeBeetweenShots) {
+		this.timeBeetweenShots = timeBeetweenShots;
+	}
+
+	public int getTimeLeftToReload() {
+		return timeLeftToReload;
+	}
+
+	public void setTimeLeftToReload(int timeLeftToReload) {
+		this.timeLeftToReload = timeLeftToReload;
 	}
 
 	@Override
 	public String toString() {
-		return "DefenseBuilding [range=" + range + ", damage=" + damage + ", fireRate=" + fireRate + ", toString()="
+		return "DefenseBuilding [range=" + range + ", damage=" + damage + ", timeBeetweenShots=" + timeBeetweenShots
+				+ ", timeLeftToReload=" + timeLeftToReload + ", damageType=" + damageType + ", toString()="
 				+ super.toString() + "]";
 	}
 
