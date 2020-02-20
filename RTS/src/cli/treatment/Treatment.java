@@ -11,42 +11,68 @@ import cli.data.tree.BinaryTree;
 import cli.data.unit.GenericInfantry;
 import cli.data.unit.Unit;
 import cli.process.CoordinatesTreatment;
+import cli.process.SelectableTreatment;
 
 public class Treatment {
 	public static void main(String[] args) {
+		/*test specific variables*/
+		long total = 0;
+		long startTime = System.nanoTime();
+		
+		/*range of action for the test units*/
 		int range = 3;
 		
+		/*treatment classes*/
 		CoordinatesTreatment coordsTreatment = new CoordinatesTreatment();
+		SelectableTreatment selectableTreatment = new SelectableTreatment();
 
+		/*HasMap representing positions*/
 		HashMap<Coordinates, Selectable> unitsPos = new HashMap<Coordinates, Selectable>();
 
+		/*Faction initialization*/
 		Faction goodGuys = new Faction("good guys", new BinaryTree("good guys research tree"),
 				new Description("the good ones"));
 		Faction badGuys = new Faction("bad guys", new BinaryTree("bad guys research tree"),
 				new Description("the bad ones"));
 		Faction neutral = new Faction("neutral", null, new Description("random ppl"));
 
+		/*setting good guys and badGuys to be enemies*/
 		goodGuys.getEnnemies().add(badGuys);
 		badGuys.getEnnemies().add(goodGuys);
 
+		/*unit initialization*/
 		Unit aUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, goodGuys, "john", new Coordinates(5, 5),
 
-				new Description("yeeeeeeessss"), 10 , Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
+				new Description("yeeeeeeessss"), 10 ,50 , Constants.LIGHT, 10, range, Constants.GROUND, 1);
 
 		Unit aSecondUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Tom", new Coordinates(5, 6),
-				new Description("uuuuuraaaaa"), 10, Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
+				new Description("uuuuuraaaaa"), 10, 50, Constants.SUPER_LIGHT, 10, range, Constants.GROUND, 1);
 		Unit aThirdUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Dave", new Coordinates(5, 7),
-				new Description("blyat"), 10, Constants.SUPER_LIGHT, 50, 10, 3, Constants.GROUND, 1);
-		Unit aFourthUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, neutral, "James", new Coordinates(4, 5),
-				new Description("why am I here ?"), 10, Constants.SUPER_LIGHT, 50, 10, range, Constants.GROUND, 1);
+				new Description("blyat"), 10, 50, Constants.SUPER_LIGHT, 10, 3, Constants.GROUND, 1);
+		Unit aFourthUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, neutral, "James", new Coordinates(1, 1),
+				new Description("why am I here ?"), 10, 50, Constants.SUPER_LIGHT, 10, range, Constants.GROUND, 1);
 
+		
+		/*putting all units in the position HashMap*/
 		unitsPos.put(aUnit.getPosition(), aUnit);
 		unitsPos.put(aSecondUnit.getPosition(), aSecondUnit);
 		unitsPos.put(aThirdUnit.getPosition(), aThirdUnit);
 		unitsPos.put(aFourthUnit.getPosition(), aFourthUnit);
+		
+		/*updating a position in the hashMap*/
+		unitsPos.remove(aFourthUnit.getPosition(), aFourthUnit);
+		aFourthUnit.setPosition(new Coordinates(4, 5));
+		unitsPos.put(aFourthUnit.getPosition(), aFourthUnit);
+		
+		long endTime = System.nanoTime();
+		total+=(endTime - startTime);
 
-		long startTime = System.nanoTime();
+		System.out.println("Took " + (endTime - startTime) / 1000000.0 + " ms");
 
+		startTime = System.nanoTime();
+		
+		
+		/*detecting units around using spiral method*/
 		for (Coordinates c : coordsTreatment.tilesAroundSpiral(aUnit.getPosition(), aUnit.getRange())) {
 			if (unitsPos.containsKey(c)) {
 				Selectable currentUnit = unitsPos.get(c);
@@ -59,11 +85,14 @@ public class Treatment {
 
 		}
 
-		long endTime = System.nanoTime();
+		endTime = System.nanoTime();
+		total+=(endTime - startTime);
+
 		System.out.println("Took " + (endTime - startTime) / 1000000.0 + " ms");
 
 		startTime = System.nanoTime();
 
+		/*detecting units around using linear method*/
 		for (Coordinates c : coordsTreatment.tilesAroundLineByLine(aUnit.getPosition(), aUnit.getRange())) {
 			if (unitsPos.containsKey(c)) {
 				Selectable currentUnit = unitsPos.get(c);
@@ -76,14 +105,32 @@ public class Treatment {
 		}
 
 		endTime = System.nanoTime();
+		total+=(endTime - startTime);
+
 		System.out.println("Took " + (endTime - startTime) / 1000000.0 + " ms");
 
 		startTime = System.nanoTime();
 		
 		
-		endTime = System.nanoTime();
-		System.out.println("Took " + (endTime - startTime) / 1000000.0 + " ms");
+		/*dealing damage*/
+		System.out.println(selectableTreatment.calculDamage(50, 0, 20, 0));
+		
+		System.out.println(aSecondUnit.getHealth());
+		System.out.println(aThirdUnit.getHealth());
 
 		
+		selectableTreatment.dealDamage(aUnit, aSecondUnit);
+		selectableTreatment.dealDamage(aUnit, aThirdUnit);
+		
+		System.out.println(aSecondUnit.getHealth());
+		System.out.println(aThirdUnit.getHealth());
+		
+		
+		
+		endTime = System.nanoTime();
+		total+=(endTime - startTime);
+		System.out.println("Took " + (endTime - startTime) / 1000000.0 + " ms");
+
+		System.out.println("Took " + total / 1000000.0 + " ms in total");
 	}
 }

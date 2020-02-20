@@ -13,7 +13,7 @@ public class SelectableTreatment {
 		}
 
 	}
-	
+
 	public void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
 		target.setHealth(target.getHealth() - amount);
 		if (target.getHealth() <= 0) {
@@ -23,17 +23,28 @@ public class SelectableTreatment {
 	}
 
 	public void dealDamage(Unit caster, Selectable target) {
-		receiveDamage(target, calculDamage(caster.getDamagePerShot(), caster.getTypeOfDammage(),
-				target.getArmorPoints(), target.getArmorType()), caster);
+		int base = caster.getDamagePerShot();
+		int damageType = caster.getTypeOfDammage();
+		int armor = target.getArmorPoints();
+		int armorType = target.getArmorType();
+		int calculatedDamage = calculDamage(base, damageType, armor, armorType);
+		System.out.println("dealing " + calculatedDamage + "damage");
+		System.out.println(
+				"base = " + base + " damageType = " + damageType + " armor = " + armor + " armorType = " + armorType);
+		receiveDamage(target, calculatedDamage, caster);
 	}
 
 	public void dealDamage(DefenseBuilding caster, Selectable target) {
-		receiveDamage(target, calculDamage(caster.getDamage(), 0, target.getArmorPoints(), target.getArmorType()),
-				caster);
+		int base = caster.getDamage();
+		int damageType = caster.getDamageType();
+		int armor = target.getArmorPoints();
+		int armorType = target.getArmorType();
+		int calculatedDamage = calculDamage(base, damageType, armor, armorType);
+		receiveDamage(target, calculatedDamage, caster);
 	}
 
 	public int calculDamage(int baseAmount, int damageType, int armor, int armorType) {
-		return (Math.max(baseAmount - (armor * (armorType - damageType) / 2 + 1), 1));
+		return (int) (Math.max(baseAmount - (armor * ((armorType - damageType) / 2.0 + 1)), 1));
 	}
 
 }
