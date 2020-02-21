@@ -10,8 +10,8 @@ import cli.data.faction.Faction;
  *
  */
 public abstract class Building extends Selectable {
-	
-		private Size size;
+
+	private Size size;
 
 	public Building(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
 			Description description) {

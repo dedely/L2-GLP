@@ -8,7 +8,7 @@ import cli.data.faction.Faction;
  * @author Adel
  *
  */
-public abstract class UnitFactory extends Building {
+public class UnitFactory extends Building {
 	Coordinates rallyPoint;
 
 	public UnitFactory(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
