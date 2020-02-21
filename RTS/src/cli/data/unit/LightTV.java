@@ -27,7 +27,7 @@ public class LightTV extends TerrestrialVehicle {
 	/**
 	 * the list of soldiers inside the vehicle if any
 	 */
-	private ArrayList<Infantry> infanteryIn = new ArrayList<Infantry>();
+	private ArrayList<GroundUnit> infanteryIn = new ArrayList<GroundUnit>();
 
 	public LightTV(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
 			Description description, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
@@ -55,7 +55,7 @@ public class LightTV extends TerrestrialVehicle {
 	/**
 	 * @return the list of soldiers inside the vehicle if any
 	 */
-	public ArrayList<Infantry> getInfanteryIn() {
+	public ArrayList<GroundUnit> getInfanteryIn() {
 		return infanteryIn;
 	}
 
@@ -63,7 +63,7 @@ public class LightTV extends TerrestrialVehicle {
 	 * @param infanteryIn the list of soldiers inside the vehicle if any(preferably
 	 *                    use getInfantery and modify the existing one)
 	 */
-	public void setInfanteryIn(ArrayList<Infantry> infanteryIn) {
+	public void setInfanteryIn(ArrayList<GroundUnit> infanteryIn) {
 		this.infanteryIn = infanteryIn;
 	}
 

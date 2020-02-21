@@ -11,12 +11,12 @@ import cli.data.faction.Faction;
  *
  */
 
-public class HeavyTVWithMountedWeapon extends HeavyTV {
+public class HeavyTVWithMountedWeapon extends GroundUnit {
 
 	/**
 	 * the infantry serving mounted weapon if any
 	 */
-	private Infantry infanteryIn;
+	private GroundUnit infanteryIn;
 
 	/**
 	 * condition about if the weapon is installed or not
@@ -47,14 +47,14 @@ public class HeavyTVWithMountedWeapon extends HeavyTV {
 	/**
 	 * @return the infantry serving the mounted weapon if any
 	 */
-	public Infantry getInfanteryIn() {
+	public GroundUnit getInfanteryIn() {
 		return infanteryIn;
 	}
 
 	/**
 	 * @param infanteryIn the infantry that uses the mounted weapon
 	 */
-	public void setInfanteryIn(Infantry infanteryIn) {
+	public void setInfanteryIn(GroundUnit infanteryIn) {
 		this.infanteryIn = infanteryIn;
 	}
 

@@ -10,7 +10,7 @@ import cli.data.faction.Faction;
  * @author Awen
  *
  */
-public class ArtilleryLikeInfantry extends Infantry {
+public class ArtilleryLikeInfantry extends GroundUnit {
 
 	/**
 	 * the minimum distance where the unit can fire
