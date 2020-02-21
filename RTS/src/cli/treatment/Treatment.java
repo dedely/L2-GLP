@@ -44,14 +44,14 @@ public class Treatment {
 		/* unit initialization */
 		Unit aUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, goodGuys, "john", new Coordinates(5, 5,Constants.GROUND),
 
-				new Description("yeeeeeeessss"), 10, 50, Constants.LIGHT, 10, range, Constants.GROUND, 1);
+				new Description("yeeeeeeessss"), 10, 50, Constants.LIGHT, 10, range, 1);
 
 		Unit aSecondUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Tom", new Coordinates(5, 6, Constants.GROUND),
-				new Description("uuuuuraaaaa"), 10, 50, Constants.SUPER_LIGHT, 10, range, Constants.GROUND, 1);
+				new Description("uuuuuraaaaa"), 10, 50, Constants.SUPER_LIGHT, 10, range, 1);
 		Unit aThirdUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Dave", new Coordinates(5, 7,Constants.GROUND),
-				new Description("blyat"), 10, 50, Constants.SUPER_LIGHT, 10, 3, Constants.GROUND, 1);
+				new Description("blyat"), 10, 50, Constants.SUPER_LIGHT, 10, 3, 1);
 		Unit aFourthUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, neutral, "James", new Coordinates(1, 1,Constants.GROUND),
-				new Description("why am I here ?"), 10, 50, Constants.SUPER_LIGHT, 10, range, Constants.GROUND, 1);
+				new Description("why am I here ?"), 10, 50, Constants.SUPER_LIGHT, 10, range, 1);
 
 		/* putting all units in the position HashMap */
 		unitsPos.put(aUnit.getPosition(), aUnit);

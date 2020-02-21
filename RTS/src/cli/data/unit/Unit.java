@@ -45,14 +45,8 @@ public abstract class Unit extends Selectable {
 	 */
 	private int range;
 
-	/**
-	 * Whether the unit is on the ground, in the air...
-	 * 
-	 */
-	private int positionState;
-
 	public Unit(int maxHealth,int armorPoints,int armorType, Faction faction, String name, Coordinates position, Description description, int speed,
-			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, int positionState) {
+			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range) {
 		super(maxHealth,armorPoints, armorType, faction, name, position, description);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
@@ -60,7 +54,6 @@ public abstract class Unit extends Selectable {
 		this.timeBeetweenShots = timeBeetweenShots;
 		timeLeftToReload = timeBeetweenShots;
 		this.range = range;
-		this.setPositionState(positionState);
 	}
 
 	/**
@@ -141,15 +134,7 @@ public abstract class Unit extends Selectable {
 	public void setRange(int range) {
 		this.range = range;
 	}
-
-	public int getPositionState() {
-		return positionState;
-	}
-
-	public void setPositionState(int positionState) {
-		this.positionState = positionState;
-	}
-
+	
 	@Override
 	public String toString() {
 		return super.toString()+"\nspeed = " + speed + "\ndamagePerShot = " + damagePerShot + "\ntimeBetweenShots = " + timeBeetweenShots
