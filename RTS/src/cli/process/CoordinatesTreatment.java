@@ -2,6 +2,7 @@ package cli.process;
 
 import java.util.ArrayList;
 
+import cli.data.Constants;
 import cli.data.Coordinates;
 
 public class CoordinatesTreatment {
@@ -17,7 +18,8 @@ public class CoordinatesTreatment {
 			for (double j = Math.max((x - radius), 0); j <= (x + radius); j++) {
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
 					if (i != y || j != x) {
-						tilesAround.add(new Coordinates((int) j, (int) i));
+						tilesAround.add(new Coordinates((int) j, (int) i, Constants.GROUND));
+						tilesAround.add(new Coordinates((int) j, (int) i, Constants.AIR));
 					}
 				}
 
@@ -43,27 +45,31 @@ public class CoordinatesTreatment {
 			while (i > y - m) {
 				i--;
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
-					tilesAround.add(new Coordinates((int) j, (int) i));
+					tilesAround.add(new Coordinates((int) j, (int) i, Constants.GROUND));
+					tilesAround.add(new Coordinates((int) j, (int) i, Constants.AIR));
 				}
 
 			}
 			while (j > x - m) {
 				j--;
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
-					tilesAround.add(new Coordinates((int) j, (int) i));
+					tilesAround.add(new Coordinates((int) j, (int) i, Constants.GROUND));
+					tilesAround.add(new Coordinates((int) j, (int) i, Constants.AIR));
 				}
 
 			}
 			while (i < y + m) {
 				i++;
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
-					tilesAround.add(new Coordinates((int) j, (int) i));
+					tilesAround.add(new Coordinates((int) j, (int) i, Constants.GROUND));
+					tilesAround.add(new Coordinates((int) j, (int) i, Constants.AIR));
 				}
 			}
 			while (j < x + m) {
 				j++;
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
-					tilesAround.add(new Coordinates((int) j, (int) i));
+					tilesAround.add(new Coordinates((int) j, (int) i, Constants.GROUND));
+					tilesAround.add(new Coordinates((int) j, (int) i, Constants.AIR));
 
 				}
 

@@ -7,11 +7,13 @@ package cli.data;
 public class Coordinates {
 	private int absciss;
 	private int ordinate;
+	private int height;
 
 	
-	public Coordinates(int absciss, int ordinate) {
+	public Coordinates(int absciss, int ordinate, int height) {
 		this.absciss = absciss;
 		this.ordinate = ordinate;
+		this.height = height;
 	}
 	
 	public int getAbsciss() {
