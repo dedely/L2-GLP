@@ -10,14 +10,14 @@ import cli.data.faction.Faction;
  * @author Awen
  *
  */
-public abstract class Infantry extends Unit {
+public abstract class GroundUnit extends Unit {
 
 	/**
 	 * the space the unit takes
 	 */
 	private int unitSlots;
 
-	public Infantry(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
+	public GroundUnit(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
 			Description description, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 			int unitSlots) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,

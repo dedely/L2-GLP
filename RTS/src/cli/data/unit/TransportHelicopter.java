@@ -12,7 +12,7 @@ import cli.data.faction.Faction;
  * @author Awen
  *
  */
-public class TransportHelicopter extends AerialVehicles {
+public class TransportHelicopter extends Unit {
 
 	/**
 	 * the space left for units to embark

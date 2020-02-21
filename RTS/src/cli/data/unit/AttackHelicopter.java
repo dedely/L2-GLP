@@ -10,7 +10,7 @@ import cli.data.faction.Faction;
  * @author Awen
  *
  */
-public class AttackHelicopter extends AerialVehicles {
+public class AttackHelicopter extends Unit {
 
 	/**
 	 * the damage dealt by the secondary weapon

@@ -15,7 +15,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	/**
 	 * the soldier operating the mounted weapon if any
 	 */
-	private Infantry infanteryIn;
+	private GroundUnit infanteryIn;
 
 	/**
 	 * condition about if the weapon is installed or not
@@ -46,14 +46,14 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	/**
 	 * @return the Infantry operating the mounted weapon if any
 	 */
-	public Infantry getInfanteryIn() {
+	public GroundUnit getInfanteryIn() {
 		return infanteryIn;
 	}
 
 	/**
 	 * @param infanteryIn the Infantry operating the mounted weapon
 	 */
-	public void setInfanteryIn(Infantry infanteryIn) {
+	public void setInfanteryIn(GroundUnit infanteryIn) {
 		this.infanteryIn = infanteryIn;
 	}
 
