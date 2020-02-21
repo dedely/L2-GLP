@@ -42,16 +42,20 @@ public class Treatment {
 		badGuys.getEnnemies().add(goodGuys);
 
 		/* unit initialization */
-		Unit aUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, goodGuys, "john", new Coordinates(5, 5,Constants.GROUND),
+		Unit aUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, goodGuys, "john",
+				new Coordinates(5, 5, Constants.GROUND),
 
 				new Description("yeeeeeeessss"), 10, 50, Constants.LIGHT, 10, range, 1);
 
-		Unit aSecondUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Tom", new Coordinates(5, 6, Constants.GROUND),
-				new Description("uuuuuraaaaa"), 10, 50, Constants.SUPER_LIGHT, 10, range, 1);
-		Unit aThirdUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Dave", new Coordinates(5, 7,Constants.GROUND),
-				new Description("blyat"), 10, 50, Constants.SUPER_LIGHT, 10, 3, 1);
-		Unit aFourthUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, neutral, "James", new Coordinates(1, 1,Constants.GROUND),
-				new Description("why am I here ?"), 10, 50, Constants.SUPER_LIGHT, 10, range, 1);
+		Unit aSecondUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Tom",
+				new Coordinates(5, 6, Constants.GROUND), new Description("uuuuuraaaaa"), 10, 50, Constants.SUPER_LIGHT,
+				10, range, 1);
+		Unit aThirdUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, badGuys, "Dave",
+				new Coordinates(5, 7, Constants.GROUND), new Description("blyat"), 10, 50, Constants.SUPER_LIGHT, 10, 3,
+				1);
+		Unit aFourthUnit = new GenericInfantry(50, 5, Constants.SUPER_LIGHT, neutral, "James",
+				new Coordinates(1, 1, Constants.GROUND), new Description("why am I here ?"), 10, 50,
+				Constants.SUPER_LIGHT, 10, range, 1);
 
 		/* putting all units in the position HashMap */
 		unitsPos.put(aUnit.getPosition(), aUnit);
@@ -71,8 +75,6 @@ public class Treatment {
 		startTime = System.nanoTime();
 
 		/* detecting units around using linear adjusted method */
-
-
 
 		startTime = System.nanoTime();
 
@@ -107,10 +109,16 @@ public class Treatment {
 		System.out.println(aThirdUnit.getHealth());
 
 		endTime = System.nanoTime();
-		System.out.println("Took " + (endTime - startTime) / 1000000.0 + " ms");
+		System.out.println("Dealing damage Took " + (endTime - startTime) / 1000000.0 + " ms");
 
 		System.out.println(aUnit.toString());
+		
+		startTime = System.nanoTime();
+		selectableTreatment.moveToward(aUnit, new Coordinates(5,16, Constants.GROUND));
+		endTime = System.nanoTime();
+		System.out.println("moving Took " + (endTime - startTime) / 1000000.0 + " ms");
 
+		
 		endTime = System.nanoTime();
 		System.out.println("Took " + (endTime - firstTime) / 1000000.0 + " ms");
 	}

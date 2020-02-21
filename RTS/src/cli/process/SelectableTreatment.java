@@ -1,5 +1,6 @@
 package cli.process;
 
+import cli.data.Coordinates;
 import cli.data.Selectable;
 import cli.data.building.DefenseBuilding;
 import cli.data.unit.Unit;
@@ -45,6 +46,25 @@ public class SelectableTreatment {
 
 	public int calculDamage(int baseAmount, int damageType, int armor, int armorType) {
 		return (int) (Math.max(baseAmount - (armor * ((armorType - damageType) / 2.0 + 1)), 1));
+	}
+	
+	public Coordinates positionNextTick(Unit unitToMove, Coordinates destination) {
+		Coordinates origin = unitToMove.getPosition();
+		int deltaX = destination.getAbsciss()-origin.getAbsciss();
+		int deltaY = destination.getOrdinate()-origin.getOrdinate();
+		double length = Math.sqrt(Math.pow(deltaX, 2)+Math.pow(deltaY, 2));
+		if (unitToMove.getSpeed()<length) {
+		int newX = (int) Math.round((origin.getAbsciss()+(deltaX/length*unitToMove.getSpeed())));
+		int newY = (int) Math.round((origin.getOrdinate()+(deltaY/length*unitToMove.getSpeed())));
+		return new Coordinates(newX, newY, origin.getHeight());
+		}
+		else
+			return destination;
+		
+	}
+	
+	public void moveToward(Unit unitToMove, Coordinates destination) {
+		unitToMove.setPosition(positionNextTick(unitToMove, destination));
 	}
 
 }
