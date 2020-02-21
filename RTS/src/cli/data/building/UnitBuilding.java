@@ -8,10 +8,10 @@ import cli.data.faction.Faction;
  * @author Adel
  *
  */
-public class UnitFactory extends Building {
+public class UnitBuilding extends Building {
 	Coordinates rallyPoint;
 
-	public UnitFactory(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
+	public UnitBuilding(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
 			Coordinates position, Description description) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description);
 	}

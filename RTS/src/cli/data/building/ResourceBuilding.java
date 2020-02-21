@@ -9,13 +9,13 @@ import cli.data.resource.Resource;
  * @author Adel
  *
  */
-public class ResourceFactory extends Building {
+public class ResourceBuilding extends Building {
 
 	private Resource resourceProduced;
 	private int timeToProduce;
 	private int numberProduced;
 
-	public ResourceFactory(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
+	public ResourceBuilding(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
 			Coordinates position, Description description) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description);
 	}
