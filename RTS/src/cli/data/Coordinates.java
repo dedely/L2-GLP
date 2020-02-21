@@ -9,16 +9,16 @@ public class Coordinates {
 	private int ordinate;
 	private int height;
 
-	
 	public Coordinates(int absciss, int ordinate, int height) {
 		this.absciss = absciss;
 		this.ordinate = ordinate;
 		this.height = height;
 	}
-	
+
 	public int getAbsciss() {
 		return absciss;
 	}
+
 	public void setAbsciss(int absciss) {
 		this.absciss = absciss;
 	}
@@ -26,14 +26,23 @@ public class Coordinates {
 	public int getOrdinate() {
 		return ordinate;
 	}
+
 	public void setOrdinate(int ordinate) {
 		this.ordinate = ordinate;
 	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
 	@Override
 	public String toString() {
-		return "Coordinates [absciss=" + absciss + ", ordinate=" + ordinate + "]";
+		return "coordinates :" + "\n absciss = " + absciss + "\n ordinate = " + ordinate + "\n height = " + height;
 	}
-	
 
 	@Override
 	public int hashCode() {
