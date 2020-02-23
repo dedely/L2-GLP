@@ -9,7 +9,7 @@ import cli.data.unit.Unit;
 
 public class AttackTreatment {
 
-	public void attack(Unit caster, Selectable target) {
+	public static void attack(Unit caster, Selectable target) {
 		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) > caster.getRange()) {
 			MoveToTreatment.moveToward(caster, target.getPosition());
 		} else {
@@ -20,7 +20,7 @@ public class AttackTreatment {
 		}
 	}
 
-	public void attack(DefenseBuilding caster, Selectable target) {
+	public static void attack(DefenseBuilding caster, Selectable target) {
 		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) <= caster.getRange()) {
 			if (caster.getTimeLeftToReload() <= 0) {
 				SelectableTreatment.dealDamage(caster, target);

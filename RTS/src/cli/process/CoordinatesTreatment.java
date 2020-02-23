@@ -82,6 +82,8 @@ public class CoordinatesTreatment {
 		return tilesAround;
 	}
 
+
+	
 	public static Coordinates positionNextTick(Unit unitToMove, Coordinates destination) {
 		Coordinates origin = unitToMove.getPosition();
 		int deltaX = destination.getAbsciss() - origin.getAbsciss();
