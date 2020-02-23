@@ -100,7 +100,7 @@ public class CoordinatesTreatment {
 				+ (Math.pow(position1.getOrdinate() - position2.getOrdinate(), 2))));
 	}
 
-	public static Selectable closestSelectable(Unit unit, HashMap<Coordinates, Selectable> positions) {
+	public static Selectable closestEnnemySelectable(Unit unit, HashMap<Coordinates, Selectable> positions) {
 
 		int radius = unit.getRange();
 		radius++;
@@ -120,9 +120,13 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						return positions.get(positionGround);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
 					} else if (positions.containsKey(positionAir)) {
-						return positions.get(positionAir);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionAir))) {
+							return positions.get(positionAir);
+						}
 					}
 				}
 
@@ -134,9 +138,13 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						return positions.get(positionGround);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
 					} else if (positions.containsKey(positionAir)) {
-						return positions.get(positionAir);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionAir))) {
+							return positions.get(positionAir);
+						}
 					}
 				}
 
@@ -148,9 +156,13 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						return positions.get(positionGround);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
 					} else if (positions.containsKey(positionAir)) {
-						return positions.get(positionAir);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionAir))) {
+							return positions.get(positionAir);
+						}
 					}
 				}
 			}
@@ -161,16 +173,20 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						return positions.get(positionGround);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
 					} else if (positions.containsKey(positionAir)) {
-						return positions.get(positionAir);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionAir))) {
+							return positions.get(positionAir);
+						}
 					}
 				}
-
 			}
 		}
 		return null;
 	}
+
 	public static Selectable closestGroundSelectable(Unit unit, HashMap<Coordinates, Selectable> positions) {
 
 		int radius = unit.getRange();
@@ -190,9 +206,12 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						return positions.get(positionGround);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
+
 					}
-					
+
 				}
 
 			}
@@ -202,7 +221,9 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						return positions.get(positionGround);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
 					}
 				}
 
@@ -213,7 +234,9 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						return positions.get(positionGround);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
 					}
 				}
 			}
@@ -223,7 +246,9 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						return positions.get(positionGround);
+						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
 					}
 				}
 
