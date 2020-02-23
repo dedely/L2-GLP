@@ -65,22 +65,9 @@ public class SelectableTreatment {
 		return true;
 	}
 
-	public Coordinates positionNextTick(Unit unitToMove, Coordinates destination) {
-		Coordinates origin = unitToMove.getPosition();
-		int deltaX = destination.getAbsciss() - origin.getAbsciss();
-		int deltaY = destination.getOrdinate() - origin.getOrdinate();
-		double length = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
-		if (unitToMove.getSpeed() < length) {
-			int newX = (int) Math.round((origin.getAbsciss() + (deltaX / length * unitToMove.getSpeed())));
-			int newY = (int) Math.round((origin.getOrdinate() + (deltaY / length * unitToMove.getSpeed())));
-			return new Coordinates(newX, newY, origin.getHeight());
-		} else
-			return destination;
 
-	}
-
-	public void moveToward(Unit unitToMove, Coordinates destination) {
-		unitToMove.setPosition(positionNextTick(unitToMove, destination));
+	public static void moveToward(Unit unitToMove, Coordinates destination) {
+		unitToMove.setPosition(CoordinatesTreatment.positionNextTick(unitToMove, destination));
 	}
 
 
@@ -88,7 +75,7 @@ public class SelectableTreatment {
 		unitToUpdate.setPosition(new Coordinates(unitToUpdate.getPosition(), newState));
 	}
 	
-	public void getIn(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
+	public static void getIn(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getUnitSlotsAvailable();
 		int unitSize = unitToEmbark.getUnitSlots();
 		if( canEmbark(unitToEmbark, whereToEmbark)) {
@@ -98,7 +85,8 @@ public class SelectableTreatment {
 		
 	}
 	
-	public boolean canEmbark(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
+	public static boolean canEmbark(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
+
 		int unitsSlotsAvailable = whereToEmbark.getUnitSlotsAvailable();
 		int unitSize = unitToEmbark.getUnitSlots();
 		if( unitsSlotsAvailable >= unitSize) {
@@ -108,7 +96,8 @@ public class SelectableTreatment {
 			return false;
 		}
 	}
-	public void getIn(GroundUnit unitToEmbark, LightTV whereToEmbark) {
+
+	public static void getIn(GroundUnit unitToEmbark, LightTV whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getInfantrySeatsRemaining();
 		int unitSize = unitToEmbark.getUnitSlots();
 		if( canEmbark(unitToEmbark, whereToEmbark)) {
@@ -117,8 +106,8 @@ public class SelectableTreatment {
 		}
 		
 	}
-	
-	public boolean canEmbark(GroundUnit unitToEmbark, LightTV whereToEmbark) {
+
+	public static boolean canEmbark(GroundUnit unitToEmbark, LightTV whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getInfantrySeatsRemaining();
 		int unitSize = unitToEmbark.getUnitSlots();
 		if( unitsSlotsAvailable >= unitSize) {

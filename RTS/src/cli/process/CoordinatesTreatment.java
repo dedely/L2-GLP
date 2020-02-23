@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import cli.data.Constants;
 import cli.data.Coordinates;
+import cli.data.unit.Unit;
 
 public class CoordinatesTreatment {
 	public static ArrayList<Coordinates> tilesAroundLineByLine(Coordinates center, int radius) {
@@ -76,6 +77,25 @@ public class CoordinatesTreatment {
 			}
 		}
 		return tilesAround;
+	}
+
+	public static Coordinates positionNextTick(Unit unitToMove, Coordinates destination) {
+		Coordinates origin = unitToMove.getPosition();
+		int deltaX = destination.getAbsciss() - origin.getAbsciss();
+		int deltaY = destination.getOrdinate() - origin.getOrdinate();
+		double length = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+		if (unitToMove.getSpeed() < length) {
+			int newX = (int) Math.round((origin.getAbsciss() + (deltaX / length * unitToMove.getSpeed())));
+			int newY = (int) Math.round((origin.getOrdinate() + (deltaY / length * unitToMove.getSpeed())));
+			return new Coordinates(newX, newY, origin.getHeight());
+		} else
+			return destination;
+
+	}
+
+	public static double distance(Coordinates position1, Coordinates position2) {
+		return Math.sqrt((Math.pow(position1.getAbsciss() - position2.getAbsciss(), 2)
+				+ (Math.pow(position1.getOrdinate() - position2.getOrdinate(), 2))));
 	}
 
 }
