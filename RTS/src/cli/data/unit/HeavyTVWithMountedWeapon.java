@@ -36,9 +36,9 @@ public class HeavyTVWithMountedWeapon extends GroundUnit {
 	public HeavyTVWithMountedWeapon(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, int typeOfDammage,
 			int timeBeetweenShots, int range,int unitSlots, boolean mounted,
-			int mountedWeaponDamage, int mountedWeaponFireRate) {
+			int mountedWeaponDamage, int mountedWeaponFireRate, boolean canShootTargetsOnDifferentHeight) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, unitSlots);
+				typeOfDammage, timeBeetweenShots, range, unitSlots, canShootTargetsOnDifferentHeight);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeaponFireRate = mountedWeaponFireRate;

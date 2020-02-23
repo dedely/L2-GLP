@@ -14,6 +14,12 @@ public class Coordinates {
 		this.ordinate = ordinate;
 		this.height = height;
 	}
+	
+	public Coordinates(Coordinates oldCoordinates, int newHeight) {
+		absciss = oldCoordinates.getAbsciss();
+		ordinate = oldCoordinates.getOrdinate();
+		height = newHeight;
+	}
 
 	public int getAbsciss() {
 		return absciss;

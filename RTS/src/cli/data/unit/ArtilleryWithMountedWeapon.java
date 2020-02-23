@@ -35,9 +35,9 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	public ArtilleryWithMountedWeapon(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, int typeOfDammage,
 			int timeBeetweenShots, int range, int unitSlots, int minimumRange, boolean mounted,
-			int mountedWeaponDamage, int mountedWeaponFireRate) {
+			int mountedWeaponDamage, int mountedWeaponFireRate, boolean canShootTargetsOnDifferentHeight) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, unitSlots, minimumRange);
+				typeOfDammage, timeBeetweenShots, range, unitSlots, minimumRange, canShootTargetsOnDifferentHeight);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeaponFireRate = mountedWeaponFireRate;

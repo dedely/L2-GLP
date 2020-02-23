@@ -31,9 +31,9 @@ public class LightTV extends GroundUnit {
 
 	public LightTV(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
 			Description description, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
-			int unitSlots, int infantrySeats, int infantrySeatsRemaining) {
+			int unitSlots, int infantrySeats, int infantrySeatsRemaining, boolean canShootTargetsOnDifferentHeight) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, unitSlots);
+				typeOfDammage, timeBeetweenShots, range, unitSlots, canShootTargetsOnDifferentHeight);
 		this.infantrySeats = infantrySeats;
 		this.infantrySeatsRemaining = infantrySeatsRemaining;
 	}
@@ -56,6 +56,10 @@ public class LightTV extends GroundUnit {
 	 * @return the list of soldiers inside the vehicle if any
 	 */
 	public ArrayList<GroundUnit> getInfanteryIn() {
+		return infanteryIn;
+	}
+	
+	public ArrayList<GroundUnit> getUnitsIn() {
 		return infanteryIn;
 	}
 
