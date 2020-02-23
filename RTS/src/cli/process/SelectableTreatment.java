@@ -14,7 +14,7 @@ import cli.data.unit.Unit;
 
 public class SelectableTreatment {
 
-	public void receiveDamage(Selectable target, int amount, Unit caster) {
+	public static void receiveDamage(Selectable target, int amount, Unit caster) {
 		target.setHealth(target.getHealth() - amount);
 		if (target.getHealth() <= 0) {
 			System.out.println(target.getName() + " was killed by " + caster.getName());
@@ -22,7 +22,7 @@ public class SelectableTreatment {
 
 	}
 
-	public void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
+	public static void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
 		target.setHealth(target.getHealth() - amount);
 		if (target.getHealth() <= 0) {
 			System.out.println(target.getName() + " was killed by " + caster.getName());
@@ -30,7 +30,7 @@ public class SelectableTreatment {
 
 	}
 
-	public void dealDamage(Unit caster, Selectable target) {
+	public static void dealDamage(Unit caster, Selectable target) {
 		int base = caster.getDamagePerShot();
 		int damageType = caster.getTypeOfDammage();
 		int armor = target.getArmorPoints();
@@ -42,7 +42,7 @@ public class SelectableTreatment {
 		receiveDamage(target, calculatedDamage, caster);
 	}
 
-	public void dealDamage(DefenseBuilding caster, Selectable target) {
+	public static void dealDamage(DefenseBuilding caster, Selectable target) {
 		int base = caster.getDamage();
 		int damageType = caster.getDamageType();
 		int armor = target.getArmorPoints();
@@ -51,11 +51,11 @@ public class SelectableTreatment {
 		receiveDamage(target, calculatedDamage, caster);
 	}
 
-	public int calculDamage(int baseAmount, int damageType, int armor, int armorType) {
+	public static int calculDamage(int baseAmount, int damageType, int armor, int armorType) {
 		return (int) (Math.max(baseAmount - (armor * ((armorType - damageType) / 2.0 + 1)), 1));
 	}
 	
-	public boolean canShoot(Unit unit, Selectable Target) {
+	public static boolean canShoot(Unit unit, Selectable Target) {
 		if (unit.getPosition().getHeight() < 0) {
 			return false;
 		}
