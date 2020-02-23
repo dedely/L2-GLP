@@ -14,7 +14,7 @@ import cli.data.unit.Unit;
 
 public class SelectableTreatment {
 
-	public static void receiveDamage(Selectable target, int amount, Unit caster) {
+	public void receiveDamage(Selectable target, int amount, Unit caster) {
 		target.setHealth(target.getHealth() - amount);
 		if (target.getHealth() <= 0) {
 			System.out.println(target.getName() + " was killed by " + caster.getName());
@@ -22,7 +22,7 @@ public class SelectableTreatment {
 
 	}
 
-	public static void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
+	public void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
 		target.setHealth(target.getHealth() - amount);
 		if (target.getHealth() <= 0) {
 			System.out.println(target.getName() + " was killed by " + caster.getName());
@@ -30,7 +30,7 @@ public class SelectableTreatment {
 
 	}
 
-	public static void dealDamage(Unit caster, Selectable target) {
+	public void dealDamage(Unit caster, Selectable target) {
 		int base = caster.getDamagePerShot();
 		int damageType = caster.getTypeOfDammage();
 		int armor = target.getArmorPoints();
@@ -42,7 +42,7 @@ public class SelectableTreatment {
 		receiveDamage(target, calculatedDamage, caster);
 	}
 
-	public static void dealDamage(DefenseBuilding caster, Selectable target) {
+	public void dealDamage(DefenseBuilding caster, Selectable target) {
 		int base = caster.getDamage();
 		int damageType = caster.getDamageType();
 		int armor = target.getArmorPoints();
@@ -51,11 +51,11 @@ public class SelectableTreatment {
 		receiveDamage(target, calculatedDamage, caster);
 	}
 
-	public static int calculDamage(int baseAmount, int damageType, int armor, int armorType) {
+	public int calculDamage(int baseAmount, int damageType, int armor, int armorType) {
 		return (int) (Math.max(baseAmount - (armor * ((armorType - damageType) / 2.0 + 1)), 1));
 	}
 	
-	public static boolean canShoot(Unit unit, Selectable Target) {
+	public boolean canShoot(Unit unit, Selectable Target) {
 		if (unit.getPosition().getHeight() < 0) {
 			return false;
 		}
@@ -65,7 +65,7 @@ public class SelectableTreatment {
 		return true;
 	}
 
-	public static Coordinates positionNextTick(Unit unitToMove, Coordinates destination) {
+	public Coordinates positionNextTick(Unit unitToMove, Coordinates destination) {
 		Coordinates origin = unitToMove.getPosition();
 		int deltaX = destination.getAbsciss() - origin.getAbsciss();
 		int deltaY = destination.getOrdinate() - origin.getOrdinate();
@@ -79,7 +79,7 @@ public class SelectableTreatment {
 
 	}
 
-	public static void moveToward(Unit unitToMove, Coordinates destination) {
+	public void moveToward(Unit unitToMove, Coordinates destination) {
 		unitToMove.setPosition(positionNextTick(unitToMove, destination));
 	}
 
@@ -87,73 +87,44 @@ public class SelectableTreatment {
 	public static void changePositionState(Unit unitToUpdate, int newState) {
 		unitToUpdate.setPosition(new Coordinates(unitToUpdate.getPosition(), newState));
 	}
-
-	public static void getIn(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
+	
+	public void getIn(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getUnitSlotsAvailable();
 		int unitSize = unitToEmbark.getUnitSlots();
-		if (canEmbark(unitToEmbark, whereToEmbark)) {
-			whereToEmbark.setUnitSlotsAvailable(unitsSlotsAvailable - unitSize);
+		if( canEmbark(unitToEmbark, whereToEmbark)) {
+			whereToEmbark.setUnitSlotsAvailable(unitsSlotsAvailable-unitSize);
 			whereToEmbark.getUnitsIn().add(unitToEmbark);
 		}
-
+		
 	}
-
-	public static boolean canEmbark(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
+	
+	public boolean canEmbark(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getUnitSlotsAvailable();
 		int unitSize = unitToEmbark.getUnitSlots();
-		if (unitsSlotsAvailable >= unitSize) {
+		if( unitsSlotsAvailable >= unitSize) {
 			return true;
-		} else {
+		}
+		else {
 			return false;
 		}
 	}
-
-	public static void getIn(GroundUnit unitToEmbark, LightTV whereToEmbark) {
+	public void getIn(GroundUnit unitToEmbark, LightTV whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getInfantrySeatsRemaining();
 		int unitSize = unitToEmbark.getUnitSlots();
-		if (canEmbark(unitToEmbark, whereToEmbark)) {
-			whereToEmbark.setInfantrySeatsRemaining(unitsSlotsAvailable - unitSize);
+		if( canEmbark(unitToEmbark, whereToEmbark)) {
+			whereToEmbark.setInfantrySeatsRemaining(unitsSlotsAvailable-unitSize);
 			whereToEmbark.getUnitsIn().add(unitToEmbark);
 		}
-
+		
 	}
-
-	public static boolean canEmbark(GroundUnit unitToEmbark, LightTV whereToEmbark) {
+	
+	public boolean canEmbark(GroundUnit unitToEmbark, LightTV whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getInfantrySeatsRemaining();
 		int unitSize = unitToEmbark.getUnitSlots();
-		if (unitsSlotsAvailable >= unitSize) {
+		if( unitsSlotsAvailable >= unitSize) {
 			return true;
-		} else {
-			return false;
 		}
-	}
-
-	public static void getIn(GroundUnit unitToEmbark, HeavyTVWithMountedWeapon whereToEmbark) {
-		if (canEmbark(unitToEmbark, whereToEmbark)) {
-			whereToEmbark.setInfanteryIn(unitToEmbark);
-		}
-
-	}
-
-	public static boolean canEmbark(GroundUnit unitToEmbark, HeavyTVWithMountedWeapon whereToEmbark) {
-		if (whereToEmbark.getInfanteryIn() == null && unitToEmbark.getUnitSlots() == 1) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public static void getIn(GroundUnit unitToEmbark, ArtilleryWithMountedWeapon whereToEmbark) {
-		if (canEmbark(unitToEmbark, whereToEmbark)) {
-			whereToEmbark.setInfanteryIn(unitToEmbark);
-		}
-
-	}
-
-	public static boolean canEmbark(GroundUnit unitToEmbark, ArtilleryWithMountedWeapon whereToEmbark) {
-		if (whereToEmbark.getInfanteryIn() == null && unitToEmbark.getUnitSlots() == 1) {
-			return true;
-		} else {
+		else {
 			return false;
 		}
 	}
