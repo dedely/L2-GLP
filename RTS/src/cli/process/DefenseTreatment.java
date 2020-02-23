@@ -14,10 +14,10 @@ public class DefenseTreatment {
 	public Selectable detectClosestEnnemy (Unit caster, HashMap<Coordinates, Selectable> positions) {
 		Selectable closestEnnemy = null;
 		if (caster.isCanShootTargetsOnDifferentHeight()) {
-			closestEnnemy = CoordinatesTreatment.closestSelectable(caster, positions);
+			closestEnnemy = CoordinatesTreatment.closestEnnemySelectable(caster, positions);
 		}
 		else {
-			closestEnnemy = CoordinatesTreatment.closestGroundSelectable(caster, positions);
+			closestEnnemy = CoordinatesTreatment.closestGroundEnnemySelectable(caster, positions);
 			}
 		return closestEnnemy;
 
@@ -25,8 +25,8 @@ public class DefenseTreatment {
 	
 	public Selectable detectClosestEnnemy (DefenseBuilding caster, HashMap<Coordinates, Selectable> positions) {
 		Selectable closestEnnemy = null;
-		if (CoordinatesTreatment.closestSelectable(caster, positions) != null) {
-			closestEnnemy = CoordinatesTreatment.closestSelectable(caster, positions);
+		if (CoordinatesTreatment.closestEnnemySelectable(caster, positions) != null) {
+			closestEnnemy = CoordinatesTreatment.closestEnnemySelectable(caster, positions);
 		}
 		else {}
 		return closestEnnemy;
