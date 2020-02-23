@@ -1,7 +1,6 @@
 package cli.process;
 
 
-import cli.data.Constants;
 import cli.data.Coordinates;
 import cli.data.Selectable;
 import cli.data.building.DefenseBuilding;
@@ -111,6 +110,38 @@ public class SelectableTreatment {
 		int unitsSlotsAvailable = whereToEmbark.getInfantrySeatsRemaining();
 		int unitSize = unitToEmbark.getUnitSlots();
 		if( unitsSlotsAvailable >= unitSize) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static void getIn(GroundUnit unitToEmbark, HeavyTVWithMountedWeapon whereToEmbark) {
+		if( canEmbark(unitToEmbark, whereToEmbark)) {
+			whereToEmbark.setInfanteryIn(unitToEmbark);
+		}
+		
+	}
+
+	public static boolean canEmbark(GroundUnit unitToEmbark, HeavyTVWithMountedWeapon whereToEmbark) {
+		if( unitToEmbark.getUnitSlots()== 1 && whereToEmbark.getInfanteryIn()==null) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static void getIn(GroundUnit unitToEmbark, ArtilleryWithMountedWeapon whereToEmbark) {
+		if( canEmbark(unitToEmbark, whereToEmbark)) {
+			whereToEmbark.setInfanteryIn(unitToEmbark);
+		}
+		
+	}
+
+	public static boolean canEmbark(GroundUnit unitToEmbark, ArtilleryWithMountedWeapon whereToEmbark) {
+		if( unitToEmbark.getUnitSlots()== 1 && whereToEmbark.getInfanteryIn()==null) {
 			return true;
 		}
 		else {
