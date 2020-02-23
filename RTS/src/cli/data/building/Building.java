@@ -8,6 +8,7 @@ import cli.data.faction.Faction;
  * @author Adel
  *
  */
+
 public abstract class Building extends Selectable {
 
 	private Size size;
