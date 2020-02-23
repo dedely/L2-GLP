@@ -6,7 +6,7 @@ import cli.data.Constants;
 import cli.data.Coordinates;
 
 public class CoordinatesTreatment {
-	public ArrayList<Coordinates> tilesAroundLineByLine(Coordinates center, int radius) {
+	public static ArrayList<Coordinates> tilesAroundLineByLine(Coordinates center, int radius) {
 		ArrayList<Coordinates> tilesAround = new ArrayList<Coordinates>();
 
 		radius++;
@@ -29,7 +29,7 @@ public class CoordinatesTreatment {
 		return tilesAround;
 	}
 
-	public ArrayList<Coordinates> tilesAroundSpiral(Coordinates center, int radius) {
+	public static ArrayList<Coordinates> tilesAroundSpiral(Coordinates center, int radius) {
 		ArrayList<Coordinates> tilesAround = new ArrayList<Coordinates>();
 
 		radius++;
