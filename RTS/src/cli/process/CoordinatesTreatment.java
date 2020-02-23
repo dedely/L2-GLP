@@ -97,5 +97,4 @@ public class CoordinatesTreatment {
 		return Math.sqrt((Math.pow(position1.getAbsciss() - position2.getAbsciss(), 2)
 				+ (Math.pow(position1.getOrdinate() - position2.getOrdinate(), 2))));
 	}
-
 }

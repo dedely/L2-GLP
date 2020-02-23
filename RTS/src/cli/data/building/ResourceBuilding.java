@@ -16,8 +16,11 @@ public class ResourceBuilding extends Building {
 	private int numberProduced;
 
 	public ResourceBuilding(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description) {
+			Coordinates position, Description description, Resource resourceProduced, int timeToProduce, int numberProduced) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description);
+		this.numberProduced = numberProduced;
+		this.resourceProduced = resourceProduced;
+		this.timeToProduce = timeToProduce;
 	}
 
 	public Resource getResourceProduced() {

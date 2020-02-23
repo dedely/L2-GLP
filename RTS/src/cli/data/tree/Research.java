@@ -1,17 +1,19 @@
 package cli.data.tree;
 
+import java.util.ArrayList;
+
 public class Research {
 
 	private String name;
 	private boolean unlocked;
 	private int cost;
-	private Upgrade upgrade;
+	private ArrayList <Upgrade> upgrades = new ArrayList<Upgrade>();
 
 	public Research(String name, int cost, Upgrade upgrade) {
+		super();
 		this.name = name;
 		unlocked = false;
 		this.cost = cost;
-		this.upgrade = upgrade;
 	}
 
 	public String getName() {
@@ -38,12 +40,8 @@ public class Research {
 		this.cost = cost;
 	}
 
-	public Upgrade getUpgrade() {
-		return upgrade;
-	}
-
-	public void setUpgrade(Upgrade upgrade) {
-		this.upgrade = upgrade;
+	public ArrayList<Upgrade> getUpgrades() {
+		return upgrades;
 	}
 
 	@Override
