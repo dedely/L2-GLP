@@ -6,6 +6,7 @@ import java.util.HashMap;
 import cli.data.Constants;
 import cli.data.Coordinates;
 import cli.data.Selectable;
+import cli.data.building.DefenseBuilding;
 import cli.data.unit.Unit;
 
 public class CoordinatesTreatment {
@@ -247,6 +248,163 @@ public class CoordinatesTreatment {
 
 					if (positions.containsKey(positionGround)) {
 						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
+					}
+				}
+
+			}
+		}
+		return null;
+	}
+
+	public static Selectable closestEnnemySelectable(DefenseBuilding defense, HashMap<Coordinates, Selectable> positions) {
+
+		int radius = defense.getRange();
+		radius++;
+
+		double x = defense.getPosition().getAbsciss();
+		double y = defense.getPosition().getOrdinate();
+
+		double j = x + 1;
+		double i = y + 1;
+
+		for (int m = 1; m <= radius; m++) {
+
+			while (i > y - m) {
+				i--;
+				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
+					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
+					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
+
+					if (positions.containsKey(positionGround)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
+					} else if (positions.containsKey(positionAir)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionAir))) {
+							return positions.get(positionAir);
+						}
+					}
+				}
+
+			}
+			while (j > x - m) {
+				j--;
+				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
+					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
+					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
+
+					if (positions.containsKey(positionGround)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
+					} else if (positions.containsKey(positionAir)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionAir))) {
+							return positions.get(positionAir);
+						}
+					}
+				}
+
+			}
+			while (i < y + m) {
+				i++;
+				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
+					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
+					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
+
+					if (positions.containsKey(positionGround)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
+					} else if (positions.containsKey(positionAir)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionAir))) {
+							return positions.get(positionAir);
+						}
+					}
+				}
+			}
+			while (j < x + m) {
+				j++;
+				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
+					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
+					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
+
+					if (positions.containsKey(positionGround)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
+					} else if (positions.containsKey(positionAir)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionAir))) {
+							return positions.get(positionAir);
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static Selectable closestGroundSelectable(DefenseBuilding defense, HashMap<Coordinates, Selectable> positions) {
+
+		int radius = defense.getRange();
+		radius++;
+
+		double x = defense.getPosition().getAbsciss();
+		double y = defense.getPosition().getOrdinate();
+
+		double j = x + 1;
+		double i = y + 1;
+
+		for (int m = 1; m <= radius; m++) {
+
+			while (i > y - m) {
+				i--;
+				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
+					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
+
+					if (positions.containsKey(positionGround)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
+
+					}
+
+				}
+
+			}
+			while (j > x - m) {
+				j--;
+				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
+					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
+
+					if (positions.containsKey(positionGround)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
+					}
+				}
+
+			}
+			while (i < y + m) {
+				i++;
+				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
+					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
+
+					if (positions.containsKey(positionGround)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+							return positions.get(positionGround);
+						}
+					}
+				}
+			}
+			while (j < x + m) {
+				j++;
+				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
+					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
+
+					if (positions.containsKey(positionGround)) {
+						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					}
