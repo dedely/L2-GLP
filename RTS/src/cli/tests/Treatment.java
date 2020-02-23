@@ -1,4 +1,4 @@
-package cli.treatment;
+package cli.tests;
 
 import java.util.HashMap;
 
