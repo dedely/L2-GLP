@@ -18,13 +18,12 @@ public class ArtilleryLikeInfantry extends GroundUnit {
 	 */
 	private int minimumRange;
 
-	
-
 	public ArtilleryLikeInfantry(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
 			Coordinates position, Description description, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, int unitSlots, int minimumRange) {
+			int timeBeetweenShots, int range, int unitSlots, int minimumRange,
+			boolean canShootTargetsOnDifferentHeight) {
 		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, unitSlots);
+				typeOfDammage, timeBeetweenShots, range, unitSlots, canShootTargetsOnDifferentHeight);
 		this.minimumRange = minimumRange;
 	}
 

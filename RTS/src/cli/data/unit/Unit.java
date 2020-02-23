@@ -44,9 +44,11 @@ public abstract class Unit extends Selectable {
 	 * 
 	 */
 	private int range;
+	
+	private boolean canShootTargetsOnDifferentHeight;
 
 	public Unit(int maxHealth,int armorPoints,int armorType, Faction faction, String name, Coordinates position, Description description, int speed,
-			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range) {
+			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight) {
 		super(maxHealth,armorPoints, armorType, faction, name, position, description);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
@@ -54,6 +56,7 @@ public abstract class Unit extends Selectable {
 		this.timeBeetweenShots = timeBeetweenShots;
 		timeLeftToReload = timeBeetweenShots;
 		this.range = range;
+		this.canShootTargetsOnDifferentHeight = canShootTargetsOnDifferentHeight;
 	}
 
 	/**
@@ -135,10 +138,19 @@ public abstract class Unit extends Selectable {
 		this.range = range;
 	}
 	
+	public boolean isCanShootTargetsOnDifferentHeight() {
+		return canShootTargetsOnDifferentHeight;
+	}
+
+	public void setCanShootTargetsOnDifferentHeight(boolean canShootTargetsOnDifferentHeight) {
+		this.canShootTargetsOnDifferentHeight = canShootTargetsOnDifferentHeight;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString()+"\nspeed = " + speed + "\ndamagePerShot = " + damagePerShot + "\ntimeBetweenShots = " + timeBeetweenShots
-				+ "\nrange = " + range;
+				+ "\nrange = " + range + "\n can shoot taget on different height = " + isCanShootTargetsOnDifferentHeight();
 	}
 
+	
 }
