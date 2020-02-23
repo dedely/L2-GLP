@@ -19,6 +19,4 @@ public class Laboratory extends Building {
 		unlocksList.add(researchIndex);
 	}
 
-	
-	
 }

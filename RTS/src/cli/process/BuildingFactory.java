@@ -4,5 +4,5 @@ import cli.data.Coordinates;
 import cli.data.building.Building;
 
 public interface BuildingFactory {
-	Building createBuilding(String factionName, Coordinates position);
+	Building createBuilding(String factionName, String type, Coordinates position);
 }
