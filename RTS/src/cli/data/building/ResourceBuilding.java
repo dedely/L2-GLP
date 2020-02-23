@@ -1,7 +1,6 @@
 package cli.data.building;
 
 import cli.data.Coordinates;
-import cli.data.Description;
 import cli.data.faction.Faction;
 import cli.data.resource.Resource;
 
@@ -15,12 +14,13 @@ public class ResourceBuilding extends Building {
 	private int timeToProduce;
 	private int numberProduced;
 
-	public ResourceBuilding(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description, Resource resourceProduced, int timeToProduce, int numberProduced) {
-		super(maxHealth, armorPoints, armorType, faction, name, position, description);
-		this.numberProduced = numberProduced;
+	public ResourceBuilding(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, Size size, Resource resourceProduced, int timeToProduce,
+			int numberProduced) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, size);
 		this.resourceProduced = resourceProduced;
 		this.timeToProduce = timeToProduce;
+		this.numberProduced = numberProduced;
 	}
 
 	public Resource getResourceProduced() {

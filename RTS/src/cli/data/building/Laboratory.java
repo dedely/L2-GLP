@@ -1,17 +1,24 @@
 package cli.data.building;
 
+import java.util.ArrayList;
+
 import cli.data.Coordinates;
-import cli.data.Description;
 import cli.data.faction.Faction;
 
-
 public class Laboratory extends Building {
-	
-	private 
-	
-	public Laboratory (int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description) {
-		super(maxHealth, armorPoints, armorType, faction, name, position, description);
+
+	private ArrayList<Integer> unlocksList = new ArrayList<Integer>();
+
+	public Laboratory(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
+			Coordinates position, Size size, ArrayList<Integer> unlocksList) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, size);
+		this.unlocksList = unlocksList;
 	}
+	
+	public void add(Integer researchIndex) {
+		unlocksList.add(researchIndex);
+	}
+
+	
 	
 }
