@@ -3,7 +3,6 @@ package cli.data.unit;
 import cli.data.Selectable;
 import cli.data.faction.Faction;
 import cli.data.Coordinates;
-import cli.data.Description;
 
 /**
  * the abstract class representing all mobile objects
@@ -47,9 +46,9 @@ public abstract class Unit extends Selectable {
 	
 	private boolean canShootTargetsOnDifferentHeight;
 
-	public Unit(int maxHealth,int armorPoints,int armorType, Faction faction, String name, Coordinates position, Description description, int speed,
+	public Unit(String name, Faction faction, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
 			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight) {
-		super(maxHealth,armorPoints, armorType, faction, name, position, description);
+		super(name, faction, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
 		this.TypeOfDammage = typeOfDammage;
@@ -58,6 +57,9 @@ public abstract class Unit extends Selectable {
 		this.range = range;
 		this.canShootTargetsOnDifferentHeight = canShootTargetsOnDifferentHeight;
 	}
+
+	
+
 
 	/**
 	 * @return the attribute depicting how fast a unit moves on the map

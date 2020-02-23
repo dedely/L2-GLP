@@ -14,16 +14,16 @@ import cli.data.unit.Unit;
 public class SelectableTreatment {
 
 	public static void receiveDamage(Selectable target, int amount, Unit caster) {
-		target.setHealth(target.getHealth() - amount);
-		if (target.getHealth() <= 0) {
+		target.setCurrentHealth(target.getCurrentHealth() - amount);
+		if (target.getCurrentHealth() <= 0) {
 			System.out.println(target.getName() + " was killed by " + caster.getName());
 		}
 
 	}
 
 	public static void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
-		target.setHealth(target.getHealth() - amount);
-		if (target.getHealth() <= 0) {
+		target.setCurrentHealth(target.getCurrentHealth() - amount);
+		if (target.getCurrentHealth() <= 0) {
 			System.out.println(target.getName() + " was killed by " + caster.getName());
 		}
 

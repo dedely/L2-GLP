@@ -1,7 +1,6 @@
 package cli.data.building;
 
 import cli.data.Coordinates;
-import cli.data.Description;
 import cli.data.Selectable;
 import cli.data.faction.Faction;
 

@@ -1,7 +1,6 @@
 package cli.data.unit;
 
 import cli.data.Coordinates;
-import cli.data.Description;
 import cli.data.faction.Faction;
 
 /**
@@ -18,12 +17,13 @@ public class ArtilleryLikeInfantry extends GroundUnit {
 	 */
 	private int minimumRange;
 
-	public ArtilleryLikeInfantry(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, int unitSlots, int minimumRange,
-			boolean canShootTargetsOnDifferentHeight) {
-		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, unitSlots, canShootTargetsOnDifferentHeight);
+	public ArtilleryLikeInfantry(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight, int unitSlots,
+			int minimumRange) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots);
+
 		this.minimumRange = minimumRange;
 	}
 

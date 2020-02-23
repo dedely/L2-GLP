@@ -2,7 +2,6 @@ package cli.data.faction;
 
 import java.util.ArrayList;
 
-import cli.data.Description;
 import cli.data.building.Building;
 import cli.data.resource.Resource;
 import cli.data.tree.ResearchTree;
@@ -41,7 +40,7 @@ public class Faction {
 	/**
 	 * The description of the faction
 	 */
-	private Description description;
+	private String description;
 
 	private Boolean CurrentResearch ;
 	
@@ -49,7 +48,7 @@ public class Faction {
 
 	private ArrayList<Faction> ennemies = new ArrayList<Faction>();
 
-	public Faction(String name,ResearchTree researchTree,  Description description) {
+	public Faction(String name,ResearchTree researchTree,  String description) {
 		super();
 		this.name = name;
 		this.researchTree = researchTree;
@@ -88,11 +87,11 @@ public class Faction {
 		this.resources = resources;
 	}
 
-	public Description getDescription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(Description description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
