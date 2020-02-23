@@ -150,4 +150,11 @@ public class SelectableTreatment {
 			return false;
 		}
 	}
+	
+	public static boolean isEnnemy(Selectable caster, Selectable target) {
+		if (caster.getFaction().getEnnemies().contains(target.getFaction())){
+			return true;
+		}
+		else return false;
+	}
 }
