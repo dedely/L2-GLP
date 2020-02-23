@@ -12,7 +12,7 @@ import cli.data.faction.Faction;
  * @author Awen
  *
  */
-public class LightTV extends TerrestrialVehicle {
+public class LightTV extends GroundUnit {
 
 	/**
 	 * how many soldiers can fit inside the vehicle

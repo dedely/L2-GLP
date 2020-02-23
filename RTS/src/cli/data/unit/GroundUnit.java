@@ -5,12 +5,12 @@ import cli.data.Description;
 import cli.data.faction.Faction;
 
 /**
- * Abstract class representing the foot soldiers of various types.
+ * Abstract class representing the ground units such as foot soldiers or tanks
  * 
  * @author Awen
  *
  */
-public abstract class GroundUnit extends Unit {
+public class GroundUnit extends Unit {
 
 	/**
 	 * the space the unit takes
@@ -26,14 +26,14 @@ public abstract class GroundUnit extends Unit {
 	}
 
 	/**
-	 * the space the infantry unit takes when inside something
+	 * the space the unit takes when inside something
 	 */
 	public int getUnitSlots() {
 		return unitSlots;
 	}
 
 	/**
-	 * @param unitSlots how much space the infantry unit takes
+	 * @param unitSlots how much space the unit takes
 	 */
 	public void setUnitSlots(int unitSlots) {
 		this.unitSlots = unitSlots;
