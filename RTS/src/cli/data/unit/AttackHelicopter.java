@@ -1,7 +1,6 @@
 package cli.data.unit;
 
 import cli.data.Coordinates;
-import cli.data.Description;
 import cli.data.faction.Faction;
 
 /**
@@ -32,11 +31,11 @@ public class AttackHelicopter extends Unit {
 	 */
 	private int secondaryWeaponReloadTime;
 
-	public AttackHelicopter(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, int secondaryWeaponDamage, int secondaryWeaponFireRate,
-			int secondaryWeaponAmmount, int secondaryWeaponReloadTime, boolean canShootTargetsOnDifferentHeight) {
-		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
+	public AttackHelicopter(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
+			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+			boolean canShootTargetsOnDifferentHeight, int secondaryWeaponDamage, int secondaryWeaponFireRate,
+			int secondaryWeaponAmmount, int secondaryWeaponReloadTime) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponFireRate = secondaryWeaponFireRate;

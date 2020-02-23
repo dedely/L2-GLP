@@ -3,7 +3,6 @@ package cli.data.unit;
 import java.util.ArrayList;
 
 import cli.data.Coordinates;
-import cli.data.Description;
 import cli.data.faction.Faction;
 
 /**
@@ -29,11 +28,11 @@ public class LightTV extends GroundUnit {
 	 */
 	private ArrayList<GroundUnit> infanteryIn = new ArrayList<GroundUnit>();
 
-	public LightTV(int maxHealth, int armorPoints, int armorType, Faction faction, String name, Coordinates position,
-			Description description, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
-			int unitSlots, int infantrySeats, int infantrySeatsRemaining, boolean canShootTargetsOnDifferentHeight) {
-		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, unitSlots, canShootTargetsOnDifferentHeight);
+	public LightTV(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
+			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+			boolean canShootTargetsOnDifferentHeight, int unitSlots, int infantrySeats, int infantrySeatsRemaining) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots);
 		this.infantrySeats = infantrySeats;
 		this.infantrySeatsRemaining = infantrySeatsRemaining;
 	}
@@ -58,7 +57,7 @@ public class LightTV extends GroundUnit {
 	public ArrayList<GroundUnit> getInfanteryIn() {
 		return infanteryIn;
 	}
-	
+
 	public ArrayList<GroundUnit> getUnitsIn() {
 		return infanteryIn;
 	}

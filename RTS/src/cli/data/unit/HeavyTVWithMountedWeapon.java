@@ -1,7 +1,6 @@
 package cli.data.unit;
 
 import cli.data.Coordinates;
-import cli.data.Description;
 import cli.data.faction.Faction;
 
 /**
@@ -33,12 +32,12 @@ public class HeavyTVWithMountedWeapon extends GroundUnit {
 	 */
 	private int mountedWeaponFireRate;
 
-	public HeavyTVWithMountedWeapon(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range,int unitSlots, boolean mounted,
-			int mountedWeaponDamage, int mountedWeaponFireRate, boolean canShootTargetsOnDifferentHeight) {
-		super(maxHealth, armorPoints, armorType, faction, name, position, description, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, unitSlots, canShootTargetsOnDifferentHeight);
+	public HeavyTVWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
+			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+			boolean canShootTargetsOnDifferentHeight, int unitSlots, boolean mounted,
+			int mountedWeaponDamage, int mountedWeaponFireRate) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeaponFireRate = mountedWeaponFireRate;
