@@ -1,9 +1,7 @@
 package cli.process;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import cli.data.Constants;
 import cli.data.Coordinates;
 import cli.data.Selectable;
 import cli.data.building.DefenseBuilding;
