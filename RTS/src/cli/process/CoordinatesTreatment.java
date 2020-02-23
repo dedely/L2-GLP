@@ -95,7 +95,6 @@ public class CoordinatesTreatment {
 			return new Coordinates(newX, newY, origin.getHeight());
 		} else
 			return destination;
-
 	}
 
 	public static double distance(Coordinates position1, Coordinates position2) {
