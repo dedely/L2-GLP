@@ -54,7 +54,7 @@ public class SelectableTreatment {
 		return (int) (Math.max(baseAmount - (armor * ((armorType - damageType) / 2.0 + 1)), 1));
 	}
 	
-	public static boolean canShoot(Unit unit, Selectable Target) {
+	public static boolean canShoot(Unit unit, Selectable target) {
 		if (unit.getPosition().getHeight() < 0) {
 			return false;
 		}

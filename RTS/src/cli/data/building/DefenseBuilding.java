@@ -16,15 +16,15 @@ public class DefenseBuilding extends Building {
 	private int timeLeftToReload;
 	private int damageType;
 
-	public DefenseBuilding(int maxHealth, int armorPoints, int armorType, Faction faction, String name,
-			Coordinates position, Description description, int range, int damage, int timeBeetweenShots,
-			int damageType) {
-		super(maxHealth, armorPoints, armorType, faction, name, position, description);
+	public DefenseBuilding(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, Size size, int range, int damage, int timeBeetweenShots,
+			int timeLeftToReload, int damageType) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, size);
 		this.range = range;
 		this.damage = damage;
 		this.timeBeetweenShots = timeBeetweenShots;
+		this.timeLeftToReload = timeLeftToReload;
 		this.damageType = damageType;
-		timeLeftToReload = 0;
 	}
 
 	public int getDamageType() {

@@ -231,5 +231,4 @@ public class CoordinatesTreatment {
 		}
 		return null;
 	}
-
 }
