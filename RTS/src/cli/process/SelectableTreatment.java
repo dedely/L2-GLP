@@ -61,6 +61,8 @@ public class SelectableTreatment {
 		if(unit.getTimeLeftToReload() > 0) {
 			return false;
 		}
+		
+		
 		return true;
 	}
 

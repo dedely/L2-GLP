@@ -99,7 +99,7 @@ public abstract class Unit extends Selectable {
 	/**
 	 * @return the time between two shots
 	 */
-	public float getTimeBeetweenShots() {
+	public int getTimeBeetweenShots() {
 		return timeBeetweenShots;
 	}
 
@@ -113,7 +113,7 @@ public abstract class Unit extends Selectable {
 	/**
 	 * @return the number of ticks before the unit can shoot
 	 */
-	public float getTimeLeftToReload() {
+	public int getTimeLeftToReload() {
 		return timeLeftToReload;
 	}
 
