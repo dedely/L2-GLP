@@ -6,7 +6,7 @@ import cli.data.Selectable;
 import cli.data.building.DefenseBuilding;
 import cli.data.unit.ArtilleryWithMountedWeapon;
 import cli.data.unit.GroundUnit;
-import cli.data.unit.HeavyTVWithMountedWeapon;
+import cli.data.unit.GroundUnitWithMountedWeapon;
 import cli.data.unit.LightTV;
 import cli.data.unit.TransportHelicopter;
 import cli.data.unit.Unit;
@@ -119,14 +119,14 @@ public class SelectableTreatment {
 		}
 	}
 	
-	public static void getIn(GroundUnit unitToEmbark, HeavyTVWithMountedWeapon whereToEmbark) {
+	public static void getIn(GroundUnit unitToEmbark, GroundUnitWithMountedWeapon whereToEmbark) {
 		if( canEmbark(unitToEmbark, whereToEmbark)) {
 			whereToEmbark.setInfanteryIn(unitToEmbark);
 		}
 		
 	}
 
-	public static boolean canEmbark(GroundUnit unitToEmbark, HeavyTVWithMountedWeapon whereToEmbark) {
+	public static boolean canEmbark(GroundUnit unitToEmbark, GroundUnitWithMountedWeapon whereToEmbark) {
 		if( unitToEmbark.getUnitSlots()== 1 && whereToEmbark.getInfanteryIn()==null) {
 			return true;
 		}

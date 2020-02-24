@@ -44,10 +44,12 @@ public abstract class Unit extends Selectable {
 	 */
 	private int range;
 	
-	private boolean canShootTargetsOnDifferentHeight;
+	private boolean canShootAtAirTarget;
+	
+	private boolean hasSecondariesOrMounted;
 
 	public Unit(String name, Faction faction, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
-			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight) {
+			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
@@ -55,7 +57,7 @@ public abstract class Unit extends Selectable {
 		this.timeBeetweenShots = timeBeetweenShots;
 		timeLeftToReload = timeBeetweenShots;
 		this.range = range;
-		this.canShootTargetsOnDifferentHeight = canShootTargetsOnDifferentHeight;
+		this.canShootAtAirTarget = canShootAtAirTarget;
 	}
 
 	
@@ -141,11 +143,22 @@ public abstract class Unit extends Selectable {
 	}
 	
 	public boolean isCanShootTargetsOnDifferentHeight() {
-		return canShootTargetsOnDifferentHeight;
+		return canShootAtAirTarget;
 	}
 
 	public void setCanShootTargetsOnDifferentHeight(boolean canShootTargetsOnDifferentHeight) {
-		this.canShootTargetsOnDifferentHeight = canShootTargetsOnDifferentHeight;
+		this.canShootAtAirTarget = canShootTargetsOnDifferentHeight;
+	}
+	
+	public boolean isHasSecondariesOrMounted() {
+		return hasSecondariesOrMounted;
+	}
+
+
+
+
+	public void setHasSecondariesOrMounted(boolean hasSecondariesOrMounted) {
+		this.hasSecondariesOrMounted = hasSecondariesOrMounted;
 	}
 
 	@Override
@@ -153,6 +166,11 @@ public abstract class Unit extends Selectable {
 		return super.toString()+"\nspeed = " + speed + "\ndamagePerShot = " + damagePerShot + "\ntimeBetweenShots = " + timeBeetweenShots
 				+ "\nrange = " + range + "\n can shoot taget on different height = " + isCanShootTargetsOnDifferentHeight();
 	}
+
+
+
+
+
 
 	
 }

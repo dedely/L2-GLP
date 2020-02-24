@@ -4,15 +4,16 @@ import cli.data.Coordinates;
 import cli.data.faction.Faction;
 
 /**
- * Artillery vehicle but with a weapon installable on top
+ * Generic TerrestrialVehicle, (basically tanks) but with a machine-gun on top
  * 
  * @author Awen
  *
  */
-public class ArtilleryWithMountedWeapon extends Artillery {
+
+public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	/**
-	 * the soldier operating the mounted weapon if any
+	 * the infantry serving mounted weapon if any
 	 */
 	private GroundUnit infanteryIn;
 
@@ -27,36 +28,36 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	private int mountedWeaponDamage;
 
 	/**
-	 * the number of shots per seconds from the mounted weapon
+	 * the number of ticks to reload the mounted weapon
 	 */
 	private int mountedWeapontimeBeetweenShots;
 	private int mountedWeapontimeLeftToReload;
 
 	private boolean canShootAtAirTargetWithMounted;
 
-	public ArtilleryWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
+	public GroundUnitWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange,
-			boolean mounted, int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
-			boolean canShootAtAirTargetWithMounted) {
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots, boolean mounted,
+			int mountedWeaponDamage, int MountedWeapontimeBeetweenShots, boolean canShootAtAirTargetWithMounted) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots, minimumRange);
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, unitSlots);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
-		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;
-		mountedWeapontimeLeftToReload = mountedWeapontimeBeetweenShots;
+		this.mountedWeapontimeBeetweenShots = MountedWeapontimeBeetweenShots;
+		mountedWeapontimeLeftToReload = MountedWeapontimeBeetweenShots;
+		this.canShootAtAirTargetWithMounted = canShootAtAirTargetWithMounted;
 		setHasSecondariesOrMounted(true);
 	}
 
 	/**
-	 * @return the Infantry operating the mounted weapon if any
+	 * @return the infantry serving the mounted weapon if any
 	 */
 	public GroundUnit getInfanteryIn() {
 		return infanteryIn;
 	}
 
 	/**
-	 * @param infanteryIn the Infantry operating the mounted weapon
+	 * @param infanteryIn the infantry that uses the mounted weapon
 	 */
 	public void setInfanteryIn(GroundUnit infanteryIn) {
 		this.infanteryIn = infanteryIn;
@@ -70,7 +71,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	}
 
 	/**
-	 * @param isMounted the truth value of the weapon installation
+	 * @param Mounted the truth value of the weapon installation
 	 */
 	public void setMounted(boolean Mounted) {
 		this.mounted = Mounted;
@@ -131,7 +132,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	@Override
 	public String toString() {
 		return super.toString() + "\nMounted = " + mounted + "\nmountedWeaponDamage = " + mountedWeaponDamage
-				+ "\nmountedWeapontimeBeetweenShots = " + mountedWeapontimeBeetweenShots
+				+ "\nMountedWeapontimeBeetweenShots = " + mountedWeapontimeBeetweenShots
 				+ "\nMW can shoot at AirTarget = " + canShootAtAirTargetWithMounted;
 	}
 

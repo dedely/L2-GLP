@@ -18,9 +18,9 @@ public class GroundUnit extends Unit {
 
 	public GroundUnit(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
-			boolean canShootTargetsOnDifferentHeight, int unitSlots) {
+			boolean canShootAtAirTarget, int unitSlots) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
 		this.unitSlots = unitSlots;
 	}
 

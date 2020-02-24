@@ -30,10 +30,10 @@ public class TransportHelicopter extends Unit {
 
 	public TransportHelicopter( String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots,boolean canShootTargetsOnDifferentHeight, int range, int unitSlotsAvailable, int unitSlots) {
+			int timeBeetweenShots,boolean canShootAtAirTarget, int range, int unitSlotsAvailable, int unitSlots) {
 		super( name,  faction,  maxHealth,  armorPoints,  armorType,  description,
 				 position,  speed,  damagePerShot,  typeOfDammage,
-				 timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
+				 timeBeetweenShots, range, canShootAtAirTarget);
 		this.unitSlotsAvailable = unitSlotsAvailable;
 		this.unitSlots = unitSlots;
 	}
