@@ -9,11 +9,9 @@ public class ResearchBuilding extends Building {
 
 	private ArrayList<Integer> unlocksList = new ArrayList<Integer>();
 
-	public ResearchBuilding(String name, int cost, Faction faction, int maxHealth, int currentHealth, int armorPoints,
-			int armorType, boolean selected, String description, Coordinates position, Size size,
-			ArrayList<Integer> unlocksList) {
-		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
-				size);
+	public ResearchBuilding(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, Size size, ArrayList<Integer> unlocksList) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, size);
 		this.unlocksList = unlocksList;
 	}
 
