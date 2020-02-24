@@ -9,9 +9,10 @@ import cli.data.faction.Faction;
 public abstract class Selectable {
 
 	private String name;
+	private int cost;
+
 	private Faction faction;
 
-	private int cost;
 	private int maxHealth;
 	private int currentHealth;
 
@@ -34,14 +35,12 @@ public abstract class Selectable {
 	 *                    health and selected do not need to be specified.
 	 */
 
-
-
 	public String getName() {
 		return name;
 	}
 
-	public Selectable(String name, Faction faction, int cost, int maxHealth, int armorPoints,
-			int armorType, String description, Coordinates position) {
+	public Selectable(String name, int cost, Faction faction, int maxHealth, int currentHealth, int armorPoints,
+			int armorType, boolean selected, String description, Coordinates position) {
 		this.name = name;
 		this.faction = faction;
 		this.cost = cost;
@@ -60,7 +59,6 @@ public abstract class Selectable {
 		this.position = position;
 	}
 
-	
 	public int getCost() {
 		return cost;
 	}
@@ -139,8 +137,9 @@ public abstract class Selectable {
 
 	@Override
 	public String toString() {
-		return "Selectable [name=" + name + ", faction=" + faction + ", maxHealth=" + maxHealth + ", currentHealth="
-				+ currentHealth + ", armorPoints=" + armorPoints + ", armorType=" + armorType + ", selected=" + selected
-				+ ", description=" + description + ", position=" + position + "]";
+		return "Selectable [name=" + name + ", cost=" + cost + ", faction=" + faction + ", maxHealth=" + maxHealth
+				+ ", currentHealth=" + currentHealth + ", armorPoints=" + armorPoints + ", armorType=" + armorType
+				+ ", selected=" + selected + ", description=" + description + ", position=" + position + "]";
 	}
+
 }

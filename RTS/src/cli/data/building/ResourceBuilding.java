@@ -14,10 +14,11 @@ public class ResourceBuilding extends Building {
 	private int timeToProduce;
 	private int numberProduced;
 
-	public ResourceBuilding(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, Size size, Resource resourceProduced, int timeToProduce,
-			int numberProduced) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, size);
+	public ResourceBuilding(String name, int cost, Faction faction, int maxHealth, int currentHealth, int armorPoints,
+			int armorType, boolean selected, String description, Coordinates position, Size size,
+			Resource resourceProduced, int timeToProduce, int numberProduced) {
+		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
+				size);
 		this.resourceProduced = resourceProduced;
 		this.timeToProduce = timeToProduce;
 		this.numberProduced = numberProduced;
