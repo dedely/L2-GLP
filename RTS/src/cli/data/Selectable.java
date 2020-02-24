@@ -39,8 +39,8 @@ public abstract class Selectable {
 		return name;
 	}
 
-	public Selectable(String name, int cost, Faction faction, int maxHealth, int currentHealth, int armorPoints,
-			int armorType, boolean selected, String description, Coordinates position) {
+	public Selectable(String name, int cost, Faction faction, int maxHealth,  int armorPoints,
+			int armorType, String description, Coordinates position) {
 		this.name = name;
 		this.faction = faction;
 		this.cost = cost;
