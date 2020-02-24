@@ -46,9 +46,9 @@ public abstract class Unit extends Selectable {
 	
 	private boolean canShootTargetsOnDifferentHeight;
 
-	public Unit(String name, Faction faction, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
+	public Unit(String name, Faction faction, int cost, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
 			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight) {
-		super(name, faction, maxHealth, armorPoints, armorType, description, position);
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
 		this.TypeOfDammage = typeOfDammage;
