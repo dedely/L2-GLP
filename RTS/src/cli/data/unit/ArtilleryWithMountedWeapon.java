@@ -32,6 +32,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	private int mountedWeapontimeBeetweenShots;
 	private int mountedWeapontimeLeftToReload;
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	private boolean canShootAtAirTargetWithMounted;
 
 	public ArtilleryWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
@@ -40,6 +41,13 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 			boolean mounted, int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
 			boolean canShootAtAirTargetWithMounted) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+=======
+	public ArtilleryWithMountedWeapon(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
+			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+			boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange, boolean mounted,
+			int mountedWeaponDamage, int mountedWeaponFireRate) {
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+>>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots, minimumRange);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;

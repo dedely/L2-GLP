@@ -29,12 +29,19 @@ public class AttackHelicopter extends Unit {
 	private int secondaryTypeOfDamage;
 
 
-	public AttackHelicopter(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
+	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 			boolean canShootAtAirTarget, int secondaryWeaponDamage, int secondaryTimeBetweenShots,
 			int secondaryWeaponAmmount,int secondaryTypeOfDamage) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
+=======
+			boolean canShootTargetsOnDifferentHeight, int secondaryWeaponDamage, int secondaryWeaponFireRate,
+			int secondaryWeaponAmmount, int secondaryWeaponReloadTime) {
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
+>>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;
 		this.secondaryTimeBetweenShots = secondaryTimeBetweenShots;
