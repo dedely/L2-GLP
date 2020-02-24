@@ -30,6 +30,7 @@ public class LightTV extends GroundUnit {
 
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	public LightTV(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
@@ -71,8 +72,19 @@ public class LightTV extends GroundUnit {
 				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
 				hasSecondariesOrMounted, unitSlots);
 >>>>>>> 072884a modified the classes to have cost in their constructors
+=======
+	public LightTV(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+			boolean hasSecondariesOrMounted, int unitSlots, int infantrySeats, int infantrySeatsRemaining,
+			ArrayList<GroundUnit> infanteryIn) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
+				unitSlots);
+>>>>>>> 78ee734 modified (again) all units constructors to have costs
 		this.infantrySeats = infantrySeats;
-		infantrySeatsRemaining = infantrySeats;
+		this.infantrySeatsRemaining = infantrySeatsRemaining;
+		this.infanteryIn = infanteryIn;
 	}
 
 	/**

@@ -30,6 +30,7 @@ public class AttackHelicopter extends Unit {
 
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 
 	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
@@ -73,10 +74,17 @@ public class AttackHelicopter extends Unit {
 	public AttackHelicopter(String name, int cost, Faction faction, int maxHealth, int currentHealth, int armorPoints,
 			int armorType, boolean selected, String description, Coordinates position, int speed, int damagePerShot,
 			int typeOfDammage, int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+=======
+
+
+	public AttackHelicopter(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+>>>>>>> 78ee734 modified (again) all units constructors to have costs
 			boolean hasSecondariesOrMounted, int secondaryWeaponDamage, int secondaryWeaponAmmount,
 			int secondaryTimeBetweenShots, int secondaryTypeOfDamage) {
-		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
-				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
 				hasSecondariesOrMounted);
 >>>>>>> 072884a modified the classes to have cost in their constructors
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
@@ -85,6 +93,7 @@ public class AttackHelicopter extends Unit {
 		this.setSecondaryTypeOfDamage(secondaryTypeOfDamage);
 		setHasSecondariesOrMounted(true);
 	}
+
 
 	/**
 	 * @return the damage dealt by the secondary weapon

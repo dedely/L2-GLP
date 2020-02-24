@@ -31,6 +31,7 @@ public class TransportHelicopter extends Unit {
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	public TransportHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
 			int timeBeetweenShots, boolean canShootAtAirTarget, int range, int unitSlots) {
@@ -64,10 +65,24 @@ public class TransportHelicopter extends Unit {
 			boolean canShootAtAirTarget, boolean hasSecondariesOrMounted, int unitSlotsAvailable, int unitSlots) {
 		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
 				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
+=======
+
+
+	public TransportHelicopter(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+			boolean hasSecondariesOrMounted, int unitSlots) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
+>>>>>>> 78ee734 modified (again) all units constructors to have costs
 				hasSecondariesOrMounted);
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 072884a modified the classes to have cost in their constructors
 		this.unitSlotsAvailable = unitSlotsAvailable;
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+=======
+		unitSlotsAvailable = unitSlots;
+>>>>>>> 78ee734 modified (again) all units constructors to have costs
 		this.unitSlots = unitSlots;
 	}
 

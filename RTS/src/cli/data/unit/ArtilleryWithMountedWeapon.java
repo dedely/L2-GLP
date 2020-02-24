@@ -37,6 +37,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	private boolean canShootAtAirTargetWithMounted;
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	public ArtilleryWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
 			int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange,
@@ -85,6 +86,19 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
 				hasSecondariesOrMounted, unitSlots, minimumRange);
 >>>>>>> 072884a modified the classes to have cost in their constructors
+=======
+
+
+	public ArtilleryWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int armorPoints,
+			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+			boolean hasSecondariesOrMounted, int unitSlots, int minimumRange, boolean mounted, int mountedWeaponDamage,
+			int mountedWeapontimeBeetweenShots, int mountedWeapontimeLeftToReload,
+			boolean canShootAtAirTargetWithMounted) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
+				unitSlots, minimumRange);
+>>>>>>> 78ee734 modified (again) all units constructors to have costs
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;
