@@ -34,13 +34,15 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 
 	private boolean canShootAtAirTargetWithMounted;
 
-	public ArtilleryWithMountedWeapon(String name, Faction faction, int cost, int maxHealth, int armorPoints,
-			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange,
-			boolean mounted, int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
-			boolean canShootAtAirTargetWithMounted) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots, minimumRange);
+	public ArtilleryWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int currentHealth,
+			int armorPoints, int armorType, boolean selected, String description, Coordinates position, int speed,
+			int damagePerShot, int typeOfDammage, int timeBeetweenShots, int timeLeftToReload, int range,
+			boolean canShootAtAirTarget, boolean hasSecondariesOrMounted, int unitSlots, int minimumRange,
+			GroundUnit infanteryIn, boolean mounted, int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
+			int mountedWeapontimeLeftToReload, boolean canShootAtAirTargetWithMounted) {
+		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
+				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
+				hasSecondariesOrMounted, unitSlots, minimumRange);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;

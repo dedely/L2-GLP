@@ -28,12 +28,14 @@ public class AttackHelicopter extends Unit {
 
 	private int secondaryTypeOfDamage;
 
-	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int secondaryWeaponDamage,
-			int secondaryTimeBetweenShots, int secondaryWeaponAmmount, int secondaryTypeOfDamage) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
+	public AttackHelicopter(String name, int cost, Faction faction, int maxHealth, int currentHealth, int armorPoints,
+			int armorType, boolean selected, String description, Coordinates position, int speed, int damagePerShot,
+			int typeOfDammage, int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+			boolean hasSecondariesOrMounted, int secondaryWeaponDamage, int secondaryWeaponAmmount,
+			int secondaryTimeBetweenShots, int secondaryTypeOfDamage) {
+		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
+				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
+				hasSecondariesOrMounted);
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;
 		this.secondaryTimeBetweenShots = secondaryTimeBetweenShots;

@@ -24,11 +24,11 @@ public abstract class Unit extends Selectable {
 	 * 
 	 */
 	private int damagePerShot;
-	
+
 	/**
 	 * Whether it is Light, SuperLight or heavy armor
 	 * 
-	 */	
+	 */
 	private int TypeOfDammage;
 
 	/**
@@ -43,14 +43,16 @@ public abstract class Unit extends Selectable {
 	 * 
 	 */
 	private int range;
-	
+
 	private boolean canShootAtAirTarget;
-	
+
 	private boolean hasSecondariesOrMounted;
 
-	public Unit(String name, Faction faction, int cost, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
-			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position);
+	public Unit(String name, int cost, Faction faction, int maxHealth, int armorPoints,
+			int armorType, boolean selected, String description, Coordinates position, int speed, int damagePerShot,
+			int typeOfDammage, int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+			boolean hasSecondariesOrMounted) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, selected, description, position);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
 		this.TypeOfDammage = typeOfDammage;
@@ -59,9 +61,6 @@ public abstract class Unit extends Selectable {
 		this.range = range;
 		this.canShootAtAirTarget = canShootAtAirTarget;
 	}
-
-	
-
 
 	/**
 	 * @return the attribute depicting how fast a unit moves on the map
@@ -90,7 +89,6 @@ public abstract class Unit extends Selectable {
 	public void setDamagePerShot(int damagePerShot) {
 		this.damagePerShot = damagePerShot;
 	}
-	
 
 	public int getTypeOfDammage() {
 		return TypeOfDammage;
@@ -141,7 +139,7 @@ public abstract class Unit extends Selectable {
 	public void setRange(int range) {
 		this.range = range;
 	}
-	
+
 	public boolean isCanShootTargetsOnDifferentHeight() {
 		return canShootAtAirTarget;
 	}
@@ -149,13 +147,10 @@ public abstract class Unit extends Selectable {
 	public void setCanShootTargetsOnDifferentHeight(boolean canShootTargetsOnDifferentHeight) {
 		this.canShootAtAirTarget = canShootTargetsOnDifferentHeight;
 	}
-	
+
 	public boolean isHasSecondariesOrMounted() {
 		return hasSecondariesOrMounted;
 	}
-
-
-
 
 	public void setHasSecondariesOrMounted(boolean hasSecondariesOrMounted) {
 		this.hasSecondariesOrMounted = hasSecondariesOrMounted;
@@ -163,8 +158,9 @@ public abstract class Unit extends Selectable {
 
 	@Override
 	public String toString() {
-		return super.toString()+"\nspeed = " + speed + "\ndamagePerShot = " + damagePerShot + "\ntimeBetweenShots = " + timeBeetweenShots
-				+ "\nrange = " + range + "\n can shoot taget on different height = " + isCanShootTargetsOnDifferentHeight();
+		return super.toString() + "\nspeed = " + speed + "\ndamagePerShot = " + damagePerShot + "\ntimeBetweenShots = "
+				+ timeBeetweenShots + "\nrange = " + range + "\n can shoot taget on different height = "
+				+ isCanShootTargetsOnDifferentHeight();
 	}
-	
+
 }

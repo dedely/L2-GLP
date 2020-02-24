@@ -35,16 +35,19 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	private boolean canShootAtAirTargetWithMounted;
 
-	public GroundUnitWithMountedWeapon(String name, Faction faction, int cost, int maxHealth, int armorPoints,
-			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots, boolean mounted,
-			int mountedWeaponDamage, int MountedWeapontimeBeetweenShots, boolean canShootAtAirTargetWithMounted) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, unitSlots);
+	public GroundUnitWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int currentHealth,
+			int armorPoints, int armorType, boolean selected, String description, Coordinates position, int speed,
+			int damagePerShot, int typeOfDammage, int timeBeetweenShots, int timeLeftToReload, int range,
+			boolean canShootAtAirTarget, boolean hasSecondariesOrMounted, int unitSlots, GroundUnit infanteryIn,
+			boolean mounted, int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
+			int mountedWeapontimeLeftToReload, boolean canShootAtAirTargetWithMounted) {
+		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
+				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
+				hasSecondariesOrMounted, unitSlots);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
-		this.mountedWeapontimeBeetweenShots = MountedWeapontimeBeetweenShots;
-		mountedWeapontimeLeftToReload = MountedWeapontimeBeetweenShots;
+		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;
+		mountedWeapontimeLeftToReload = mountedWeapontimeBeetweenShots;
 		this.canShootAtAirTargetWithMounted = canShootAtAirTargetWithMounted;
 		setHasSecondariesOrMounted(true);
 	}
