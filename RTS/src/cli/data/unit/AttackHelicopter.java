@@ -31,11 +31,11 @@ public class AttackHelicopter extends Unit {
 	 */
 	private int secondaryWeaponReloadTime;
 
-	public AttackHelicopter(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
+	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 			boolean canShootTargetsOnDifferentHeight, int secondaryWeaponDamage, int secondaryWeaponFireRate,
 			int secondaryWeaponAmmount, int secondaryWeaponReloadTime) {
-		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponFireRate = secondaryWeaponFireRate;

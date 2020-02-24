@@ -16,10 +16,10 @@ public class Worker extends Unit {
 	 */
 	private int unitSlots;
 
-	public Worker(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
+	public Worker(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 			int unitSlots, boolean canShootTargetsOnDifferentHeight) {
-		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
 		this.unitSlots = unitSlots;
 	}

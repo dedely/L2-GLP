@@ -28,10 +28,10 @@ public class LightTV extends GroundUnit {
 	 */
 	private ArrayList<GroundUnit> infanteryIn = new ArrayList<GroundUnit>();
 
-	public LightTV(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
+	public LightTV(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 			boolean canShootTargetsOnDifferentHeight, int unitSlots, int infantrySeats, int infantrySeatsRemaining) {
-		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots);
 		this.infantrySeats = infantrySeats;
 		this.infantrySeatsRemaining = infantrySeatsRemaining;

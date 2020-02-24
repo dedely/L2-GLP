@@ -31,11 +31,11 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	 */
 	private int mountedWeaponFireRate;
 
-	public ArtilleryWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
+	public ArtilleryWithMountedWeapon(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 			boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange, boolean mounted,
 			int mountedWeaponDamage, int mountedWeaponFireRate) {
-		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots, minimumRange);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
