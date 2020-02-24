@@ -17,13 +17,14 @@ public class Artillery extends GroundUnit {
 	 */
 	private int minimumRange;
 
-	public Artillery(String name, int cost, Faction faction, int maxHealth, int currentHealth, int armorPoints,
-			int armorType, boolean selected, String description, Coordinates position, int speed, int damagePerShot,
-			int typeOfDammage, int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+
+	public Artillery(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
 			boolean hasSecondariesOrMounted, int unitSlots, int minimumRange) {
-		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
-				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
-				hasSecondariesOrMounted, unitSlots);
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
+				unitSlots);
 		this.minimumRange = minimumRange;
 	}
 

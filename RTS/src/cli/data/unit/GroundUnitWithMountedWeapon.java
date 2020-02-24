@@ -35,15 +35,16 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	private boolean canShootAtAirTargetWithMounted;
 
-	public GroundUnitWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int currentHealth,
-			int armorPoints, int armorType, boolean selected, String description, Coordinates position, int speed,
-			int damagePerShot, int typeOfDammage, int timeBeetweenShots, int timeLeftToReload, int range,
-			boolean canShootAtAirTarget, boolean hasSecondariesOrMounted, int unitSlots, GroundUnit infanteryIn,
-			boolean mounted, int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
-			int mountedWeapontimeLeftToReload, boolean canShootAtAirTargetWithMounted) {
-		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
-				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
-				hasSecondariesOrMounted, unitSlots);
+
+	public GroundUnitWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int armorPoints,
+			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+			boolean hasSecondariesOrMounted, int unitSlots, GroundUnit infanteryIn, boolean mounted,
+			int mountedWeaponDamage, int mountedWeapontimeBeetweenShots, int mountedWeapontimeLeftToReload,
+			boolean canShootAtAirTargetWithMounted) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
+				unitSlots);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;
