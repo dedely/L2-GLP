@@ -30,10 +30,15 @@ public class TransportHelicopter extends Unit {
 
 	public TransportHelicopter( String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
 			int timeBeetweenShots,boolean canShootTargetsOnDifferentHeight, int range, int unitSlotsAvailable, int unitSlots) {
 		super( name,  faction, cost,  maxHealth,  armorPoints,  armorType,  description,
+=======
+			int timeBeetweenShots,boolean canShootAtAirTarget, int range, int unitSlotsAvailable, int unitSlots) {
+		super( name,  faction,  maxHealth,  armorPoints,  armorType,  description,
+>>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 				 position,  speed,  damagePerShot,  typeOfDammage,
-				 timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
+				 timeBeetweenShots, range, canShootAtAirTarget);
 		this.unitSlotsAvailable = unitSlotsAvailable;
 		this.unitSlots = unitSlots;
 	}

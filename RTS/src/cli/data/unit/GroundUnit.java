@@ -18,9 +18,15 @@ public class GroundUnit extends Unit {
 
 	public GroundUnit(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
 			boolean canShootTargetsOnDifferentHeight, int unitSlots) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
+=======
+			boolean canShootAtAirTarget, int unitSlots) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
+>>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 		this.unitSlots = unitSlots;
 	}
 
