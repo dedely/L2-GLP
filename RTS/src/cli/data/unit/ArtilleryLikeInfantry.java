@@ -17,6 +17,7 @@ public class ArtilleryLikeInfantry extends GroundUnit {
 	 */
 	private int minimumRange;
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	public ArtilleryLikeInfantry(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
@@ -51,6 +52,15 @@ public class ArtilleryLikeInfantry extends GroundUnit {
 =======
 >>>>>>> dd5b45e added all cost to Units classes
 
+=======
+	public ArtilleryLikeInfantry(String name, int cost, Faction faction, int maxHealth, int currentHealth,
+			int armorPoints, int armorType, boolean selected, String description, Coordinates position, int speed,
+			int damagePerShot, int typeOfDammage, int timeBeetweenShots, int timeLeftToReload, int range,
+			boolean canShootAtAirTarget, boolean hasSecondariesOrMounted, int unitSlots, int minimumRange) {
+		super(name, cost, faction, maxHealth, currentHealth, armorPoints, armorType, selected, description, position,
+				speed, damagePerShot, typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
+				hasSecondariesOrMounted, unitSlots);
+>>>>>>> 072884a modified the classes to have cost in their constructors
 		this.minimumRange = minimumRange;
 	}
 

@@ -18,7 +18,7 @@ public class UnitFactory {
 	public Unit create(String type, Coordinates spawnPosition, Faction faction) throws IllegalArgumentException {
 		if (type == Constants.ARTILLERY) {
 			if (faction.getName() == Constants.UNION) {
-				return new ArtilleryWithMountedWeapon("SPH", faction,500, 400, 20, Constants.LIGHT,
+				return new ArtilleryWithMountedWeapon("SPH",500, faction, 400, 20, Constants.LIGHT,
 						"Self propelled howitzer from the Union, may be equiped with a roof Anti-air machine gun",
 						spawnPosition, 20, 200, Constants.HEAVY, 90, 1500, false, 12, 50, false, 20, 40, true);
 
