@@ -20,14 +20,26 @@ public class Artillery extends GroundUnit {
 	public Artillery(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 			boolean canShootAtAirTarget, int unitSlots, int minimumRange) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, unitSlots);
 =======
+=======
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
+>>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 			boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots);
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
+=======
+=======
+			boolean canShootAtAirTarget, int unitSlots, int minimumRange) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, unitSlots);
+>>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+>>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 		this.minimumRange = minimumRange;
 	}
 

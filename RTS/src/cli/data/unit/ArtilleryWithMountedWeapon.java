@@ -33,6 +33,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	private int mountedWeapontimeLeftToReload;
 
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	private boolean canShootAtAirTargetWithMounted;
 
 	public ArtilleryWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
@@ -42,12 +43,28 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 			boolean canShootAtAirTargetWithMounted) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 =======
+=======
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
+>>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 	public ArtilleryWithMountedWeapon(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 			boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange, boolean mounted,
 			int mountedWeaponDamage, int mountedWeaponFireRate) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
+=======
+=======
+	private boolean canShootAtAirTargetWithMounted;
+
+	public ArtilleryWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange,
+			boolean mounted, int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
+			boolean canShootAtAirTargetWithMounted) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+>>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+>>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots, minimumRange);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;

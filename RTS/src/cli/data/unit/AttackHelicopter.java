@@ -32,16 +32,29 @@ public class AttackHelicopter extends Unit {
 	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 			boolean canShootAtAirTarget, int secondaryWeaponDamage, int secondaryTimeBetweenShots,
 			int secondaryWeaponAmmount,int secondaryTypeOfDamage) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
 =======
+=======
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
+>>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 			boolean canShootTargetsOnDifferentHeight, int secondaryWeaponDamage, int secondaryWeaponFireRate,
 			int secondaryWeaponAmmount, int secondaryWeaponReloadTime) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
+=======
+=======
+			boolean canShootAtAirTarget, int secondaryWeaponDamage, int secondaryTimeBetweenShots,
+			int secondaryWeaponAmmount,int secondaryTypeOfDamage) {
+		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
+>>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+>>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;
 		this.secondaryTimeBetweenShots = secondaryTimeBetweenShots;
