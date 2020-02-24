@@ -35,11 +35,11 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	private boolean canShootAtAirTargetWithMounted;
 
-	public GroundUnitWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+	public GroundUnitWithMountedWeapon(String name, Faction faction, int cost, int maxHealth, int armorPoints,
+			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
 			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots, boolean mounted,
 			int mountedWeaponDamage, int MountedWeapontimeBeetweenShots, boolean canShootAtAirTargetWithMounted) {
-		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, unitSlots);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;

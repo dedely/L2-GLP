@@ -25,23 +25,15 @@ public class AttackHelicopter extends Unit {
 	 * how long the secondaries take to reload
 	 */
 	private int secondaryTimeBetweenShots;
-	
+
 	private int secondaryTypeOfDamage;
 
-
-	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
-			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
-<<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
-			boolean canShootTargetsOnDifferentHeight, int secondaryWeaponDamage, int secondaryWeaponFireRate,
-			int secondaryWeaponAmmount, int secondaryWeaponReloadTime) {
+	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int secondaryWeaponDamage,
+			int secondaryTimeBetweenShots, int secondaryWeaponAmmount, int secondaryTypeOfDamage) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
-=======
-			boolean canShootAtAirTarget, int secondaryWeaponDamage, int secondaryTimeBetweenShots,
-			int secondaryWeaponAmmount,int secondaryTypeOfDamage) {
-		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
->>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;
 		this.secondaryTimeBetweenShots = secondaryTimeBetweenShots;
@@ -92,7 +84,7 @@ public class AttackHelicopter extends Unit {
 	public void setSecondaryWeaponAmmount(int secondaryWeaponAmmount) {
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;
 	}
-	
+
 	public int getSecondaryTypeOfDamage() {
 		return secondaryTypeOfDamage;
 	}
@@ -101,14 +93,11 @@ public class AttackHelicopter extends Unit {
 		this.secondaryTypeOfDamage = secondaryTypeOfDamage;
 	}
 
-
 	@Override
 	public String toString() {
 		return super.toString() + "\nsecondaryWeaponDamage = " + secondaryWeaponDamage + "\nsecondaryWeaponFireRate = "
 				+ secondaryTimeBetweenShots + "\nsecondaryWeaponAmmount = " + secondaryWeaponAmmount
 				+ "\nsecondaryWeaponReloadTime = ";
 	}
-
-	
 
 }
