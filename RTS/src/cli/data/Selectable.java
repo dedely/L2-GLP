@@ -11,6 +11,7 @@ public abstract class Selectable {
 	private String name;
 	private Faction faction;
 
+	private int cost;
 	private int maxHealth;
 	private int currentHealth;
 
@@ -33,10 +34,17 @@ public abstract class Selectable {
 	 *                    health and selected do not need to be specified.
 	 */
 
-	public Selectable(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
-			Coordinates position) {
+
+
+	public String getName() {
+		return name;
+	}
+
+	public Selectable(String name, Faction faction, int cost, int maxHealth, int currentHealth, int armorPoints,
+			int armorType, boolean selected, String description, Coordinates position) {
 		this.name = name;
 		this.faction = faction;
+		this.cost = cost;
 		this.maxHealth = maxHealth;
 
 		// When a new Selectable is created, its currentHealth equals its maxHealth.
@@ -52,8 +60,13 @@ public abstract class Selectable {
 		this.position = position;
 	}
 
-	public String getName() {
-		return name;
+	
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
 	}
 
 	public Faction getFaction() {
