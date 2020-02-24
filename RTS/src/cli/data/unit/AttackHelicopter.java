@@ -25,9 +25,10 @@ public class AttackHelicopter extends Unit {
 	 * how long the secondaries take to reload
 	 */
 	private int secondaryTimeBetweenShots;
-	
+
 	private int secondaryTypeOfDamage;
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 
 	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
@@ -43,7 +44,14 @@ public class AttackHelicopter extends Unit {
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 			boolean canShootTargetsOnDifferentHeight, int secondaryWeaponDamage, int secondaryWeaponFireRate,
 			int secondaryWeaponAmmount, int secondaryWeaponReloadTime) {
+=======
+	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int secondaryWeaponDamage,
+			int secondaryTimeBetweenShots, int secondaryWeaponAmmount, int secondaryTypeOfDamage) {
+>>>>>>> dd5b45e added all cost to Units classes
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
@@ -52,9 +60,14 @@ public class AttackHelicopter extends Unit {
 			boolean canShootAtAirTarget, int secondaryWeaponDamage, int secondaryTimeBetweenShots,
 			int secondaryWeaponAmmount,int secondaryTypeOfDamage) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;
 		this.secondaryTimeBetweenShots = secondaryTimeBetweenShots;
@@ -105,7 +118,7 @@ public class AttackHelicopter extends Unit {
 	public void setSecondaryWeaponAmmount(int secondaryWeaponAmmount) {
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;
 	}
-	
+
 	public int getSecondaryTypeOfDamage() {
 		return secondaryTypeOfDamage;
 	}
@@ -114,14 +127,11 @@ public class AttackHelicopter extends Unit {
 		this.secondaryTypeOfDamage = secondaryTypeOfDamage;
 	}
 
-
 	@Override
 	public String toString() {
 		return super.toString() + "\nsecondaryWeaponDamage = " + secondaryWeaponDamage + "\nsecondaryWeaponFireRate = "
 				+ secondaryTimeBetweenShots + "\nsecondaryWeaponAmmount = " + secondaryWeaponAmmount
 				+ "\nsecondaryWeaponReloadTime = ";
 	}
-
-	
 
 }

@@ -17,6 +17,7 @@ public class Artillery extends GroundUnit {
 	 */
 	private int minimumRange;
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	public Artillery(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
@@ -29,7 +30,13 @@ public class Artillery extends GroundUnit {
 <<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 			boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange) {
+=======
+	public Artillery(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots, int minimumRange) {
+>>>>>>> dd5b45e added all cost to Units classes
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots);
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
@@ -37,9 +44,14 @@ public class Artillery extends GroundUnit {
 =======
 			boolean canShootAtAirTarget, int unitSlots, int minimumRange) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, unitSlots);
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 		this.minimumRange = minimumRange;
 	}
 

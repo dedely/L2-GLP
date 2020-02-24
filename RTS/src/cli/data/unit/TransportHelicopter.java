@@ -29,6 +29,7 @@ public class TransportHelicopter extends Unit {
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
 
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	public TransportHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
 			int timeBeetweenShots, boolean canShootAtAirTarget, int range, int unitSlots) {
@@ -47,6 +48,14 @@ public class TransportHelicopter extends Unit {
 >>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 				 position,  speed,  damagePerShot,  typeOfDammage,
 				 timeBeetweenShots, range, canShootAtAirTarget);
+=======
+	public TransportHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+
+			int timeBeetweenShots, boolean canShootAtAirTarget, int range, int unitSlotsAvailable, int unitSlots) {
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
+>>>>>>> dd5b45e added all cost to Units classes
 		this.unitSlotsAvailable = unitSlotsAvailable;
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 		this.unitSlots = unitSlots;

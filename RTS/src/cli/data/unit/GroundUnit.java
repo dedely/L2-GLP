@@ -16,6 +16,7 @@ public class GroundUnit extends Unit {
 	 */
 	private int unitSlots;
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	public GroundUnit(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType, String description,
 			Coordinates position, int speed, int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
@@ -28,7 +29,13 @@ public class GroundUnit extends Unit {
 <<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 			boolean canShootTargetsOnDifferentHeight, int unitSlots) {
+=======
+	public GroundUnit(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots) {
+>>>>>>> dd5b45e added all cost to Units classes
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight);
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
@@ -36,9 +43,14 @@ public class GroundUnit extends Unit {
 =======
 			boolean canShootAtAirTarget, int unitSlots) {
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 		this.unitSlots = unitSlots;
 	}
 

@@ -34,6 +34,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 	private boolean canShootAtAirTargetWithMounted;
 
 	public ArtilleryWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
@@ -55,16 +56,22 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 >>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
 =======
 =======
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 	private boolean canShootAtAirTargetWithMounted;
 
-	public ArtilleryWithMountedWeapon(String name, Faction faction, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+	public ArtilleryWithMountedWeapon(String name, Faction faction, int cost, int maxHealth, int armorPoints,
+			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
 			int timeBeetweenShots, int range, boolean canShootTargetsOnDifferentHeight, int unitSlots, int minimumRange,
 			boolean mounted, int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
 			boolean canShootAtAirTargetWithMounted) {
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 >>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+=======
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+>>>>>>> dd5b45e added all cost to Units classes
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots, minimumRange);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;

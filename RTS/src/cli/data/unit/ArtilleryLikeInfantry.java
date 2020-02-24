@@ -19,6 +19,7 @@ public class ArtilleryLikeInfantry extends GroundUnit {
 
 	public ArtilleryLikeInfantry(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots,
 			int minimumRange) {
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
@@ -29,16 +30,26 @@ public class ArtilleryLikeInfantry extends GroundUnit {
 =======
 <<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+=======
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots, int minimumRange) {
+
+>>>>>>> dd5b45e added all cost to Units classes
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 				typeOfDammage, timeBeetweenShots, range, canShootTargetsOnDifferentHeight, unitSlots);
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 263feca Changes to all Unit classes to match changes made in Selectable.
 =======
 =======
 		super(name, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, unitSlots);
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 >>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 
 		this.minimumRange = minimumRange;
 	}

@@ -48,15 +48,16 @@ public abstract class Unit extends Selectable {
 	
 	private boolean hasSecondariesOrMounted;
 
-<<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
 	public Unit(String name, Faction faction, int cost, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position);
 =======
 	public Unit(String name, Faction faction, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
+=======
+>>>>>>> dd5b45e added all cost to Units classes
 			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
-		super(name, faction, maxHealth, armorPoints, armorType, description, position);
->>>>>>> 2c156d2 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;
 		this.TypeOfDammage = typeOfDammage;
@@ -172,11 +173,5 @@ public abstract class Unit extends Selectable {
 		return super.toString()+"\nspeed = " + speed + "\ndamagePerShot = " + damagePerShot + "\ntimeBetweenShots = " + timeBeetweenShots
 				+ "\nrange = " + range + "\n can shoot taget on different height = " + isCanShootTargetsOnDifferentHeight();
 	}
-
-
-
-
-
-
 	
 }
