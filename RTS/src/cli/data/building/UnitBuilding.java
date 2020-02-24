@@ -10,9 +10,9 @@ import cli.data.faction.Faction;
 public class UnitBuilding extends Building {
 	Coordinates rallyPoint;
 
-	public UnitBuilding(String name, Faction faction, int maxHealth, int armorPoints, int armorType, String description,
-			Coordinates position, Size size, Coordinates rallyPoint) {
-		super(name, faction, maxHealth, armorPoints, armorType, description, position, size);
+	public UnitBuilding(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, Size size, Coordinates rallyPoint) {
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, size);
 		this.rallyPoint = rallyPoint;
 	}
 
