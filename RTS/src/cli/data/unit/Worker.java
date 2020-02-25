@@ -18,13 +18,9 @@ public class Worker extends Unit {
 
 
 
-	public Worker(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted, int unitSlots) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
-				hasSecondariesOrMounted);
+	public Worker(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, Weapon weapon, int unitSlots) {
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 		this.unitSlots = unitSlots;
 	}
 
@@ -38,7 +34,7 @@ public class Worker extends Unit {
 
 	@Override
 	public String toString() {
-		return "Worker [unitSlots=" + unitSlots + "," + super.toString() + "]";
+		return super.toString() + "\nunit slots" + unitSlots;
 	}
 
 }

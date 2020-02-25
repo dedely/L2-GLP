@@ -17,6 +17,8 @@ public class Faction {
 
 	private String name;
 
+	private String playerName;
+
 	/**
 	 * the list of buildings belonging to the faction
 	 */
@@ -42,15 +44,16 @@ public class Faction {
 	 */
 	private String description;
 
-	private Boolean CurrentResearch ;
-	
-	private ArrayList<Faction> allies = new ArrayList<Faction>();
+	private Boolean CurrentResearch;
 
-	private ArrayList<Faction> ennemies = new ArrayList<Faction>();
+	private ArrayList<String> allies = new ArrayList<String>();
 
-	public Faction(String name,ResearchTree researchTree,  String description) {
+	private ArrayList<String> ennemies = new ArrayList<String>();
+
+	public Faction(String name, String playerName, ResearchTree researchTree, String description) {
 		super();
 		this.name = name;
+		this.playerName = playerName;
 		this.researchTree = researchTree;
 		this.description = description;
 	}
@@ -103,23 +106,22 @@ public class Faction {
 		this.name = name;
 	}
 
-	public ArrayList<Faction> getAllies() {
+	public ArrayList<String> getAllies() {
 		return allies;
 	}
 
-	public void setAllies(ArrayList<Faction> allies) {
+	public void setAllies(ArrayList<String> allies) {
 		this.allies = allies;
 	}
 
-	public ArrayList<Faction> getEnnemies() {
+	public ArrayList<String> getEnnemies() {
 		return ennemies;
 	}
 
-	public void setEnnemies(ArrayList<Faction> ennemies) {
+	public void setEnnemies(ArrayList<String> ennemies) {
 		this.ennemies = ennemies;
 	}
 
-	
 	public Boolean getCurrentResearch() {
 		return CurrentResearch;
 	}
@@ -128,11 +130,20 @@ public class Faction {
 		CurrentResearch = currentResearch;
 	}
 
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((playerName == null) ? 0 : playerName.hashCode());
 		return result;
 	}
 
@@ -150,9 +161,12 @@ public class Faction {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (playerName == null) {
+			if (other.playerName != null)
+				return false;
+		} else if (!playerName.equals(other.playerName))
+			return false;
 		return true;
 	}
-
-	
 
 }

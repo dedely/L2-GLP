@@ -10,12 +10,12 @@ import cli.data.unit.Unit;
 public class AttackTreatment {
 
 	public static void attack(Unit caster, Selectable target) {
-		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) > caster.getRange()) {
+		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) > caster.getWeapon().getRange()) {
 			MoveToTreatment.moveToward(caster, target.getPosition());
 		} else {
 			if (SelectableTreatment.canShoot(caster, target)) {
 				SelectableTreatment.dealDamage(caster, target);
-				caster.setTimeLeftToReload(caster.getTimeBeetweenShots());
+				caster.getWeapon().setTimeLeftToReload(caster.getWeapon().getTimeBeetweenShots());
 			}
 		}
 	}
@@ -32,16 +32,16 @@ public class AttackTreatment {
 	}
 
 	public void attack(Unit caster, Coordinates target, HashMap<Coordinates, Selectable> positions) {
-		if (CoordinatesTreatment.distance(caster.getPosition(), target) > caster.getRange()) {
+		if (CoordinatesTreatment.distance(caster.getPosition(), target) > caster.getWeapon().getRange()) {
 			MoveToTreatment.moveToward(caster, target);
 		} else {
-			if (caster.getTimeLeftToReload() <= 0) {
+			if (caster.getWeapon().getTimeLeftToReload() <= 0) {
 				if (positions.containsKey(target)) {
 					SelectableTreatment.dealDamage(caster, positions.get(target));
 				}
-				caster.setTimeLeftToReload(caster.getTimeBeetweenShots());
+				caster.getWeapon().setTimeLeftToReload(caster.getWeapon().getTimeBeetweenShots());
 			} else {
-				caster.setTimeLeftToReload(caster.getTimeLeftToReload() - 1);
+				caster.getWeapon().setTimeLeftToReload(caster.getWeapon().getTimeLeftToReload() - 1);
 			}
 		}
 	}

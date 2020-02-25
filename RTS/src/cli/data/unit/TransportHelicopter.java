@@ -28,17 +28,12 @@ public class TransportHelicopter extends Unit {
 	 */
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
 
+	public TransportHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int unitSlots) {
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, null);
 
-
-	public TransportHelicopter(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted, int unitSlots) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
-				hasSecondariesOrMounted);
-		unitSlotsAvailable = unitSlots;
 		this.unitSlots = unitSlots;
+		unitSlotsAvailable = unitSlots;
 	}
 
 	/**
@@ -85,7 +80,8 @@ public class TransportHelicopter extends Unit {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nunitSlotsAvailable = " + unitSlotsAvailable + "\nUnitSlots = " + unitSlots;
+		return super.toString() + "\nunitSlotsAvailable = " + unitSlotsAvailable + "\nUnitSlots = " + unitSlots
+				+ "\nUnitsIn" + unitsIn.toString();
 	}
 
 }
