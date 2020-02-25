@@ -48,15 +48,7 @@ public abstract class Unit extends Selectable {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-
-	@Override
-	public String toString() {
-		return super.toString()+"\nspeed = " + speed + getWeapon().toString();
-	}
-
-
-
-
+	
 	public Weapon getWeapon() {
 		return weapon;
 	}
@@ -67,6 +59,16 @@ public abstract class Unit extends Selectable {
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
 	}
+
+
+	@Override
+	public String toString() {
+		return super.toString()+"\nspeed = " + speed +"\nweapon" + getWeapon().toString();
+	}
+
+
+
+
 
 
 
