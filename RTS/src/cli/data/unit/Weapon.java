@@ -2,11 +2,11 @@ package cli.data.unit;
 
 public class Weapon {
 	private int damagePerShot;
-	
+
 	/**
 	 * Whether it is Light, SuperLight or heavy armor
 	 * 
-	 */	
+	 */
 	private int TypeOfDammage;
 
 	/**
@@ -17,16 +17,33 @@ public class Weapon {
 	private int timeLeftToReload;
 
 	/**
-	 * The minimal distance between the unit and the target for it to shoot
+	 * The maximum distance between the unit and the target for it to shoot
 	 * 
 	 */
 	private int range;
-	
-	
+
+	/**
+	 * The maximum distance between the unit and the target for it to shoot
+	 * 
+	 */
+	private int minimuRange;
+
 	/**
 	 * Whether or not a weapon can shot air targets
 	 */
 	private boolean canShootAtAirTarget;
+
+	public Weapon(int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
+			int minimuRange, boolean canShootAtAirTarget) {
+		super();
+		this.damagePerShot = damagePerShot;
+		TypeOfDammage = typeOfDammage;
+		this.timeBeetweenShots = timeBeetweenShots;
+		timeLeftToReload = timeBeetweenShots;
+		this.range = range;
+		this.minimuRange = minimuRange;
+		this.canShootAtAirTarget = canShootAtAirTarget;
+	}
 
 	public int getDamagePerShot() {
 		return damagePerShot;
@@ -68,6 +85,14 @@ public class Weapon {
 		this.range = range;
 	}
 
+	public int getMinimuRange() {
+		return minimuRange;
+	}
+
+	public void setMinimuRange(int minimuRange) {
+		this.minimuRange = minimuRange;
+	}
+
 	public boolean isCanShootAtAirTarget() {
 		return canShootAtAirTarget;
 	}
@@ -78,11 +103,9 @@ public class Weapon {
 
 	@Override
 	public String toString() {
-		return "Weapon :\ndamagePerShot = " + damagePerShot + "\nTypeOfDammage = " + TypeOfDammage + "\ntimeBeetweenShots = "
+		return "\ndamagePerShot = " + damagePerShot + "\nTypeOfDammage = " + TypeOfDammage + "\ntimeBeetweenShots = "
 				+ timeBeetweenShots + "\ntimeLeftToReload = " + timeLeftToReload + "\nrange = " + range
-				+ "\ncanShootAtAirTarget = " + canShootAtAirTarget;
+				+ "\nminimum range" + minimuRange + "\ncanShootAtAirTarget = " + canShootAtAirTarget;
 	}
-	
-	
 
 }

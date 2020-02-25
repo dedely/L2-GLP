@@ -23,70 +23,17 @@ public abstract class Unit extends Selectable {
 	 * The amount of damage dealt by the unit in one shot
 	 * 
 	 */
-	private int damagePerShot;
-
-	/**
-	 * Whether it is Light, SuperLight or heavy armor
-	 * 
-	 */
-	private int TypeOfDammage;
-
-	/**
-	 * The number of ticks between shots
-	 * 
-	 */
-	private int timeBeetweenShots;
-	private int timeLeftToReload;
-
-	/**
-	 * The minimal distance between the unit and the target for it to shoot
-	 * 
-	 */
-	private int range;
-
-	private boolean canShootAtAirTarget;
-
-	private boolean hasSecondariesOrMounted;
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
-
+	private Weapon weapon;
+	
 	public Unit(String name, Faction faction, int cost, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
-			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position);
-=======
-	public Unit(String name, Faction faction, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
-=======
->>>>>>> dd5b45e added all cost to Units classes
-			int damagePerShot,int typeOfDammage, int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position);
-=======
-
-
-
-
-
-	public Unit(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted) {
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
-		super(name, cost, faction, maxHealth, armorPoints, armorType, selected, description, position);
->>>>>>> 072884a modified the classes to have cost in their constructors
-=======
-=======
-			int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
->>>>>>> cdddd68 redone constructors of unit classes and of UnitFactory
+			Weapon weapon) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position);
->>>>>>> 78ee734 modified (again) all units constructors to have costs
 		this.speed = speed;
-		this.damagePerShot = damagePerShot;
-		this.TypeOfDammage = typeOfDammage;
-		this.timeBeetweenShots = timeBeetweenShots;
-		timeLeftToReload = timeBeetweenShots;
-		this.range = range;
-		this.canShootAtAirTarget = canShootAtAirTarget;
+		this.setWeapon(weapon);
 	}
+
+	
+
 
 	/**
 	 * @return the attribute depicting how fast a unit moves on the map
@@ -102,91 +49,29 @@ public abstract class Unit extends Selectable {
 		this.speed = speed;
 	}
 
-	/**
-	 * @return the amount of damage dealt by the unit in one shot
-	 */
-	public int getDamagePerShot() {
-		return damagePerShot;
-	}
-
-	/**
-	 * @param damagePerShot the damage the unit will deal when it fires
-	 */
-	public void setDamagePerShot(int damagePerShot) {
-		this.damagePerShot = damagePerShot;
-	}
-
-	public int getTypeOfDammage() {
-		return TypeOfDammage;
-	}
-
-	public void setTypeOfDammage(int typeOfDammage) {
-		TypeOfDammage = typeOfDammage;
-	}
-
-	/**
-	 * @return the time between two shots
-	 */
-	public int getTimeBeetweenShots() {
-		return timeBeetweenShots;
-	}
-
-	/**
-	 * @param timeBeetweenShots time between two shots
-	 */
-	public void setTimeBeetweenShots(int timeBeetweenShots) {
-		this.timeBeetweenShots = timeBeetweenShots;
-	}
-
-	/**
-	 * @return the number of ticks before the unit can shoot
-	 */
-	public int getTimeLeftToReload() {
-		return timeLeftToReload;
-	}
-
-	/**
-	 * @param fireRate how many ticks before the unit can shoot
-	 */
-	public void setTimeLeftToReload(int timeLeftToReload) {
-		this.timeLeftToReload = timeLeftToReload;
-	}
-
-	/**
-	 * @return the minimal distance between the unit and the target for it to shoot
-	 */
-	public int getRange() {
-		return range;
-	}
-
-	/**
-	 * @param range how close a unit needs to be before shooting
-	 */
-	public void setRange(int range) {
-		this.range = range;
-	}
-
-	public boolean isCanShootTargetsOnDifferentHeight() {
-		return canShootAtAirTarget;
-	}
-
-	public void setCanShootTargetsOnDifferentHeight(boolean canShootTargetsOnDifferentHeight) {
-		this.canShootAtAirTarget = canShootTargetsOnDifferentHeight;
-	}
-
-	public boolean isHasSecondariesOrMounted() {
-		return hasSecondariesOrMounted;
-	}
-
-	public void setHasSecondariesOrMounted(boolean hasSecondariesOrMounted) {
-		this.hasSecondariesOrMounted = hasSecondariesOrMounted;
-	}
-
 	@Override
 	public String toString() {
-		return super.toString() + "\nspeed = " + speed + "\ndamagePerShot = " + damagePerShot + "\ntimeBetweenShots = "
-				+ timeBeetweenShots + "\nrange = " + range + "\n can shoot taget on different height = "
-				+ isCanShootTargetsOnDifferentHeight();
+		return super.toString()+"\nspeed = " + speed + getWeapon().toString();
 	}
 
+
+
+
+	public Weapon getWeapon() {
+		return weapon;
+	}
+
+
+
+
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
+
+
+
+
+
+
+	
 }
