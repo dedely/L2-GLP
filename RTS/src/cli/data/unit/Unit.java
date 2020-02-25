@@ -23,46 +23,17 @@ public abstract class Unit extends Selectable {
 	 * The amount of damage dealt by the unit in one shot
 	 * 
 	 */
-	private int damagePerShot;
 
-	/**
-	 * Whether it is Light, SuperLight or heavy armor
-	 * 
-	 */
-	private int TypeOfDammage;
+	private Weapon weapon;
+	
+	public Unit(String name, Faction faction, int cost, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
+			Weapon weapon) {
 
-	/**
-	 * The number of ticks between shots
-	 * 
-	 */
-	private int timeBeetweenShots;
-	private int timeLeftToReload;
-
-	/**
-	 * The minimal distance between the unit and the target for it to shoot
-	 * 
-	 */
-	private int range;
-
-	private boolean canShootAtAirTarget;
-
-	private boolean hasSecondariesOrMounted;
-
-
-
-
-
-	public Unit(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
-		this.damagePerShot = damagePerShot;
-		this.TypeOfDammage = typeOfDammage;
-		this.timeBeetweenShots = timeBeetweenShots;
-		timeLeftToReload = timeBeetweenShots;
-		this.range = range;
-		this.canShootAtAirTarget = canShootAtAirTarget;
+
+		this.setWeapon(weapon);
+
 	}
 
 	/**
@@ -78,92 +49,25 @@ public abstract class Unit extends Selectable {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+	
+	public Weapon getWeapon() {
+		return weapon;
 
-	/**
-	 * @return the amount of damage dealt by the unit in one shot
-	 */
-	public int getDamagePerShot() {
-		return damagePerShot;
 	}
 
-	/**
-	 * @param damagePerShot the damage the unit will deal when it fires
-	 */
-	public void setDamagePerShot(int damagePerShot) {
-		this.damagePerShot = damagePerShot;
+
+
+
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
 	}
 
-	public int getTypeOfDammage() {
-		return TypeOfDammage;
-	}
 
-	public void setTypeOfDammage(int typeOfDammage) {
-		TypeOfDammage = typeOfDammage;
-	}
-
-	/**
-	 * @return the time between two shots
-	 */
-	public int getTimeBeetweenShots() {
-		return timeBeetweenShots;
-	}
-
-	/**
-	 * @param timeBeetweenShots time between two shots
-	 */
-	public void setTimeBeetweenShots(int timeBeetweenShots) {
-		this.timeBeetweenShots = timeBeetweenShots;
-	}
-
-	/**
-	 * @return the number of ticks before the unit can shoot
-	 */
-	public int getTimeLeftToReload() {
-		return timeLeftToReload;
-	}
-
-	/**
-	 * @param fireRate how many ticks before the unit can shoot
-	 */
-	public void setTimeLeftToReload(int timeLeftToReload) {
-		this.timeLeftToReload = timeLeftToReload;
-	}
-
-	/**
-	 * @return the minimal distance between the unit and the target for it to shoot
-	 */
-	public int getRange() {
-		return range;
-	}
-
-	/**
-	 * @param range how close a unit needs to be before shooting
-	 */
-	public void setRange(int range) {
-		this.range = range;
-	}
-
-	public boolean isCanShootTargetsOnDifferentHeight() {
-		return canShootAtAirTarget;
-	}
-
-	public void setCanShootTargetsOnDifferentHeight(boolean canShootTargetsOnDifferentHeight) {
-		this.canShootAtAirTarget = canShootTargetsOnDifferentHeight;
-	}
-
-	public boolean isHasSecondariesOrMounted() {
-		return hasSecondariesOrMounted;
-	}
-
-	public void setHasSecondariesOrMounted(boolean hasSecondariesOrMounted) {
-		this.hasSecondariesOrMounted = hasSecondariesOrMounted;
-	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nspeed = " + speed + "\ndamagePerShot = " + damagePerShot + "\ntimeBetweenShots = "
-				+ timeBeetweenShots + "\nrange = " + range + "\n can shoot taget on different height = "
-				+ isCanShootTargetsOnDifferentHeight();
+		return super.toString()+"\nspeed = " + speed +"\nweapon" + getWeapon().toString();
+
 	}
 
 }

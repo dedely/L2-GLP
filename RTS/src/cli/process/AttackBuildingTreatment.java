@@ -6,8 +6,8 @@ import cli.data.unit.Unit;
 public class AttackBuildingTreatment {
 
 	public void attackBuilding (Unit caster, Building target) {
-		int base = caster.getDamagePerShot();
-		int damageType = caster.getTypeOfDammage();
+		int base = caster.getWeapon().getDamagePerShot();
+		int damageType = caster.getWeapon().getTypeOfDammage();
 		int armor = target.getArmorPoints();
 		int armorType = target.getArmorType();
 		int calculatedDamage = SelectableTreatment.calculDamage(base, damageType, armor, armorType);

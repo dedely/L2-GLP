@@ -17,43 +17,17 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 	 */
 	private GroundUnit infanteryIn;
 
-	/**
-	 * condition about if the weapon is installed or not
-	 */
 	private boolean mounted;
 
-	/**
-	 * the damage dealt by the mounted weapon
-	 */
-	private int mountedWeaponDamage;
-
-	/**
-	 * the number of ticks to reload the mounted weapon
-	 */
-	private int mountedWeapontimeBeetweenShots;
-	private int mountedWeapontimeLeftToReload;
-	
-	private int mountedTypeOfDamage;
-
-	private boolean canShootAtAirTargetWithMounted;
+	private Weapon mountedWeapon;
 
 
-	public GroundUnitWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int armorPoints,
-			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, boolean canShootAtAirTarget,
-			int unitSlots, boolean mounted,
-			int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
-			int mountedTypeOfDamage, boolean canShootAtAirTargetWithMounted) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget,
-				unitSlots);
+	public GroundUnitWithMountedWeapon(String name, Faction faction, int cost, int maxHealth, int armorPoints,
+			int armorType, String description, Coordinates position, int speed, Weapon weapon, int unitSlots,
+			boolean mounted, Weapon mountedWeapon) {
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSlots);
 		this.mounted = mounted;
-		this.mountedWeaponDamage = mountedWeaponDamage;
-		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;
-		mountedWeapontimeLeftToReload = mountedWeapontimeBeetweenShots;
-		this.canShootAtAirTargetWithMounted = canShootAtAirTargetWithMounted;
-		this.mountedTypeOfDamage = mountedTypeOfDamage;
-		setHasSecondariesOrMounted(true);
+		this.mountedWeapon = mountedWeapon;
 	}
 
 	/**
@@ -84,73 +58,19 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 		this.mounted = Mounted;
 	}
 
-	/**
-	 * @return the damage dealt by the mounted weapon by shot
-	 */
-	public int getMountedWeaponDamage() {
-		return mountedWeaponDamage;
+	public Weapon getMountedWeapon() {
+		return mountedWeapon;
 	}
 
-	/**
-	 * @param mountedWeaponDamage the damage dealt by the mounted weapon by shot
-	 */
-	public void setMountedWeaponDamage(int mountedWeaponDamage) {
-		this.mountedWeaponDamage = mountedWeaponDamage;
-	}
-
-	/**
-	 * @return the number ticks to reload the mounted weapon
-	 */
-	public int getMountedWeapontimeLeftToReload() {
-		return mountedWeapontimeLeftToReload;
-	}
-
-	/**
-	 * @param mountedWeaponFireRate the number of shots per seconds from the mounted
-	 *                              weapon
-	 */
-	public void setMountedWeapontimeLeftToReload(int MountedWeapontimeLeftToReload) {
-		this.mountedWeapontimeLeftToReload = MountedWeapontimeLeftToReload;
-	}
-
-	/**
-	 * @return the number of shots per seconds from the mounted weapon
-	 */
-	public int getMountedWeapontimeBeetweenShots() {
-		return mountedWeapontimeBeetweenShots;
-	}
-
-	/**
-	 * @param mountedWeaponFireRate the number of shots per seconds from the mounted
-	 *                              weapon
-	 */
-	public void setMountedWeapontimeBeetweenShots(int MountedWeapontimeBeetweenShots) {
-		this.mountedWeapontimeBeetweenShots = MountedWeapontimeBeetweenShots;
-	}
-
-	public boolean isCanShootAtAirTargetWithMounted() {
-		return canShootAtAirTargetWithMounted;
-	}
-
-	public void setCanShootAtAirTargetWithMounted(boolean canShootAtAirTargetWithMounted) {
-		this.canShootAtAirTargetWithMounted = canShootAtAirTargetWithMounted;
-	}
-	
-	public int getMountedTypeOfDamage() {
-		return mountedTypeOfDamage;
-	}
-
-	public void setMountedTypeOfDamage(int mountedTypeOfDamage) {
-		this.mountedTypeOfDamage = mountedTypeOfDamage;
+	public void setMountedWeapon(Weapon mountedWeapon) {
+		this.mountedWeapon = mountedWeapon;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nMounted = " + mounted + "\nmountedWeaponDamage = " + mountedWeaponDamage
-				+ "\nMountedWeapontimeBeetweenShots = " + mountedWeapontimeBeetweenShots
-				+ "\nMW can shoot at AirTarget = " + canShootAtAirTargetWithMounted;
+		return super.toString()+"\ninfanteryIn=" + infanteryIn.toString() + "\nmounted = " + mounted + "\n mountedWeapon = "
+				+ mountedWeapon.toString();
 	}
 
-	
 
 }

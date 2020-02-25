@@ -11,7 +11,7 @@ public class DefenseTreatment {
 
 	public Selectable detectClosestEnnemy (Unit caster, HashMap<Coordinates, Selectable> positions) {
 		Selectable closestEnnemy = null;
-		if (caster.isCanShootTargetsOnDifferentHeight()) {
+		if (caster.getWeapon().isCanShootAtAirTarget()) {
 			closestEnnemy = CoordinatesTreatment.closestEnnemySelectable(caster, positions);
 		}
 		else {

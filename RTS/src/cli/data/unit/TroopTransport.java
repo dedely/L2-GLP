@@ -11,7 +11,7 @@ import cli.data.faction.Faction;
  * @author Awen
  *
  */
-public class LightTV extends GroundUnit {
+public class TroopTransport extends GroundUnit {
 
 	/**
 	 * how many soldiers can fit inside the vehicle
@@ -28,11 +28,16 @@ public class LightTV extends GroundUnit {
 	 */
 	private ArrayList<GroundUnit> infanteryIn = new ArrayList<GroundUnit>();
 
-	public LightTV(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots, int infantrySeats) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, unitSlots);
+
+
+
+
+		
+
+
+	public TroopTransport(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, Weapon weapon, int unitSlots, int infantrySeats) {
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSlots);
 		this.infantrySeats = infantrySeats;
 		infantrySeatsRemaining = infantrySeats;
 	}
@@ -88,7 +93,7 @@ public class LightTV extends GroundUnit {
 	@Override
 	public String toString() {
 		return super.toString() + "\ninfantrySeats = " + infantrySeats + "\ninfantrySeatsRemaining = "
-				+ infantrySeatsRemaining;
+				+ infantrySeatsRemaining+ "\nInfantryIn = " + infanteryIn.toString();
 	}
 
 }

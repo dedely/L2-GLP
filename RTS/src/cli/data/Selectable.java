@@ -1,6 +1,9 @@
 package cli.data;
 
+import java.util.ArrayList;
+
 import cli.data.faction.Faction;
+import cli.data.order.Order;
 
 /**
  * @author Adel
@@ -24,6 +27,8 @@ public abstract class Selectable {
 	private String description;
 
 	private Coordinates position;
+	
+	private ArrayList<Order> orders;
 
 	/**
 	 * @param maxHealth
@@ -134,12 +139,22 @@ public abstract class Selectable {
 	public void setPosition(Coordinates position) {
 		this.position = position;
 	}
+	
+	public ArrayList<Order> getOrders() {
+		return orders;
+	}
 
+	public void setOrders(ArrayList<Order> orders) {
+		this.orders = orders;
+	}
+	
 	@Override
 	public String toString() {
-		return "Selectable [name=" + name + ", cost=" + cost + ", faction=" + faction + ", maxHealth=" + maxHealth
-				+ ", currentHealth=" + currentHealth + ", armorPoints=" + armorPoints + ", armorType=" + armorType
-				+ ", selected=" + selected + ", description=" + description + ", position=" + position + "]";
+		return "name=" + name + "\ncost=" + cost + "\nfaction=" + faction + "\nmaxHealth=" + maxHealth
+				+ "\ncurrentHealth=" + currentHealth + "\narmorPoints=" + armorPoints + "\narmorType=" + armorType
+				+ "\nselected=" + selected + "\ndescription=" + description + "\nposition=" + position + "]";
 	}
+
+
 
 }

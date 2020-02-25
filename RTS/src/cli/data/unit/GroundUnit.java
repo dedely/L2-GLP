@@ -16,13 +16,10 @@ public class GroundUnit extends Unit {
 	 */
 	private int unitSlots;
 
+	public GroundUnit(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, Weapon weapon, int unitSlots) {
+		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 
-
-	public GroundUnit(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
 		this.unitSlots = unitSlots;
 	}
 
