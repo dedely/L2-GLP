@@ -6,6 +6,7 @@ import cli.data.Coordinates;
 import cli.data.Selectable;
 import cli.data.building.Building;
 import cli.data.building.DefenseBuilding;
+import cli.data.faction.Faction;
 import cli.data.order.Order;
 import cli.data.unit.GroundUnit;
 import cli.data.unit.GroundUnitWithMountedWeapon;
@@ -32,20 +33,21 @@ public class SelectableTreatment {
 	}
 
 	public static void dealDamage(Unit caster, Selectable target) {
-		int base = caster.getWeapon().getDamagePerShot();
+		int baseDamage = caster.getWeapon().getDamagePerShot();
 		int damageType = caster.getWeapon().getTypeOfDammage();
-		int armor = target.getArmorPoints();
+
+		int armorPoints = target.getArmorPoints();
 		int armorType = target.getArmorType();
-		int calculatedDamage = calculDamage(base, damageType, armor, armorType);
+		int calculatedDamage = calculDamage(baseDamage, damageType, armorPoints, armorType);
 		System.out.println("dealing " + calculatedDamage + "damage");
-		System.out.println(
-				"base = " + base + " damageType = " + damageType + " armor = " + armor + " armorType = " + armorType);
+		System.out.println("base = " + baseDamage + " damageType = " + damageType + " armor = " + armorPoints
+				+ " armorType = " + armorType);
 		receiveDamage(target, calculatedDamage, caster);
 	}
 
 	public static void dealDamage(DefenseBuilding caster, Selectable target) {
-		int base = caster.getDamage();
-		int damageType = caster.getDamageType();
+		int base = caster.getWeapon().getDamagePerShot();
+		int damageType = caster.getWeapon().getTypeOfDammage();
 		int armor = target.getArmorPoints();
 		int armorType = target.getArmorType();
 		int calculatedDamage = calculDamage(base, damageType, armor, armorType);
@@ -132,8 +134,8 @@ public class SelectableTreatment {
 		}
 	}
 
-	public static boolean isEnnemy(Selectable caster, Selectable target) {
-		if (caster.getFaction().getEnnemies().contains(target.getFaction())) {
+	public static boolean isEnnemy(Selectable caster, Selectable target, Faction casterFaction) {
+		if (casterFaction.getEnnemies().contains(target.getOwner())) {
 			return true;
 		} else
 			return false;
@@ -145,16 +147,6 @@ public class SelectableTreatment {
 		orderReceiver.setOrders(newOrderList);
 
 	}
-	
-	public static void giveOrderFirst(Selectable orderReceiver, Order order) {
-		ArrayList<Order> oldOrderList = orderReceiver.getOrders();
-		ArrayList<Order> newOrderList = new ArrayList<Order>();
-
-		newOrderList.add(order);
-		newOrderList.addAll(oldOrderList);
-		orderReceiver.setOrders(newOrderList);
-
-	}
 
 	public static void giveOrderStagger(Selectable orderReceiver, Order order) {
 		ArrayList<Order> newOrderList = orderReceiver.getOrders();
@@ -162,7 +154,6 @@ public class SelectableTreatment {
 		orderReceiver.setOrders(newOrderList);
 
 	}
-
 
 	public static void executeNextOrder(Building currentBuilding) {
 		if (!currentBuilding.getOrders().isEmpty()) {
@@ -176,10 +167,9 @@ public class SelectableTreatment {
 	public static void executeNextOrder(Unit currentUnit) {
 		if (!currentUnit.getOrders().isEmpty()) {
 			/*
-			 * OrderTreatment.executeOrder(currentUnit,
-			 * currentUnit.getOrders().get(0))
+			 * OrderTreatment.executeOrder(currentUnit, currentUnit.getOrders().get(0))
 			 */
 		}
-		
+
 	}
 }

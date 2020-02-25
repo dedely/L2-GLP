@@ -12,12 +12,11 @@ import cli.data.unit.GroundUnit;
 public class UnitFactory {
 	public static Unit create(String type, Coordinates spawnPosition, Faction faction) throws IllegalArgumentException {
 		if (type == Constants.TEST_GROUND) {
-			return new GroundUnit("Test ground unit", faction, 500, 500, 0, Constants.SUPER_LIGHT, "A test unit",
-					spawnPosition, 20, WeaponFactory.createWeapon(Constants.TEST_GROUND_WEAPON_H), 10);
+			return new GroundUnit("Test ground unit", 500, faction.getPlayerName(), 500, 0, Constants.SUPER_LIGHT,
+					"A test unit", spawnPosition, 20, WeaponFactory.createWeapon(Constants.TEST_GROUND_WEAPON_H), 10);
 		}
 
 		throw new IllegalArgumentException("type " + type + " is not implemented or defined");
-
 
 	}
 }
