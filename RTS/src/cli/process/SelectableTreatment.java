@@ -1,9 +1,12 @@
 package cli.process;
 
 
+import java.util.ArrayList;
+
 import cli.data.Coordinates;
 import cli.data.Selectable;
 import cli.data.building.DefenseBuilding;
+import cli.data.order.Order;
 import cli.data.unit.GroundUnit;
 import cli.data.unit.GroundUnitWithMountedWeapon;
 import cli.data.unit.TroopTransport;
@@ -140,5 +143,20 @@ public class SelectableTreatment {
 			return true;
 		}
 		else return false;
+	}
+
+	public static void giveOrderReplace(Selectable orderReceiver, Order order) {
+		ArrayList<Order> newOrderList = new ArrayList<Order>();
+		newOrderList.add(order);
+		orderReceiver.setOrders(newOrderList);
+		
+		
+	}
+	public static void giveOrderStagger(Selectable orderReceiver, Order order) {
+		ArrayList<Order> newOrderList = orderReceiver.getOrders();
+		newOrderList.add(order);
+		orderReceiver.setOrders(newOrderList);
+		
+		
 	}
 }
