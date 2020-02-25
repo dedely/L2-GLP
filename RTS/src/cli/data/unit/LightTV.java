@@ -28,21 +28,24 @@ public class LightTV extends GroundUnit {
 	 */
 	private ArrayList<GroundUnit> infanteryIn = new ArrayList<GroundUnit>();
 
+	public LightTV(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
+			boolean hasSecondariesOrMounted, int unitSlots, int infantrySeats, int infantrySeatsRemaining,
+			ArrayList<GroundUnit> infanteryIn) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
+				unitSlots);
+		this.infantrySeats = infantrySeats;
+		this.infantrySeatsRemaining = infantrySeatsRemaining;
+		this.infanteryIn = infanteryIn;
+	}
+
 	/**
 	 * @return how many soldiers can fit inside the vehicle
 	 */
 	public int getInfantrySeats() {
 		return infantrySeats;
-	}
-
-	public LightTV(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int range, boolean canShootAtAirTarget, boolean hasSecondariesOrMounted,
-			int unitSlots, int infantrySeats) {
-		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, hasSecondariesOrMounted, unitSlots);
-		this.infantrySeats = infantrySeats;
-		infantrySeatsRemaining = infantrySeats;
 	}
 
 	/**

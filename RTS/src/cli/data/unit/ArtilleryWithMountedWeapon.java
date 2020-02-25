@@ -30,23 +30,26 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	 * the number of shots per seconds from the mounted weapon
 	 */
 	private int mountedWeapontimeBeetweenShots;
-	private int mountedWeapontimeLeftToReload = 0;
+	private int mountedWeapontimeLeftToReload;
 
 	private boolean canShootAtAirTargetWithMounted;
+
+
 
 	public ArtilleryWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int armorPoints,
 			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
 			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted, int unitSlots, int minimumRange, GroundUnit infanteryIn, boolean mounted,
-			int mountedWeaponDamage, int mountedWeapontimeBeetweenShots, boolean canShootAtAirTargetWithMounted) {
+			boolean hasSecondariesOrMounted, int unitSlots, int minimumRange, boolean mounted, int mountedWeaponDamage,
+			int mountedWeapontimeBeetweenShots, int mountedWeapontimeLeftToReload,
+			boolean canShootAtAirTargetWithMounted) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
 				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
 				unitSlots, minimumRange);
-		this.infanteryIn = infanteryIn;
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;
-		this.canShootAtAirTargetWithMounted = canShootAtAirTargetWithMounted;
+		mountedWeapontimeLeftToReload = mountedWeapontimeBeetweenShots;
+		setHasSecondariesOrMounted(true);
 	}
 
 	/**

@@ -1,5 +1,7 @@
 package cli.data;
 
+import cli.data.faction.Faction;
+
 /**
  * @author Adel
  *
@@ -9,8 +11,7 @@ public abstract class Selectable {
 	private String name;
 	private int cost;
 
-	// We'll use the player's id to determine his ennemies.
-	private String playerName;
+	private Faction faction;
 
 	private int maxHealth;
 	private int currentHealth;
@@ -38,10 +39,10 @@ public abstract class Selectable {
 		return name;
 	}
 
-	public Selectable(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position) {
+	public Selectable(String name, int cost, Faction faction, int maxHealth,  int armorPoints,
+			int armorType, String description, Coordinates position) {
 		this.name = name;
-		this.playerName = playerName;
+		this.faction = faction;
 		this.cost = cost;
 		this.maxHealth = maxHealth;
 
@@ -66,12 +67,12 @@ public abstract class Selectable {
 		this.cost = cost;
 	}
 
-	public String getPlayerName() {
-		return playerName;
+	public Faction getFaction() {
+		return faction;
 	}
 
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
+	public void setFaction(Faction faction) {
+		this.faction = faction;
 	}
 
 	public void setName(String name) {
@@ -136,7 +137,7 @@ public abstract class Selectable {
 
 	@Override
 	public String toString() {
-		return "Selectable [name=" + name + ", cost=" + cost + ", playerName=" + playerName + ", maxHealth=" + maxHealth
+		return "Selectable [name=" + name + ", cost=" + cost + ", faction=" + faction + ", maxHealth=" + maxHealth
 				+ ", currentHealth=" + currentHealth + ", armorPoints=" + armorPoints + ", armorType=" + armorType
 				+ ", selected=" + selected + ", description=" + description + ", position=" + position + "]";
 	}
