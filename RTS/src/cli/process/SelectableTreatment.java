@@ -1,10 +1,10 @@
 package cli.process;
 
-
 import java.util.ArrayList;
 
 import cli.data.Coordinates;
 import cli.data.Selectable;
+import cli.data.building.Building;
 import cli.data.building.DefenseBuilding;
 import cli.data.order.Order;
 import cli.data.unit.GroundUnit;
@@ -55,47 +55,43 @@ public class SelectableTreatment {
 	public static int calculDamage(int baseAmount, int damageType, int armor, int armorType) {
 		return (int) (Math.max(baseAmount - (armor * ((armorType - damageType) / 2.0 + 1)), 1));
 	}
-	
+
 	public static boolean canShoot(Unit unit, Selectable target) {
 		if (unit.getPosition().getHeight() < 0) {
 			return false;
 		}
-		if(unit.getWeapon().getTimeLeftToReload() > 0) {
+		if (unit.getWeapon().getTimeLeftToReload() > 0) {
 			return false;
 		}
-		
-		
+
 		return true;
 	}
-
 
 	public static void moveToward(Unit unitToMove, Coordinates destination) {
 		unitToMove.setPosition(CoordinatesTreatment.positionNextTick(unitToMove, destination));
 	}
 
-
 	public static void changePositionState(Unit unitToUpdate, int newState) {
 		unitToUpdate.setPosition(new Coordinates(unitToUpdate.getPosition(), newState));
 	}
-	
+
 	public static void getIn(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getUnitSlotsAvailable();
 		int unitSize = unitToEmbark.getUnitSlots();
-		if( canEmbark(unitToEmbark, whereToEmbark)) {
-			whereToEmbark.setUnitSlotsAvailable(unitsSlotsAvailable-unitSize);
+		if (canEmbark(unitToEmbark, whereToEmbark)) {
+			whereToEmbark.setUnitSlotsAvailable(unitsSlotsAvailable - unitSize);
 			whereToEmbark.getUnitsIn().add(unitToEmbark);
 		}
-		
+
 	}
-	
+
 	public static boolean canEmbark(GroundUnit unitToEmbark, TransportHelicopter whereToEmbark) {
 
 		int unitsSlotsAvailable = whereToEmbark.getUnitSlotsAvailable();
 		int unitSize = unitToEmbark.getUnitSlots();
-		if( unitsSlotsAvailable >= unitSize) {
+		if (unitsSlotsAvailable >= unitSize) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
@@ -103,60 +99,87 @@ public class SelectableTreatment {
 	public static void getIn(GroundUnit unitToEmbark, TroopTransport whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getInfantrySeatsRemaining();
 		int unitSize = unitToEmbark.getUnitSlots();
-		if( canEmbark(unitToEmbark, whereToEmbark)) {
-			whereToEmbark.setInfantrySeatsRemaining(unitsSlotsAvailable-unitSize);
+		if (canEmbark(unitToEmbark, whereToEmbark)) {
+			whereToEmbark.setInfantrySeatsRemaining(unitsSlotsAvailable - unitSize);
 			whereToEmbark.getUnitsIn().add(unitToEmbark);
 		}
-		
+
 	}
 
 	public static boolean canEmbark(GroundUnit unitToEmbark, TroopTransport whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getInfantrySeatsRemaining();
 		int unitSize = unitToEmbark.getUnitSlots();
-		if( unitsSlotsAvailable >= unitSize) {
+		if (unitsSlotsAvailable >= unitSize) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	public static void getIn(GroundUnit unitToEmbark, GroundUnitWithMountedWeapon whereToEmbark) {
-		if( canEmbark(unitToEmbark, whereToEmbark)) {
+		if (canEmbark(unitToEmbark, whereToEmbark)) {
 			whereToEmbark.setInfanteryIn(unitToEmbark);
 		}
-		
+
 	}
 
 	public static boolean canEmbark(GroundUnit unitToEmbark, GroundUnitWithMountedWeapon whereToEmbark) {
 
-		if( unitToEmbark.getUnitSlots()== 1 && whereToEmbark.getInfanteryIn()==null) {
+		if (unitToEmbark.getUnitSlots() == 1 && whereToEmbark.getInfanteryIn() == null) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	public static boolean isEnnemy(Selectable caster, Selectable target) {
-		if (caster.getFaction().getEnnemies().contains(target.getFaction())){
+		if (caster.getFaction().getEnnemies().contains(target.getFaction())) {
 			return true;
-		}
-		else return false;
+		} else
+			return false;
 	}
 
 	public static void giveOrderReplace(Selectable orderReceiver, Order order) {
 		ArrayList<Order> newOrderList = new ArrayList<Order>();
 		newOrderList.add(order);
 		orderReceiver.setOrders(newOrderList);
-		
-		
+
 	}
+	
+	public static void giveOrderFirst(Selectable orderReceiver, Order order) {
+		ArrayList<Order> oldOrderList = orderReceiver.getOrders();
+		ArrayList<Order> newOrderList = new ArrayList<Order>();
+
+		newOrderList.add(order);
+		newOrderList.addAll(oldOrderList);
+		orderReceiver.setOrders(newOrderList);
+
+	}
+
 	public static void giveOrderStagger(Selectable orderReceiver, Order order) {
 		ArrayList<Order> newOrderList = orderReceiver.getOrders();
 		newOrderList.add(order);
 		orderReceiver.setOrders(newOrderList);
-		
+
+	}
+
+
+	public static void executeNextOrder(Building currentBuilding) {
+		if (!currentBuilding.getOrders().isEmpty()) {
+			/*
+			 * OrderTreatment.executeOrder(currentbuilding,
+			 * currentBuilding.getOrders().get(0))
+			 */
+		}
+	}
+
+	public static void executeNextOrder(Unit currentUnit) {
+		if (!currentUnit.getOrders().isEmpty()) {
+			/*
+			 * OrderTreatment.executeOrder(currentUnit,
+			 * currentUnit.getOrders().get(0))
+			 */
+		}
 		
 	}
 }

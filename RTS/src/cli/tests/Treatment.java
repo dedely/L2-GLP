@@ -1,5 +1,7 @@
 package cli.tests;
 
+import java.util.ArrayList;
+
 import cli.data.Constants;
 import cli.data.Coordinates;
 import cli.data.faction.Faction;
@@ -16,6 +18,10 @@ public class Treatment {
 		
 		long startTime = System.nanoTime();
 		
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+
+		
 		Faction faction1 = new Faction(Constants.UNION,Constants.PLAYER, null, "the union");
 		Faction faction2 = new Faction(Constants.FEDERATION,Constants.ENNEMY+"1", null, "the federation");
 
@@ -25,7 +31,17 @@ public class Treatment {
 
 		SelectableTreatment.giveOrderReplace(unit1, new Attack( Constants.STOP_TO_SHOOT, unit2));
 		
+		list1.add(1);
+		list1.add(2);
+		list1.add(3);
+		list2.add(3);
+		list2.add(2);
+		list2.add(5);
 		
+		list1.addAll(list2);
+		
+		System.out.println(list1.toString());
+
 		
 		
 		long endTime = System.nanoTime();
