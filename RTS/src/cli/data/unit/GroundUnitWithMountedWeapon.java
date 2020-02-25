@@ -31,26 +31,22 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 	 * the number of ticks to reload the mounted weapon
 	 */
 	private int mountedWeapontimeBeetweenShots;
-	private int mountedWeapontimeLeftToReload;
+	private int mountedWeapontimeLeftToReload = 0;
 
 	private boolean canShootAtAirTargetWithMounted;
 
-
-	public GroundUnitWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int armorPoints,
+	public GroundUnitWithMountedWeapon(String name, int cost, String playerName, int maxHealth, int armorPoints,
 			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted, int unitSlots, GroundUnit infanteryIn, boolean mounted,
-			int mountedWeaponDamage, int mountedWeapontimeBeetweenShots, int mountedWeapontimeLeftToReload,
-			boolean canShootAtAirTargetWithMounted) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
-				unitSlots);
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, boolean hasSecondariesOrMounted,
+			int unitSlots, GroundUnit infanteryIn, boolean mounted, int mountedWeaponDamage,
+			int mountedWeapontimeBeetweenShots, boolean canShootAtAirTargetWithMounted) {
+		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, hasSecondariesOrMounted, unitSlots);
+		this.infanteryIn = infanteryIn;
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;
-		mountedWeapontimeLeftToReload = mountedWeapontimeBeetweenShots;
 		this.canShootAtAirTargetWithMounted = canShootAtAirTargetWithMounted;
-		setHasSecondariesOrMounted(true);
 	}
 
 	/**
