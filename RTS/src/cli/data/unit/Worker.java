@@ -34,7 +34,7 @@ public class Worker extends Unit {
 
 	@Override
 	public String toString() {
-		return "Worker [unitSlots=" + unitSlots + "," + super.toString() + "]";
+		return super.toString() + "\nunit slots" + unitSlots;
 	}
 
 }

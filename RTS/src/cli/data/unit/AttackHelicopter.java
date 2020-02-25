@@ -21,7 +21,7 @@ public class AttackHelicopter extends Unit {
 
 	@Override
 	public String toString() {
-		return super.toString() + " \nsecondary Weapon = " + secondaryWeapon;
+		return super.toString() + " \nsecondary Weapon = " + secondaryWeapon.toString();
 
 	}
 

@@ -68,7 +68,7 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	@Override
 	public String toString() {
-		return "infanteryIn=" + infanteryIn.toString() + "\nmounted = " + mounted + "\n mountedWeapon = "
+		return super.toString()+"\ninfanteryIn=" + infanteryIn.toString() + "\nmounted = " + mounted + "\n mountedWeapon = "
 				+ mountedWeapon.toString();
 	}
 

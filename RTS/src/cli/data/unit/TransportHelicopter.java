@@ -28,8 +28,6 @@ public class TransportHelicopter extends Unit {
 	 */
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
 
-
-
 	public TransportHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int unitSlots) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, null);
@@ -82,7 +80,8 @@ public class TransportHelicopter extends Unit {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nunitSlotsAvailable = " + unitSlotsAvailable + "\nUnitSlots = " + unitSlots;
+		return super.toString() + "\nunitSlotsAvailable = " + unitSlotsAvailable + "\nUnitSlots = " + unitSlots
+				+ "\nUnitsIn" + unitsIn.toString();
 	}
 
 }

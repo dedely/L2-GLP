@@ -93,7 +93,7 @@ public class TroopTransport extends GroundUnit {
 	@Override
 	public String toString() {
 		return super.toString() + "\ninfantrySeats = " + infantrySeats + "\ninfantrySeatsRemaining = "
-				+ infantrySeatsRemaining;
+				+ infantrySeatsRemaining+ "\nInfantryIn = " + infanteryIn.toString();
 	}
 
 }
