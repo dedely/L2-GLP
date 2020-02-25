@@ -6,7 +6,6 @@ import cli.data.Selectable;
 public class AttackBuilding implements DefBuildingOrder {
 
 	private Coordinates position;
-	private int movingBehaviour;
 	private Selectable target;
 	
 	public Coordinates getPosition() {
@@ -14,12 +13,6 @@ public class AttackBuilding implements DefBuildingOrder {
 	}
 	public void setPosition(Coordinates position) {
 		this.position = position;
-	}
-	public int getMovingBehaviour() {
-		return movingBehaviour;
-	}
-	public void setMovingBehaviour(int movingBehaviour) {
-		this.movingBehaviour = movingBehaviour;
 	}
 	public Selectable getTarget() {
 		return target;
