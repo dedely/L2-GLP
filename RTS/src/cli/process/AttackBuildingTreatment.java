@@ -1,5 +1,9 @@
 package cli.process;
 
+import java.util.HashMap;
+
+import cli.data.Coordinates;
+import cli.data.Selectable;
 import cli.data.building.Building;
 import cli.data.unit.Unit;
 
@@ -16,6 +20,21 @@ public class AttackBuildingTreatment {
 		System.out.println(
 				"base = " + base + " damageType = " + damageType + " armor = " + armor + " armorType = " + armorType);
 		SelectableTreatment.receiveDamage(target, calculatedDamage, caster);
+	}
+	
+	public void attackBuilding (Unit caster, Building target, HashMap<Coordinates, Selectable> positions) {
+		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) > caster.getWeapon().getRange()) {
+			MoveToTreatment.moveToward(caster, target.getPosition());
+		} else {
+			if (SelectableTreatment.canShoot(caster, target)) {
+				SelectableTreatment.dealDamage(caster, target);
+				caster.getWeapon().setTimeLeftToReload(caster.getWeapon().getTimeBeetweenShots());
+			}
+		}
+	}
+	
+	public void attackBuilding (Building caster, Building target) {
+		
 	}
 
 }

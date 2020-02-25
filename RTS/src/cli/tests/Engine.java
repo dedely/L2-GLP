@@ -10,6 +10,7 @@ import cli.data.Constants;
 import cli.data.building.Building;
 import cli.data.faction.Faction;
 import cli.data.unit.Unit;
+import cli.process.SelectableTreatment;
 import cli.data.Selectable;
 
 public class Engine {

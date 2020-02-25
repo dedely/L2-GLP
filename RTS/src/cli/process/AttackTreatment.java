@@ -21,12 +21,12 @@ public class AttackTreatment {
 	}
 
 	public static void attack(DefenseBuilding caster, Selectable target) {
-		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) <= caster.getRange()) {
-			if (caster.getTimeLeftToReload() <= 0) {
+		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) <= caster.getWeapon().getRange()) {
+			if (caster.getWeapon().getTimeLeftToReload() <= 0) {
 				SelectableTreatment.dealDamage(caster, target);
-				caster.setTimeLeftToReload(caster.getTimeBeetweenShots());
+				caster.getWeapon().setTimeLeftToReload(caster.getWeapon().getTimeBeetweenShots());
 			} else {
-				caster.setTimeLeftToReload(caster.getTimeLeftToReload() - 1);
+				caster.getWeapon().setTimeLeftToReload(caster.getWeapon().getTimeLeftToReload() - 1);
 			}
 		}
 	}
