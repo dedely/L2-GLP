@@ -54,8 +54,7 @@ public abstract class Unit extends Selectable {
 
 	public Unit(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted) {
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
 		this.damagePerShot = damagePerShot;

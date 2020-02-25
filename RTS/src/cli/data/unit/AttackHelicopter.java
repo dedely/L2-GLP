@@ -28,23 +28,18 @@ public class AttackHelicopter extends Unit {
 
 	private int secondaryTypeOfDamage;
 
-
-
 	public AttackHelicopter(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted, int secondaryWeaponDamage, int secondaryWeaponAmmount,
-			int secondaryTimeBetweenShots, int secondaryTypeOfDamage) {
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int secondaryWeaponDamage,
+			int secondaryWeaponAmmount, int secondaryTimeBetweenShots, int secondaryTypeOfDamage) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
-				hasSecondariesOrMounted);
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
 		this.secondaryWeaponDamage = secondaryWeaponDamage;
 		this.secondaryWeaponAmmount = secondaryWeaponAmmount;
 		this.secondaryTimeBetweenShots = secondaryTimeBetweenShots;
 		this.setSecondaryTypeOfDamage(secondaryTypeOfDamage);
 		setHasSecondariesOrMounted(true);
 	}
-
 
 	/**
 	 * @return the damage dealt by the secondary weapon
