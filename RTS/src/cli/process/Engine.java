@@ -39,7 +39,7 @@ public class Engine {
 			while(factionListIterator.hasNext()) {
 				Entry<String, Faction> factionEntry = factionListIterator.next();
 			      for(Building currentBuilding :factionEntry.getValue().getBuildingList()) {
-			    	  /*SelectableTreatment.executeNextOrder()*/
+			    	  SelectableTreatment.executeNextOrder(currentBuilding);
 			    	  
 			    	  /*if(Selectable unitattacked.isdead()){
 			    	   * deadSelectables.add(unitattacked);
@@ -59,7 +59,7 @@ public class Engine {
 			    	   */
 			      }
 			      for(Unit currentUnit :factionEntry.getValue().getUnitsList()) {
-			    	  /*SelectableTreatment.executeNextOrder()*/
+			    	  SelectableTreatment.executeNextOrder(currentUnit);
 			    	  
 			    	  /*if(Selectable unitattacked.isdead()){
 			    	   * deadSelectables.add(unitattacked);
