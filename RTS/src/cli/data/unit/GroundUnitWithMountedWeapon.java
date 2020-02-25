@@ -32,24 +32,27 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 	 */
 	private int mountedWeapontimeBeetweenShots;
 	private int mountedWeapontimeLeftToReload;
+	
+	private int mountedTypeOfDamage;
 
 	private boolean canShootAtAirTargetWithMounted;
 
 
 	public GroundUnitWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int armorPoints,
 			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted, int unitSlots, GroundUnit infanteryIn, boolean mounted,
-			int mountedWeaponDamage, int mountedWeapontimeBeetweenShots, int mountedWeapontimeLeftToReload,
-			boolean canShootAtAirTargetWithMounted) {
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget,
+			int unitSlots, boolean mounted,
+			int mountedWeaponDamage, int mountedWeapontimeBeetweenShots,
+			int mountedTypeOfDamage, boolean canShootAtAirTargetWithMounted) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget,
 				unitSlots);
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;
 		mountedWeapontimeLeftToReload = mountedWeapontimeBeetweenShots;
 		this.canShootAtAirTargetWithMounted = canShootAtAirTargetWithMounted;
+		this.mountedTypeOfDamage = mountedTypeOfDamage;
 		setHasSecondariesOrMounted(true);
 	}
 
@@ -132,6 +135,14 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 	public void setCanShootAtAirTargetWithMounted(boolean canShootAtAirTargetWithMounted) {
 		this.canShootAtAirTargetWithMounted = canShootAtAirTargetWithMounted;
 	}
+	
+	public int getMountedTypeOfDamage() {
+		return mountedTypeOfDamage;
+	}
+
+	public void setMountedTypeOfDamage(int mountedTypeOfDamage) {
+		this.mountedTypeOfDamage = mountedTypeOfDamage;
+	}
 
 	@Override
 	public String toString() {
@@ -139,5 +150,7 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 				+ "\nMountedWeapontimeBeetweenShots = " + mountedWeapontimeBeetweenShots
 				+ "\nMW can shoot at AirTarget = " + canShootAtAirTargetWithMounted;
 	}
+
+	
 
 }

@@ -70,9 +70,9 @@ public class TransportHelicopter extends Unit {
 
 	public TransportHelicopter(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted, int unitSlots) {
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget,
 >>>>>>> 78ee734 modified (again) all units constructors to have costs
 				hasSecondariesOrMounted);
@@ -81,6 +81,9 @@ public class TransportHelicopter extends Unit {
 		this.unitSlotsAvailable = unitSlotsAvailable;
 >>>>>>> c5f50c5 modified Units classes to be formated and added boolean hasMountedWeaponOrSecondary
 =======
+=======
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget);
+>>>>>>> cdddd68 redone constructors of unit classes and of UnitFactory
 		unitSlotsAvailable = unitSlots;
 >>>>>>> 78ee734 modified (again) all units constructors to have costs
 		this.unitSlots = unitSlots;

@@ -75,16 +75,17 @@ public class LightTV extends GroundUnit {
 =======
 	public LightTV(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted, int unitSlots, int infantrySeats, int infantrySeatsRemaining,
-			ArrayList<GroundUnit> infanteryIn) {
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots, int infantrySeats) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
 				unitSlots);
 >>>>>>> 78ee734 modified (again) all units constructors to have costs
+=======
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget, unitSlots);
+>>>>>>> cdddd68 redone constructors of unit classes and of UnitFactory
 		this.infantrySeats = infantrySeats;
-		this.infantrySeatsRemaining = infantrySeatsRemaining;
-		this.infanteryIn = infanteryIn;
+		infantrySeatsRemaining = infantrySeats;
 	}
 
 	/**

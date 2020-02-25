@@ -62,6 +62,7 @@ public class Artillery extends GroundUnit {
 
 	public Artillery(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
 >>>>>>> 78ee734 modified (again) all units constructors to have costs
 			boolean hasSecondariesOrMounted, int unitSlots, int minimumRange) {
@@ -71,8 +72,11 @@ public class Artillery extends GroundUnit {
 				hasSecondariesOrMounted, unitSlots);
 >>>>>>> 072884a modified the classes to have cost in their constructors
 =======
+=======
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget, int unitSlots, int minimumRange) {
+>>>>>>> cdddd68 redone constructors of unit classes and of UnitFactory
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget,
 				unitSlots);
 >>>>>>> 78ee734 modified (again) all units constructors to have costs
 		this.minimumRange = minimumRange;

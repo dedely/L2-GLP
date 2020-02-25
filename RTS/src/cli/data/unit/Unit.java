@@ -67,12 +67,16 @@ public abstract class Unit extends Selectable {
 
 	public Unit(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
 			boolean hasSecondariesOrMounted) {
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 		super(name, cost, faction, maxHealth, armorPoints, armorType, selected, description, position);
 >>>>>>> 072884a modified the classes to have cost in their constructors
 =======
+=======
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget) {
+>>>>>>> cdddd68 redone constructors of unit classes and of UnitFactory
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position);
 >>>>>>> 78ee734 modified (again) all units constructors to have costs
 		this.speed = speed;

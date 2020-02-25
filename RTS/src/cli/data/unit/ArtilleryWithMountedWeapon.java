@@ -31,6 +31,8 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	 */
 	private int mountedWeapontimeBeetweenShots;
 	private int mountedWeapontimeLeftToReload;
+	
+	private int mountedTypeOfDamage;
 
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Azilisiev/L2-GLP
@@ -91,18 +93,19 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 
 	public ArtilleryWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int armorPoints,
 			int armorType, String description, Coordinates position, int speed, int damagePerShot, int typeOfDammage,
-			int timeBeetweenShots, int timeLeftToReload, int range, boolean canShootAtAirTarget,
-			boolean hasSecondariesOrMounted, int unitSlots, int minimumRange, boolean mounted, int mountedWeaponDamage,
-			int mountedWeapontimeBeetweenShots, int mountedWeapontimeLeftToReload,
-			boolean canShootAtAirTargetWithMounted) {
+			int timeBeetweenShots, int range, boolean canShootAtAirTarget,
+			int unitSlots, int minimumRange, boolean mounted, int mountedWeaponDamage,
+			int mountedWeapontimeBeetweenShots,
+			int mountedTypeOfDamage, boolean canShootAtAirTargetWithMounted) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, damagePerShot,
-				typeOfDammage, timeBeetweenShots, timeLeftToReload, range, canShootAtAirTarget, hasSecondariesOrMounted,
+				typeOfDammage, timeBeetweenShots, range, canShootAtAirTarget,
 				unitSlots, minimumRange);
 >>>>>>> 78ee734 modified (again) all units constructors to have costs
 		this.mounted = mounted;
 		this.mountedWeaponDamage = mountedWeaponDamage;
 		this.mountedWeapontimeBeetweenShots = mountedWeapontimeBeetweenShots;
 		mountedWeapontimeLeftToReload = mountedWeapontimeBeetweenShots;
+		this.mountedTypeOfDamage = mountedTypeOfDamage;
 		setHasSecondariesOrMounted(true);
 	}
 
@@ -185,6 +188,14 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 	public void setCanShootAtAirTargetWithMounted(boolean canShootAtAirTargetWithMounted) {
 		this.canShootAtAirTargetWithMounted = canShootAtAirTargetWithMounted;
 	}
+	
+	public int getMountedTypeOfDamage() {
+		return mountedTypeOfDamage;
+	}
+
+	public void setMountedTypeOfDamage(int mountedTypeOfDamage) {
+		this.mountedTypeOfDamage = mountedTypeOfDamage;
+	}
 
 	@Override
 	public String toString() {
@@ -192,5 +203,7 @@ public class ArtilleryWithMountedWeapon extends Artillery {
 				+ "\nmountedWeapontimeBeetweenShots = " + mountedWeapontimeBeetweenShots
 				+ "\nMW can shoot at AirTarget = " + canShootAtAirTargetWithMounted;
 	}
+
+
 
 }
