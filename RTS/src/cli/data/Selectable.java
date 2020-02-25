@@ -2,7 +2,6 @@ package cli.data;
 
 import java.util.ArrayList;
 
-import cli.data.faction.Faction;
 import cli.data.order.Order;
 
 /**
@@ -14,7 +13,7 @@ public abstract class Selectable {
 	private String name;
 	private int cost;
 
-	private Faction faction;
+	private String owner;
 
 	private int maxHealth;
 	private int currentHealth;
@@ -27,8 +26,8 @@ public abstract class Selectable {
 	private String description;
 
 	private Coordinates position;
-	
-	private ArrayList<Order> orders;
+
+	private ArrayList<Order> orders = new ArrayList<Order>();
 
 	/**
 	 * @param maxHealth
@@ -44,11 +43,11 @@ public abstract class Selectable {
 		return name;
 	}
 
-	public Selectable(String name, int cost, Faction faction, int maxHealth,  int armorPoints,
-			int armorType, String description, Coordinates position) {
+	public Selectable(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position) {
 		this.name = name;
-		this.faction = faction;
 		this.cost = cost;
+		this.owner = owner;
 		this.maxHealth = maxHealth;
 
 		// When a new Selectable is created, its currentHealth equals its maxHealth.
@@ -72,12 +71,12 @@ public abstract class Selectable {
 		this.cost = cost;
 	}
 
-	public Faction getFaction() {
-		return faction;
+	public String getOwner() {
+		return owner;
 	}
 
-	public void setFaction(Faction faction) {
-		this.faction = faction;
+	public void setOwner(String owner) {
+		this.owner = owner;
 	}
 
 	public void setName(String name) {
@@ -139,7 +138,7 @@ public abstract class Selectable {
 	public void setPosition(Coordinates position) {
 		this.position = position;
 	}
-	
+
 	public ArrayList<Order> getOrders() {
 		return orders;
 	}
@@ -147,14 +146,12 @@ public abstract class Selectable {
 	public void setOrders(ArrayList<Order> orders) {
 		this.orders = orders;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "name=" + name + "\ncost=" + cost + "\nfaction=" + faction + "\nmaxHealth=" + maxHealth
-				+ "\ncurrentHealth=" + currentHealth + "\narmorPoints=" + armorPoints + "\narmorType=" + armorType
-				+ "\nselected=" + selected + "\ndescription=" + description + "\nposition=" + position + "]";
+		return "name=" + name + "\ncost=" + cost + "\nowner=" + owner + "\nmaxHealth=" + maxHealth + "\ncurrentHealth="
+				+ currentHealth + "\narmorPoints=" + armorPoints + "\narmorType=" + armorType + "\nselected=" + selected
+				+ "\ndescription=" + description + "\nposition=" + position + "]";
 	}
-
-
 
 }

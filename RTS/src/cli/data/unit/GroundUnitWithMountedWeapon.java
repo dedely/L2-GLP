@@ -21,11 +21,10 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	private Weapon mountedWeapon;
 
-
-	public GroundUnitWithMountedWeapon(String name, Faction faction, int cost, int maxHealth, int armorPoints,
+	public GroundUnitWithMountedWeapon(String name, int cost, String owner, int maxHealth, int armorPoints,
 			int armorType, String description, Coordinates position, int speed, Weapon weapon, int unitSlots,
 			boolean mounted, Weapon mountedWeapon) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSlots);
+		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSlots);
 		this.mounted = mounted;
 		this.mountedWeapon = mountedWeapon;
 	}
@@ -68,9 +67,8 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	@Override
 	public String toString() {
-		return super.toString()+"\ninfanteryIn=" + infanteryIn.toString() + "\nmounted = " + mounted + "\n mountedWeapon = "
-				+ mountedWeapon.toString();
+		return super.toString() + "\ninfanteryIn=" + infanteryIn.toString() + "\nmounted = " + mounted
+				+ "\n mountedWeapon = " + mountedWeapon.toString();
 	}
-
 
 }

@@ -1,7 +1,6 @@
 package cli.data.unit;
 
 import cli.data.Selectable;
-import cli.data.faction.Faction;
 import cli.data.Coordinates;
 
 /**
@@ -25,15 +24,12 @@ public abstract class Unit extends Selectable {
 	 */
 
 	private Weapon weapon;
-	
-	public Unit(String name, Faction faction, int cost, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
-			Weapon weapon) {
 
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position);
+	public Unit(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType, String description,
+			Coordinates position, int speed, Weapon weapon) {
+		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
-
-		this.setWeapon(weapon);
-
+		this.weapon = weapon;
 	}
 
 	/**
@@ -49,24 +45,19 @@ public abstract class Unit extends Selectable {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-	
+
 	public Weapon getWeapon() {
 		return weapon;
 
 	}
 
-
-
-
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return super.toString()+"\nspeed = " + speed +"\nweapon" + getWeapon().toString();
+		return super.toString() + "\nspeed = " + speed + "\nweapon" + getWeapon().toString();
 
 	}
 

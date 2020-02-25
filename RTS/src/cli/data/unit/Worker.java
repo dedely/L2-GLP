@@ -1,7 +1,6 @@
 package cli.data.unit;
 
 import cli.data.Coordinates;
-import cli.data.faction.Faction;
 
 /**
  * The human workers
@@ -14,27 +13,25 @@ public class Worker extends Unit {
 	/**
 	 * the space the unit takes
 	 */
-	private int unitSlots;
+	private int unitSize;
 
-
-
-	public Worker(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, Weapon weapon, int unitSlots) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon);
-		this.unitSlots = unitSlots;
+	public Worker(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, Weapon weapon, int unitSize) {
+		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+		this.unitSize = unitSize;
 	}
 
 	public int getUnitSlots() {
-		return unitSlots;
+		return unitSize;
 	}
 
 	public void setUnitSlots(int unitSlots) {
-		this.unitSlots = unitSlots;
+		this.unitSize = unitSlots;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nunit slots" + unitSlots;
+		return super.toString() + "\nunit slots" + unitSize;
 	}
 
 }

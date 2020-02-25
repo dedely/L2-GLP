@@ -1,4 +1,4 @@
-package cli.process;
+package cli.tests;
 
 import java.util.ArrayList;
 import java.util.HashMap;

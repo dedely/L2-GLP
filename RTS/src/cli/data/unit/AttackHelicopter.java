@@ -1,7 +1,7 @@
 package cli.data.unit;
 
 import cli.data.Coordinates;
-import cli.data.faction.Faction;
+
 
 /**
  * Class for instantiating attack helis with multiple weapons
@@ -13,9 +13,9 @@ public class AttackHelicopter extends Unit {
 
 	private Weapon secondaryWeapon;
 
-	public AttackHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+	public AttackHelicopter(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon, Weapon secondaryWeapon) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 		this.secondaryWeapon = secondaryWeapon;
 	}
 

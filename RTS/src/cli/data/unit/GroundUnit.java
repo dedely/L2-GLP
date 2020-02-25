@@ -14,32 +14,31 @@ public class GroundUnit extends Unit {
 	/**
 	 * the space the unit takes
 	 */
-	private int unitSlots;
+	private int unitSize;
 
-	public GroundUnit(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
+	public GroundUnit(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon, int unitSlots) {
-		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon);
-
-		this.unitSlots = unitSlots;
+		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+		this.unitSize = unitSlots;
 	}
 
 	/**
 	 * the space the unit takes when inside something
 	 */
 	public int getUnitSlots() {
-		return unitSlots;
+		return unitSize;
 	}
 
 	/**
 	 * @param unitSlots how much space the unit takes
 	 */
 	public void setUnitSlots(int unitSlots) {
-		this.unitSlots = unitSlots;
+		this.unitSize = unitSlots;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nunitSlots = " + unitSlots;
+		return super.toString() + "\nunitSlots = " + unitSize;
 	}
 
 }
