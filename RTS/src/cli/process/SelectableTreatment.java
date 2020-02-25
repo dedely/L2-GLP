@@ -126,6 +126,7 @@ public class SelectableTreatment {
 	}
 
 	public static boolean canEmbark(GroundUnit unitToEmbark, GroundUnitWithMountedWeapon whereToEmbark) {
+
 		if( unitToEmbark.getUnitSlots()== 1 && whereToEmbark.getInfanteryIn()==null) {
 			return true;
 		}

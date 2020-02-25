@@ -33,6 +33,7 @@ public class TransportHelicopter extends Unit {
 	public TransportHelicopter(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, int unitSlots) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, null);
+
 		this.unitSlots = unitSlots;
 		unitSlotsAvailable = unitSlots;
 	}

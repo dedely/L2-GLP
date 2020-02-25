@@ -17,6 +17,7 @@ public class Worker extends Unit {
 	private int unitSlots;
 
 
+
 	public Worker(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon, int unitSlots) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon);

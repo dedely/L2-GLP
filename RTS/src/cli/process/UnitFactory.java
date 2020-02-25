@@ -18,5 +18,6 @@ public class UnitFactory {
 
 		throw new IllegalArgumentException("type " + type + " is not implemented or defined");
 
+
 	}
 }

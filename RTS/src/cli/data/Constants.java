@@ -25,6 +25,7 @@ public class Constants {
 	public static final String GENERIC_INFANTRY = "GenericInfantry";
 	public static final String HEAVY_INFANTRY = "HeavyInfatry";
 	public static final String HEAVY_ARMORED = "HeavyArmored";
+
 	public static final String TROOP_TRANSPORT = "TroopTransport";
 	public static final String WORKER = "Worker";
 	
@@ -32,6 +33,7 @@ public class Constants {
 	public static final String TEST_GROUND_WEAPON_H ="testGroundWeaponH";
 	public static final String TEST_GROUND_WEAPON_L ="testGroundWeaponL";
 	public static final String TEST_GROUND_WEAPON_SL ="testGroundWeaponSL";
+
 	
 
 }

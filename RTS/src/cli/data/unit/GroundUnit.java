@@ -19,6 +19,7 @@ public class GroundUnit extends Unit {
 	public GroundUnit(String name, Faction faction, int cost, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon, int unitSlots) {
 		super(name, faction, cost, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+
 		this.unitSlots = unitSlots;
 	}
 

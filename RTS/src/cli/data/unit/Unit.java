@@ -23,17 +23,18 @@ public abstract class Unit extends Selectable {
 	 * The amount of damage dealt by the unit in one shot
 	 * 
 	 */
+
 	private Weapon weapon;
 	
 	public Unit(String name, Faction faction, int cost, int maxHealth,int armorPoints,int armorType, String description, Coordinates position,  int speed,
 			Weapon weapon) {
+
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
+
 		this.setWeapon(weapon);
+
 	}
-
-	
-
 
 	/**
 	 * @return the attribute depicting how fast a unit moves on the map
@@ -51,6 +52,7 @@ public abstract class Unit extends Selectable {
 	
 	public Weapon getWeapon() {
 		return weapon;
+
 	}
 
 
@@ -61,19 +63,11 @@ public abstract class Unit extends Selectable {
 	}
 
 
+
 	@Override
 	public String toString() {
 		return super.toString()+"\nspeed = " + speed +"\nweapon" + getWeapon().toString();
+
 	}
 
-
-
-
-
-
-
-
-
-
-	
 }
