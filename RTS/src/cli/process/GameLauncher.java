@@ -24,9 +24,10 @@ public class GameLauncher {
 		MapBuilder builder = new MapBuilder();
 		Map map = builder.buildMap(InputParameter.MAP_PATH);
 		GameState state = new GameState(map);
+		state.getTeams().add(new Team());
 	}
 	
-	public void newEnemyUnionFaction(Team team) {
+	public Faction newEnemyUnionFaction() {
 		ArrayList<Faction> factions = team.getFactions();
 		factions.add(new Faction(Constants.UNION, Constants.ENNEMY+factions.size(), null, "An ennemy Union faction"));
 	}
