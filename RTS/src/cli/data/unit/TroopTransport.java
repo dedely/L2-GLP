@@ -3,6 +3,7 @@ package cli.data.unit;
 import java.util.ArrayList;
 
 import cli.data.Coordinates;
+import cli.data.faction.Faction;
 
 /**
  * Light terrestrial vehicle, something like armored car.
@@ -27,9 +28,9 @@ public class TroopTransport extends GroundUnit {
 	 */
 	private ArrayList<GroundUnit> infanteryIn = new ArrayList<GroundUnit>();
 
-	public TroopTransport(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType,
+	public TroopTransport(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon, int unitSlots, int infantrySeats) {
-		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSlots);
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSlots);
 		this.infantrySeats = infantrySeats;
 		infantrySeatsRemaining = infantrySeats;
 	}
