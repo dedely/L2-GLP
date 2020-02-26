@@ -1,6 +1,7 @@
 package cli.data.unit;
 
 import cli.data.Coordinates;
+import cli.data.faction.Faction;
 
 /**
  * Generic TerrestrialVehicle, (basically tanks) but with a machine-gun on top
@@ -20,10 +21,10 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	private Weapon mountedWeapon;
 
-	public GroundUnitWithMountedWeapon(String name, int cost, String owner, int maxHealth, int armorPoints,
-			int armorType, String description, Coordinates position, int speed, Weapon weapon, int unitSlots,
+	public GroundUnitWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int armorPoints,
+			int armorType, String description, Coordinates position, int speed, Weapon weapon, int unitSize,
 			boolean mounted, Weapon mountedWeapon) {
-		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSlots);
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSize);
 		this.mounted = mounted;
 		this.mountedWeapon = mountedWeapon;
 	}

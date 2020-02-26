@@ -1,6 +1,8 @@
 package cli.data.unit;
 
 import cli.data.Coordinates;
+import cli.data.faction.Faction;
+
 /**
  * Abstract class representing the ground units such as foot soldiers or tanks
  * 
@@ -14,10 +16,10 @@ public class GroundUnit extends Unit {
 	 */
 	private int unitSize;
 
-	public GroundUnit(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, Weapon weapon, int unitSlots) {
-		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position, speed, weapon);
-		this.unitSize = unitSlots;
+	public GroundUnit(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, Weapon weapon, int unitSize) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+		this.unitSize = unitSize;
 	}
 
 	/**

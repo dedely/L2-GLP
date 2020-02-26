@@ -1,6 +1,7 @@
 package cli.data.unit;
 
 import cli.data.Selectable;
+import cli.data.faction.Faction;
 import cli.data.Coordinates;
 
 /**
@@ -25,9 +26,9 @@ public abstract class Unit extends Selectable {
 
 	private Weapon weapon;
 
-	public Unit(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType, String description,
-			Coordinates position, int speed, Weapon weapon) {
-		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position);
+	public Unit(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, Weapon weapon) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
 		this.weapon = weapon;
 	}
