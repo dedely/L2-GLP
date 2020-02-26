@@ -6,8 +6,8 @@ import cli.data.Coordinates;
 import cli.data.Selectable;
 
 /**
- * This class manages the positions of all known selectables in a tree. The class
- * uses Singleton design pattern to maintain the consistency on values.
+ * This class manages the positions of all known selectables on the map.
+ * 
  * @author Adel
  *
  */
@@ -51,10 +51,10 @@ public class SelectableRepository {
 	public void remove(Coordinates position) {
 		positions.remove(position);
 	}
-	
-	
+
 	/**
 	 * This method updates the position of a selectable.
+	 * 
 	 * @param selected
 	 * @param newPosition
 	 */
