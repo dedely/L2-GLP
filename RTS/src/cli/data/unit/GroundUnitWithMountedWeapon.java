@@ -1,7 +1,6 @@
 package cli.data.unit;
 
 import cli.data.Coordinates;
-import cli.data.faction.Faction;
 
 /**
  * Generic TerrestrialVehicle, (basically tanks) but with a machine-gun on top

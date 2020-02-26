@@ -2,6 +2,7 @@ package cli.data;
 
 import java.util.ArrayList;
 
+import cli.data.faction.Faction;
 import cli.data.order.Order;
 
 /**
@@ -13,7 +14,7 @@ public abstract class Selectable {
 	private String name;
 	private int cost;
 
-	private String owner;
+	private Faction faction;
 
 	private int maxHealth;
 	private int currentHealth;
@@ -43,11 +44,11 @@ public abstract class Selectable {
 		return name;
 	}
 
-	public Selectable(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType,
+	public Selectable(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position) {
 		this.name = name;
 		this.cost = cost;
-		this.owner = owner;
+		this.faction = faction;
 		this.maxHealth = maxHealth;
 
 		// When a new Selectable is created, its currentHealth equals its maxHealth.
@@ -71,12 +72,12 @@ public abstract class Selectable {
 		this.cost = cost;
 	}
 
-	public String getOwner() {
-		return owner;
+	public Faction getOwner() {
+		return faction;
 	}
 
-	public void setOwner(String owner) {
-		this.owner = owner;
+	public void setOwner(Faction faction) {
+		this.faction = faction;
 	}
 
 	public void setName(String name) {
@@ -149,7 +150,7 @@ public abstract class Selectable {
 
 	@Override
 	public String toString() {
-		return "name=" + name + "\ncost=" + cost + "\nowner=" + owner + "\nmaxHealth=" + maxHealth + "\ncurrentHealth="
+		return "name=" + name + "\ncost=" + cost + "\nowner=" + faction + "\nmaxHealth=" + maxHealth + "\ncurrentHealth="
 				+ currentHealth + "\narmorPoints=" + armorPoints + "\narmorType=" + armorType + "\nselected=" + selected
 				+ "\ndescription=" + description + "\nposition=" + position + "]";
 	}

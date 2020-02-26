@@ -1,8 +1,6 @@
 package cli.data.unit;
 
 import cli.data.Coordinates;
-import cli.data.faction.Faction;
-
 /**
  * Abstract class representing the ground units such as foot soldiers or tanks
  * 
