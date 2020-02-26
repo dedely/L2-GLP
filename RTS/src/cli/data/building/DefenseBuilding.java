@@ -1,7 +1,7 @@
 package cli.data.building;
 
 import cli.data.Coordinates;
-
+import cli.data.faction.Faction;
 import cli.data.unit.Weapon;
 
 /**
@@ -12,9 +12,9 @@ public class DefenseBuilding extends Building {
 
 	private Weapon weapon;
 
-	public DefenseBuilding(String name, int cost, String owner, int maxHealth, int armorPoints, int armorType,
+	public DefenseBuilding(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, Size size, Weapon weapon) {
-		super(name, cost, owner, maxHealth, armorPoints, armorType, description, position, size);
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, size);
 		this.weapon = weapon;
 	}
 
