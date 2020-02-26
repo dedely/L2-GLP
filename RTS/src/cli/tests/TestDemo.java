@@ -7,7 +7,7 @@ import cli.data.Team;
 import cli.data.faction.Faction;
 import cli.data.unit.Unit;
 import cli.process.SelectableTreatment;
-import cli.process.UnitFactory;
+import cli.process.factory.UnitFactory;
 
 public class TestDemo {
 

@@ -4,13 +4,13 @@ import cli.data.Constants;
 import cli.data.faction.Faction;
 
 public class FactionFactory {
-	public static Faction createFaction(String name, String side) throws IllegalArgumentException {
+	public static Faction createFaction(String side, String name) throws IllegalArgumentException {
 		if(side == Constants.FEDERATION)
-		return new Faction(name, side, null, null);
+		return new Faction(side, name, null, null);
 		if(side == Constants.UNION)
-			return new Faction(name, side, null, null);
+			return new Faction(side, name, null, null);
 		if(side == Constants.REPUBLIC)
-			return new Faction(name, side, null, null);
+			return new Faction(side, name, null, null);
 		throw new IllegalArgumentException("Faction"+side+" is not defined");
 	}
 }

@@ -1,4 +1,4 @@
-package cli.process;
+package cli.process.factory;
 
 import cli.data.Constants;
 import cli.data.unit.Weapon;

@@ -7,8 +7,8 @@ import cli.data.map.Map;
 import cli.data.unit.Unit;
 import cli.process.SelectableRepository;
 import cli.process.SelectableTreatment;
-import cli.process.UnitFactory;
 import cli.process.builder.MapBuilder;
+import cli.process.factory.UnitFactory;
 import cli.tests.input.InputParameter;
 
 public class TestAttack {
