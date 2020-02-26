@@ -8,12 +8,8 @@ import cli.process.SelectableRepository;
 import cli.process.observer.Observer;
 
 public class GameState {
-
-	private String playerFactionName;
 	
 	private Map map;
-
-	protected ArrayList<Team> teams = new ArrayList<Team>();
 
 	protected ArrayList<Faction> factions = new ArrayList<Faction>();
 	
