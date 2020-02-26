@@ -29,9 +29,13 @@ public class TestAttack {
 		Unit enemy = UnitFactory.create(Constants.TEST_GROUND, new Coordinates(10, 10, Constants.GROUND), enemyFaction);
 		repository.register(enemy);
 		
-		System.out.println();
+		System.out.println(firstUnit);
+		System.out.println(enemy);
 		
 		SelectableTreatment.dealDamage(firstUnit, enemy);
+		
+		System.out.println(firstUnit);
+		System.out.println(enemy);
 
 	}
 

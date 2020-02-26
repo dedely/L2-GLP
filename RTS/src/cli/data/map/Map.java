@@ -50,14 +50,13 @@ public class Map {
 
 	@Override
 	public String toString() {
-		String tmp = "Map [width=" + width + ", height=" + height + "\n tiles=\n";
+		String tmp = "Map : width=" + width + ", height=" + height + "\n";
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				tmp += tiles[i][j] + " ";
 			}
 			tmp += "\n";
 		}
-		tmp += "]";
 		return tmp;
 	}
 }
