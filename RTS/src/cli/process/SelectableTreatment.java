@@ -134,8 +134,8 @@ public class SelectableTreatment {
 		}
 	}
 
-	public static boolean isEnnemy(Selectable caster, Selectable target, Faction casterFaction) {
-		if (casterFaction.getEnnemies().contains(target.getFaction())) {
+	public static boolean isEnnemy(Selectable caster, Selectable target) {
+		if (caster.getFaction().getEnnemies().contains(target.getFaction())) {
 			return true;
 		} else
 			return false;

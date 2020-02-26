@@ -261,7 +261,7 @@ public class CoordinatesTreatment {
 
 	public static Selectable closestEnnemySelectable(DefenseBuilding defense, HashMap<Coordinates, Selectable> positions) {
 
-		int radius = defense.getRange();
+		int radius = defense.getWeapon().getRange();
 		radius++;
 
 		double x = defense.getPosition().getAbsciss();
@@ -348,7 +348,7 @@ public class CoordinatesTreatment {
 
 	public static Selectable closestGroundSelectable(DefenseBuilding defense, HashMap<Coordinates, Selectable> positions) {
 
-		int radius = defense.getRange();
+		int radius = defense.getWeapon().getRange();
 		radius++;
 
 		double x = defense.getPosition().getAbsciss();
