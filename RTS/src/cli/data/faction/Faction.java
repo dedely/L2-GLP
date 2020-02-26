@@ -46,9 +46,9 @@ public class Faction {
 
 	private Boolean CurrentResearch;
 
-	private ArrayList<String> allies = new ArrayList<String>();
+	private ArrayList<Faction> allies = new ArrayList<Faction>();
 
-	private ArrayList<String> ennemies = new ArrayList<String>();
+	private ArrayList<Faction> ennemies = new ArrayList<Faction>();
 
 	public Faction(String name, String playerName, ResearchTree researchTree, String description) {
 		super();
@@ -106,19 +106,19 @@ public class Faction {
 		this.name = name;
 	}
 
-	public ArrayList<String> getAllies() {
+	public ArrayList<Faction> getAllies() {
 		return allies;
 	}
 
-	public void setAllies(ArrayList<String> allies) {
+	public void setAllies(ArrayList<Faction> allies) {
 		this.allies = allies;
 	}
 
-	public ArrayList<String> getEnnemies() {
+	public ArrayList<Faction> getEnnemies() {
 		return ennemies;
 	}
 
-	public void setEnnemies(ArrayList<String> ennemies) {
+	public void setEnnemies(ArrayList<Faction> ennemies) {
 		this.ennemies = ennemies;
 	}
 

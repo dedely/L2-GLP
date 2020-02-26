@@ -72,11 +72,11 @@ public abstract class Selectable {
 		this.cost = cost;
 	}
 
-	public Faction getOwner() {
+	public Faction getFaction() {
 		return faction;
 	}
 
-	public void setOwner(Faction faction) {
+	public void setFaction(Faction faction) {
 		this.faction = faction;
 	}
 
