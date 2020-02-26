@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import cli.data.Config;
 import cli.data.Constants;
 import cli.data.GameState;
-import cli.data.Team;
 import cli.data.faction.Faction;
 import cli.data.map.Map;
 import cli.process.builder.MapBuilder;
