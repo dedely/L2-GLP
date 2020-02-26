@@ -2,22 +2,20 @@ package cli.data;
 
 import java.util.ArrayList;
 
-import cli.data.faction.Faction;
-
 public class Team {
-	private ArrayList<Faction> factions = new ArrayList<Faction>();
+	private ArrayList<String> players = new ArrayList<String>();
 
-	public ArrayList<Faction> getFactions() {
-		return factions;
+	public ArrayList<String> getPlayers() {
+		return players;
 	}
 
-	public void setFactions(ArrayList<String> factions) {
-		this.factions = factions;
+	public void setPlayers(ArrayList<String> players) {
+		this.players = players;
 	}
 
 	@Override
 	public String toString() {
-		return "Team [factions=" + factions + "]";
+		return "Team [players=" + players + "]";
 	}
 	
 }
