@@ -4,13 +4,13 @@ import cli.data.Constants;
 import cli.data.faction.Faction;
 
 public class FactionFactory {
-	public static Faction createFaction(String side) throws IllegalArgumentException {
+	public static Faction createFaction(String name, String side) throws IllegalArgumentException {
 		if(side == Constants.FEDERATION)
-		return new Faction(name, playerName, researchTree, description)
+		return new Faction(name, side, null, null);
 		if(side == Constants.UNION)
-			return new Weapon(100, Constants.LIGHT, 10, 100, 10, true);
+			return new Faction(name, side, null, null);
 		if(side == Constants.REPUBLIC)
-			return new Weapon(100, Constants.SUPER_LIGHT, 10, 100, 10, true);
-		throw new IllegalArgumentException("Type of weapon "+side+" is not defined");
+			return new Faction(name, side, null, null);
+		throw new IllegalArgumentException("Faction"+side+" is not defined");
 	}
 }

@@ -5,16 +5,14 @@ import java.util.ArrayList;
 import cli.data.faction.Faction;
 import cli.data.map.Map;
 import cli.process.SelectableRepository;
-import cli.process.observer.Observer;
+
 
 public class GameState {
-	
+
 	private Map map;
 
 	protected ArrayList<Faction> factions = new ArrayList<Faction>();
-	
-	protected ArrayList<Observer> observers = new ArrayList<Observer>();
-	
+
 	protected SelectableRepository selectableRepository = SelectableRepository.getInstance();
 
 	public GameState(Map map) {
@@ -37,31 +35,9 @@ public class GameState {
 		this.factions = factions;
 	}
 
-	public static ArrayList<Team> getTeams() {
-		return teams;
-	}
-
-	public void setTeams(ArrayList<Team> teams) {
-		this.teams = teams;
-	}
-	
-	public void addObserver(Observer observer) {
-		observers.add(observer);
-	}
-	
-	public void removeObserver(Observer observer) {
-		observers.remove(observer);
-	}
-	
-	public void notifyObservers() {
-		for (Observer observer: observers) {
-			observer.update();
-		}
-	}
-
 	@Override
 	public String toString() {
-		return "GameState [map=" + map + ", teams=" + teams + "]";
+		return "GameState [map=" + map + "]";
 	}
 
 }

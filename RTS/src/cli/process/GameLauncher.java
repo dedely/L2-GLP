@@ -8,6 +8,7 @@ import cli.data.GameState;
 import cli.data.faction.Faction;
 import cli.data.map.Map;
 import cli.process.builder.MapBuilder;
+import cli.process.factory.*;
 import cli.tests.input.InputParameter;
 
 public class GameLauncher {
@@ -24,6 +25,17 @@ public class GameLauncher {
 		Map map = builder.buildMap(InputParameter.MAP_PATH);
 		GameState state = new GameState(map);
 		initializePlayerFaction(state);
+		
+		createFactions();
+	}
+	
+	
+
+	private void createFactions() {
+		try {
+			
+		}
+		
 	}
 
 	public void initializePlayerFaction(GameState state) {
