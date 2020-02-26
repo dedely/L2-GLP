@@ -6,7 +6,6 @@ import cli.data.Coordinates;
 import cli.data.Selectable;
 import cli.data.building.Building;
 import cli.data.building.DefenseBuilding;
-import cli.data.faction.Faction;
 import cli.data.order.Order;
 import cli.data.unit.GroundUnit;
 import cli.data.unit.GroundUnitWithMountedWeapon;
