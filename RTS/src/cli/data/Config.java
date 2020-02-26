@@ -3,6 +3,7 @@ package cli.data;
 public class Config {
 	private String playerFactionName;
 	private String aiFactionName;
+	private int playerNumber;
 	
 	public Config(String playerFactionName, String aiFactionName) {
 		this.playerFactionName = playerFactionName;
@@ -14,11 +15,18 @@ public class Config {
 	public void setPlayerFactionName(String playerFactionName) {
 		this.playerFactionName = playerFactionName;
 	}
-	public String getAIFactionName() {
+	
+	public String getAiFactionName() {
 		return aiFactionName;
 	}
-	public void setAIFactionName(String aIFactionName) {
-		aiFactionName = aIFactionName;
+	public void setAiFactionName(String aiFactionName) {
+		this.aiFactionName = aiFactionName;
+	}
+	public int getPlayerNumber() {
+		return playerNumber;
+	}
+	public void setPlayerNumber(int playerNumber) {
+		this.playerNumber = playerNumber;
 	}
 	@Override
 	public String toString() {

@@ -27,9 +27,13 @@ public class GameLauncher {
 		initializePlayerFaction(state);
 	}
 
-	private void initializePlayerFaction(GameState state) {
-		// TODO Auto-generated method stub
+	public void initializePlayerFaction(GameState state) {
+		Faction playerFaction = new Faction(config.getPlayerFactionName(), Constants.PLAYER, null, "Player faction");
+		state.getFactions().add(playerFaction);
 		
 	}
+	
+	
+	
 	
 }
