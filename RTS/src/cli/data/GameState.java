@@ -8,15 +8,18 @@ import cli.process.SelectableRepository;
 import cli.process.observer.Observer;
 
 public class GameState {
+
+	private String playerFactionName;
+	
 	private Map map;
 
-	private ArrayList<Team> teams = new ArrayList<Team>();
+	protected ArrayList<Team> teams = new ArrayList<Team>();
 
-	private ArrayList<Faction> factions = new ArrayList<Faction>();
+	protected ArrayList<Faction> factions = new ArrayList<Faction>();
 	
-	private ArrayList<Observer> observers = new ArrayList<Observer>();
+	protected ArrayList<Observer> observers = new ArrayList<Observer>();
 	
-	private SelectableRepository selectableRepository = SelectableRepository.getInstance();
+	protected SelectableRepository selectableRepository = SelectableRepository.getInstance();
 
 	public GameState(Map map) {
 		this.map = map;
@@ -38,7 +41,7 @@ public class GameState {
 		this.factions = factions;
 	}
 
-	public ArrayList<Team> getTeams() {
+	public static ArrayList<Team> getTeams() {
 		return teams;
 	}
 
