@@ -9,22 +9,21 @@ public class GameLoop {
 		this.state = state;
 	}
 
-	private void processInputs() {
-
-	}
-
-	private void updateGameState() {
-		state.notifyObservers();
-	}
-
-	private void generateOutputs() {
-
-	}
-
-	public void loop() {
+	public void run() {
 		processInputs();
 		updateGameState();
 		generateOutputs();
 	}
 
+	private void processInputs() {
+
+	}
+
+	private void updateGameState() {
+
+	}
+
+	private void generateOutputs() {
+
+	}
 }

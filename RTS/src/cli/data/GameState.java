@@ -6,17 +6,15 @@ import cli.data.faction.Faction;
 import cli.data.map.Map;
 import cli.process.SelectableRepository;
 
-
 public class GameState {
 
 	private Map map;
 
-	protected ArrayList<Faction> factions = new ArrayList<Faction>();
+	private ArrayList<Faction> factions = new ArrayList<Faction>();
 
-	protected SelectableRepository selectableRepository = SelectableRepository.getInstance();
+	private SelectableRepository selectableRepository = SelectableRepository.getInstance();
 
-	public GameState(Map map) {
-		this.map = map;
+	public GameState() {
 	}
 
 	public Map getMap() {
@@ -33,6 +31,19 @@ public class GameState {
 
 	public void setFactions(ArrayList<Faction> factions) {
 		this.factions = factions;
+	}
+
+	public void addFaction(Faction faction) {
+		// A new faction can only be added to the ArrayList if it's not in the list yet.
+		if (!factions.contains(faction)) {
+			factions.add(faction);
+		}
+	}
+
+	public void removeFaction(Faction faction) {
+		if (factions.contains(faction)) {
+			factions.remove(faction);
+		}
 	}
 
 	@Override
