@@ -63,6 +63,12 @@ public class SelectableRepository {
 		selected.setPosition(newPosition);
 		register(selected);
 	}
+	
+	public void select(Coordinates position) {
+		if(positions.containsKey(position)) {
+			positions.get(position).setSelected(true);
+		}
+	}
 
 	/**
 	 * If no Selectable is registered for the given position the method returns

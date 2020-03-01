@@ -4,26 +4,39 @@ import cli.data.GameState;
 
 public class GameLoop {
 	private GameState state;
+	private Input input;
+	private boolean running;
 
 	public GameLoop(GameState state) {
 		this.state = state;
 	}
 
 	public void run() {
-		processInputs();
-		updateGameState();
-		generateOutputs();
+		while(isRunning()) {
+			processInput(input);
+			updateGameState();
+			generateOutput();
+		}
 	}
 
-	private void processInputs() {
-
+	private void processInput(Input input) {
+		
 	}
 
 	private void updateGameState() {
 
 	}
 
-	private void generateOutputs() {
+	private void generateOutput() {
 
 	}
+
+	public boolean isRunning() {
+		return running;
+	}
+	
+	public void stop() {
+		running = false;
+	}
+
 }
