@@ -1,0 +1,34 @@
+package data.building;
+
+import data.Coordinates;
+import data.faction.Faction;
+import data.unit.Weapon;
+
+/**
+ * @author Adel
+ *
+ */
+public class DefenseBuilding extends Building {
+
+	private Weapon weapon;
+
+	public DefenseBuilding(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, Size size, Weapon weapon) {
+		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, size);
+		this.weapon = weapon;
+	}
+
+	public Weapon getWeapon() {
+		return weapon;
+	}
+
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\nweapon=" + weapon ;
+	}
+
+}
