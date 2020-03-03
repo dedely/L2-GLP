@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import data.faction.Faction;
 import data.order.Order;
+import process.visitor.SelectableVisitor;
+import process.visitor.TreeVisitor;
 
 /**
  * @author Adel
@@ -147,6 +149,8 @@ public abstract class Selectable {
 	public void setOrders(ArrayList<Order> orders) {
 		this.orders = orders;
 	}
+	
+	public abstract <T> T accept(SelectableVisitor<T> visitor);
 
 	@Override
 	public String toString() {

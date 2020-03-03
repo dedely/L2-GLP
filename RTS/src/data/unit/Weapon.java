@@ -33,8 +33,8 @@ public class Weapon {
 	 */
 	private boolean canShootAtAirTarget;
 
-	public Weapon(int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range,
-			int minimuRange, boolean canShootAtAirTarget) {
+	public Weapon(int damagePerShot, int typeOfDammage, int timeBeetweenShots, int range, int minimuRange,
+			boolean canShootAtAirTarget) {
 		super();
 		this.damagePerShot = damagePerShot;
 		TypeOfDammage = typeOfDammage;

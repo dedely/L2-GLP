@@ -2,6 +2,7 @@ package data.unit;
 
 import data.Coordinates;
 import data.faction.Faction;
+import process.visitor.SelectableVisitor;
 
 /**
  * Generic TerrestrialVehicle, (basically tanks) but with a machine-gun on top
@@ -63,6 +64,11 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	public void setMountedWeapon(Weapon mountedWeapon) {
 		this.mountedWeapon = mountedWeapon;
+	}
+
+	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override

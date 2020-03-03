@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import data.Coordinates;
 import data.faction.Faction;
+import process.visitor.SelectableVisitor;
 
 public class ResearchBuilding extends Building {
 
@@ -13,6 +14,11 @@ public class ResearchBuilding extends Building {
 			String description, Coordinates position, Size size, ArrayList<Integer> unlocksList) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, size);
 		this.unlocksList = unlocksList;
+	}
+
+	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	public void add(Integer researchIndex) {

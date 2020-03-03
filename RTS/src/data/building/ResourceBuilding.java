@@ -3,6 +3,7 @@ package data.building;
 import data.Coordinates;
 import data.faction.Faction;
 import data.resource.Resource;
+import process.visitor.SelectableVisitor;
 
 /**
  * @author Adel
@@ -45,6 +46,12 @@ public class ResourceBuilding extends Building {
 
 	public void setNumberProduced(int numberProduced) {
 		this.numberProduced = numberProduced;
+	}
+	
+
+	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override

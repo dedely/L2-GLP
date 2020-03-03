@@ -3,6 +3,7 @@ package data.building;
 import data.Coordinates;
 import data.faction.Faction;
 import data.unit.Weapon;
+import process.visitor.SelectableVisitor;
 
 /**
  * @author Adel
@@ -27,8 +28,13 @@ public class DefenseBuilding extends Building {
 	}
 
 	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
+	}
+
+	@Override
 	public String toString() {
-		return super.toString() + "\nweapon=" + weapon ;
+		return super.toString() + "\nweapon=" + weapon;
 	}
 
 }

@@ -2,6 +2,7 @@ package data.unit;
 
 import data.Coordinates;
 import data.faction.Faction;
+import process.visitor.SelectableVisitor;
 
 /**
  * Class for instantiating attack helis with multiple weapons
@@ -17,6 +18,11 @@ public class AttackHelicopter extends Unit {
 			String description, Coordinates position, int speed, Weapon weapon, Weapon secondaryWeapon) {
 		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 		this.secondaryWeapon = secondaryWeapon;
+	}
+
+	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override

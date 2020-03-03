@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import data.Coordinates;
 import data.faction.Faction;
+import process.visitor.SelectableVisitor;
 
 /**
  * Class for instantiating transport helis
@@ -75,6 +76,11 @@ public class TransportHelicopter extends Unit {
 	 */
 	public void setUnitsIn(ArrayList<Unit> unitsIn) {
 		this.unitsIn = unitsIn;
+	}
+
+	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override

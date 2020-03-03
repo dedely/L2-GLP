@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import data.Coordinates;
 import data.faction.Faction;
+import process.visitor.SelectableVisitor;
 
 /**
  * Light terrestrial vehicle, something like armored car.
@@ -81,6 +82,11 @@ public class TroopTransport extends GroundUnit {
 	 */
 	public void setInfantrySeatsRemaining(int infantrySeatsRemaining) {
 		this.infantrySeatsRemaining = infantrySeatsRemaining;
+	}
+
+	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override

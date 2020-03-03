@@ -2,6 +2,7 @@ package data.unit;
 
 import data.Coordinates;
 import data.faction.Faction;
+import process.visitor.SelectableVisitor;
 
 /**
  * Abstract class representing the ground units such as foot soldiers or tanks
@@ -34,6 +35,11 @@ public class GroundUnit extends Unit {
 	 */
 	public void setUnitSlots(int unitSlots) {
 		this.unitSize = unitSlots;
+	}
+
+	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override

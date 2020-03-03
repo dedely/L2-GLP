@@ -2,6 +2,7 @@ package data.building;
 
 import data.Coordinates;
 import data.faction.Faction;
+import process.visitor.SelectableVisitor;
 
 /**
  * @author Adel
@@ -22,6 +23,11 @@ public class UnitBuilding extends Building {
 
 	public void setRallyPoint(Coordinates rallyPoint) {
 		this.rallyPoint = rallyPoint;
+	}
+
+	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override

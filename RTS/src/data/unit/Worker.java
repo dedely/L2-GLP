@@ -2,6 +2,7 @@ package data.unit;
 
 import data.Coordinates;
 import data.faction.Faction;
+import process.visitor.SelectableVisitor;
 
 /**
  * The human workers
@@ -28,6 +29,11 @@ public class Worker extends Unit {
 
 	public void setUnitSlots(int unitSlots) {
 		this.unitSize = unitSlots;
+	}
+
+	@Override
+	public <T> T accept(SelectableVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override
