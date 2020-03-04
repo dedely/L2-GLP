@@ -2,12 +2,19 @@ package gui.elements;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JFrame;
 
 import data.Config;
+import data.Constants;
+import data.Coordinates;
+import data.faction.Faction;
 import process.Game;
 import process.GameUtility;
+import process.SelectableRepository;
+import process.factory.UnitFactory;
 
 /**
  * @author Adel
@@ -49,10 +56,15 @@ public class GameGUI extends JFrame implements Runnable {
 		int time = 0;
 
 		while (game.isRunning()) {
-			if (time >= SimuPara.SIMULATION_DURATION) {
-				game.stop();
-			}
+			/*
+			 * if (time >= SimuPara.SIMULATION_DURATION) { game.stop(); }
+			 */
 			GameUtility.unitTime();
+
+			ArrayList<Faction> factions = game.getState().getFactions();
+			Iterator<Faction> factionIterator = factions.iterator();
+			SelectableRepository.getInstance().register(
+					UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 0, 0), factionIterator.next()));
 
 			dashboard.repaint();
 			time++;

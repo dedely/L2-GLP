@@ -88,8 +88,4 @@ public class SelectableRepository {
 			return null;
 		}
 	}
-	
-	public HashMap<Coordinates, Selectable> getPositions(){
-		return positions;
-	}
 }

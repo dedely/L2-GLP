@@ -41,6 +41,7 @@ public class Dashboard extends JPanel {
 		}
 		printMap(g2);
 		printSelectables(g2);
+
 	}
 
 	private void printMap(Graphics2D g2) {
@@ -51,12 +52,10 @@ public class Dashboard extends JPanel {
 	private void printSelectables(Graphics2D g2) {
 		HashMap<Coordinates, Selectable> positions = SelectableRepository.getInstance().getPositions();
 		PaintVisitor visitor = new PaintVisitor(g2, SimuPara.DEFAULT_CAMERA);
-		for(Selectable selectable: positions.values()) {
+		for (Selectable selectable : positions.values()) {
 			selectable.accept(visitor);
 		}
 	}
-
-	
 
 	private void drawDebugGrid(Graphics g) {
 		int width = getWidth();
