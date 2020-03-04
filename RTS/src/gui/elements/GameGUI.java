@@ -53,33 +53,32 @@ public class GameGUI extends JFrame implements Runnable {
 	 * The entry point of a game.
 	 */
 	public void run() {
-		int time = 0;
-
-		while (game.isRunning()) {
-			/*
-			 * if (time >= SimuPara.SIMULATION_DURATION) { game.stop(); }
-			 */
-			GameUtility.unitTime();
-
-			/*
-			 * ArrayList<Faction> factions = game.getState().getFactions();
-			 * Iterator<Faction> factionIterator = factions.iterator();
-			 * SelectableRepository.getInstance().register(
-			 * UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 0, 0),
-			 * factionIterator.next()));
-			 */
-			dashboard.repaint();
-			time++;
-			try {
-				Thread.sleep(50);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		//System.out.println("VRAI");
+		
+		//int time = 0;
+		//game.start();
+		dashboard.repaint();
+		/*
+		 * while (game.isRunning()) {
+		 * 
+		 * if (time >= SimuPara.SIMULATION_DURATION) { game.stop(); }
+		 * 
+		 * GameUtility.unitTime();
+		 * 
+		 * 
+		 * ArrayList<Faction> factions = game.getState().getFactions();
+		 * Iterator<Faction> factionIterator = factions.iterator();
+		 * SelectableRepository.getInstance().register(
+		 * UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 0, 0),
+		 * factionIterator.next()));
+		 * 
+		 * dashboard.repaint(); time++;
+		 * 
+		 * }
+		 */
 
 		// We need a little more time for avoiding printing delay issue.
-		GameUtility.windowRefreshTime();
+		//GameUtility.windowRefreshTime();
 
 	}
 }

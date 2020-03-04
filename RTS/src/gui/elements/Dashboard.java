@@ -19,6 +19,8 @@ import process.SelectableRepository;
  *
  */
 public class Dashboard extends JPanel {
+	private static final long serialVersionUID = 1L;
+
 	private Game game;
 
 	/**
@@ -28,23 +30,28 @@ public class Dashboard extends JPanel {
 
 	public Dashboard(Game game) {
 		this.game = game;
-		setPreferredSize(new Dimension(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT));
+		// setPreferredSize(new Dimension(SimuPara.WINDOW_WIDTH,
+		// SimuPara.WINDOW_HEIGHT));
 		setBackground(Color.WHITE);
 
 	}
 
+
+
 	@Override
-	public void paintComponents(Graphics g) {
-		super.paintComponents(g);
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		// We used Graphic2D for more draw options.
 		Graphics2D g2 = (Graphics2D) g;
-		if (debugGrid) {
-			drawDebugGrid(g2);
-		}
-		printMap(g2);
-		printSelectables(g2);
+		//g2.setColor(Color.RED);
+		//g2.drawLine(14, 15, 14, 60);
+		drawDebugGrid(g2);
 
+		// printMap(g2);
+		// printSelectables(g2);
 	}
+
+
 
 	private void printMap(Graphics2D g2) {
 		// TODO Auto-generated method stub
@@ -52,14 +59,15 @@ public class Dashboard extends JPanel {
 	}
 
 	private void printSelectables(Graphics2D g2) {
-		/*HashMap<Coordinates, Selectable> positions = SelectableRepository.getInstance().getPositions();
-		PaintVisitor visitor = new PaintVisitor(g2, SimuPara.DEFAULT_CAMERA);
-		for (Selectable selectable : positions.values()) {
-			selectable.accept(visitor);
-		}*/
+		/*
+		 * HashMap<Coordinates, Selectable> positions =
+		 * SelectableRepository.getInstance().getPositions(); PaintVisitor visitor = new
+		 * PaintVisitor(g2, SimuPara.DEFAULT_CAMERA); for (Selectable selectable :
+		 * positions.values()) { selectable.accept(visitor); }
+		 */
 	}
 
-	private void drawDebugGrid(Graphics g) {
+	public void drawDebugGrid(Graphics g) {
 		int width = getWidth();
 		int height = getHeight();
 		g.setColor(Color.GRAY);

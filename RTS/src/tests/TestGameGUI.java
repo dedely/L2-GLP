@@ -10,6 +10,7 @@ public class TestGameGUI {
 		GameGUI simulationGUI = new GameGUI(Constants.DEFAULT_CONFIG);
 		Thread guiTread = new Thread(simulationGUI);
 		guiTread.start();
+		//guiTread.run();
 
 	}
 

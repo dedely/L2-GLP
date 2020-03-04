@@ -20,6 +20,9 @@ public class Game {
 		return running;
 	}
 
+	public void start() {
+		running = true;
+	}
 	public void stop() {
 		running = false;
 	}
