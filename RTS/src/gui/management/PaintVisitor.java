@@ -2,6 +2,8 @@ package gui.management;
 
 import java.awt.Graphics;
 
+import data.Coordinates;
+import data.Selectable;
 import data.building.DefenseBuilding;
 import data.building.ResearchBuilding;
 import data.building.ResourceBuilding;
@@ -88,12 +90,14 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(Worker selectable) {
-		printCircle();
+		printCircle(selectable);
 		return null;
 	}
 
-	private void printCircle() {
-		graphics.drawOval(camera.getPositionX() - SimuPara.RADIUS / 2, camera.getPositionY() - SimuPara.RADIUS / 2,
-				SimuPara.RADIUS, SimuPara.RADIUS);
+	private void printCircle(Selectable selectable) {
+		Coordinates position = selectable.getPosition();
+		int x=position.getAbsciss()+5;
+		int y=position.getAbsciss()-5;
+		graphics.drawOval(x, y, 11, 11);
 	}
 }
