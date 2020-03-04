@@ -36,6 +36,10 @@ public class SelectableRepository {
 		return instance;
 	}
 
+	public HashMap<Coordinates, Selectable> getPositions() {
+		return positions;
+	}
+
 	/**
 	 * @param selected
 	 */
@@ -63,9 +67,9 @@ public class SelectableRepository {
 		selected.setPosition(newPosition);
 		register(selected);
 	}
-	
+
 	public void select(Coordinates position) {
-		if(positions.containsKey(position)) {
+		if (positions.containsKey(position)) {
 			positions.get(position).setSelected(true);
 		}
 	}

@@ -1,5 +1,7 @@
 package gui.management;
 
+import java.awt.Graphics;
+
 import data.building.DefenseBuilding;
 import data.building.ResearchBuilding;
 import data.building.ResourceBuilding;
@@ -10,14 +12,25 @@ import data.unit.GroundUnitWithMountedWeapon;
 import data.unit.TransportHelicopter;
 import data.unit.TroopTransport;
 import data.unit.Worker;
+import gui.elements.Camera;
+import gui.elements.SimuPara;
 import process.visitor.SelectableVisitor;
 
 /**
  * This visitor print the selectables.
+ * 
  * @author Adel
  *
  */
 public class PaintVisitor implements SelectableVisitor<Void> {
+
+	private Graphics graphics;
+	private Camera camera;
+
+	public PaintVisitor(Graphics graphics, Camera camera) {
+		this.graphics = graphics;
+		this.camera = camera;
+	}
 
 	@Override
 	public Void visit(DefenseBuilding selectable) {
@@ -75,8 +88,12 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(Worker selectable) {
-		// TODO Auto-generated method stub
+		printCircle();
 		return null;
 	}
 
+	private void printCircle() {
+		graphics.drawOval(camera.getPositionX() - SimuPara.RADIUS / 2, camera.getPositionY() - SimuPara.RADIUS / 2,
+				SimuPara.RADIUS, SimuPara.RADIUS);
+	}
 }

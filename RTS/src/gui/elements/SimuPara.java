@@ -21,7 +21,7 @@ public class SimuPara {
 
 	public static final int SCALE = BASIC * 40;
 
-	public static final Position START_POINT = new Position(WINDOW_WIDTH / SCALE / 2, 1, SCALE);
+	public static final Camera START_POINT = new Camera(WINDOW_WIDTH / SCALE / 2, 1, SCALE);
 
 	public static final int RADIUS = BASIC * 40;
 
@@ -33,4 +33,6 @@ public class SimuPara {
 	public static final int STRING_AJUSTEMENT = BASIC * 10;
 
 	public static final int POLICE_SIZE = BASIC * 30;
+
+	public static final Camera DEFAULT_CAMERA = new Camera(WINDOW_WIDTH / SCALE / 2, 1, SCALE);
 }

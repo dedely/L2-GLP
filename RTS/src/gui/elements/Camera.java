@@ -5,7 +5,7 @@ package gui.elements;
  * This class presents the relative current position.
  * 
  */
-public class Position {
+public class Camera {
 	private int x;
 	private int y;
 	
@@ -14,7 +14,7 @@ public class Position {
 	 */
 	private int scale;
 
-	public Position(int x, int y, int scale) {
+	public Camera(int x, int y, int scale) {
 		this.x = x;
 		this.y = y;
 		this.scale = scale;
