@@ -4,7 +4,6 @@ public class Constants {
 	public static final String PLAYER = "Player";
 	public static final String ENNEMY = "Ennemy";
 
-
 	public static final int GROUND = 1;
 	public static final int AIR = 2;
 	public static final int CARRIED_AND_CAN_SHOOT = 3;
@@ -38,5 +37,8 @@ public class Constants {
 	public static final String TEST_GROUND_WEAPON_H = "testGroundWeaponH";
 	public static final String TEST_GROUND_WEAPON_L = "testGroundWeaponL";
 	public static final String TEST_GROUND_WEAPON_SL = "testGroundWeaponSL";
+
+	public static final Config DEFAULT_CONFIG = new Config(1, new Player("player", FEDERATION),
+			new Player("ai", FEDERATION));
 
 }

@@ -49,6 +49,9 @@ public class GameGUI extends JFrame implements Runnable {
 		int time = 0;
 
 		while (game.isRunning()) {
+			if (time >= SimuPara.SIMULATION_DURATION) {
+				game.stop();
+			}
 			GameUtility.unitTime();
 
 			dashboard.repaint();

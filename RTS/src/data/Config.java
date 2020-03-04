@@ -9,6 +9,18 @@ public class Config {
 	public Config(int difficulty) {
 		this.difficulty = difficulty;
 	}
+	
+	/**
+	 * This constructor is used to construct a default config to perform our tests.
+	 * @param difficulty
+	 * @param player1
+	 * @param player2
+	 */
+	public Config(int difficulty, Player player1, Player player2) {
+		this.difficulty = difficulty;
+		players.add(player1);
+		players.add(player2);
+	}
 
 	public int getDifficulty() {
 		return difficulty;

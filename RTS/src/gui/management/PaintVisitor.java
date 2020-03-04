@@ -13,6 +13,7 @@ import data.unit.Worker;
 import process.visitor.SelectableVisitor;
 
 /**
+ * This visitor print the selectables.
  * @author Adel
  *
  */

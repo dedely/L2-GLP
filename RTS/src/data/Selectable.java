@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import data.faction.Faction;
 import data.order.Order;
 import process.visitor.SelectableVisitor;
-import process.visitor.TreeVisitor;
 
 /**
  * @author Adel

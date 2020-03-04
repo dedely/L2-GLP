@@ -1,6 +1,6 @@
 package tests;
 
-import cli.data.Team;
+
 import data.Constants;
 import data.Coordinates;
 import data.faction.Faction;
@@ -12,7 +12,7 @@ public class TestDemo {
 
 	public static void main(String[] args) {
 		//Game game = new Game();
-		Team team1 = new Team();
+		//Team team1 = new Team();
 		Faction faction1 = new Faction(Constants.UNION, Constants.PLAYER, null, "the player faction");
 		Unit unit1 = UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 0, Constants.GROUND), faction1);
 		

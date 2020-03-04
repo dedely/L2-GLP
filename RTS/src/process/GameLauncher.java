@@ -9,7 +9,8 @@ import process.factory.FactionFactory;
 import tests.input.InputParameter;
 
 /**
- * This class is responsible for building a GameState using the provided Config information.
+ * This class is responsible for building a GameState using the provided Config
+ * information.
  * 
  * @author Adel
  * 
