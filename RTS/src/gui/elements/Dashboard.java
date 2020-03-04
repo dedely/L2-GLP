@@ -1,6 +1,7 @@
 package gui.elements;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.HashMap;
@@ -27,6 +28,7 @@ public class Dashboard extends JPanel {
 
 	public Dashboard(Game game) {
 		this.game = game;
+		setPreferredSize(new Dimension(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT));
 		setBackground(Color.WHITE);
 
 	}
@@ -50,11 +52,11 @@ public class Dashboard extends JPanel {
 	}
 
 	private void printSelectables(Graphics2D g2) {
-		HashMap<Coordinates, Selectable> positions = SelectableRepository.getInstance().getPositions();
+		/*HashMap<Coordinates, Selectable> positions = SelectableRepository.getInstance().getPositions();
 		PaintVisitor visitor = new PaintVisitor(g2, SimuPara.DEFAULT_CAMERA);
 		for (Selectable selectable : positions.values()) {
 			selectable.accept(visitor);
-		}
+		}*/
 	}
 
 	private void drawDebugGrid(Graphics g) {

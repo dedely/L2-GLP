@@ -61,11 +61,13 @@ public class GameGUI extends JFrame implements Runnable {
 			 */
 			GameUtility.unitTime();
 
-			ArrayList<Faction> factions = game.getState().getFactions();
-			Iterator<Faction> factionIterator = factions.iterator();
-			SelectableRepository.getInstance().register(
-					UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 0, 0), factionIterator.next()));
-
+			/*
+			 * ArrayList<Faction> factions = game.getState().getFactions();
+			 * Iterator<Faction> factionIterator = factions.iterator();
+			 * SelectableRepository.getInstance().register(
+			 * UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 0, 0),
+			 * factionIterator.next()));
+			 */
 			dashboard.repaint();
 			time++;
 			try {
