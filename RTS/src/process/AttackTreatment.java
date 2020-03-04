@@ -1,4 +1,4 @@
-package process;
+package cli.process;
 
 import java.util.HashMap;
 
@@ -8,6 +8,7 @@ import data.building.DefenseBuilding;
 import data.unit.Unit;
 
 public class AttackTreatment {
+	
 
 	public static void attack(Unit caster, Selectable target) {
 		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) > caster.getWeapon().getRange()) {

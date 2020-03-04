@@ -1,4 +1,4 @@
-package data.faction;
+package cli.data.faction;
 
 import java.util.ArrayList;
 
@@ -45,12 +45,10 @@ public class Faction {
 	private String description;
 
 	private Boolean CurrentResearch;
+	
+	private int Team;
 
-	private ArrayList<Faction> allies = new ArrayList<Faction>();
-
-	private ArrayList<Faction> ennemies = new ArrayList<Faction>();
-
-	public Faction(String name, String playerName, ResearchTree researchTree, String description) {
+	public Faction(String name, String playerName, ResearchTree researchTree, String description, int Team) {
 		super();
 		this.name = name;
 		this.playerName = playerName;
@@ -106,22 +104,6 @@ public class Faction {
 		this.name = name;
 	}
 
-	public ArrayList<Faction> getAllies() {
-		return allies;
-	}
-
-	public void setAllies(ArrayList<Faction> allies) {
-		this.allies = allies;
-	}
-
-	public ArrayList<Faction> getEnnemies() {
-		return ennemies;
-	}
-
-	public void setEnnemies(ArrayList<Faction> ennemies) {
-		this.ennemies = ennemies;
-	}
-
 	public Boolean getCurrentResearch() {
 		return CurrentResearch;
 	}
@@ -137,6 +119,15 @@ public class Faction {
 	public void setPlayerName(String playerName) {
 		this.playerName = playerName;
 	}
+	
+	public int getTeam() {
+		return Team;
+	}
+
+	public void setTeam(int team) {
+		Team = team;
+	}
+
 
 	@Override
 	public int hashCode() {
@@ -168,5 +159,6 @@ public class Faction {
 			return false;
 		return true;
 	}
+
 
 }

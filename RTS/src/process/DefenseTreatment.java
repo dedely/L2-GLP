@@ -1,4 +1,4 @@
-package process;
+package cli.process;
 
 import java.util.HashMap;
 
@@ -12,7 +12,7 @@ public class DefenseTreatment {
 	public Selectable detectClosestEnnemy (Unit caster, HashMap<Coordinates, Selectable> positions) {
 		Selectable closestEnnemy = null;
 		if (caster.getWeapon().isCanShootAtAirTarget()) {
-			closestEnnemy = CoordinatesTreatment.closestEnnemySelectable(caster, positions);
+			closestEnnemy = CoordinatesTreatment.closestEnnemySelectable(caster);
 		}
 		else {
 			closestEnnemy = CoordinatesTreatment.closestGroundEnnemySelectable(caster, positions);

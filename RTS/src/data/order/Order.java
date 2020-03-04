@@ -1,5 +1,14 @@
-package data.order;
+package cli.data.order;
 
-public interface Order {
+public abstract class Order {
+	private String type;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 }

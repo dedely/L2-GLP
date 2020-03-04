@@ -1,4 +1,4 @@
-package process;
+package cli.process;
 
 import java.util.HashMap;
 
@@ -83,5 +83,9 @@ public class SelectableRepository {
 		} else {
 			return null;
 		}
+	}
+	
+	public HashMap<Coordinates, Selectable> getPositions(){
+		return positions;
 	}
 }

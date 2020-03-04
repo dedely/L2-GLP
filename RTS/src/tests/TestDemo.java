@@ -1,9 +1,9 @@
-package tests;
+package cli.tests;
 
-
-import data.Constants;
+import cli.data.Constants;
 import data.Coordinates;
-import data.faction.Faction;
+
+import cli.data.faction.Faction;
 import data.unit.Unit;
 import process.SelectableTreatment;
 import process.factory.UnitFactory;
@@ -12,11 +12,10 @@ public class TestDemo {
 
 	public static void main(String[] args) {
 		//Game game = new Game();
-		//Team team1 = new Team();
-		Faction faction1 = new Faction(Constants.UNION, Constants.PLAYER, null, "the player faction");
+		Faction faction1 = new Faction(Constants.UNION, Constants.PLAYER, null, "the player faction",0);
 		Unit unit1 = UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 0, Constants.GROUND), faction1);
 		
-		Faction faction2 = new Faction(Constants.UNION, Constants.ENNEMY + "1", null, "the ennemy faction");
+		Faction faction2 = new Faction(Constants.UNION, Constants.ENNEMY + "1", null, "the ennemy faction",1);
 		Unit unit2 = UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 10, Constants.GROUND), faction2);
 	
 		System.out.println("unit1 health = " + unit1.getCurrentHealth());

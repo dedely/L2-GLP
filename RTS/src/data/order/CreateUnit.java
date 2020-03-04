@@ -1,9 +1,10 @@
-package data.order;
+package cli.data.order;
 
-import data.Coordinates;
-import data.unit.Unit;
+import cli.data.Constants;
+import cli.data.Coordinates;
+import cli.data.unit.Unit;
 
-public class CreateUnit implements ProdBuildingOrder{
+public class CreateUnit extends Order{
 	
 	private Unit unitToCreate;
 	
@@ -12,6 +13,7 @@ public class CreateUnit implements ProdBuildingOrder{
 	private int timeUntilConstructed;
 	
 	public CreateUnit (Unit unitToCreate, Coordinates position, int timeUntilConstructed) {
+		setType(Constants.CREATE_UNIT);
 		this.position=position;
 		this.timeUntilConstructed=timeUntilConstructed;
 		this.unitToCreate=unitToCreate;

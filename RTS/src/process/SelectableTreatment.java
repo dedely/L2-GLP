@@ -1,4 +1,4 @@
-package process;
+package cli.process;
 
 import java.util.ArrayList;
 
@@ -9,8 +9,8 @@ import data.building.DefenseBuilding;
 import data.order.Order;
 import data.unit.GroundUnit;
 import data.unit.GroundUnitWithMountedWeapon;
-import data.unit.TransportHelicopter;
 import data.unit.TroopTransport;
+import data.unit.TransportHelicopter;
 import data.unit.Unit;
 
 public class SelectableTreatment {
@@ -133,42 +133,14 @@ public class SelectableTreatment {
 		}
 	}
 
-	public static boolean isEnnemy(Selectable caster, Selectable target) {
-		if (caster.getFaction().getEnnemies().contains(target.getFaction())) {
+	public static boolean areEnnemies(Selectable caster, Selectable target) {
+		if (caster.getFaction().getTeam()!=target.getFaction().getTeam()) {
 			return true;
 		} else
 			return false;
 	}
 
-	public static void giveOrderReplace(Selectable orderReceiver, Order order) {
-		ArrayList<Order> newOrderList = new ArrayList<Order>();
-		newOrderList.add(order);
-		orderReceiver.setOrders(newOrderList);
 
-	}
 
-	public static void giveOrderStagger(Selectable orderReceiver, Order order) {
-		ArrayList<Order> newOrderList = orderReceiver.getOrders();
-		newOrderList.add(order);
-		orderReceiver.setOrders(newOrderList);
 
-	}
-
-	public static void executeNextOrder(Building currentBuilding) {
-		if (!currentBuilding.getOrders().isEmpty()) {
-			/*
-			 * OrderTreatment.executeOrder(currentbuilding,
-			 * currentBuilding.getOrders().get(0))
-			 */
-		}
-	}
-
-	public static void executeNextOrder(Unit currentUnit) {
-		if (!currentUnit.getOrders().isEmpty()) {
-			/*
-			 * OrderTreatment.executeOrder(currentUnit, currentUnit.getOrders().get(0))
-			 */
-		}
-
-	}
 }

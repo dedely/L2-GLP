@@ -1,16 +1,15 @@
-package process;
+package cli.process;
 
-import data.Config;
-import data.GameState;
-import data.Player;
-import data.map.Map;
-import process.builder.MapBuilder;
-import process.factory.FactionFactory;
-import tests.input.InputParameter;
+import cli.data.Config;
+import cli.data.GameState;
+import cli.data.Player;
+import cli.data.map.Map;
+import cli.process.builder.MapBuilder;
+import cli.process.factory.FactionFactory;
+import cli.tests.input.InputParameter;
 
 /**
- * This class is responsible for building a GameState using the provided Config
- * information.
+ * This class is responsible for building a GameState using the provided Config information.
  * 
  * @author Adel
  * 
@@ -38,8 +37,9 @@ public class GameLauncher {
 
 	private void initFactions(GameState state) {
 		for (Player player : config.getPlayers()) {
-			state.addFaction(FactionFactory.createFaction(player.getFactionName(), player.getName()));
+			state.addFaction(FactionFactory.createFaction(player.getFactionName(), player.getName(),0));
 		}
+
 	}
 
 	private void initMap(GameState state) {

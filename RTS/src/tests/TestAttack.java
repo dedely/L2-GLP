@@ -1,4 +1,4 @@
-package tests;
+package cli.tests;
 
 import data.Constants;
 import data.Coordinates;
@@ -18,13 +18,13 @@ public class TestAttack {
 		Map map = builder.buildMap(InputParameter.MAP_PATH);
 		SelectableRepository repository = SelectableRepository.getInstance();
 
-		Faction playerFaction = new Faction(Constants.UNION, Constants.PLAYER, null, "Just a faction");
+		Faction playerFaction = new Faction(Constants.UNION, Constants.PLAYER, null, "Just a faction",0);
 
 		Unit firstUnit = UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 0, Constants.GROUND),
 				playerFaction);
 		repository.register(firstUnit);
 
-		Faction enemyFaction = new Faction(Constants.UNION, Constants.ENNEMY, null, "The enemy!");
+		Faction enemyFaction = new Faction(Constants.UNION, Constants.ENNEMY, null, "The enemy!",1);
 
 		Unit enemy = UnitFactory.create(Constants.TEST_GROUND, new Coordinates(10, 10, Constants.GROUND), enemyFaction);
 		repository.register(enemy);

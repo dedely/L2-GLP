@@ -1,9 +1,9 @@
-package process;
+package cli.process;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import data.Constants;
+import cli.data.Constants;
 import data.Coordinates;
 import data.Selectable;
 import data.building.DefenseBuilding;
@@ -102,7 +102,7 @@ public class CoordinatesTreatment {
 				+ (Math.pow(position1.getOrdinate() - position2.getOrdinate(), 2))));
 	}
 
-	public static Selectable closestEnnemySelectable(Unit unit, HashMap<Coordinates, Selectable> positions) {
+	public static Selectable closestEnnemySelectable(Unit unit) {
 
 		int radius = unit.getWeapon().getRange();
 		radius++;
@@ -112,6 +112,8 @@ public class CoordinatesTreatment {
 
 		double j = x + 1;
 		double i = y + 1;
+		
+		HashMap<Coordinates, Selectable> positions=SelectableRepository.getInstance().getPositions();
 
 		for (int m = 1; m <= radius; m++) {
 
@@ -120,13 +122,15 @@ public class CoordinatesTreatment {
 				if (Math.pow((j - x), 2) + Math.pow((i - y), 2) < Math.pow(radius, 2)) {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
+					
+					
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					} else if (positions.containsKey(positionAir)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionAir))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionAir))) {
 							return positions.get(positionAir);
 						}
 					}
@@ -140,11 +144,11 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					} else if (positions.containsKey(positionAir)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionAir))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionAir))) {
 							return positions.get(positionAir);
 						}
 					}
@@ -158,11 +162,11 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					} else if (positions.containsKey(positionAir)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionAir))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionAir))) {
 							return positions.get(positionAir);
 						}
 					}
@@ -175,11 +179,11 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					} else if (positions.containsKey(positionAir)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionAir))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionAir))) {
 							return positions.get(positionAir);
 						}
 					}
@@ -188,6 +192,7 @@ public class CoordinatesTreatment {
 		}
 		return null;
 	}
+	
 
 	public static Selectable closestGroundEnnemySelectable(Unit unit, HashMap<Coordinates, Selectable> positions) {
 
@@ -208,7 +213,7 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 
@@ -223,7 +228,7 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					}
@@ -236,7 +241,7 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					}
@@ -248,7 +253,7 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(unit, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(unit, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					}
@@ -279,11 +284,11 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					} else if (positions.containsKey(positionAir)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionAir))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionAir))) {
 							return positions.get(positionAir);
 						}
 					}
@@ -297,11 +302,11 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					} else if (positions.containsKey(positionAir)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionAir))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionAir))) {
 							return positions.get(positionAir);
 						}
 					}
@@ -315,11 +320,11 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					} else if (positions.containsKey(positionAir)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionAir))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionAir))) {
 							return positions.get(positionAir);
 						}
 					}
@@ -332,11 +337,11 @@ public class CoordinatesTreatment {
 					Coordinates positionAir = new Coordinates((int) j, (int) i, Constants.AIR);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					} else if (positions.containsKey(positionAir)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionAir))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionAir))) {
 							return positions.get(positionAir);
 						}
 					}
@@ -365,7 +370,7 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 
@@ -380,7 +385,7 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					}
@@ -393,7 +398,7 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					}
@@ -405,7 +410,7 @@ public class CoordinatesTreatment {
 					Coordinates positionGround = new Coordinates((int) j, (int) i, Constants.GROUND);
 
 					if (positions.containsKey(positionGround)) {
-						if (SelectableTreatment.isEnnemy(defense, positions.get(positionGround))) {
+						if (SelectableTreatment.areEnnemies(defense, positions.get(positionGround))) {
 							return positions.get(positionGround);
 						}
 					}

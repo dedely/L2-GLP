@@ -1,4 +1,4 @@
-package tests;
+package cli.tests;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,12 +6,13 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import data.Constants;
-import data.Selectable;
-import data.building.Building;
-import data.faction.Faction;
-import data.unit.Unit;
-import process.SelectableTreatment;
+import cli.data.Constants;
+import cli.data.building.Building;
+import cli.data.faction.Faction;
+import cli.data.unit.Unit;
+import cli.process.OrderTreatment;
+import cli.process.SelectableTreatment;
+import cli.data.Selectable;
 
 public class Engine {
 
@@ -22,7 +23,7 @@ public class Engine {
 		String playerFaction = Constants.UNION;
 
 		HashMap<String, Faction> factionList = new HashMap<String, Faction>();
-		factionList.put(Constants.PLAYER, new Faction(playerFaction, Constants.PLAYER, null, "The Union"));
+		factionList.put(Constants.PLAYER, new Faction(playerFaction, Constants.PLAYER, null, "The Union",0));
 
 		ArrayList<Selectable> deadSelectables = new ArrayList<Selectable>();
 
@@ -37,7 +38,7 @@ public class Engine {
 			while (factionListIterator.hasNext()) {
 				Entry<String, Faction> factionEntry = factionListIterator.next();
 				for (Building currentBuilding : factionEntry.getValue().getBuildingList()) {
-					SelectableTreatment.executeNextOrder(currentBuilding);
+					OrderTreatment.executeNextOrder(currentBuilding);
 
 					/*
 					 * if(Selectable unitattacked.isdead()){ deadSelectables.add(unitattacked); }
@@ -56,7 +57,7 @@ public class Engine {
 					 */
 				}
 				for (Unit currentUnit : factionEntry.getValue().getUnitsList()) {
-					SelectableTreatment.executeNextOrder(currentUnit);
+					OrderTreatment.executeNextOrder(currentUnit);
 
 					/*
 					 * if(Selectable unitattacked.isdead()){ deadSelectables.add(unitattacked); }

@@ -1,15 +1,17 @@
-package data.order;
+package cli.data.order;
 
+import cli.data.Constants;
 import data.Coordinates;
 import data.building.Building;
 
-public class Build implements Order{
+public class Build extends Order{
 	
 	private Building toBuild;
 	private Coordinates position;
 	private int timeUntilConstructed;
 	
 	public Build (Building toBuild, Coordinates position, int time) {
+		setType(Constants.BUILD);
 		this.position = position;
 		timeUntilConstructed = time;
 		this.toBuild = toBuild;
