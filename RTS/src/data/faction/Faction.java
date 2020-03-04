@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import data.building.Building;
 import data.resource.Resource;
-import data.tree.ResearchTree;
+import data.tree.BinaryTree;
 import data.unit.Unit;
 
 /**
@@ -32,7 +32,7 @@ public class Faction {
 	/**
 	 * the research tree specific to the faction
 	 */
-	private ResearchTree researchTree;
+	private BinaryTree researchTree;
 
 	/**
 	 * The resources that the faction possesses
@@ -48,7 +48,7 @@ public class Faction {
 	
 	private int Team;
 
-	public Faction(String name, String playerName, ResearchTree researchTree, String description, int Team) {
+	public Faction(String name, String playerName, BinaryTree researchTree, String description, int Team) {
 		super();
 		this.name = name;
 		this.playerName = playerName;
@@ -72,11 +72,11 @@ public class Faction {
 		this.unitsList = unitsList;
 	}
 
-	public ResearchTree getResearchTree() {
+	public BinaryTree getResearchTree() {
 		return researchTree;
 	}
 
-	public void setResearchTree(ResearchTree researchTree) {
+	public void setResearchTree(BinaryTree researchTree) {
 		this.researchTree = researchTree;
 	}
 

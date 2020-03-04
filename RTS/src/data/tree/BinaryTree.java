@@ -2,20 +2,10 @@ package data.tree;
 
 import java.util.HashMap;
 
-public class BinaryTree implements ResearchTree{
+public class BinaryTree {
 	private HashMap<Integer, Research> researches = new HashMap<Integer, Research>();
-	private String name;
 
-	public BinaryTree(String name) {
-		this.name = name;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public BinaryTree() {
 	}
 
 	public HashMap<Integer, Research> getResearches() {
@@ -28,6 +18,6 @@ public class BinaryTree implements ResearchTree{
 
 	@Override
 	public String toString() {
-		return "BinaryTree [researches=" + researches + ", name=" + name + "]";
+		return "BinaryTree [researches=" + researches + "]";
 	}
 }
