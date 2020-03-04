@@ -53,6 +53,9 @@ public class Constants {
 
 	public static final String TROOP_TRANSPORT = "TroopTransport";
 	public static final String WORKER = "Worker";
+	
+	public static final String LABORATORY = "Laboratory";
+
 
 	public static final String TEST_GROUND = "testGround";
 	public static final String TEST_GROUND_WEAPON_H = "testGroundWeaponH";

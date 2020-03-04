@@ -88,4 +88,8 @@ public class SelectableRepository {
 			return null;
 		}
 	}
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JustAdel/L2-GLP
+=======
+	
+>>>>>>> 10e0608 added laboratory constant and modified repository
 }
