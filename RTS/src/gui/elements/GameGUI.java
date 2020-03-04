@@ -68,6 +68,12 @@ public class GameGUI extends JFrame implements Runnable {
 
 			dashboard.repaint();
 			time++;
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		// We need a little more time for avoiding printing delay issue.

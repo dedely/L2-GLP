@@ -12,11 +12,11 @@ public class ResearchTreeBuilder {
 		this.faction = faction;
 	}
 
-	public BinaryTree BuildTree (Faction faction) {
+	/*public BinaryTree BuildTree (Faction faction) {
 		BinaryTree tree = new BinaryTree ();
 		for (Research res: tree) {
 		
 		}
-	}
+	}*/
 	
 }
