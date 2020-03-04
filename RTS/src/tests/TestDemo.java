@@ -1,9 +1,9 @@
-package cli.tests;
+package tests;
 
-import cli.data.Constants;
+import data.Constants;
 import data.Coordinates;
 
-import cli.data.faction.Faction;
+import data.faction.Faction;
 import data.unit.Unit;
 import process.SelectableTreatment;
 import process.factory.UnitFactory;

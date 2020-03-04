@@ -1,5 +1,5 @@
 package data.order;
 
-public interface UnitOrder extends Order{
+public abstract class UnitOrder extends Order{
 
 }

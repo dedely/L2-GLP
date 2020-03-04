@@ -1,4 +1,4 @@
-package cli.data;
+package data;
 
 public class Constants {
 	public static final String PLAYER = "Player";

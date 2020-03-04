@@ -1,4 +1,4 @@
-package cli.tests;
+package tests;
 
 import data.Constants;
 import data.Coordinates;

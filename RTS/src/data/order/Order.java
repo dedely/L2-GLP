@@ -1,4 +1,4 @@
-package cli.data.order;
+package data.order;
 
 public abstract class Order {
 	private String type;

@@ -1,12 +1,12 @@
-package cli.process;
+package process;
 
-import cli.data.Config;
-import cli.data.GameState;
-import cli.data.Player;
-import cli.data.map.Map;
-import cli.process.builder.MapBuilder;
-import cli.process.factory.FactionFactory;
-import cli.tests.input.InputParameter;
+import data.Config;
+import data.GameState;
+import data.Player;
+import data.map.Map;
+import process.builder.MapBuilder;
+import process.factory.FactionFactory;
+import tests.input.InputParameter;
 
 /**
  * This class is responsible for building a GameState using the provided Config information.

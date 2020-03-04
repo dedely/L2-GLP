@@ -1,8 +1,8 @@
-package cli.data.order;
+package data.order;
 
-import cli.data.Constants;
-import cli.data.Coordinates;
-import cli.data.Selectable;
+import data.Constants;
+import data.Coordinates;
+import data.Selectable;
 
 public class Defend extends Order {
 

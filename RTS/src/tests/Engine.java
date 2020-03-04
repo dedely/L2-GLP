@@ -1,4 +1,4 @@
-package cli.tests;
+package tests;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,13 +6,13 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import cli.data.Constants;
-import cli.data.building.Building;
-import cli.data.faction.Faction;
-import cli.data.unit.Unit;
-import cli.process.OrderTreatment;
-import cli.process.SelectableTreatment;
-import cli.data.Selectable;
+import data.Constants;
+import data.building.Building;
+import data.faction.Faction;
+import data.unit.Unit;
+import process.OrderTreatment;
+import process.SelectableTreatment;
+import data.Selectable;
 
 public class Engine {
 

@@ -1,5 +1,5 @@
 package data.order;
 
-public interface DefBuildingOrder extends Order {
+public abstract class DefBuildingOrder extends Order {
 
 }

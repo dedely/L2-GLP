@@ -1,8 +1,8 @@
-package cli.data.order;
+package data.order;
 
-import cli.data.Constants;
-import cli.data.Coordinates;
-import cli.data.unit.Unit;
+import data.Constants;
+import data.Coordinates;
+import data.unit.Unit;
 
 public class CreateUnit extends Order{
 	

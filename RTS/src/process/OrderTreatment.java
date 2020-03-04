@@ -1,18 +1,18 @@
-package cli.process;
+package process;
 
 import java.util.ArrayList;
 
-import cli.data.Constants;
-import cli.data.Selectable;
-import cli.data.building.Building;
-import cli.data.building.DefenseBuilding;
-import cli.data.order.Order;
-import cli.data.unit.Unit;
-import cli.data.order.Attack;
-import cli.data.order.AttackPosition;
-import cli.data.order.MoveToPosition;
-import cli.data.order.MoveToTarget;
-import cli.data.Coordinates;
+import data.Constants;
+import data.Selectable;
+import data.building.Building;
+import data.building.DefenseBuilding;
+import data.order.Order;
+import data.unit.Unit;
+import data.order.Attack;
+import data.order.AttackPosition;
+import data.order.MoveToPosition;
+import data.order.MoveToTarget;
+import data.Coordinates;
 
 public class OrderTreatment {
 

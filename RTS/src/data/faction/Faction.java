@@ -1,4 +1,4 @@
-package cli.data.faction;
+package data.faction;
 
 import java.util.ArrayList;
 

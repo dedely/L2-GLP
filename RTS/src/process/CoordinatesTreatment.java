@@ -1,9 +1,9 @@
-package cli.process;
+package process;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import cli.data.Constants;
+import data.Constants;
 import data.Coordinates;
 import data.Selectable;
 import data.building.DefenseBuilding;

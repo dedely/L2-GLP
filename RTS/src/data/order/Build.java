@@ -1,6 +1,6 @@
-package cli.data.order;
+package data.order;
 
-import cli.data.Constants;
+import data.Constants;
 import data.Coordinates;
 import data.building.Building;
 

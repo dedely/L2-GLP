@@ -1,4 +1,4 @@
-package cli.process;
+package process;
 
 import data.GameState;
 import data.map.Map;
