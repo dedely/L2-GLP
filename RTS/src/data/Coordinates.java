@@ -20,6 +20,17 @@ public class Coordinates {
 		ordinate = oldCoordinates.getOrdinate();
 		height = newHeight;
 	}
+	
+	/**
+	 * This constructor will allow us to instanciate Coordinates easier.
+	 * @param x
+	 * @param y
+	 */
+	public Coordinates(int x, int y) {
+		absciss = x;
+		ordinate = y;
+		height = 0;
+	}
 
 	public int getAbsciss() {
 		return absciss;

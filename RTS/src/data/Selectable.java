@@ -136,6 +136,18 @@ public abstract class Selectable {
 	public Coordinates getPosition() {
 		return position;
 	}
+	
+	public int getPositionX() {
+		return position.getAbsciss();
+	}
+	
+	public int getPositionY() {
+		return position.getOrdinate();
+	}
+	
+	public int getPositionZ() {
+		return position.getHeight();
+	}
 
 	public void setPosition(Coordinates position) {
 		this.position = position;

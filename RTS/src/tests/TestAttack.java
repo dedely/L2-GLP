@@ -18,22 +18,23 @@ public class TestAttack {
 		Map map = builder.buildMap(InputParameter.MAP_PATH);
 		SelectableRepository repository = SelectableRepository.getInstance();
 
-		Faction playerFaction = new Faction(Constants.UNION, Constants.PLAYER, null, "Just a faction",0);
+		Faction playerFaction = new Faction(Constants.UNION, Constants.PLAYER, null, "Just a faction", 0);
 
-		Unit firstUnit = UnitFactory.create(Constants.TEST_GROUND, new Coordinates(0, 0, Constants.GROUND),
+		Unit firstUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(0, 0, Constants.GROUND),
 				playerFaction);
 		repository.register(firstUnit);
 
-		Faction enemyFaction = new Faction(Constants.UNION, Constants.ENNEMY, null, "The enemy!",1);
+		Faction enemyFaction = new Faction(Constants.UNION, Constants.ENNEMY, null, "The enemy!", 1);
 
-		Unit enemy = UnitFactory.create(Constants.TEST_GROUND, new Coordinates(10, 10, Constants.GROUND), enemyFaction);
+		Unit enemy = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(10, 10, Constants.GROUND),
+				enemyFaction);
 		repository.register(enemy);
-		
+
 		System.out.println(firstUnit);
 		System.out.println(enemy);
-		
+
 		SelectableTreatment.dealDamage(firstUnit, enemy);
-		
+
 		System.out.println(firstUnit);
 		System.out.println(enemy);
 

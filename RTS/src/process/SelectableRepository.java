@@ -89,4 +89,14 @@ public class SelectableRepository {
 		}
 	}
 
+	
+	/**
+	 * We use this method for debug purposes.
+	 * @param position
+	 * @return true if a selectable is registered at the given position.
+	 */
+	public boolean exists(Coordinates position) {
+		return positions.containsKey(position);
+	}
+
 }

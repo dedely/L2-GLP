@@ -29,6 +29,8 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	private Graphics graphics;
 	private Camera camera;
 
+	private ColorStrategy colorStrategy = new TestColorStrategy();
+
 	public PaintVisitor(Graphics graphics, Camera camera) {
 		this.graphics = graphics;
 		this.camera = camera;
@@ -66,7 +68,13 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(GroundUnit selectable) {
-		// TODO Auto-generated method stub
+		if (selectable.isSelected()) {
+			colorStrategy.setColorSelected(graphics);
+		} else {
+			colorStrategy.setColor(graphics, selectable);
+		}
+
+		printCircle(selectable);
 		return null;
 	}
 
@@ -95,9 +103,7 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	}
 
 	private void printCircle(Selectable selectable) {
-		Coordinates position = selectable.getPosition();
-		int x=position.getAbsciss()+5;
-		int y=position.getAbsciss()-5;
-		graphics.drawOval(x, y, 11, 11);
+		graphics.drawOval(selectable.getPositionX() - SimuPara.RADIUS / 2,
+				selectable.getPositionY() - SimuPara.RADIUS / 2, SimuPara.RADIUS, SimuPara.RADIUS);
 	}
 }

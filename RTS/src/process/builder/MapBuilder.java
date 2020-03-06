@@ -9,7 +9,7 @@ import data.map.Map;
 
 /**
  * This class builds the map based on a text file input. The input file contains
- * information about all the maps elements.
+ * information about all the map elements.
  * 
  * @author Adel
  *
