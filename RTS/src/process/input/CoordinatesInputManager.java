@@ -15,8 +15,11 @@ public class CoordinatesInputManager implements InputManager {
 	}
 
 	public void process() {
+		translate(coordinates);
 		SelectableRepository.getInstance().select(coordinates);
-		System.out.println(coordinates.toString());
-		System.out.println(SelectableRepository.getInstance().exists(coordinates));
+	}
+
+	private void translate(Coordinates coordinates) {
+		
 	}
 }

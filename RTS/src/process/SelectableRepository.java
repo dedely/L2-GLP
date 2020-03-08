@@ -71,6 +71,7 @@ public class SelectableRepository {
 	public void select(Coordinates position) {
 		if (positions.containsKey(position)) {
 			positions.get(position).setSelected(true);
+			System.out.println("selected!");
 		}
 	}
 

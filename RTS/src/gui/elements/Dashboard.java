@@ -24,7 +24,6 @@ import process.input.InputManager;
  */
 public class Dashboard extends JPanel implements MouseListener {
 
-	
 	private InputManager input;
 	private Game game;
 
@@ -32,6 +31,7 @@ public class Dashboard extends JPanel implements MouseListener {
 	 * Showing the grid will make the debug easier.
 	 */
 	private boolean debugGrid = true;
+	private boolean debugMouseInput = true;
 
 	public Dashboard(Game game) {
 		this.game = game;
@@ -87,11 +87,15 @@ public class Dashboard extends JPanel implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
+		
 		Coordinates coordinates = new Coordinates(x, y);
-		System.out.println(coordinates.toString());
+
+		if (debugMouseInput) {
+			System.out.println(coordinates.toString());
+		}
+
 		input = new CoordinatesInputManager(coordinates);
 		input.process();
-
 	}
 
 	@Override

@@ -17,8 +17,7 @@ import process.Game;
 import process.GameUtility;
 import process.SelectableRepository;
 import process.factory.UnitFactory;
-import process.input.CoordinatesInputManager;
-import process.input.InputManager;
+
 
 /**
  * @author Adel
@@ -40,7 +39,8 @@ public class GameGUI extends JFrame implements Runnable, MouseListener {
 	public GameGUI(Config config) {
 		super("War Never Dies");
 
-		//We split the work in different private methods and call them in the constructor.
+		// We split the work in different private methods and call them in the
+		// constructor.
 		initEngine(config);
 		initStyle();
 		initLayout();
@@ -51,6 +51,7 @@ public class GameGUI extends JFrame implements Runnable, MouseListener {
 	private void initEngine(Config config) {
 		game = new Game(config);
 		dashboard = new Dashboard(game);
+		addTestUnits();
 
 	}
 
@@ -78,7 +79,7 @@ public class GameGUI extends JFrame implements Runnable, MouseListener {
 	}
 
 	private void initActions() {
-		//We add a MouseListener to the frame.
+		// We add a MouseListener to the frame.
 		addMouseListener(this);
 	}
 
@@ -90,13 +91,9 @@ public class GameGUI extends JFrame implements Runnable, MouseListener {
 		int time = 0;
 		game.start();
 		while (game.isRunning()) {
-			/*
-			 * if (time >= SimuPara.SIMULATION_DURATION) { game.stop(); }
-			 */
+
 
 			GameUtility.unitTime();
-
-			addTestUnits();
 
 			dashboard.repaint();
 			time++;
@@ -109,7 +106,8 @@ public class GameGUI extends JFrame implements Runnable, MouseListener {
 	}
 
 	/**
-	 * This method is only used for testing purposes: it adds 1 unit to each faction. It will be deleted eventually.
+	 * This method is only used for testing purposes: it adds 1 unit to each
+	 * faction. It will be deleted eventually.
 	 */
 	private void addTestUnits() {
 		ArrayList<Faction> factions = game.getState().getFactions();
@@ -123,7 +121,7 @@ public class GameGUI extends JFrame implements Runnable, MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
+
 	}
 
 	@Override

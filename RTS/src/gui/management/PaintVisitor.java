@@ -1,6 +1,8 @@
 package gui.management;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import data.Coordinates;
 import data.Selectable;
@@ -26,12 +28,12 @@ import process.visitor.SelectableVisitor;
  */
 public class PaintVisitor implements SelectableVisitor<Void> {
 
-	private Graphics graphics;
+	private Graphics2D graphics;
 	private Camera camera;
 
 	private ColorStrategy colorStrategy = new TestColorStrategy();
 
-	public PaintVisitor(Graphics graphics, Camera camera) {
+	public PaintVisitor(Graphics2D graphics, Camera camera) {
 		this.graphics = graphics;
 		this.camera = camera;
 	}
@@ -68,13 +70,9 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(GroundUnit selectable) {
-		if (selectable.isSelected()) {
-			colorStrategy.setColorSelected(graphics);
-		} else {
-			colorStrategy.setColor(graphics, selectable);
-		}
-
+		colorStrategy.setColor(graphics, selectable);
 		printCircle(selectable);
+		printSelected(selectable);
 		return null;
 	}
 
@@ -106,4 +104,13 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 		graphics.drawOval(selectable.getPositionX() - SimuPara.RADIUS / 2,
 				selectable.getPositionY() - SimuPara.RADIUS / 2, SimuPara.RADIUS, SimuPara.RADIUS);
 	}
+
+	private void printSelected(Selectable selectable) {
+		if(selectable.isSelected()) {
+			colorStrategy.setColorSelected(graphics);
+			graphics.drawOval(selectable.getPositionX() - (SimuPara.RADIUS + 10) / 2 ,
+					selectable.getPositionY() - (SimuPara.RADIUS  + 10) / 2, SimuPara.RADIUS + 10, SimuPara.RADIUS + 10);
+		}
+	}
+
 }
