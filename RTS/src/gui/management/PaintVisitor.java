@@ -1,10 +1,9 @@
 package gui.management;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
 
-import data.Coordinates;
 import data.Selectable;
 import data.building.DefenseBuilding;
 import data.building.ResearchBuilding;
@@ -101,15 +100,17 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	}
 
 	private void printCircle(Selectable selectable) {
-		graphics.drawOval(selectable.getPositionX() - SimuPara.RADIUS / 2,
+		Shape shape = new Ellipse2D.Double(selectable.getPositionX() - SimuPara.RADIUS / 2,
 				selectable.getPositionY() - SimuPara.RADIUS / 2, SimuPara.RADIUS, SimuPara.RADIUS);
+		graphics.fill(shape);
+		ShapeRepository.getInstance().addShape(selectable, shape);
 	}
 
 	private void printSelected(Selectable selectable) {
-		if(selectable.isSelected()) {
+		if (selectable.isSelected()) {
 			colorStrategy.setColorSelected(graphics);
-			graphics.drawOval(selectable.getPositionX() - (SimuPara.RADIUS + 10) / 2 ,
-					selectable.getPositionY() - (SimuPara.RADIUS  + 10) / 2, SimuPara.RADIUS + 10, SimuPara.RADIUS + 10);
+			graphics.drawOval(selectable.getPositionX() - (SimuPara.RADIUS + 10) / 2,
+					selectable.getPositionY() - (SimuPara.RADIUS + 10) / 2, SimuPara.RADIUS + 10, SimuPara.RADIUS + 10);
 		}
 	}
 

@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.geom.Point2D;
 import java.util.HashMap;
 
 import javax.swing.JPanel;
@@ -85,16 +86,15 @@ public class Dashboard extends JPanel implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		int x = e.getX();
-		int y = e.getY();
+		double x = e.getX();
+		double y = e.getY();
 		
-		Coordinates coordinates = new Coordinates(x, y);
-
+		Point2D point = new  Point2D.Double(x, y);
 		if (debugMouseInput) {
-			System.out.println(coordinates.toString());
+			System.out.println(point.toString());
 		}
 
-		input = new CoordinatesInputManager(coordinates);
+		input = new CoordinatesInputManager(point);
 		input.process();
 	}
 

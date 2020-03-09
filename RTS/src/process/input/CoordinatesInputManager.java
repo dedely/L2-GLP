@@ -1,6 +1,10 @@
 package process.input;
 
+import java.awt.geom.Point2D;
+
 import data.Coordinates;
+import data.Selectable;
+import gui.management.ShapeRepository;
 import process.SelectableRepository;
 
 /**
@@ -8,18 +12,22 @@ import process.SelectableRepository;
  *
  */
 public class CoordinatesInputManager implements InputManager {
-	Coordinates coordinates;
+	Point2D point;
 
-	public CoordinatesInputManager(Coordinates coordinates) {
-		this.coordinates = coordinates;
+	public CoordinatesInputManager(Point2D point) {
+		this.point = point;
 	}
 
 	public void process() {
-		translate(coordinates);
-		SelectableRepository.getInstance().select(coordinates);
-	}
-
-	private void translate(Coordinates coordinates) {
-		
+		ShapeRepository instance = ShapeRepository.getInstance();
+		Selectable selection = instance.contains(point);
+		if(selection != null) {
+			Coordinates position = selection.getPosition();
+			SelectableRepository r = SelectableRepository .getInstance();
+			if (r.getPositions().containsKey(position)) {
+				r.getPositions().get(position).setSelected(true);
+				System.out.println("selected!");
+			}
+		}
 	}
 }
