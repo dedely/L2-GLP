@@ -1,5 +1,6 @@
 package process;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import data.Coordinates;
@@ -14,6 +15,7 @@ import data.Selectable;
 
 public class SelectableRepository {
 	private HashMap<Coordinates, Selectable> positions = new HashMap<Coordinates, Selectable>();
+	private ArrayList<Selectable> selected = new ArrayList<Selectable>();
 
 	/**
 	 * The unique instance of the class prepared in an eager way (object created at
@@ -70,9 +72,31 @@ public class SelectableRepository {
 
 	public void select(Coordinates position) {
 		if (positions.containsKey(position)) {
-			positions.get(position).setSelected(true);
-			System.out.println("selected!");
+			Selectable selectable = positions.get(position);
+			selectable.setSelected(true);
+			addSelected(selectable);
 		}
+	}
+
+	private void addSelected(Selectable selectable) {
+		selected.add(selectable);
+	}
+
+	/**
+	 * This method only deselects a {@link Selectable} if at least one selectable
+	 * has been selected in the first place.
+	 */
+	public void deselectAll() {
+		if (selected.size() > 0) {
+			for (Selectable selectable : positions.values()) {
+				removeSelected(selectable);
+				selectable.setSelected(false);
+			}
+		}
+	}
+
+	private void removeSelected(Selectable selectable) {
+		selected.remove(selectable);
 	}
 
 	/**

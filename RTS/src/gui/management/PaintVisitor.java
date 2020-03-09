@@ -20,7 +20,7 @@ import gui.elements.SimuPara;
 import process.visitor.SelectableVisitor;
 
 /**
- * This visitor print the selectables.
+ * This visitor prints the selectables.
  * 
  * @author Adel
  *
