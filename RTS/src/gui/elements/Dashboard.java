@@ -10,14 +10,13 @@ import java.awt.geom.Point2D;
 import java.util.HashMap;
 
 import javax.swing.JPanel;
-
 import data.Coordinates;
 import data.Selectable;
+import gui.input.CoordinatesInputManager;
+import gui.input.InputManager;
 import gui.management.PaintVisitor;
 import process.Game;
 import process.SelectableRepository;
-import process.input.CoordinatesInputManager;
-import process.input.InputManager;
 
 /**
  * @author Adel
@@ -39,7 +38,6 @@ public class Dashboard extends JPanel implements MouseListener {
 		setPreferredSize(new Dimension(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT));
 		setBackground(Color.WHITE);
 		addMouseListener(this);
-
 	}
 
 	@Override
@@ -60,6 +58,11 @@ public class Dashboard extends JPanel implements MouseListener {
 
 	}
 
+	/**
+	 * This method will be updated later, as we add camera support.
+	 * 
+	 * @param g2
+	 */
 	private void printSelectables(Graphics2D g2) {
 
 		HashMap<Coordinates, Selectable> positions = SelectableRepository.getInstance().getPositions();
@@ -84,17 +87,23 @@ public class Dashboard extends JPanel implements MouseListener {
 		}
 	}
 
+	/**
+	 * This method provides the {@link CoordinatesInputManager} with the necessary
+	 * information to process a mouse click.
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		int count = e.getClickCount();
 		double x = e.getX();
 		double y = e.getY();
-		
-		Point2D point = new  Point2D.Double(x, y);
+		Point2D point = new Point2D.Double(x, y);
+		int button = e.getButton();
 		if (debugMouseInput) {
 			System.out.println(point.toString());
+			System.out.println("Mouse button: " + button);
+			System.out.println("Click count: " + count);
 		}
-
-		input = new CoordinatesInputManager(point);
+		input = new CoordinatesInputManager(button, count, point);
 		input.process();
 	}
 

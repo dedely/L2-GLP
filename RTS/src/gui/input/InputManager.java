@@ -1,4 +1,4 @@
-package process.input;
+package gui.input;
 
 /**
  * 

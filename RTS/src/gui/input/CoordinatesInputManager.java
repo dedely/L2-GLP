@@ -1,5 +1,6 @@
-package process.input;
+package gui.input;
 
+import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
 
 import data.Coordinates;
@@ -14,11 +15,32 @@ import process.SelectableRepository;
  *
  */
 public class CoordinatesInputManager implements InputManager {
-	Point2D point;
+	private int button;
+	private int count;
+	private Point2D point;
 	private boolean debug = true;
 
-	public CoordinatesInputManager(Point2D point) {
+
+
+	public CoordinatesInputManager(int button, int count, Point2D point) {
+		this.button = button;
+		this.count = count;
 		this.point = point;
+	}
+
+	public void process() {
+		System.out.println(button);
+		switch (button) {
+		case MouseEvent.BUTTON1:
+			processLeftClick();
+			break;
+
+		case MouseEvent.BUTTON3:
+			processRightClick();
+			break;
+		default: 
+			System.out.println("nope");
+		}
 	}
 
 	/**
@@ -26,15 +48,15 @@ public class CoordinatesInputManager implements InputManager {
 	 * the user clicked on its shape. If not, all the {@link Selectable} are
 	 * deselected.
 	 */
-	public void process() {
+	private void processLeftClick() {
 		ShapeRepository screen = ShapeRepository.getInstance();
 		SelectableRepository r = SelectableRepository.getInstance();
 		Selectable selection = screen.contains(point);
+		// Only 1 shape can be selected using the a simple click.
+		r.deselectAll();
 		if (selection != null) {
 			Coordinates position = selection.getPosition();
 			r.select(position);
-		} else {
-			r.deselectAll();
 		}
 
 		// Prints debug messages in the console.
@@ -47,4 +69,22 @@ public class CoordinatesInputManager implements InputManager {
 			}
 		}
 	}
+
+	private void processRightClick() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public int getButton() {
+		return button;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public Point2D getPoint() {
+		return point;
+	}
+
 }

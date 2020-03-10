@@ -45,7 +45,6 @@ public class GameState {
 			factions.remove(faction);
 		}
 	}
-
 	@Override
 	public String toString() {
 		return "GameState [map=" + map + "]";
