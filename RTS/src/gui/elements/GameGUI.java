@@ -102,7 +102,7 @@ public class GameGUI extends JFrame implements Runnable {
 
 			endTime = System.nanoTime();
 			timeElapsed = endTime - startTime;
-			// System.out.println("Execution time in miliseconds : " + timeElapsed/1000000);
+			//System.out.println("Execution time in miliseconds : " + timeElapsed/1000000);
 		}
 
 	}

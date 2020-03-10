@@ -86,12 +86,13 @@ public class CoordinatesTreatment {
 	
 	public static Coordinates positionNextTick(Unit unitToMove, Coordinates destination) {
 		Coordinates origin = unitToMove.getPosition();
-		int deltaX = destination.getAbsciss() - origin.getAbsciss();
-		int deltaY = destination.getOrdinate() - origin.getOrdinate();
+		double deltaX = destination.getAbsciss() - origin.getAbsciss();
+		double deltaY = destination.getOrdinate() - origin.getOrdinate();
 		double length = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
 		if (unitToMove.getSpeed() < length) {
-			int newX = (int) Math.round((origin.getAbsciss() + (deltaX / length * unitToMove.getSpeed())));
-			int newY = (int) Math.round((origin.getOrdinate() + (deltaY / length * unitToMove.getSpeed())));
+			int newX = (int) Math.round((origin.getAbsciss() + (deltaX /Math.sqrt(length) * unitToMove.getSpeed())));
+			int newY = (int) Math.round((origin.getOrdinate() + (deltaY / Math.sqrt(length) * unitToMove.getSpeed())));
+
 			return new Coordinates(newX, newY, origin.getHeight());
 		} else
 			return destination;

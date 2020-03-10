@@ -26,12 +26,13 @@ public class Dashboard extends JPanel implements MouseListener {
 
 	private InputManager input;
 	private Game game;
+	private double time = System.nanoTime();
 
 	/**
 	 * Showing the grid will make the debug easier.
 	 */
 	private boolean debugGrid = true;
-	private boolean debugMouseInput = true;
+	private boolean debugMouseInput = false;
 
 	public Dashboard(Game game) {
 		this.game = game;
@@ -93,6 +94,10 @@ public class Dashboard extends JPanel implements MouseListener {
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
 		int count = e.getClickCount();
 		double x = e.getX();
 		double y = e.getY();
@@ -102,15 +107,12 @@ public class Dashboard extends JPanel implements MouseListener {
 			System.out.println(point.toString());
 			System.out.println("Mouse button: " + button);
 			System.out.println("Click count: " + count);
+
 		}
+		System.out.println((System.nanoTime() - time) / 1000000);
+		time = System.nanoTime();
 		input = new CoordinatesInputManager(button, count, point);
 		input.process();
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
