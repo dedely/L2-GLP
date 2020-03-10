@@ -4,15 +4,19 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
 
 import data.Config;
 import data.Constants;
 import data.Coordinates;
+import data.Selectable;
 import data.faction.Faction;
+import data.unit.Unit;
 import process.Game;
 import process.GameUtility;
+import process.OrderTreatment;
 import process.SelectableRepository;
 import process.factory.UnitFactory;
 
@@ -80,21 +84,34 @@ public class GameGUI extends JFrame implements Runnable {
 	 * The entry point of a game.
 	 */
 	public void run() {
-
+		long startTime = 0, endTime = 0, timeElapsed = 0;
 		// int time = 0;
-		game.start();
-		while (game.isRunning()) {
 
+		game.start();
+
+		while (game.isRunning()) {
+			startTime = System.nanoTime();
 			GameUtility.unitTime();
 
+			updateGameWorld();
 			dashboard.repaint();
 			// time++;
 
+			// We need a little more time for avoiding printing delay issue.
+			GameUtility.windowRefreshTime();
+
+			endTime = System.nanoTime();
+			timeElapsed = endTime - startTime;
+			// System.out.println("Execution time in miliseconds : " + timeElapsed/1000000);
 		}
 
-		// We need a little more time for avoiding printing delay issue.
-		GameUtility.windowRefreshTime();
+	}
 
+	private void updateGameWorld() {
+		SelectableRepository r = SelectableRepository.getInstance();
+		for(Selectable selected: r.getPositions().values()) {
+			OrderTreatment.executeNextOrder((Unit)selected);
+		}
 	}
 
 	/**

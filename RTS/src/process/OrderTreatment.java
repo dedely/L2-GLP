@@ -34,7 +34,7 @@ public class OrderTreatment {
 	public static void finishOrder(Selectable orderReceiver) {
 		ArrayList<Order> orderList = orderReceiver.getOrders();
 		orderList.remove(0);
-		System.out.println("\norder complete\n");
+		//System.out.println("\norder complete\n");
 
 	}
 
@@ -88,7 +88,7 @@ public class OrderTreatment {
 	public static void executeNextOrder(Unit executor) {
 		Order currentOrder = nextOrder(executor);
 		if (currentOrder == null) {
-			System.out.println("no order");
+			//System.out.println("no order");
 		}
 		else {
 			Coordinates destination = null;

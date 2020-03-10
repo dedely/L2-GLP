@@ -2,10 +2,14 @@ package gui.input;
 
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 
+import data.Constants;
 import data.Coordinates;
 import data.Selectable;
+import data.order.MoveToPosition;
 import gui.management.ShapeRepository;
+import process.OrderTreatment;
 import process.SelectableRepository;
 
 /**
@@ -19,8 +23,6 @@ public class CoordinatesInputManager implements InputManager {
 	private int count;
 	private Point2D point;
 	private boolean debug = true;
-
-
 
 	public CoordinatesInputManager(int button, int count, Point2D point) {
 		this.button = button;
@@ -38,7 +40,7 @@ public class CoordinatesInputManager implements InputManager {
 		case MouseEvent.BUTTON3:
 			processRightClick();
 			break;
-		default: 
+		default:
 			System.out.println("nope");
 		}
 	}
@@ -71,8 +73,13 @@ public class CoordinatesInputManager implements InputManager {
 	}
 
 	private void processRightClick() {
-		// TODO Auto-generated method stub
-
+		SelectableRepository r = SelectableRepository.getInstance();
+		ArrayList<Selectable> selectedCollection = r.getSelected();
+		Coordinates coordinates = new Coordinates((int)point.getX(), (int)point.getY());
+		MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
+		for(Selectable selected: selectedCollection) {
+			OrderTreatment.giveOrderStagger(selected, order);
+		}
 	}
 
 	public int getButton() {
