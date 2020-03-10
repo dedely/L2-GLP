@@ -34,6 +34,7 @@ public class OrderTreatment {
 	public static void finishOrder(Selectable orderReceiver) {
 		ArrayList<Order> orderList = orderReceiver.getOrders();
 		orderList.remove(0);
+		System.out.println("\norder complete\n");
 
 	}
 
@@ -63,32 +64,48 @@ public class OrderTreatment {
 	}
 
 	public void giveOrdre(String type, Unit receiver, Coordinates target) {
-		if (type == Constants.ATTACK_POS_STS) {
+		switch (type) {
+		case Constants.ATTACK_POS_STS:
 			giveOrderReplace(receiver, new AttackPosition(Constants.STOP_TO_SHOOT, target));
-		}
-		if (type == Constants.ATTACK_POS_AAC) {
+			break;
+
+		case Constants.ATTACK_POS_AAC:
 			giveOrderReplace(receiver, new AttackPosition(Constants.GO_AT_ALL_COST, target));
-		}
-		if (type == Constants.MOVE_TO_POSITION_STS) {
+			break;
+
+		case Constants.MOVE_TO_POSITION_STS:
 			giveOrderReplace(receiver, new MoveToPosition(target, Constants.STOP_TO_SHOOT));
-		}
-		if (type == Constants.MOVE_TO_POSITION_AAC) {
+			break;
+
+		case Constants.MOVE_TO_POSITION_AAC:
 			giveOrderReplace(receiver, new MoveToPosition(target, Constants.GO_AT_ALL_COST));
+			break;
+
 		}
 
 	}
 
 	public static void executeNextOrder(Unit executor) {
 		Order currentOrder = nextOrder(executor);
-		if (currentOrder != null) {
-			if (currentOrder.getType() == Constants.MOVE_TO_POSITION_AAC) {
-				Coordinates destination = ((MoveToPosition) currentOrder).getPosition();
-				Coordinates actualPosition = executor.getPosition();
+		if (currentOrder == null) {
+			System.out.println("no order");
+		}
+		else {
+			Coordinates destination = null;
+			Coordinates actualPosition = null;
+
+			switch (currentOrder.getType()) {
+
+			case Constants.MOVE_TO_POSITION_AAC:
+				destination = ((MoveToPosition) currentOrder).getPosition();
+				actualPosition = executor.getPosition();
 				if (!destination.equals(actualPosition)) {
 					MoveToTreatment.moveToward(executor, destination);
-				} else
+				} else {
 					finishOrder(executor);
-			} else if (currentOrder.getType() == Constants.MOVE_TO_POSITION_STS) {
+				}
+				break;
+			case Constants.MOVE_TO_POSITION_STS:
 				if (hasEnemyInRange(executor)) {
 					if (SelectableTreatment.canShoot(executor,
 							CoordinatesTreatment.closestEnnemySelectable(executor))) {
@@ -97,8 +114,8 @@ public class OrderTreatment {
 						executor.getWeapon().setTimeLeftToReload(executor.getWeapon().getTimeBeetweenShots());
 					}
 				} else {
-					Coordinates destination = ((MoveToPosition) currentOrder).getPosition();
-					Coordinates actualPosition = executor.getPosition();
+					destination = ((MoveToPosition) currentOrder).getPosition();
+					actualPosition = executor.getPosition();
 					if (!destination.equals(actualPosition)) {
 						MoveToTreatment.moveToward(executor, destination);
 					} else
@@ -127,7 +144,7 @@ public class OrderTreatment {
 
 	public static void executeNextOrder(Building currentBuilding) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

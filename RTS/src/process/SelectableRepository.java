@@ -114,6 +114,10 @@ public class SelectableRepository {
 		}
 	}
 
+	public ArrayList<Selectable> getSelected() {
+		return selected;
+	}
+
 	/**
 	 * We use this method for debug purposes.
 	 * 
