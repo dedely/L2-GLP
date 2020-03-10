@@ -38,22 +38,25 @@ public class OrderTreatment {
 	}
 
 	public void giveOrdre(String type, Unit receiver, Selectable target) {
-		if (type == Constants.ATTACK_STS) {
+		switch (type) {
+		case Constants.ATTACK_STS:
 			giveOrderReplace(receiver, new Attack(Constants.STOP_TO_SHOOT, target));
-		}
-		if (type == Constants.ATTACK_POS_AAC) {
+			break;
+		case Constants.ATTACK_POS_AAC:
 			giveOrderReplace(receiver, new Attack(Constants.GO_AT_ALL_COST, target));
-		}
-		if (type == Constants.MOVE_TO_POSITION_STS) {
+			break;
+		case Constants.MOVE_TO_POSITION_STS:
 			giveOrderReplace(receiver, new MoveToTarget(target, Constants.STOP_TO_SHOOT));
-		}
-		if (type == Constants.MOVE_TO_POSITION_AAC) {
+			break;
+		case Constants.MOVE_TO_POSITION_AAC:
 			giveOrderReplace(receiver, new MoveToTarget(target, Constants.GO_AT_ALL_COST));
+			break;
 		}
 	}
 
 	public void giveOrdre(String type, DefenseBuilding receiver, Selectable target) {
-		if (type == Constants.ATTACK_POS_AAC) {
+		switch (type) {
+		case Constants.ATTACK_POS_AAC:
 			giveOrderReplace(receiver, new Attack(Constants.GO_AT_ALL_COST, target));
 		}
 
