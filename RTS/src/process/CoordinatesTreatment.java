@@ -88,10 +88,10 @@ public class CoordinatesTreatment {
 		Coordinates origin = unitToMove.getPosition();
 		double deltaX = destination.getAbsciss() - origin.getAbsciss();
 		double deltaY = destination.getOrdinate() - origin.getOrdinate();
-		double length = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+		double length = distance(origin, destination);
 		if (unitToMove.getSpeed() < length) {
-			int newX = (int) Math.round((origin.getAbsciss() + (deltaX /Math.sqrt(length) * unitToMove.getSpeed())));
-			int newY = (int) Math.round((origin.getOrdinate() + (deltaY / Math.sqrt(length) * unitToMove.getSpeed())));
+			int newX = (int) Math.round((origin.getAbsciss() + (unitToMove.getSpeed()/length*deltaX)));
+			int newY = (int) Math.round((origin.getOrdinate() + (unitToMove.getSpeed()/length*deltaY)));
 
 			return new Coordinates(newX, newY, origin.getHeight());
 		} else
