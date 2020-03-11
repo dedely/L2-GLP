@@ -11,12 +11,11 @@ import javax.swing.JFrame;
 import data.Config;
 import data.Constants;
 import data.Coordinates;
-import data.Selectable;
 import data.faction.Faction;
+import data.unit.GroundUnit;
 import data.unit.Unit;
 import process.Game;
 import process.GameUtility;
-import process.OrderTreatment;
 import process.SelectableRepository;
 import process.factory.UnitFactory;
 
@@ -93,7 +92,7 @@ public class GameGUI extends JFrame implements Runnable {
 			startTime = System.nanoTime();
 			GameUtility.unitTime();
 
-			updateGameWorld();
+			game.update();
 			dashboard.repaint();
 			// time++;
 
@@ -102,16 +101,9 @@ public class GameGUI extends JFrame implements Runnable {
 
 			endTime = System.nanoTime();
 			timeElapsed = endTime - startTime;
-			//System.out.println("Execution time in miliseconds : " + timeElapsed/1000000);
+			// System.out.println("Execution time in miliseconds : " + timeElapsed/1000000);
 		}
 
-	}
-
-	private void updateGameWorld() {
-		SelectableRepository r = SelectableRepository.getInstance();
-		for(Selectable selected: r.getPositions().values()) {
-			OrderTreatment.executeNextOrder((Unit)selected);
-		}
 	}
 
 	/**
@@ -121,10 +113,15 @@ public class GameGUI extends JFrame implements Runnable {
 	private void addTestUnits() {
 		ArrayList<Faction> factions = game.getState().getFactions();
 		Iterator<Faction> factionIterator = factions.iterator();
-		SelectableRepository.getInstance().register(UnitFactory.createUnit(Constants.TEST_GROUND,
+		SelectableRepository r = SelectableRepository.getInstance();
+		Unit playerUnit = UnitFactory.createUnit(Constants.TEST_GROUND,
 				new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(), SimuPara.DEFAULT_CAMERA.getPositionY(), 0),
-				factionIterator.next()));
-		SelectableRepository.getInstance().register(UnitFactory.createUnit(Constants.TEST_GROUND,
-				new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0), factionIterator.next()));
+				factionIterator.next());
+		r.register(playerUnit);
+		r.addSelectable(playerUnit);
+		Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND,
+				new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0), factionIterator.next());
+		r.register(aiUnit);
+		r.addSelectable(aiUnit);
 	}
 }

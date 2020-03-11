@@ -2,6 +2,8 @@ package process;
 
 import data.Config;
 import data.GameState;
+import data.Selectable;
+import data.unit.Unit;
 
 public class Game {
 	private GameState state;
@@ -23,7 +25,17 @@ public class Game {
 	public void start() {
 		running = true;
 	}
+
 	public void stop() {
 		running = false;
+	}
+
+	public void update() {
+		SelectableRepository r = SelectableRepository.getInstance();
+
+		for (Selectable selected : r.getSelectables()) {
+			OrderTreatment.executeNextOrder((Unit) selected);
+		}
+		r.updatePosition();
 	}
 }

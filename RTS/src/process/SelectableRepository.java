@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import data.Coordinates;
 import data.Selectable;
+import data.unit.Unit;
 
 /**
  * This class manages the positions of all known selectables on the map.
@@ -16,6 +17,7 @@ import data.Selectable;
 public class SelectableRepository {
 	private HashMap<Coordinates, Selectable> positions = new HashMap<Coordinates, Selectable>();
 	private ArrayList<Selectable> selected = new ArrayList<Selectable>();
+	private ArrayList<Selectable> selectables = new ArrayList<Selectable>();
 
 	/**
 	 * The unique instance of the class prepared in an eager way (object created at
@@ -36,6 +38,10 @@ public class SelectableRepository {
 	 */
 	public static SelectableRepository getInstance() {
 		return instance;
+	}
+
+	public ArrayList<Selectable> getSelectables() {
+		return selectables;
 	}
 
 	public HashMap<Coordinates, Selectable> getPositions() {
@@ -82,6 +88,10 @@ public class SelectableRepository {
 		selected.add(selectable);
 	}
 
+	public void addSelectable(Selectable selectable) {
+		selectables.add(selectable);
+	}
+
 	/**
 	 * This method only deselects a {@link Selectable} if at least one selectable
 	 * has been selected in the first place.
@@ -126,6 +136,14 @@ public class SelectableRepository {
 	 */
 	public boolean exists(Coordinates position) {
 		return positions.containsKey(position);
+	}
+
+	public void updatePosition() {
+		positions.clear();
+		for (Selectable selected : selectables) {
+			register(selected);
+		}
+		System.out.println(selectables.size());
 	}
 
 }
