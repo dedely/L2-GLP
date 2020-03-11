@@ -107,10 +107,10 @@ public class Dashboard extends JPanel implements MouseListener {
 			System.out.println(point.toString());
 			System.out.println("Mouse button: " + button);
 			System.out.println("Click count: " + count);
-
+			System.out.println((System.nanoTime() - time) / 1000000);
+			time = System.nanoTime();
 		}
-		System.out.println((System.nanoTime() - time) / 1000000);
-		time = System.nanoTime();
+
 		input = new CoordinatesInputManager(button, count, point);
 		input.process();
 	}

@@ -3,6 +3,7 @@ package process;
 import data.Config;
 import data.GameState;
 import data.Selectable;
+import data.faction.Faction;
 import data.unit.Unit;
 
 public class Game {
@@ -31,11 +32,24 @@ public class Game {
 	}
 
 	public void update() {
+		
+		updatePositions();
+		updateResearches();
+	}
+
+	private void updatePositions() {
 		SelectableRepository r = SelectableRepository.getInstance();
 
 		for (Selectable selected : r.getSelectables()) {
 			OrderTreatment.executeNextOrder((Unit) selected);
 		}
 		r.updatePosition();
+		
+	}
+	private void updateResearches() {
+		for(Faction currentFaction : state.getFactions()) {
+			
+		}
+		
 	}
 }
