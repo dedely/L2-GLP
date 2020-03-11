@@ -9,12 +9,23 @@ public class Research {
 	private int cost;
 	private ArrayList <Upgrade> upgrades = new ArrayList<Upgrade>();
 	private int timeLeft;
+	private int laboratoriesNumber;
 
-	public Research(String name, int cost, Upgrade upgrade) {
+	public Research(String name, int cost, Upgrade upgrade, int timeLeft, int laboratoriesNumber) {
 		super();
 		this.name = name;
 		unlocked = false;
 		this.cost = cost;
+		this.timeLeft = timeLeft;
+		this.laboratoriesNumber = laboratoriesNumber;
+	}
+
+	public int getLaboratoriesNumber() {
+		return laboratoriesNumber;
+	}
+
+	public void setLaboratoriesNumber(int laboratoriesNumber) {
+		this.laboratoriesNumber = laboratoriesNumber;
 	}
 
 	public String getName() {
@@ -48,6 +59,7 @@ public class Research {
 	public void setTimeLeft(int time){
 		timeLeft = time;
 	}
+
 	
 	public ArrayList<Upgrade> getUpgrades() {
 		return upgrades;

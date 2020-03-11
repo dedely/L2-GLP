@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import data.building.Building;
 import data.resource.Resource;
 import data.tree.BinaryTree;
+import data.tree.Research;
 import data.unit.Unit;
 
 /**
@@ -44,7 +45,7 @@ public class Faction {
 	 */
 	private String description;
 
-	private Boolean CurrentResearch;
+	private Research currentResearch;
 	
 	private int Team;
 
@@ -104,12 +105,12 @@ public class Faction {
 		this.name = name;
 	}
 
-	public Boolean getCurrentResearch() {
-		return CurrentResearch;
+	public Research getCurrentResearch() {
+		return currentResearch;
 	}
 
-	public void setCurrentResearch(Boolean currentResearch) {
-		CurrentResearch = currentResearch;
+	public void setCurrentResearch(Research currentResearch) {
+		this.currentResearch = currentResearch;
 	}
 
 	public String getPlayerName() {
