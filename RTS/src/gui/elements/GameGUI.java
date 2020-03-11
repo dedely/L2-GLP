@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
 
@@ -12,7 +11,6 @@ import data.Config;
 import data.Constants;
 import data.Coordinates;
 import data.faction.Faction;
-import data.unit.GroundUnit;
 import data.unit.Unit;
 import process.Game;
 import process.GameUtility;
@@ -27,6 +25,7 @@ public class GameGUI extends JFrame implements Runnable {
 
 	private Game game;
 	private Dashboard dashboard;
+	private ContextualPanel contextPanel;
 
 	/**
 	 * To create the game frame, we need to specify the game configuration.
@@ -50,6 +49,7 @@ public class GameGUI extends JFrame implements Runnable {
 	private void initEngine(Config config) {
 		game = new Game(config);
 		dashboard = new Dashboard(game);
+		contextPanel = new ContextualPanel();
 		addTestUnits();
 	}
 
@@ -63,6 +63,7 @@ public class GameGUI extends JFrame implements Runnable {
 		contentPane.setLayout(new BorderLayout());
 
 		contentPane.add(BorderLayout.CENTER, dashboard);
+		contentPane.add(BorderLayout.SOUTH, contextPanel);
 
 		setSize(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT);
 
@@ -119,8 +120,8 @@ public class GameGUI extends JFrame implements Runnable {
 				factionIterator.next());
 		r.register(playerUnit);
 		r.addSelectable(playerUnit);
-		Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND,
-				new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0), factionIterator.next());
+		Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0),
+				factionIterator.next());
 		r.register(aiUnit);
 		r.addSelectable(aiUnit);
 	}
