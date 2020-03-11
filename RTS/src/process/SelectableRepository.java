@@ -143,7 +143,6 @@ public class SelectableRepository {
 		for (Selectable selected : selectables) {
 			register(selected);
 		}
-		System.out.println(selectables.size());
 	}
 
 }

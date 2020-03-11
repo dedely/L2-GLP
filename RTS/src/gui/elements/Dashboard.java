@@ -31,7 +31,7 @@ public class Dashboard extends JPanel implements MouseListener {
 	/**
 	 * Showing the grid will make the debug easier.
 	 */
-	private boolean debugGrid = true;
+	private boolean debugGrid = false;
 	private boolean debugMouseInput = false;
 
 	public Dashboard(Game game) {
