@@ -69,8 +69,8 @@ public class GameGUI extends JFrame implements Runnable {
 
 		// Uncomment the following instructions to make the game full screen.
 
-		 setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//setUndecorated(true);
+		// setExtendedState(JFrame.MAXIMIZED_BOTH);
+		// setUndecorated(true);
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
