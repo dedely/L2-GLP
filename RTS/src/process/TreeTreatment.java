@@ -14,12 +14,11 @@ public class TreeTreatment {
 							  	faction.getResources().get(1).setResourceCount(faction.getResources().get(1).
 							  	getResourceCount()-faction.getResearchTree().getResearches().get(indice).
 							  	getCost()); faction.setCurrentResearch(true); 
-							  	// Lance le timer. 
+							  	return true;
 						  }
 					  }
 				  }
 			  }
-		return true;
 		}
 		return false;
 	}

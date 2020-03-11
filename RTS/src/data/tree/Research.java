@@ -8,6 +8,7 @@ public class Research {
 	private boolean unlocked;
 	private int cost;
 	private ArrayList <Upgrade> upgrades = new ArrayList<Upgrade>();
+	private int timeLeft;
 
 	public Research(String name, int cost, Upgrade upgrade) {
 		super();
@@ -40,13 +41,21 @@ public class Research {
 		this.cost = cost;
 	}
 
+	public int getTimeLeft() {
+		return timeLeft;
+	}
+	
+	public void setTimeLeft(int time){
+		timeLeft = time;
+	}
+	
 	public ArrayList<Upgrade> getUpgrades() {
 		return upgrades;
 	}
 
 	@Override
 	public String toString() {
-		return "Research [name=" + name + ", unlocked=" + unlocked + ", cost=" + cost + "]";
+		return "Research [name=" + name + ", unlocked=" + unlocked + ", cost=" + cost + ", timeLeft=" + timeLeft + "]";
 	}
 
 }

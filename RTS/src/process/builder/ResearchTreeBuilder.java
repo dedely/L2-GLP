@@ -20,7 +20,7 @@ public class ResearchTreeBuilder {
 	}
 
 	
-	  public void BuildTree (Faction faction, String fileName) throws IOException {
+	  public void BuildTree (Faction faction, String fileName, String fileResearch) throws IOException {
 		  Map<Integer, Research> treeMap = faction.getResearchTree().getResearches();
 		  for (Map.Entry<Integer, Research> entry : treeMap.entrySet()) {
 			String line, fields[];
@@ -80,7 +80,30 @@ public class ResearchTreeBuilder {
 			}catch (IOException e) {
 				System.err.println(e.getMessage());
 			}
-		  }
+			/*try {
+				
+				BufferedReader researchFileUnion = new BufferedReader(new FileReader (fileResearch));
+				while ((line = researchFileUnion.readLine()) != null) {
+					fields = line.split(SEPARATOR);
+					for (String s : fields) {
+						String name = " ";
+						int cost = -1;
+						boolean unlocked = false;
+						String elements[];
+						elements = s.split(",");
+						name = elements[0];
+						cost = Integer.parseInt(elements[1]);
+						unlocked = Boolean.parseBoolean(elements[2]);
+						
+					}
+				}
+				researchFileUnion.close();
+			}catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
+		
+		  }*/
+	  }
 	  }
 	  
 	  public void addToResearch (Research research, Upgrade upgrade) {
