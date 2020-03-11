@@ -22,7 +22,7 @@ public class CoordinatesInputManager implements InputManager {
 	private int button;
 	private int count;
 	private Point2D point;
-	private boolean debug = true;
+	private boolean debug = false;
 
 	public CoordinatesInputManager(int button, int count, Point2D point) {
 		this.button = button;
@@ -31,7 +31,6 @@ public class CoordinatesInputManager implements InputManager {
 	}
 
 	public void process() {
-		System.out.println(button);
 		switch (button) {
 		case MouseEvent.BUTTON1:
 			processLeftClick();
