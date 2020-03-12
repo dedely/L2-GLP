@@ -95,7 +95,6 @@ public class GameGUI extends JFrame implements Runnable {
 			GameUtility.unitTime();
 
 			game.update();
-			System.out.println("loop no " + loopNumber);
 			dashboard.repaint();
 			// time++;
 

@@ -75,10 +75,10 @@ public class CoordinatesInputManager implements InputManager {
 	private void processRightClick() {
 		ShapeRepository screen = ShapeRepository.getInstance();
 		SelectableRepository r = SelectableRepository.getInstance();
-		Selectable selection = screen.contains(point);
-		if (selection != null) {
+		Selectable target = screen.contains(point);
+		if (target != null) {
 			ArrayList<Selectable> selectedCollection = r.getSelected();
-			Attack order = new Attack(Constants.STOP_TO_SHOOT, selection);
+			Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
 			for (Selectable selected : selectedCollection) {
 				OrderTreatment.giveOrderStagger(selected, order);
 			}
