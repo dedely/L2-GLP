@@ -80,7 +80,7 @@ public class CoordinatesInputManager implements InputManager {
 			ArrayList<Selectable> selectedCollection = r.getSelected();
 			Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
 			for (Selectable selected : selectedCollection) {
-				OrderTreatment.giveOrderStagger(selected, order);
+				OrderTreatment.giveOrderReplace(selected, order);
 			}
 			
 		}else {
@@ -88,7 +88,7 @@ public class CoordinatesInputManager implements InputManager {
 			Coordinates coordinates = new Coordinates((int)point.getX(), (int)point.getY());
 			MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
 			for(Selectable selected: selectedCollection) {
-				OrderTreatment.giveOrderStagger(selected, order);
+				OrderTreatment.giveOrderReplace(selected, order);
 			}
 		}
 		
