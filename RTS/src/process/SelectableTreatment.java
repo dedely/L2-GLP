@@ -18,7 +18,7 @@ public class SelectableTreatment {
 	public static void receiveDamage(Selectable target, int amount, Unit caster) {
 		target.setCurrentHealth(target.getCurrentHealth() - amount);
 		if (target.getCurrentHealth() <= 0) {
-			System.out.println(target.getName() + " was killed by " + caster.getName());
+			SelectableRepository.getInstance().addDeadUnits(target);
 		}
 
 	}
@@ -26,7 +26,7 @@ public class SelectableTreatment {
 	public static void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
 		target.setCurrentHealth(target.getCurrentHealth() - amount);
 		if (target.getCurrentHealth() <= 0) {
-			System.out.println(target.getName() + " was killed by " + caster.getName());
+			SelectableRepository.getInstance().addDeadUnits(target);
 		}
 
 	}
@@ -38,9 +38,6 @@ public class SelectableTreatment {
 		int armorPoints = target.getArmorPoints();
 		int armorType = target.getArmorType();
 		int calculatedDamage = calculDamage(baseDamage, damageType, armorPoints, armorType);
-		System.out.println("dealing " + calculatedDamage + "damage");
-		System.out.println("base = " + baseDamage + " damageType = " + damageType + " armor = " + armorPoints
-				+ " armorType = " + armorType);
 		receiveDamage(target, calculatedDamage, caster);
 	}
 
@@ -61,11 +58,19 @@ public class SelectableTreatment {
 		if (unit.getPosition().getHeight() < 0) {
 			return false;
 		}
+		
+
+		return true;
+	}
+	public static boolean isReloaded(Unit unit) {
 		if (unit.getWeapon().getTimeLeftToReload() > 0) {
 			return false;
 		}
-
-		return true;
+		else
+			return true;
+	}
+	public static void reloadWeapon(Unit unit) {
+		unit.getWeapon().setTimeLeftToReload(unit.getWeapon().getTimeLeftToReload()-1);
 	}
 
 	public static void moveToward(Unit unitToMove, Coordinates destination) {
@@ -106,6 +111,17 @@ public class SelectableTreatment {
 		}
 
 	}
+	
+	public boolean isEmbarkable(Selectable whereToEmbark) {
+		try {
+			((TroopTransport) whereToEmbark).getName();
+			return true;
+
+		}
+		catch (Exception e) {
+			return false;
+		}
+	}
 
 	public static boolean canEmbark(GroundUnit unitToEmbark, TroopTransport whereToEmbark) {
 		int unitsSlotsAvailable = whereToEmbark.getInfantrySeatsRemaining();
@@ -139,6 +155,7 @@ public class SelectableTreatment {
 		} else
 			return false;
 	}
+
 
 
 

@@ -33,8 +33,14 @@ public class Game {
 
 	public void update() {
 		
+		clearDeadUnits();
 		updatePositions();
 		updateResearches();
+	}
+
+	private void clearDeadUnits() {
+		SelectableRepository.getInstance().removeDeadUnits();
+				
 	}
 
 	private void updatePositions() {

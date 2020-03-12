@@ -88,12 +88,14 @@ public class GameGUI extends JFrame implements Runnable {
 		// int time = 0;
 
 		game.start();
-
+		int loopNumber = 0;
 		while (game.isRunning()) {
+			loopNumber++;
 			startTime = System.nanoTime();
 			GameUtility.unitTime();
 
 			game.update();
+			System.out.println("loop no " + loopNumber);
 			dashboard.repaint();
 			// time++;
 

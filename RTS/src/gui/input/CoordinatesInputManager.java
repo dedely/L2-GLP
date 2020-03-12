@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import data.Constants;
 import data.Coordinates;
 import data.Selectable;
+import data.order.Attack;
 import data.order.MoveToPosition;
 import gui.management.ShapeRepository;
 import process.OrderTreatment;
@@ -40,7 +41,7 @@ public class CoordinatesInputManager implements InputManager {
 			processRightClick();
 			break;
 		default:
-			System.out.println("nope");
+			System.err.println("button not recognized");
 		}
 	}
 
@@ -72,13 +73,25 @@ public class CoordinatesInputManager implements InputManager {
 	}
 
 	private void processRightClick() {
+		ShapeRepository screen = ShapeRepository.getInstance();
 		SelectableRepository r = SelectableRepository.getInstance();
-		ArrayList<Selectable> selectedCollection = r.getSelected();
-		Coordinates coordinates = new Coordinates((int)point.getX(), (int)point.getY());
-		MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
-		for(Selectable selected: selectedCollection) {
-			OrderTreatment.giveOrderStagger(selected, order);
+		Selectable selection = screen.contains(point);
+		if (selection != null) {
+			ArrayList<Selectable> selectedCollection = r.getSelected();
+			Attack order = new Attack(Constants.STOP_TO_SHOOT, selection);
+			for (Selectable selected : selectedCollection) {
+				OrderTreatment.giveOrderStagger(selected, order);
+			}
+			
+		}else {
+			ArrayList<Selectable> selectedCollection = r.getSelected();
+			Coordinates coordinates = new Coordinates((int)point.getX(), (int)point.getY());
+			MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
+			for(Selectable selected: selectedCollection) {
+				OrderTreatment.giveOrderStagger(selected, order);
+			}
 		}
+		
 	}
 
 	public int getButton() {

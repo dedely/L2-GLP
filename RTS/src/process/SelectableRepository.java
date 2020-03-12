@@ -18,6 +18,7 @@ public class SelectableRepository {
 	private HashMap<Coordinates, Selectable> positions = new HashMap<Coordinates, Selectable>();
 	private ArrayList<Selectable> selected = new ArrayList<Selectable>();
 	private ArrayList<Selectable> selectables = new ArrayList<Selectable>();
+	private ArrayList<Selectable> deadUnits = new ArrayList<Selectable>();
 
 	/**
 	 * The unique instance of the class prepared in an eager way (object created at
@@ -144,5 +145,30 @@ public class SelectableRepository {
 			register(selected);
 		}
 	}
+
+	public ArrayList<Selectable> getDeadUnits() {
+		return deadUnits;
+	}
+
+	public void addDeadUnits(Selectable deadUnit) {
+		deadUnits.add(deadUnit);
+		
+	}
+
+	public void removeDeadUnits() {
+		for(Selectable unitToRemove : instance.getDeadUnits()) {
+			System.out.println("unit "+unitToRemove.getName()+" is dead and should be removed");
+			instance.getSelectables().remove(unitToRemove);
+			unitToRemove.getFaction().getUnitsList().remove(unitToRemove);
+			unitToRemove=null;
+			
+			
+		}
+		instance.getDeadUnits().clear();
+
+		
+	}
+
+
 
 }
