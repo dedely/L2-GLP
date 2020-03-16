@@ -63,5 +63,9 @@ public class Constants {
 	public static final String TEST_GROUND_WEAPON_SL = "testGroundWeaponSL";
 	
 	public static final Config DEFAULT_CONFIG = new Config(1, new Player("player", FEDERATION), new Player("ai", FEDERATION));
+	
+	public static final String SPEED = "speedUp";
+	public static final String DAMAGE = "Damage greater";
+	public static final String HEALTH = "Get more health";
 
 }
