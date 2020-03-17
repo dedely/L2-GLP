@@ -52,17 +52,16 @@ public class CoordinatesInputManager implements InputManager {
 	private void processLeftClick() {
 		ShapeRepository screen = ShapeRepository.getInstance();
 		SelectableRepository r = SelectableRepository.getInstance();
-		Selectable selection = screen.contains(point);
-		// Only 1 shape can be selected using the a simple click.
+		Integer selectionId = screen.contains(point);
+		// Only 1 shape can be selected using a simple click.
 		r.deselectAll();
-		if (selection != null) {
-			Coordinates position = selection.getPosition();
-			r.select(position);
+		if (selectionId != null) {
+			r.select(selectionId);
 		}
 
 		// Prints debug messages in the console.
 		if (debug) {
-			if (selection != null) {
+			if (selectionId != null) {
 				System.out.println("selected!");
 			} else {
 				System.out.println("deselected!");

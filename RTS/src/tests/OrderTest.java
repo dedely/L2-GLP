@@ -16,17 +16,18 @@ import process.factory.UnitFactory;
 
 public class OrderTest {
 	public static void main(String args[]) {
-		Game game =new Game(Constants.DEFAULT_CONFIG);
-		addTestUnits(game);
-		SelectableRepository r = SelectableRepository.getInstance();
-		r.select(new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(), SimuPara.DEFAULT_CAMERA.getPositionY(), 0));
-		OrderTreatment.giveOrderReplace(r.getSelected().get(0),new MoveToPosition(new Coordinates(10, 10), Constants.GO_AT_ALL_COST));
-		System.out.println(r.getSelected().get(0).getPosition().toString());
-		for(int i=0 ; i<55 ; i++) {
-		System.out.println("execution");
-		OrderTreatment.executeNextOrder((Unit)r.getSelected().get(0));
-		System.out.println(r.getSelected().get(0).getPosition().toString());
-		}
+		/*
+		 * Game game =new Game(Constants.DEFAULT_CONFIG); addTestUnits(game);
+		 * SelectableRepository r = SelectableRepository.getInstance(); r.select(new
+		 * Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(),
+		 * SimuPara.DEFAULT_CAMERA.getPositionY(), 0));
+		 * OrderTreatment.giveOrderReplace(r.getSelected().get(0),new MoveToPosition(new
+		 * Coordinates(10, 10), Constants.GO_AT_ALL_COST));
+		 * System.out.println(r.getSelected().get(0).getPosition().toString()); for(int
+		 * i=0 ; i<55 ; i++) { System.out.println("execution");
+		 * OrderTreatment.executeNextOrder((Unit)r.getSelected().get(0));
+		 * System.out.println(r.getSelected().get(0).getPosition().toString()); }
+		 */
 	}
 
 	private static void addTestUnits(Game game) {

@@ -15,7 +15,7 @@ import data.Selectable;
  *
  */
 public class ShapeRepository {
-	private HashMap<Selectable, Shape> shapes = new HashMap<Selectable, Shape>();
+	private HashMap<Integer, Shape> shapes = new HashMap<Integer, Shape>();
 
 	private static ShapeRepository instance = new ShapeRepository();
 
@@ -27,11 +27,11 @@ public class ShapeRepository {
 	}
 
 	public void addShape(Selectable selectable, Shape shape) {
-		shapes.put(selectable, shape);
+		shapes.put(selectable.getId(), shape);
 	}
 
-	public void removeShape(Selectable selectable) {
-		shapes.remove(selectable);
+	public void removeShape(Integer id) {
+		shapes.remove(id);
 	}
 
 	/**
@@ -42,9 +42,9 @@ public class ShapeRepository {
 	 * 
 	 *         We had to iterate over entries in order to get the Selectable key.
 	 */
-	public Selectable contains(Point2D point) {
-		Selectable selection = null;
-		for (Entry<Selectable, Shape> s : shapes.entrySet()) {
+	public Integer contains(Point2D point) {
+		Integer selection = null;
+		for (Entry<Integer, Shape> s : shapes.entrySet()) {
 			if (s.getValue().contains(point)) {
 				selection = s.getKey();
 			}

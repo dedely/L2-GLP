@@ -65,13 +65,11 @@ public class Dashboard extends JPanel implements MouseListener {
 	 * @param g2
 	 */
 	private void printSelectables(Graphics2D g2) {
-
-		HashMap<Coordinates, Selectable> positions = SelectableRepository.getInstance().getPositions();
+		SelectableRepository r = SelectableRepository.getInstance();
 		PaintVisitor visitor = new PaintVisitor(g2, SimuPara.DEFAULT_CAMERA);
-		for (Selectable selectable : positions.values()) {
+		for (Selectable selectable : r.getSelectables()) {
 			selectable.accept(visitor);
 		}
-
 	}
 
 	public void drawDebugGrid(Graphics g) {

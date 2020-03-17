@@ -1,14 +1,18 @@
 package process;
 
+import java.util.ArrayList;
+
 import data.Config;
 import data.GameState;
 import data.Selectable;
 import data.faction.Faction;
 import data.unit.Unit;
+import process.managers.SelectableManager;
 
 public class Game {
 	private GameState state;
-	private boolean running;
+	private boolean running = false;
+	private ArrayList<SelectableManager> selectableManagers = new ArrayList<SelectableManager>();
 
 	public Game(Config config) {
 		GameLauncher launcher = new GameLauncher(config);
@@ -32,9 +36,13 @@ public class Game {
 	}
 
 	public void update() {
-		
+		clearDeadUnits();
 		updatePositions();
-		updateResearches();
+		// updateResearches();
+	}
+
+	private void clearDeadUnits() {
+		SelectableRepository.getInstance().removeDeadUnits();
 	}
 
 	private void updatePositions() {
@@ -44,12 +52,15 @@ public class Game {
 			OrderTreatment.executeNextOrder((Unit) selected);
 		}
 		r.updatePosition();
-		
+
 	}
-	private void updateResearches() {
-		for(Faction currentFaction : state.getFactions()) {
-			
-		}
-		
-	}
+
+	/*
+	 * private void updateResearches() { for(Faction currentFaction :
+	 * state.getFactions()) {
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 }

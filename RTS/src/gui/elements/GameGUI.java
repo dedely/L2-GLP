@@ -84,7 +84,7 @@ public class GameGUI extends JFrame implements Runnable {
 	 * The entry point of a game.
 	 */
 	public void run() {
-		long startTime = 0, endTime = 0, timeElapsed = 0;
+		long startTime = 0, endTime = 0;
 		// int time = 0;
 
 		game.start();
@@ -96,14 +96,13 @@ public class GameGUI extends JFrame implements Runnable {
 			game.update();
 			dashboard.repaint();
 			// time++;
-
-			// We need a little more time for avoiding printing delay issue.
-			GameUtility.windowRefreshTime();
-
 			endTime = System.nanoTime();
-			timeElapsed = endTime - startTime;
-			// System.out.println("Execution time in miliseconds : " + timeElapsed/1000000);
+			long timeElapsed = endTime - startTime;
+			System.out.println("Execution time in miliseconds : " + timeElapsed/1000000);
 		}
+		
+		// We need a little more time for avoiding printing delay issue.
+		GameUtility.windowRefreshTime();
 
 	}
 
@@ -119,10 +118,8 @@ public class GameGUI extends JFrame implements Runnable {
 				new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(), SimuPara.DEFAULT_CAMERA.getPositionY(), 0),
 				factionIterator.next());
 		r.register(playerUnit);
-		r.addSelectable(playerUnit);
 		Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0),
 				factionIterator.next());
 		r.register(aiUnit);
-		r.addSelectable(aiUnit);
 	}
 }

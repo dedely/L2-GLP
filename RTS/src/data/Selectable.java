@@ -1,6 +1,7 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import data.faction.Faction;
 import data.order.Order;
@@ -13,6 +14,7 @@ import process.visitor.SelectableVisitor;
 public abstract class Selectable {
 
 	private String name;
+	private Integer id = null;
 	private int cost;
 
 	private Faction faction;
@@ -30,6 +32,14 @@ public abstract class Selectable {
 	private Coordinates position;
 
 	private ArrayList<Order> orders = new ArrayList<Order>();
+
+	/**
+	 * We use a FIFO approach to manage orders. Given that we only need to perform
+	 * insertion and remove operations on orders, a {@link LinkedList} should
+	 * provide better performance than an {@link ArrayList}.
+	 * 
+	 */
+	private LinkedList<Order> ordersLL = new LinkedList<Order>();
 
 	/**
 	 * @param maxHealth
@@ -136,21 +146,29 @@ public abstract class Selectable {
 	public Coordinates getPosition() {
 		return position;
 	}
-	
+
 	public int getPositionX() {
 		return position.getAbsciss();
 	}
-	
+
 	public int getPositionY() {
 		return position.getOrdinate();
 	}
-	
+
 	public int getPositionZ() {
 		return position.getHeight();
 	}
 
 	public void setPosition(Coordinates position) {
 		this.position = position;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public ArrayList<Order> getOrders() {
@@ -160,14 +178,30 @@ public abstract class Selectable {
 	public void setOrders(ArrayList<Order> orders) {
 		this.orders = orders;
 	}
-	
+
+	/**
+	 * @param order The order will be placed at the end of our queue, according to
+	 *              the FIFO approach.
+	 */
+	public void addOrder(Order order) {
+		ordersLL.add(order);
+	}
+
+	/**
+	 * @return the next order (i.e. the first order in the list) and removes it from
+	 *         the list.
+	 */
+	public Order getNextOrder() {
+		return ordersLL.remove();
+	}
+
 	public abstract <T> T accept(SelectableVisitor<T> visitor);
 
 	@Override
 	public String toString() {
-		return "name=" + name + "\ncost=" + cost + "\nowner=" + faction + "\nmaxHealth=" + maxHealth + "\ncurrentHealth="
-				+ currentHealth + "\narmorPoints=" + armorPoints + "\narmorType=" + armorType + "\nselected=" + selected
-				+ "\ndescription=" + description + "\nposition=" + position + "]";
+		return "name=" + name + "\ncost=" + cost + "\nowner=" + faction + "\nmaxHealth=" + maxHealth
+				+ "\ncurrentHealth=" + currentHealth + "\narmorPoints=" + armorPoints + "\narmorType=" + armorType
+				+ "\nselected=" + selected + "\ndescription=" + description + "\nposition=" + position + "]";
 	}
 
 }
