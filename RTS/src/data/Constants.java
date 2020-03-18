@@ -1,5 +1,7 @@
 package data;
 
+import data.building.Size;
+
 public class Constants {
 	public static final String PLAYER = "Player";
 	public static final String ENNEMY = "Ennemy";
@@ -54,6 +56,9 @@ public class Constants {
 	public static final String TROOP_TRANSPORT = "TroopTransport";
 	public static final String WORKER = "Worker";
 	
+	public static final String HEADQUATERS = "HeadQuaters";
+	public static final String BARRACKS = "Barracks";
+	public static final String MINE = "Mine";
 	public static final String LABORATORY = "Laboratory";
 
 
@@ -63,5 +68,7 @@ public class Constants {
 	public static final String TEST_GROUND_WEAPON_SL = "testGroundWeaponSL";
 	
 	public static final Config DEFAULT_CONFIG = new Config(1, new Player("player", FEDERATION), new Player("ai", FEDERATION));
+	
+	public static final Size DEFAULT_SIZE = new Size(3, 3);
 
 }

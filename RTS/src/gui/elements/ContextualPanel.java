@@ -17,7 +17,11 @@ public class ContextualPanel extends JPanel {
 		setBackground(Color.LIGHT_GRAY);
 		contextLabel.setFont(font);
 		contextLabel.setForeground(Color.WHITE);
-		add(contextLabel);
+		layoutActions();
+	}
+
+	public void layoutActions() {
+		
 	}
 
 }
