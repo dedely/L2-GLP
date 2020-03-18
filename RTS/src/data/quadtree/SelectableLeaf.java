@@ -1,6 +1,6 @@
 package data.quadtree;
 
-import java.awt.geom.Point2D;
+import java.awt.Point;
 
 import process.visitor.QuadTreeVisitor;
 
@@ -11,7 +11,7 @@ import process.visitor.QuadTreeVisitor;
 public class SelectableLeaf extends Leaf {
 	private Integer id;
 
-	public SelectableLeaf(Point2D position, Integer id) {
+	public SelectableLeaf(Point position, Integer id) {
 		super(position);
 		this.id = id;
 	}

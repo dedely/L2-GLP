@@ -1,5 +1,6 @@
 package gui.input;
 
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -21,10 +22,10 @@ import process.SelectableRepository;
 public class CoordinatesInputManager implements InputManager {
 	private int button;
 	private int count;
-	private Point2D point;
+	private Point point;
 	private boolean debug = false;
 
-	public CoordinatesInputManager(int button, int count, Point2D point) {
+	public CoordinatesInputManager(int button, int count, Point point) {
 		this.button = button;
 		this.count = count;
 		this.point = point;

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Point2D;
@@ -97,9 +98,9 @@ public class Dashboard extends JPanel implements MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		int count = e.getClickCount();
-		double x = e.getX();
-		double y = e.getY();
-		Point2D point = new Point2D.Double(x, y);
+		int x = e.getX();
+		int y = e.getY();
+		Point point = new Point(x, y);
 		int button = e.getButton();
 		if (debugMouseInput) {
 			System.out.println(point.toString());
