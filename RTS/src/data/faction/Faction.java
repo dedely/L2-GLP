@@ -55,6 +55,7 @@ public class Faction {
 		this.playerName = playerName;
 		this.researchTree = researchTree;
 		this.description = description;
+		currentResearch = null;
 	}
 
 	public ArrayList<Building> getBuildingList() {
