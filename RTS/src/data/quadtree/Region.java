@@ -1,24 +1,37 @@
 package data.quadtree;
 
-import java.awt.Dimension;
+import java.awt.Point;
 
 import process.visitor.QuadTreeVisitor;
 
 /**
+ * A Region decomposes 2D space into 4 equal quadrants.
  * @author Adel
  *
  */
 public class Region implements QuadTree {
 
-	private Dimension size;
+	private Point topLeft;
+	private Point bottomRight;
 
 	private QuadTree northWest;
 	private QuadTree northEast;
 	private QuadTree southWest;
 	private QuadTree southEast;
 
-	public Region(Dimension size, QuadTree northWest, QuadTree northEast, QuadTree southWest, QuadTree southEast) {
-		this.size = size;
+	public Region(Point topLeft, Point bottomRight) {
+		this.topLeft = topLeft;
+		this.bottomRight = bottomRight;
+		this.northWest = null;
+		this.northEast = null;
+		this.southWest = null;
+		this.southEast = null;
+	}
+	
+	public Region(Point topLeft, Point bottomRight, QuadTree northWest, QuadTree northEast, QuadTree southWest,
+			QuadTree southEast) {
+		this.topLeft = topLeft;
+		this.bottomRight = bottomRight;
 		this.northWest = northWest;
 		this.northEast = northEast;
 		this.southWest = southWest;
@@ -45,17 +58,41 @@ public class Region implements QuadTree {
 		return southEast;
 	}
 
-	public Dimension getSize() {
-		return size;
+	public void setNorthWest(QuadTree northWest) {
+		this.northWest = northWest;
 	}
 
-	public void setSize(Dimension size) {
-		this.size = size;
+	public void setNorthEast(QuadTree northEast) {
+		this.northEast = northEast;
+	}
+
+	public void setSouthWest(QuadTree southWest) {
+		this.southWest = southWest;
+	}
+
+	public void setSouthEast(QuadTree southEast) {
+		this.southEast = southEast;
+	}
+
+	public Point getTopLeft() {
+		return topLeft;
+	}
+
+	public void setTopLeft(Point topLeft) {
+		this.topLeft = topLeft;
+	}
+
+	public Point getBottomRight() {
+		return bottomRight;
+	}
+
+	public void setBottomRight(Point bottomRight) {
+		this.bottomRight = bottomRight;
 	}
 
 	@Override
 	public <T> T accept(QuadTreeVisitor<T> visitor) {
-		return null;
+		return visitor.visit(this);;
 	}
 
 }

@@ -3,6 +3,7 @@ package process.managers;
 import java.awt.Point;
 
 import data.quadtree.QuadTree;
+import process.factory.QuadTreeNodeFactory;
 
 public class QuadTreeManager {
 	private QuadTree tree;
@@ -11,8 +12,13 @@ public class QuadTreeManager {
 		this.tree = tree;
 	}
 
-	public void addSelectable(Point point, Integer id) {
-
+	public void addSelectable(Point position, Integer id) {
+		QuadTree leaf = QuadTreeNodeFactory.createSelectableLeaf(position, id);
+		if (!exists(tree)) {
+			tree = leaf;
+		} else {
+			
+		}
 	}
 
 	public boolean exists() {
@@ -27,7 +33,4 @@ public class QuadTreeManager {
 		return !(exists(tree.getNorthWest()) && exists(tree.getNorthEast()) && exists(tree.getSouthWest())
 				&& exists(tree.getSouthEast()));
 	}
-	
-
-
 }

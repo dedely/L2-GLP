@@ -3,6 +3,8 @@ package data.quadtree;
 import process.visitor.QuadTreeVisitor;
 
 /**
+ * General definition of a QuadTree node.
+ * The QuadTree structure is used to store spatial data.
  * @author Adel
  *
  */

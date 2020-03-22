@@ -26,7 +26,7 @@ public class SelectableLeaf extends Leaf {
 
 	@Override
 	public <T> T accept(QuadTreeVisitor<T> visitor) {
-		return null;
+		return visitor.visit(this);
 	}
 
 	@Override

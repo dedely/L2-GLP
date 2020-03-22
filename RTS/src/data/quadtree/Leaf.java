@@ -1,16 +1,17 @@
 package data.quadtree;
 
-import java.awt.geom.Point2D;
+import java.awt.Point;
 
 /**
+ * 
  * @author Adel
  *
  */
 public abstract class Leaf implements QuadTree {
 
-	private Point2D position;
+	private Point position;
 
-	public Leaf(Point2D position) {
+	public Leaf(Point position) {
 		this.position = position;
 	}
 
@@ -34,7 +35,7 @@ public abstract class Leaf implements QuadTree {
 		return null;
 	}
 
-	public Point2D getPosition() {
+	public Point getPosition() {
 		return position;
 	}
 
