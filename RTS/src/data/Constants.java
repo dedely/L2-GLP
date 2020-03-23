@@ -14,6 +14,11 @@ public class Constants {
 
 	public static final String MOVE_TO_TARGET_AAC = "Move to target at all cost";
 	public static final String MOVE_TO_TARGET_STS = "Move to target stop to shot";
+	
+	public static final String EMBARK_AAC = "embark at all cost";
+	public static final String EMBARK_STS = "embark stop to shot";
+
+
 
 	
 	public static final String DEFEND = "Defend";
@@ -62,6 +67,8 @@ public class Constants {
 	public static final String MINE = "Mine"; //ResourceBuilding
 
 	public static final String TEST_GROUND = "testGround";
+	public static final String TEST_GROUND_EMBARK = "testGroundEmbark";
+
 	public static final String TEST_GROUND_WEAPON_H = "testGroundWeaponH";
 	public static final String TEST_GROUND_WEAPON_L = "testGroundWeaponL";
 	public static final String TEST_GROUND_WEAPON_SL = "testGroundWeaponSL";

@@ -12,6 +12,7 @@ import data.order.MoveToPosition;
 import gui.management.ShapeRepository;
 import process.OrderTreatment;
 import process.SelectableRepository;
+import process.SelectableTreatment;
 
 /**
  * This class processes coordinates inputs, i.e. clicks on the map.
@@ -78,20 +79,27 @@ public class CoordinatesInputManager implements InputManager {
 		Selectable target = screen.contains(point);
 		if (target != null) {
 			ArrayList<Selectable> selectedCollection = r.getSelected();
-			Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
+			if (!target.getFaction().equals(selectedCollection.get(0))) {
+				Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
+				for (Selectable selected : selectedCollection) {
+					OrderTreatment.giveOrderReplace(selected, order);
+				}
+			} else if (SelectableTreatment.isEmbarkable(target)) {
+				Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
+				for (Selectable selected : selectedCollection) {
+					OrderTreatment.giveOrderReplace(selected, order);
+				}
+			}
+
+		} else {
+			ArrayList<Selectable> selectedCollection = r.getSelected();
+			Coordinates coordinates = new Coordinates((int) point.getX(), (int) point.getY());
+			MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
 			for (Selectable selected : selectedCollection) {
 				OrderTreatment.giveOrderReplace(selected, order);
 			}
-			
-		}else {
-			ArrayList<Selectable> selectedCollection = r.getSelected();
-			Coordinates coordinates = new Coordinates((int)point.getX(), (int)point.getY());
-			MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
-			for(Selectable selected: selectedCollection) {
-				OrderTreatment.giveOrderReplace(selected, order);
-			}
 		}
-		
+
 	}
 
 	public int getButton() {

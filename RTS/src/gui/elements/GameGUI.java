@@ -116,9 +116,15 @@ public class GameGUI extends JFrame implements Runnable {
 		ArrayList<Faction> factions = game.getState().getFactions();
 		Iterator<Faction> factionIterator = factions.iterator();
 		SelectableRepository r = SelectableRepository.getInstance();
+		Faction currentFaction = factionIterator.next();
 		Unit playerUnit = UnitFactory.createUnit(Constants.TEST_GROUND,
 				new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(), SimuPara.DEFAULT_CAMERA.getPositionY(), 0),
-				factionIterator.next());
+				currentFaction);
+		Unit transportUnit1 = UnitFactory.createUnit(Constants.TEST_GROUND_EMBARK,
+				new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX() + 10, SimuPara.DEFAULT_CAMERA.getPositionY(), 0),
+				currentFaction);
+		r.register(transportUnit1);
+		r.addSelectable(transportUnit1);
 		r.register(playerUnit);
 		r.addSelectable(playerUnit);
 		Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0),
