@@ -87,14 +87,14 @@ public class Dashboard extends JPanel implements MouseListener {
 		}
 	}
 
-	/**
-	 * This method provides the {@link CoordinatesInputManager} with the necessary
-	 * information to process a mouse click.
-	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
 
+	/**
+	 * This method provides the {@link CoordinatesInputManager} with the necessary
+	 * information to process a mouse click.
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		int count = e.getClickCount();

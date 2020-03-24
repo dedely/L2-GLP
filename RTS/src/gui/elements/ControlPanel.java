@@ -13,15 +13,14 @@ import javax.swing.JPanel;
  *
  */
 public class ControlPanel extends JPanel {
-	//private Font font = new Font(Font.MONOSPACED, Font.BOLD, 20);
+	// private Font font = new Font(Font.MONOSPACED, Font.BOLD, 20);
 
-	//protected JLabel contextLabel = new JLabel("context label");
+	// protected JLabel contextLabel = new JLabel("context label");
 
 	public ControlPanel() {
 		setLayout(new BorderLayout());
 		setBackground(Color.LIGHT_GRAY);
-		
-		
+
 	}
 
 }

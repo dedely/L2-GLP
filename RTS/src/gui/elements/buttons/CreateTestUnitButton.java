@@ -3,6 +3,14 @@ package gui.elements.buttons;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import data.Constants;
+import data.Coordinates;
+import data.Selectable;
+import data.order.CreateUnit;
+import process.OrderTreatment;
+import process.SelectableRepository;
 
 /**
  * @author Adel
@@ -25,7 +33,7 @@ public class CreateTestUnitButton extends OrderButton {
 	}
 
 	private void initLayout() {
-		//Center by default
+		// Center by default
 		setLayout(new FlowLayout());
 		add(getButton());
 
@@ -40,7 +48,15 @@ public class CreateTestUnitButton extends OrderButton {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
+			SelectableRepository r = SelectableRepository.getInstance();
+			ArrayList<Selectable> selectedCollection = r.getSelected();
+			// the position of the new selectable should be around the building. the
+			// following is artificial.
+			for (Selectable selected : selectedCollection) {
+				Coordinates position = new Coordinates(selected.getPositionX() + 1, selected.getPositionX() + 1, 0);
+				CreateUnit order = new CreateUnit(Constants.TEST_GROUND, position, 50);
+				OrderTreatment.giveOrderReplace(selected, order);
+			}
 		}
 
 	}

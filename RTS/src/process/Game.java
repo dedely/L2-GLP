@@ -47,7 +47,7 @@ public class Game {
 		SelectableRepository r = SelectableRepository.getInstance();
 
 		for (Selectable selected : r.getSelectables()) {
-			OrderTreatment.executeNextOrder((Unit) selected);
+			OrderTreatment.executeNextOrder((Unit)selected);
 		}
 		r.updatePosition();
 		
