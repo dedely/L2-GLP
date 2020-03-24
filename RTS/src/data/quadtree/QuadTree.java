@@ -16,7 +16,11 @@ public interface QuadTree {
 	QuadTree getSouthWest();
 
 	QuadTree getSouthEast();
+	
+	QuadTree getRoot(); 
+	
+	String getType();
 
 	<T> T accept(QuadTreeVisitor<T> visitor);
 
-}
+} 

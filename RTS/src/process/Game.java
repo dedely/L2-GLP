@@ -1,5 +1,6 @@
 package process;
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 import data.Config;

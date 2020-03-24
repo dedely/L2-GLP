@@ -6,6 +6,7 @@ import process.visitor.QuadTreeVisitor;
 
 /**
  * A Region decomposes 2D space into 4 equal quadrants.
+ * 
  * @author Adel
  *
  */
@@ -19,23 +20,29 @@ public class Region implements QuadTree {
 	private QuadTree southWest;
 	private QuadTree southEast;
 
-	public Region(Point topLeft, Point bottomRight) {
+	private QuadTree root;
+
+	private String type;
+
+	public Region(Point topLeft, Point bottomRight, String type, QuadTree root) {
 		this.topLeft = topLeft;
 		this.bottomRight = bottomRight;
 		this.northWest = null;
 		this.northEast = null;
 		this.southWest = null;
 		this.southEast = null;
+		this.type = type;
 	}
-	
+
 	public Region(Point topLeft, Point bottomRight, QuadTree northWest, QuadTree northEast, QuadTree southWest,
-			QuadTree southEast) {
+			QuadTree southEast, String type, QuadTree root) {
 		this.topLeft = topLeft;
 		this.bottomRight = bottomRight;
 		this.northWest = northWest;
 		this.northEast = northEast;
 		this.southWest = southWest;
 		this.southEast = southEast;
+		this.type = type;
 	}
 
 	@Override
@@ -91,8 +98,24 @@ public class Region implements QuadTree {
 	}
 
 	@Override
+	public String getType() {
+		return type;
+	}
+
+	@Override
+	public QuadTree getRoot() {
+		return root;
+	}
+
+	@Override
 	public <T> T accept(QuadTreeVisitor<T> visitor) {
-		return visitor.visit(this);;
+		return visitor.visit(this);
+	}
+
+	@Override
+	public String toString() {
+		return "Region [topLeft=" + topLeft + ", bottomRight=" + bottomRight + ", northWest=" + northWest
+				+ ", northEast=" + northEast + ", southWest=" + southWest + ", southEast=" + southEast + "]";
 	}
 
 }

@@ -15,8 +15,8 @@ public class Map {
 	public static final int BLOCKED = 1;
 
 	//tiles[height][width]
-	int width, height;
-	int tiles[][];
+	private int width, height;
+	private int tiles[][];
 
 	public Map(int width, int height, int[][] tiles) {
 		this.width = width;
