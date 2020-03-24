@@ -2,14 +2,18 @@ package process;
 
 import java.util.ArrayList;
 
+import org.hamcrest.core.IsInstanceOf;
+
 import data.Constants;
 import data.Selectable;
 import data.building.Building;
 import data.building.DefenseBuilding;
 import data.order.Order;
 import data.unit.Unit;
+import process.factory.UnitFactory;
 import data.order.Attack;
 import data.order.AttackPosition;
+import data.order.CreateUnit;
 import data.order.Embark;
 import data.order.MoveToPosition;
 import data.order.MoveToTarget;
@@ -199,10 +203,37 @@ public class OrderTreatment {
 			Coordinates actualPosition = null;
 
 			switch (currentOrder.getType()) {
+			case Constants.CREATE_UNIT:
+				try{
+					CreateUnit createOrder=(CreateUnit) currentOrder;
+					int timeLeft=createOrder.getTimeUntilConstructed();
+					if(timeLeft>0) {
+					((CreateUnit) currentOrder).setTimeUntilConstructed(timeLeft-1);
+					}
+					else{
+						String unitType=createOrder.getUnitToCreate();
+						Coordinates spawnPoint = createOrder.getPosition();
+						UnitFactory.createUnit(unitType,spawnPoint, currentBuilding.getFaction());
+					}
+				}
+				catch (Exception e) {
+					// TODO: handle exception
+				}
+				
 
 			}
 
 		}
-
 	}
+		public static void executeNextOrder(Selectable selectable) {
+			if (selectable instanceof Building) {
+				executeNextOrder((Building)selectable);	
+			}
+			else {
+				executeNextOrder((Unit)selectable);	
+			}
+		}
+		
+
+
 }
