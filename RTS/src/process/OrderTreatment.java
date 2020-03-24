@@ -213,7 +213,9 @@ public class OrderTreatment {
 					else{
 						String unitType=createOrder.getUnitToCreate();
 						Coordinates spawnPoint = createOrder.getPosition();
-						UnitFactory.createUnit(unitType,spawnPoint, currentBuilding.getFaction());
+						Unit newUnit = UnitFactory.createUnit(unitType,spawnPoint, currentBuilding.getFaction());
+						SelectableRepository.getInstance().addSelectable(newUnit);
+						currentBuilding.getFaction().getUnitsList().add(newUnit);
 					}
 				}
 				catch (Exception e) {
