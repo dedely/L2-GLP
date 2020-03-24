@@ -15,8 +15,13 @@ import process.visitor.QuadTreeVisitor;
 public class SelectableLeaf extends Leaf {
 	private Integer id;
 
-	public SelectableLeaf(Point position, Integer id) {
-		super(position);
+	public SelectableLeaf(Point position, Integer id, String type) {
+		super(position, type, null);
+		this.id = id;
+	}
+
+	public SelectableLeaf(Point position, Integer id, String type, Region root) {
+		super(position, type, root);
 		this.id = id;
 	}
 
@@ -27,7 +32,6 @@ public class SelectableLeaf extends Leaf {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
 
 	@Override
 	public <T> T accept(QuadTreeVisitor<T> visitor) {

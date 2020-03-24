@@ -2,9 +2,9 @@ package process.managers;
 
 import java.awt.Point;
 
-import data.quadtree.Leaf;
 import data.quadtree.QuadTree;
 import data.quadtree.Region;
+import data.quadtree.Type;
 import process.factory.QuadTreeNodeFactory;
 import process.visitor.HeightVisitor;
 
@@ -15,68 +15,110 @@ public class QuadTreeManager {
 		this.root = root;
 	}
 
-	public QuadTree insert(QuadTree tree, Point position, Integer id) {
+	public void insert(Point position, Integer id) {
+		root = insert(root, position, id);
+	}
+
+	public QuadTree insert(QuadTree tree, Point position, Integer id, String type, Region root) {
 		QuadTree node = null;
 		if (!exists(tree)) {
-			node = QuadTreeNodeFactory.createSelectableLeaf(position, id);
+			node = QuadTreeNodeFactory.createSelectableLeaf(position, id, type, root);
 		}
 		return node;
 	}
 
-	public void insert(Point position, Integer id) {
-		System.out.println("region inser is called");
-		Region tree = root;
+	public Region insert(Region region, Point position, Integer id) {
+		Region tree = region;
+
 		// We first compute the center.
 		Point center = new Point((tree.getTopLeft().x + tree.getBottomRight().x) / 2,
 				(tree.getTopLeft().y + tree.getBottomRight().y) / 2);
-		System.out.println(center);
 
 		QuadTree quadrant;
+
 		if ((position.x <= center.x) && (position.y <= center.y)) {
 			quadrant = tree.getNorthWest();
-			if (exists(quadrant)) {
-
-				Region newRegion = split(quadrant, tree.getTopLeft(), center);
+			if (!exists(quadrant)) {
+				quadrant = QuadTreeNodeFactory.createSelectableLeaf(position, id, Type.NORTH_WEST, tree);
+			} else if (isLeaf(quadrant)) {
+				quadrant = split(quadrant);
+				quadrant = insert((Region) quadrant, position, id);
+			} else {
+				insert((Region) quadrant.getNorthWest(), position, id);
 			}
-			quadrant = insert(quadrant, position, id);
 			tree.setNorthWest(quadrant);
 		} else if ((position.x > center.x) && (position.y <= center.y)) {
-			System.out.println("NE comp is called");
+
 			quadrant = tree.getNorthEast();
-			System.out.println("quadrant: " + quadrant);
-			if (exists(quadrant)) {
-				quadrant = split(quadrant, new Point(center.x, tree.getTopLeft().y),
-						new Point(tree.getBottomRight().x, center.y));
-				System.out.println("new quadrant: " + quadrant);
+			if (!exists(quadrant)) {
+				quadrant = QuadTreeNodeFactory.createSelectableLeaf(position, id, Type.NORTH_EAST, tree);
+			} else if (isLeaf(quadrant)) {
+				quadrant = split(quadrant);
+				quadrant = insert((Region) quadrant, position, id);
+			} else {
+				insert((Region) quadrant.getNorthEast(), position, id);
 			}
-			quadrant = insert(quadrant, position, id);
 			tree.setNorthEast(quadrant);
 		} else if ((position.x <= center.x) && (position.y > center.y)) {
 			quadrant = tree.getSouthWest();
-			if (exists(quadrant)) {
-				quadrant = split(quadrant, new Point(tree.getTopLeft().x, center.y),
-						new Point(center.x, tree.getBottomRight().y));
+			if (!exists(quadrant)) {
+				quadrant = QuadTreeNodeFactory.createSelectableLeaf(position, id, Type.SOUTH_WEST, tree);
+			} else if (isLeaf(quadrant)) {
+				quadrant = split(quadrant);
+				quadrant = insert((Region) quadrant, position, id);
+			} else {
+				insert((Region) quadrant.getSouthWest(), position, id);
 			}
-			quadrant = insert(quadrant, position, id);
 			tree.setSouthWest(quadrant);
 		} else if ((position.x > center.x) && (position.y > center.y)) {
 			quadrant = tree.getSouthEast();
-			if (exists(quadrant)) {
-				quadrant = split(quadrant, center, tree.getBottomRight());
+			if (!exists(quadrant)) {
+				quadrant = QuadTreeNodeFactory.createSelectableLeaf(position, id, Type.SOUTH_EAST, tree);
+			} else if (isLeaf(quadrant)) {
+				quadrant = split(quadrant);
+				quadrant = insert((Region) quadrant, position, id);
+			} else {
+				insert((Region) quadrant.getSouthEast(), position, id);
 			}
-			quadrant = insert(quadrant, position, id);
 			tree.setSouthEast(quadrant);
 		}
 
-		root = tree;
+		return tree;
 	}
 
-	private Region split(Leaf quadrant) {
-		Point topLeft, bottomRight;
-		if(quadrant.)
-		Region newRegion = QuadTreeNodeFactory.createRegion(topLeft, bottomRight);
-		
-		return ;
+	private Region split(QuadTree quadrant) throws IllegalArgumentException {
+		Region parentNode = quadrant.getRoot();
+		System.out.println("Parent" +parentNode);
+		Point topLeft = parentNode.getTopLeft();
+		Point bottomRight = parentNode.getBottomRight();
+		Point center = new Point((topLeft.x + bottomRight.x) / 2, (topLeft.y + bottomRight.y) / 2);
+		Region newRegion = null;
+
+		if (exists(parentNode)) {
+			switch (quadrant.getType()) {
+			case Type.NORTH_WEST:
+				newRegion = QuadTreeNodeFactory.createRegion(topLeft, center, Type.NORTH_WEST, parentNode);
+				newRegion.setNorthWest(quadrant);
+				break;
+			case Type.NORTH_EAST:
+				newRegion = QuadTreeNodeFactory.createRegion(new Point(center.x, topLeft.y),
+						new Point(bottomRight.x, center.y), Type.NORTH_EAST, parentNode);
+				newRegion.setNorthEast(quadrant);
+				break;
+			case Type.SOUTH_WEST:
+				newRegion = QuadTreeNodeFactory.createRegion(new Point(topLeft.x, center.y),
+						new Point(center.x, bottomRight.y), Type.SOUTH_WEST, parentNode);
+				newRegion.setSouthWest(quadrant);
+				break;
+			case Type.SOUTH_EAST:
+				newRegion = QuadTreeNodeFactory.createRegion(center, bottomRight, Type.SOUTH_EAST, parentNode);
+				newRegion.setSouthEast(quadrant);
+				break;
+			default:
+				throw new IllegalArgumentException(" Unknown quadrant type : " + quadrant.getType());
+			}
+		}
+		return newRegion;
 	}
 
 	public boolean exists(QuadTree tree) {

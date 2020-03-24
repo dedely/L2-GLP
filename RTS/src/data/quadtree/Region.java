@@ -20,7 +20,7 @@ public class Region implements QuadTree {
 	private QuadTree southWest;
 	private QuadTree southEast;
 
-	private QuadTree root;
+	private Region root;
 
 	private String type;
 
@@ -35,7 +35,7 @@ public class Region implements QuadTree {
 	}
 
 	public Region(Point topLeft, Point bottomRight, QuadTree northWest, QuadTree northEast, QuadTree southWest,
-			QuadTree southEast, String type, QuadTree root) {
+			QuadTree southEast, String type, Region root) {
 		this.topLeft = topLeft;
 		this.bottomRight = bottomRight;
 		this.northWest = northWest;
@@ -103,8 +103,12 @@ public class Region implements QuadTree {
 	}
 
 	@Override
-	public QuadTree getRoot() {
+	public Region getRoot() {
 		return root;
+	}
+
+	public void setRoot(Region root) {
+		this.root = root;
 	}
 
 	@Override
@@ -115,7 +119,8 @@ public class Region implements QuadTree {
 	@Override
 	public String toString() {
 		return "Region [topLeft=" + topLeft + ", bottomRight=" + bottomRight + ", northWest=" + northWest
-				+ ", northEast=" + northEast + ", southWest=" + southWest + ", southEast=" + southEast + "]";
+				+ ", northEast=" + northEast + ", southWest=" + southWest + ", southEast=" + southEast + ", root="
+				+ root + ", type=" + type + "]";
 	}
 
 }

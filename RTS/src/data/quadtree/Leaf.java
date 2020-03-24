@@ -12,9 +12,9 @@ public abstract class Leaf implements QuadTree {
 
 	private Point position;
 	private String type;
-	private QuadTree root;
+	private Region root;
 
-	public Leaf(Point position, String type, QuadTree root) {
+	public Leaf(Point position, String type, Region root) {
 		this.position = position;
 		this.type = type;
 		this.root = root;
@@ -49,8 +49,12 @@ public abstract class Leaf implements QuadTree {
 	}
 
 	@Override
-	public QuadTree getRoot() {
+	public Region getRoot() {
 		return root;
+	}
+
+	public void setRoot(Region root) {
+		this.root = root;
 	}
 
 }

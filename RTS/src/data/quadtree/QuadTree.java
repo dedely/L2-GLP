@@ -17,7 +17,7 @@ public interface QuadTree {
 
 	QuadTree getSouthEast();
 	
-	QuadTree getRoot(); 
+	Region getRoot(); 
 	
 	String getType();
 
