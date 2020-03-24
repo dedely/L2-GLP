@@ -205,7 +205,7 @@ public class OrderTreatment {
 			switch (currentOrder.getType()) {
 			case Constants.CREATE_UNIT:
 				try{
-					CreateUnit createOrder=(CreateUnit) currentOrder;
+					CreateUnit createOrder=((CreateUnit) currentOrder);
 					int timeLeft=createOrder.getTimeUntilConstructed();
 					if(timeLeft>0) {
 					((CreateUnit) currentOrder).setTimeUntilConstructed(timeLeft-1);
