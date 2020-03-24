@@ -2,6 +2,8 @@ package process;
 
 import java.util.ArrayList;
 
+import org.hamcrest.core.IsInstanceOf;
+
 import data.Constants;
 import data.Coordinates;
 import data.Selectable;
@@ -225,6 +227,36 @@ public class SelectableTreatment {
 			return true;
 		} else
 			return false;
+	}
+
+	public static boolean haveUnit(ArrayList<Selectable> selectedCollection) {
+		for(Selectable s : selectedCollection) {
+			if(s instanceof Unit) {
+				return true;
+			}
+				
+		}
+		return false;
+	}
+
+	public static boolean areUnits(ArrayList<Selectable> selectedCollection) {
+		for(Selectable s : selectedCollection) {
+			if(s instanceof Building) {
+				return false;
+			}
+				
+		}
+		return true;
+	}
+	
+	public static boolean areBuildings(ArrayList<Selectable> selectedCollection) {
+		for(Selectable s : selectedCollection) {
+			if(s instanceof Unit) {
+				return false;
+			}
+				
+		}
+		return true;
 	}
 
 }

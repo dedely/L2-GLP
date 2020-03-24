@@ -17,6 +17,8 @@ public class Constants {
 
 	public static final String EMBARK_AAC = "embark at all cost";
 	public static final String EMBARK_STS = "embark stop to shot";
+	
+	public static final String CREATE_TEST_UNIT = "create test unit";
 
 	public static final String DEFEND = "Defend";
 

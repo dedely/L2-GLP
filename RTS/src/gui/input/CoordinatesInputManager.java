@@ -79,18 +79,20 @@ public class CoordinatesInputManager implements InputManager {
 		Selectable target = screen.contains(point);
 		if (target != null) {
 			ArrayList<Selectable> selectedCollection = r.getSelected();
-			if (!target.getFaction().equals(selectedCollection.get(0))) {
-				Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
-				for (Selectable selected : selectedCollection) {
-					OrderTreatment.giveOrderReplace(selected, order);
+			if (SelectableTreatment.areUnits(selectedCollection)) {
+				if (!target.getFaction().equals(selectedCollection.get(0).getFaction())) {
+					Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
+					for (Selectable selected : selectedCollection) {
+						OrderTreatment.giveOrderReplace(selected, order);
+					}
+				} else if (SelectableTreatment.isEmbarkable(target)) {
+					Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
+					for (Selectable selected : selectedCollection) {
+						OrderTreatment.giveOrderReplace(selected, order);
+					}
 				}
-			} else if (SelectableTreatment.isEmbarkable(target)) {
-				Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
-				for (Selectable selected : selectedCollection) {
-					OrderTreatment.giveOrderReplace(selected, order);
-				}
-			}
 
+			}
 		} else {
 			ArrayList<Selectable> selectedCollection = r.getSelected();
 			Coordinates coordinates = new Coordinates((int) point.getX(), (int) point.getY());
