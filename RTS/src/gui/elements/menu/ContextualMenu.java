@@ -1,6 +1,6 @@
 package gui.elements.menu;
 
-import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -23,7 +23,13 @@ public class ContextualMenu extends JPanel {
 
 	public ContextualMenu() {
 		super();
+		setLayout(new FlowLayout());
+		initStyle();
 		layoutButtons();
+	}
+
+	private void initStyle() {
+
 	}
 
 	public ArrayList<OrderButton> getButtons() {
@@ -43,13 +49,11 @@ public class ContextualMenu extends JPanel {
 	}
 
 	private void layoutButtons() {
-		setLayout(new BorderLayout());
-		if(buttons.isEmpty()) {
-			System.out.println("buttons empty");
-		}
+		removeAll();
 		for (OrderButton button : buttons) {
 			add(button);
 		}
 		repaint();
+		revalidate();
 	}
 }
