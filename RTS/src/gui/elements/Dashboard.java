@@ -12,6 +12,7 @@ import java.util.HashMap;
 import javax.swing.JPanel;
 import data.Coordinates;
 import data.Selectable;
+import gui.elements.menu.ContextualMenu;
 import gui.input.CoordinatesInputManager;
 import gui.input.InputManager;
 import gui.management.PaintVisitor;
@@ -26,6 +27,7 @@ public class Dashboard extends JPanel implements MouseListener {
 
 	private InputManager input;
 	private Game game;
+	private ContextualMenu menu;
 	private double time = System.nanoTime();
 
 	/**
@@ -36,6 +38,7 @@ public class Dashboard extends JPanel implements MouseListener {
 
 	public Dashboard(Game game) {
 		this.game = game;
+		this.menu = menu;
 		setBackground(Color.WHITE);
 		addMouseListener(this);
 	}

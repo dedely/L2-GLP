@@ -32,30 +32,36 @@ public class Game {
 	}
 
 	public void update() {
-		
+		addNewUnits();
 		clearDeadUnits();
 		updatePositions();
 		updateResearches();
 	}
 
+	private void addNewUnits() {
+		SelectableRepository.getInstance().addNewUnits();
+
+	}
+
 	private void clearDeadUnits() {
 		SelectableRepository.getInstance().removeDeadUnits();
-				
+
 	}
 
 	private void updatePositions() {
 		SelectableRepository r = SelectableRepository.getInstance();
 
 		for (Selectable selected : r.getSelectables()) {
-			OrderTreatment.executeNextOrder((Unit)selected);
+			OrderTreatment.executeNextOrder(selected);
 		}
 		r.updatePosition();
-		
+
 	}
+
 	private void updateResearches() {
-		for(Faction currentFaction : state.getFactions()) {
-			
+		for (Faction currentFaction : state.getFactions()) {
+
 		}
-		
+
 	}
 }

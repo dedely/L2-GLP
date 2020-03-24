@@ -199,6 +199,7 @@ public class OrderTreatment {
 		if (currentOrder == null) {
 			// System.out.println("no order");
 		} else {
+			//System.out.println("exec building");
 			Coordinates destination = null;
 			Coordinates actualPosition = null;
 
@@ -211,11 +212,15 @@ public class OrderTreatment {
 					((CreateUnit) currentOrder).setTimeUntilConstructed(timeLeft-1);
 					}
 					else{
+						System.out.println("creating unit!");
 						String unitType=createOrder.getUnitToCreate();
 						Coordinates spawnPoint = createOrder.getPosition();
 						Unit newUnit = UnitFactory.createUnit(unitType,spawnPoint, currentBuilding.getFaction());
-						SelectableRepository.getInstance().addSelectable(newUnit);
+						MoveToPosition move = new MoveToPosition(new Coordinates(300, 300, 0), Constants.GO_AT_ALL_COST); 
+						OrderTreatment.giveOrderStagger(newUnit, move);
+						SelectableRepository.getInstance().addNewUnit(newUnit);
 						currentBuilding.getFaction().getUnitsList().add(newUnit);
+						finishOrder(currentBuilding);
 					}
 				}
 				catch (Exception e) {

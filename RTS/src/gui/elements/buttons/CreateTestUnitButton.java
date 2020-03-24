@@ -40,8 +40,7 @@ public class CreateTestUnitButton extends OrderButton {
 	}
 
 	private void initAction() {
-		// TODO Auto-generated method stub
-
+		getButton().addActionListener(new CreateTestUnitAction());
 	}
 
 	private class CreateTestUnitAction implements ActionListener {
@@ -54,7 +53,7 @@ public class CreateTestUnitButton extends OrderButton {
 			// following is artificial.
 			for (Selectable selected : selectedCollection) {
 				Coordinates position = new Coordinates(selected.getPositionX() + 1, selected.getPositionX() + 1, 0);
-				CreateUnit order = new CreateUnit(Constants.TEST_GROUND, position, 50);
+				CreateUnit order = new CreateUnit(Constants.TEST_GROUND, position, 100);
 				OrderTreatment.giveOrderReplace(selected, order);
 			}
 		}

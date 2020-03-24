@@ -15,6 +15,7 @@ import data.building.UnitBuilding;
 import data.faction.Faction;
 import data.unit.Unit;
 import gui.elements.menu.ContextualMenu;
+import gui.management.ShapeRepository;
 import process.Game;
 import process.GameUtility;
 import process.SelectableRepository;
@@ -58,8 +59,8 @@ public class GameGUI extends JFrame implements Runnable {
 		game = new Game(config);
 		dashboard = new Dashboard(game);
 		menu = new ContextualMenu();
-		addTestUnits();
-		//addTestBuildings();
+		//addTestUnits();
+		addTestBuildings();
 	}
 
 	private void initStyle() {
@@ -107,6 +108,8 @@ public class GameGUI extends JFrame implements Runnable {
 
 			game.update();
 			menu.update();
+			//System.out.println(SelectableRepository.getInstance().getPositions().values().size());
+
 			dashboard.repaint();
 			// time++;
 

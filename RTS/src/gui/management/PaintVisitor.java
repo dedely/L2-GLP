@@ -3,6 +3,7 @@ package gui.management;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 import data.Selectable;
 import data.building.DefenseBuilding;
@@ -57,7 +58,9 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(UnitBuilding selectable) {
-		// TODO Auto-generated method stub
+		colorStrategy.setColor(graphics, selectable);
+		printSquare(selectable);
+		printSelected(selectable);
 		return null;
 	}
 
@@ -102,6 +105,13 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	private void printCircle(Selectable selectable) {
 		Shape shape = new Ellipse2D.Double(selectable.getPositionX() - SimuPara.RADIUS / 2,
 				selectable.getPositionY() - SimuPara.RADIUS / 2, SimuPara.RADIUS, SimuPara.RADIUS);
+		graphics.fill(shape);
+		ShapeRepository.getInstance().addShape(selectable, shape);
+	}
+
+	private void printSquare(UnitBuilding selectable) {
+		Shape shape = new Rectangle2D.Double(selectable.getPositionX(), selectable.getPositionY(), SimuPara.RADIUS,
+				SimuPara.RADIUS);
 		graphics.fill(shape);
 		ShapeRepository.getInstance().addShape(selectable, shape);
 	}
