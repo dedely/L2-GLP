@@ -1,0 +1,61 @@
+package gui.management;
+
+import java.util.ArrayList;
+
+import data.Selectable;
+import gui.elements.buttons.OrderButton;
+import process.SelectableRepository;
+import process.visitor.ActionVisitor;
+
+/**
+ * This is a utility class used to generate a collection {@link OrderButton}
+ * depending on which {@link Selectable} have been selected. We will add
+ * additional logic later to process multiple selection.
+ * 
+ * @author Adel
+ *
+ */
+public class ButtonBuilder {
+	private ArrayList<Selectable> selected = new ArrayList<Selectable>();
+
+	/**
+	 * 
+	 * @return a collection of {@link OrderButton} which depends on the type and on
+	 *         the amount of selected {@link Selectable}
+	 */
+	public ArrayList<OrderButton> getButtons() {
+		SelectableRepository r = SelectableRepository.getInstance();
+		selected = r.getSelected();
+
+		ArrayList<OrderButton> buttons = new ArrayList<OrderButton>();
+		Integer size = selected.size();
+
+		if (size == 1) {
+			buttons = buildButtons(selected.get(0));
+		}
+
+		return buttons;
+
+	}
+
+	/**
+	 * This method is called when only one {@link Selectable} is selected.
+	 * It uses the visitor design pattern.
+	 * @param selectable
+	 * @return the appropriate button collection.
+	 */
+	private ArrayList<OrderButton> buildButtons(Selectable selectable) {
+		ArrayList<OrderButton> buttons = new ArrayList<OrderButton>();
+		ActionVisitor visitor = new ActionVisitor();
+		ArrayList<String> actions = selectable.accept(visitor);
+
+		if (actions != null) {
+			for (String type : actions) {
+				OrderButton button = ButtonFactory.createOrderButton(type);
+				buttons.add(button);
+			}
+		}
+
+		return buttons;
+	}
+}

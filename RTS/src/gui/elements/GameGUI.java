@@ -2,6 +2,7 @@ package gui.elements;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -10,11 +11,14 @@ import javax.swing.JFrame;
 import data.Config;
 import data.Constants;
 import data.Coordinates;
+import data.building.UnitBuilding;
 import data.faction.Faction;
 import data.unit.Unit;
+import gui.elements.menu.ContextualMenu;
 import process.Game;
 import process.GameUtility;
 import process.SelectableRepository;
+import process.factory.BuildingFactory;
 import process.factory.UnitFactory;
 
 /**
@@ -23,11 +27,15 @@ import process.factory.UnitFactory;
  */
 public class GameGUI extends JFrame implements Runnable {
 
+	private static final Dimension IDEAL_DASHBOARD_DIMENSION = new Dimension(1920, 900);
+	private static final Dimension IDEAL_MENU_DIMENSION = new Dimension(1920, 180);
+
 	private Game game;
 	private Dashboard dashboard;
-	private ContextualPanel contextPanel;
+	private ContextualMenu menu;
 
 	/**
+	 * 
 	 * To create the game frame, we need to specify the game configuration.
 	 * 
 	 * @param config the config the user chose for the game (i.e. his faction, the
@@ -49,8 +57,9 @@ public class GameGUI extends JFrame implements Runnable {
 	private void initEngine(Config config) {
 		game = new Game(config);
 		dashboard = new Dashboard(game);
-		contextPanel = new ContextualPanel();
+		menu = new ContextualMenu();
 		addTestUnits();
+		//addTestBuildings();
 	}
 
 	private void initStyle() {
@@ -59,13 +68,15 @@ public class GameGUI extends JFrame implements Runnable {
 	}
 
 	private void initLayout() {
+
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
-
-		contentPane.add(BorderLayout.CENTER, dashboard);
-		contentPane.add(BorderLayout.SOUTH, contextPanel);
-
 		setSize(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT);
+
+		dashboard.setPreferredSize(IDEAL_DASHBOARD_DIMENSION);
+		menu.setPreferredSize(IDEAL_MENU_DIMENSION);
+		contentPane.add(BorderLayout.CENTER, dashboard);
+		contentPane.add(BorderLayout.SOUTH, menu);
 
 		// Uncomment the following instructions to make the game full screen.
 
@@ -95,6 +106,7 @@ public class GameGUI extends JFrame implements Runnable {
 			GameUtility.unitTime();
 
 			game.update();
+			menu.update();
 			dashboard.repaint();
 			// time++;
 
@@ -127,4 +139,17 @@ public class GameGUI extends JFrame implements Runnable {
 		r.register(aiUnit);
 		r.addSelectable(aiUnit);
 	}
+
+	private void addTestBuildings() {
+		ArrayList<Faction> factions = game.getState().getFactions();
+		Iterator<Faction> factionIterator = factions.iterator();
+		SelectableRepository r = SelectableRepository.getInstance();
+		Faction currentFaction = factionIterator.next();
+		UnitBuilding playerHQ = BuildingFactory.createUnitBuilding(Constants.HEADQUATERS,
+				new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(), SimuPara.DEFAULT_CAMERA.getPositionY(), 0),
+				currentFaction);
+		r.register(playerHQ);
+		r.addSelectable(playerHQ);
+	}
+
 }

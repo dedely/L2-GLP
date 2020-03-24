@@ -11,7 +11,6 @@ import data.building.ResourceBuilding;
 import data.building.Size;
 import data.building.UnitBuilding;
 import data.faction.Faction;
-import data.resource.Material;
 import data.resource.Resource;
 import data.unit.Weapon;
 
@@ -36,11 +35,20 @@ public class BuildingFactory {
 			return new UnitBuilding (type, 500, faction, 1000, 0, 0, "description", coordinates, size, coordinates);
 		}
 		else if (type == Constants.MINE) {
-			Resource resource = new Material(5);
+			Resource resource = new Resource(5, "mat");
 			return new ResourceBuilding (type, 500, faction, 1000, 0, 0, "description", spawnPosition, size, resource, 50, 10);
 		}
 			
 		throw new IllegalArgumentException("type " + type + " is not implemented or defined");
-
+	}
+	
+	
+	public static UnitBuilding createUnitBuilding(String type, Coordinates spawnPosition, Faction faction) {
+		switch(type) {
+		case Constants.HEADQUATERS: 
+			return new UnitBuilding(Constants.HEADQUATERS, 0, faction, 1000, 0, 0, "hq", spawnPosition, new Size(3, 3), spawnPosition);
+		default: 
+			throw new IllegalArgumentException("Unknown UnitBuilding type: " + type);
+		}
 	}
 }

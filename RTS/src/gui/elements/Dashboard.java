@@ -36,7 +36,6 @@ public class Dashboard extends JPanel implements MouseListener {
 
 	public Dashboard(Game game) {
 		this.game = game;
-		setPreferredSize(new Dimension(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT));
 		setBackground(Color.WHITE);
 		addMouseListener(this);
 	}

@@ -3,32 +3,25 @@ package data;
 public class Constants {
 	public static final String PLAYER = "Player";
 	public static final String ENNEMY = "Ennemy";
-	
-	public static final String ATTACK_STS ="Attack stop to shoot";
-	public static final String ATTACK_AAC ="Attack at all cost";
-	public static final String ATTACK_POS_STS ="Attack position stop to shoot";
-	public static final String ATTACK_POS_AAC ="Attack position at all cost";
+
+	public static final String ATTACK_STS = "Attack stop to shoot";
+	public static final String ATTACK_AAC = "Attack at all cost";
+	public static final String ATTACK_POS_STS = "Attack position stop to shoot";
+	public static final String ATTACK_POS_AAC = "Attack position at all cost";
 	public static final String ATTACK_BUILDING = "Attack building";
 	public static final String MOVE_TO_POSITION_AAC = "Move to  position at all cost";
 	public static final String MOVE_TO_POSITION_STS = "Move to  position stop to shoot";
 
 	public static final String MOVE_TO_TARGET_AAC = "Move to target at all cost";
 	public static final String MOVE_TO_TARGET_STS = "Move to target stop to shot";
-	
+
 	public static final String EMBARK_AAC = "embark at all cost";
 	public static final String EMBARK_STS = "embark stop to shot";
 
-
-
-	
 	public static final String DEFEND = "Defend";
 
-	
 	public static final String CREATE_UNIT = "Create unit";
 	public static final String BUILD = "Build";
-
-
-
 
 	public static final int GROUND = 1;
 	public static final int AIR = 2;
@@ -58,13 +51,14 @@ public class Constants {
 
 	public static final String TROOP_TRANSPORT = "TroopTransport";
 	public static final String WORKER = "Worker";
-	
-	public static final String LABORATORY = "Laboratory"; //ResearchBuilding
-	public static final String SENTRY = "Sentry"; //DefenseBuilding
-	public static final String BARRACKS = "Barracks"; //UnitBuilding
-	public static final String FACTORY = "Factory"; //UnitBuilding
-	public static final String WAREHOUSE = "Warehouse";//ResourceBuilding
-	public static final String MINE = "Mine"; //ResourceBuilding
+
+	public static final String HEADQUATERS = "Headquaters"; //UnitBuilding
+	public static final String LABORATORY = "Laboratory"; // ResearchBuilding
+	public static final String SENTRY = "Sentry"; // DefenseBuilding
+	public static final String BARRACKS = "Barracks"; // UnitBuilding
+	public static final String FACTORY = "Factory"; // UnitBuilding
+	public static final String WAREHOUSE = "Warehouse";// ResourceBuilding
+	public static final String MINE = "Mine"; // ResourceBuilding
 
 	public static final String TEST_GROUND = "testGround";
 	public static final String TEST_GROUND_EMBARK = "testGroundEmbark";
@@ -72,9 +66,10 @@ public class Constants {
 	public static final String TEST_GROUND_WEAPON_H = "testGroundWeaponH";
 	public static final String TEST_GROUND_WEAPON_L = "testGroundWeaponL";
 	public static final String TEST_GROUND_WEAPON_SL = "testGroundWeaponSL";
-	
-	public static final Config DEFAULT_CONFIG = new Config(1, new Player("player", FEDERATION), new Player("ai", FEDERATION));
-	
+
+	public static final Config DEFAULT_CONFIG = new Config(1, new Player("player", FEDERATION),
+			new Player("ai", FEDERATION));
+
 	public static final String SPEED = "speedUp";
 	public static final String DAMAGE = "Damage greater";
 	public static final String HEALTH = "Get more health";

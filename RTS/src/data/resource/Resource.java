@@ -1,11 +1,21 @@
 package data.resource;
 
-public abstract class Resource {
-	
-	private int resourceCount;
+public class Resource {
 
-	public Resource (int resourceCount) {
+	private int resourceCount;
+	private String type;
+
+	public Resource(int resourceCount, String type) {
 		this.resourceCount = resourceCount;
+		this.type = type;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public int getResourceCount() {
@@ -15,4 +25,10 @@ public abstract class Resource {
 	public void setResourceCount(int resourceCount) {
 		this.resourceCount = resourceCount;
 	}
+
+	@Override
+	public String toString() {
+		return "Resource [resourceCount=" + resourceCount + ", type=" + type + "]";
+	}
+
 }
