@@ -9,8 +9,11 @@ import data.Constants;
 import data.Coordinates;
 import data.Selectable;
 import data.order.CreateUnit;
+import data.unit.Unit;
+import gui.elements.SimuPara;
 import process.OrderTreatment;
 import process.SelectableRepository;
+import process.factory.UnitFactory;
 
 /**
  * @author Adel
@@ -52,9 +55,11 @@ public class CreateTestUnitButton extends OrderButton {
 			// the position of the new selectable should be around the building. the
 			// following is artificial.
 			for (Selectable selected : selectedCollection) {
-				Coordinates position = new Coordinates(selected.getPositionX() + 1, selected.getPositionX() + 1, 0);
-				CreateUnit order = new CreateUnit(Constants.TEST_GROUND, position, 100);
-				OrderTreatment.giveOrderReplace(selected, order);
+				Coordinates position = new Coordinates(selected.getPositionX() + SimuPara.RADIUS * 2, selected.getPositionX() +  SimuPara.RADIUS * 2, 0);
+				//CreateUnit order = new CreateUnit(Constants.TEST_GROUND, position, 100);
+				Unit newUnit = UnitFactory.createUnit(Constants.TEST_GROUND,position, selected.getFaction());
+				r.addNewUnit(newUnit);
+				//OrderTreatment.giveOrderReplace(selected, order);
 			}
 		}
 

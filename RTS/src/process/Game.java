@@ -40,6 +40,7 @@ public class Game {
 
 	private void addNewUnits() {
 		SelectableRepository.getInstance().addNewUnits();
+		SelectableRepository.getInstance().addNewUnits();
 
 	}
 
