@@ -60,7 +60,7 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	public Void visit(UnitBuilding selectable) {
 		colorStrategy.setColor(graphics, selectable);
 		printSquare(selectable);
-		printSelected(selectable);
+		//printSelected(selectable);
 		return null;
 	}
 

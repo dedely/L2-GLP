@@ -40,8 +40,8 @@ public class Game {
 
 	private void addNewUnits() {
 		SelectableRepository.getInstance().addNewUnits();
-		SelectableRepository.getInstance().addNewUnits();
-
+		//System.out.println(SelectableRepository.getInstance().getNewUnits().size());
+		SelectableRepository.getInstance().clearNewUnits();
 	}
 
 	private void clearDeadUnits() {

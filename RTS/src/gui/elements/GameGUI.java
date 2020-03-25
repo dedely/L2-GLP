@@ -3,6 +3,8 @@ package gui.elements;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -26,7 +28,7 @@ import process.factory.UnitFactory;
  * @author Adel
  *
  */
-public class GameGUI extends JFrame implements Runnable {
+public class GameGUI extends JFrame implements Runnable{
 
 	private static final Dimension IDEAL_DASHBOARD_DIMENSION = new Dimension(1920, 900);
 	private static final Dimension IDEAL_MENU_DIMENSION = new Dimension(1920, 180);
@@ -58,8 +60,8 @@ public class GameGUI extends JFrame implements Runnable {
 	private void initEngine(Config config) {
 		game = new Game(config);
 		dashboard = new Dashboard(game);
-		menu = new ContextualMenu();
-		//addTestUnits();
+		//menu = new ContextualMenu();
+		addTestUnits();
 		addTestBuildings();
 	}
 
@@ -75,9 +77,9 @@ public class GameGUI extends JFrame implements Runnable {
 		setSize(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT);
 
 		dashboard.setPreferredSize(IDEAL_DASHBOARD_DIMENSION);
-		menu.setPreferredSize(IDEAL_MENU_DIMENSION);
+		//menu.setPreferredSize(IDEAL_MENU_DIMENSION);
 		contentPane.add(BorderLayout.CENTER, dashboard);
-		contentPane.add(BorderLayout.SOUTH, menu);
+		//contentPane.add(BorderLayout.SOUTH, menu);
 
 		// Uncomment the following instructions to make the game full screen.
 
@@ -107,7 +109,7 @@ public class GameGUI extends JFrame implements Runnable {
 			GameUtility.unitTime();
 
 			game.update();
-			menu.update();
+			//menu.update();
 			//System.out.println(SelectableRepository.getInstance().getPositions().values().size());
 
 			dashboard.repaint();
@@ -133,7 +135,7 @@ public class GameGUI extends JFrame implements Runnable {
 		SelectableRepository r = SelectableRepository.getInstance();
 		Faction currentFaction = factionIterator.next();
 		Unit playerUnit = UnitFactory.createUnit(Constants.TEST_GROUND,
-				new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(), SimuPara.DEFAULT_CAMERA.getPositionY(), 0),
+				new Coordinates(1600, 500, 0),
 				currentFaction);
 		r.register(playerUnit);
 		r.addSelectable(playerUnit);
@@ -154,5 +156,4 @@ public class GameGUI extends JFrame implements Runnable {
 		r.register(playerHQ);
 		r.addSelectable(playerHQ);
 	}
-
 }

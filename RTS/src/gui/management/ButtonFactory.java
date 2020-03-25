@@ -9,7 +9,7 @@ import gui.elements.buttons.OrderButton;
  */
 public class ButtonFactory {
 
-	public static final String TEST_BUTTON = "tu";
+	public static final String TEST_BUTTON = "create unit";
 
 	public static OrderButton createOrderButton(String type) throws IllegalArgumentException {
 		switch (type) {

@@ -57,7 +57,7 @@ public class ActionVisitor implements SelectableVisitor<ArrayList<String>> {
 	@Override
 	public ArrayList<String> visit(GroundUnit selectable) {
 		ArrayList<String> actions = new ArrayList<String>();
-		actions.add(ButtonFactory.TEST_BUTTON);
+		//actions.add("");
 		return actions;
 	}
 

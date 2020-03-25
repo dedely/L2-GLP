@@ -55,10 +55,13 @@ public class CreateTestUnitButton extends OrderButton {
 			// the position of the new selectable should be around the building. the
 			// following is artificial.
 			for (Selectable selected : selectedCollection) {
-				Coordinates position = new Coordinates(selected.getPositionX() + SimuPara.RADIUS * 2, selected.getPositionX() +  SimuPara.RADIUS * 2, 0);
+				Coordinates position = new Coordinates(selected.getPositionX() - SimuPara.RADIUS * 4, selected.getPositionX() -  SimuPara.RADIUS * 4, 0);
 				//CreateUnit order = new CreateUnit(Constants.TEST_GROUND, position, 100);
 				Unit newUnit = UnitFactory.createUnit(Constants.TEST_GROUND,position, selected.getFaction());
-				r.addNewUnit(newUnit);
+				SelectableRepository.getInstance().addNewUnit(newUnit);
+				//System.out.println(SelectableRepository.getInstance().getPositions().values().size());
+				//System.out.println("registered!");
+				//r.addNewUnit(newUnit);
 				//OrderTreatment.giveOrderReplace(selected, order);
 			}
 		}

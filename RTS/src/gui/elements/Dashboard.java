@@ -1,5 +1,6 @@
 package gui.elements;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -38,9 +39,12 @@ public class Dashboard extends JPanel implements MouseListener {
 
 	public Dashboard(Game game) {
 		this.game = game;
-		this.menu = menu;
+		this.menu = new ContextualMenu();
 		setBackground(Color.WHITE);
 		addMouseListener(this);
+		
+		setLayout(new BorderLayout());
+		add(BorderLayout.SOUTH, menu);
 	}
 
 	@Override
@@ -70,6 +74,7 @@ public class Dashboard extends JPanel implements MouseListener {
 
 		HashMap<Coordinates, Selectable> positions = SelectableRepository.getInstance().getPositions();
 		PaintVisitor visitor = new PaintVisitor(g2, SimuPara.DEFAULT_CAMERA);
+		//System.out.println(positions.values().size());
 		for (Selectable selectable : positions.values()) {
 			selectable.accept(visitor);
 		}
@@ -115,6 +120,7 @@ public class Dashboard extends JPanel implements MouseListener {
 
 		input = new CoordinatesInputManager(button, count, point);
 		input.process();
+		menu.update();
 	}
 
 	@Override

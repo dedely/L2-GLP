@@ -171,16 +171,21 @@ public class SelectableRepository {
 	public void addNewUnit(Selectable selectable) {
 		newUnits.add(selectable);
 	}
-	
+
 	public void addNewUnits() {
-		for (Selectable newSelectable: newUnits) {
+		for (Selectable newSelectable : newUnits) {
 			register(newSelectable);
+			addSelectable(newSelectable);
 		}
 		clearNewUnits();
 	}
 
 	public void clearNewUnits() {
 		newUnits.clear();
+	}
+
+	public ArrayList<Selectable> getNewUnits() {
+		return newUnits;
 	}
 
 }
