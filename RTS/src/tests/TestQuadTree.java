@@ -2,23 +2,27 @@ package tests;
 
 import java.awt.Point;
 
+import data.quadtree.QuadTree;
 import data.quadtree.Region;
+import data.quadtree.SelectableLeaf;
 import process.factory.QuadTreeNodeFactory;
 import process.managers.QuadTreeManager;
+import process.visitor.HeightVisitor;
+import process.visitor.SelectableVisitor;
 
 public class TestQuadTree {
 
 	public static void main(String[] args) {
-		Region tree = QuadTreeNodeFactory.createRegion(new Point(0, 0), new Point(10, 10));
-		QuadTreeManager manager = new QuadTreeManager(tree);
-		System.out.println(tree.toString());
-		manager.insert(new Point(0, 1), 1);
-		System.out.println(tree.toString());
-		System.out.println(tree.getNorthWest().getRoot());
-		manager.insert(new Point(4, 5), 2);
-		System.out.println(tree.toString());
-		System.out.println(tree.getNorthWest().getSouthEast().getRoot());
-		manager.insert(new Point(3, 3), 3);
-		System.out.println(tree.toString());
+		Region root = QuadTreeNodeFactory.createRegion(new Point(0, 0), new Point(10, 10));
+		SelectableLeaf leaf = QuadTreeNodeFactory.createSelectableLeaf(new Point(0,0), new Point(10 ,10), null, null);
+		root.setNorthEast(leaf);
+		root.setNorthWest(leaf);
+		root.setSouthEast(leaf);
+		root.setSouthWest(leaf);
+		
+		
+		HeightVisitor visitor = new HeightVisitor();
+		root.accept(visitor);
+		System.out.println("Height:"+ visitor.getHeight());
 	}
 }

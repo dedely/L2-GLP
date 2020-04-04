@@ -1,26 +1,39 @@
 package data.quadtree;
 
+import java.awt.Point;
+
 import process.visitor.QuadTreeVisitor;
 
 /**
- * General definition of a QuadTree node.
- * The QuadTree structure is used to store spatial data.
+ * General definition of a QuadTree node. The QuadTree structure is used to
+ * store spatial data.
+ * 
  * @author Adel
  *
  */
-public interface QuadTree {
-	QuadTree getNorthWest();
+public abstract class QuadTree {
+	private Boundary boundary;
 
-	QuadTree getNorthEast();
+	public QuadTree(Point topLeft, Point bottomRight) {
+		boundary = new Boundary(topLeft, bottomRight);
+	}
 
-	QuadTree getSouthWest();
+	public abstract QuadTree getNorthWest();
 
-	QuadTree getSouthEast();
-	
-	Region getRoot(); 
-	
-	String getType();
+	public abstract QuadTree getNorthEast();
 
-	<T> T accept(QuadTreeVisitor<T> visitor);
+	public abstract QuadTree getSouthWest();
 
-} 
+	public abstract QuadTree getSouthEast();
+
+	public abstract <T> T accept(QuadTreeVisitor<T> visitor);
+
+	public Boundary getBoundary() {
+		return boundary;
+	}
+
+	public void setBoundary(Boundary boundary) {
+		this.boundary = boundary;
+	}
+
+}

@@ -8,16 +8,13 @@ import java.awt.Point;
  * @author Adel
  *
  */
-public abstract class Leaf implements QuadTree {
+public abstract class Leaf extends QuadTree {
 
 	private Point position;
-	private String type;
-	private Region root;
 
-	public Leaf(Point position, String type, Region root) {
+	public Leaf(Point topLeft, Point bottomRight, Point position) {
+		super(topLeft, bottomRight);
 		this.position = position;
-		this.type = type;
-		this.root = root;
 	}
 
 	@Override
@@ -44,17 +41,8 @@ public abstract class Leaf implements QuadTree {
 		return position;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	@Override
-	public Region getRoot() {
-		return root;
-	}
-
-	public void setRoot(Region root) {
-		this.root = root;
+	public void setPosition(Point position) {
+		this.position = position;
 	}
 
 }

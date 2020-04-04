@@ -1,6 +1,7 @@
 package data.quadtree;
 
 import java.awt.Point;
+
 import data.Selectable;
 import process.visitor.QuadTreeVisitor;
 
@@ -15,13 +16,8 @@ import process.visitor.QuadTreeVisitor;
 public class SelectableLeaf extends Leaf {
 	private Integer id;
 
-	public SelectableLeaf(Point position, Integer id, String type) {
-		super(position, type, null);
-		this.id = id;
-	}
-
-	public SelectableLeaf(Point position, Integer id, String type, Region root) {
-		super(position, type, root);
+	public SelectableLeaf(Point topLeft, Point bottomRight, Point position, Integer id) {
+		super(topLeft, bottomRight, position);
 		this.id = id;
 	}
 
@@ -36,11 +32,6 @@ public class SelectableLeaf extends Leaf {
 	@Override
 	public <T> T accept(QuadTreeVisitor<T> visitor) {
 		return visitor.visit(this);
-	}
-
-	@Override
-	public String toString() {
-		return "SelectableLeaf [id=" + id + "]";
 	}
 
 }

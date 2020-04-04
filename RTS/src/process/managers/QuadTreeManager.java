@@ -6,6 +6,7 @@ import data.quadtree.QuadTree;
 import data.quadtree.Region;
 import data.quadtree.Type;
 import process.factory.QuadTreeNodeFactory;
+import process.visitor.BuildVisitor;
 import process.visitor.HeightVisitor;
 
 public class QuadTreeManager {
@@ -14,20 +15,16 @@ public class QuadTreeManager {
 	public QuadTreeManager(Region root) {
 		this.root = root;
 	}
-
-	public void insert(Point position, Integer id) {
-		root = insert(root, position, id);
-	}
-
+/*
 	public QuadTree insert(QuadTree tree, Point position, Integer id, String type, Region root) {
 		QuadTree node = null;
 		if (!exists(tree)) {
 			node = QuadTreeNodeFactory.createSelectableLeaf(position, id, type, root);
 		}
 		return node;
-	}
+	}*/
 
-	public Region insert(Region region, Point position, Integer id) {
+/*	public Region insert(Region region, Point position, Integer id) {
 		Region tree = region;
 
 		// We first compute the center.
@@ -84,8 +81,8 @@ public class QuadTreeManager {
 		}
 
 		return tree;
-	}
-
+	}*/
+	/*
 	private Region split(QuadTree quadrant) throws IllegalArgumentException {
 		Region parentNode = quadrant.getRoot();
 		System.out.println("Parent" +parentNode);
@@ -119,7 +116,7 @@ public class QuadTreeManager {
 			}
 		}
 		return newRegion;
-	}
+	}*/
 
 	public boolean exists(QuadTree tree) {
 		return tree != null;
@@ -139,5 +136,31 @@ public class QuadTreeManager {
 	public Region getRoot() {
 		return root;
 	}
+	
+	
+	/*public QuadTree insert(QuadTree root, Point position, Integer id) {
+		if (!exists(root)) {
+			root = QuadTreeNodeFactory.createSelectableLeaf(position, id);
+		}else {
+			BuildVisitor visitor = new BuildVisitor();
+			root.accept(visitor);
+		}
+		return root;
+	}*/
+	
+	
+	public QuadTree insert(QuadTree root, Point position, Integer id) {
+		if (!exists(root)) {
+			root = QuadTreeNodeFactory.createSelectableLeaf(position, position, position, id);
+		}else {
+			find(root, position, id);
+		}
+		return root;
+	}
 
+	private QuadTree find(QuadTree root, Point position, Integer id) {
+		BuildVisitor visitor = new BuildVisitor(root.getBoundary());
+		root.accept(visitor);
+		return root;
+	}
 }
