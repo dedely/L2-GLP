@@ -148,6 +148,9 @@ public class QuadTreeManager {
 		return root;
 	}*/
 	
+	//En gros l'idée c'est quoi, il faut écrire un algo général
+	//Donc : Si l'élément root est null,
+	//Créer une nouvelle feuille
 	
 	public QuadTree insert(QuadTree root, Point position, Integer id) {
 		if (!exists(root)) {
