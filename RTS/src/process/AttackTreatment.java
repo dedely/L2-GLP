@@ -11,12 +11,17 @@ public class AttackTreatment {
 	
 
 	public static void attack(Unit caster, Selectable target) {
-		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) > caster.getWeapon().getRange()) {
+		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) >= caster.getWeapon().getRange()) {
 			MoveToTreatment.moveToward(caster, target.getPosition());
 		} else {
 			if (SelectableTreatment.canShoot(caster, target)) {
+				if(SelectableTreatment.isReloaded(caster)) {
 				SelectableTreatment.dealDamage(caster, target);
 				caster.getWeapon().setTimeLeftToReload(caster.getWeapon().getTimeBeetweenShots());
+				}
+				else {
+					SelectableTreatment.reloadWeapon(caster);
+				}
 			}
 		}
 	}

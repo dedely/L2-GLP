@@ -1,5 +1,6 @@
 package gui.elements;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import javax.swing.JPanel;
 import data.Coordinates;
 import data.Selectable;
+import gui.elements.menu.ContextualMenu;
 import gui.input.CoordinatesInputManager;
 import gui.input.InputManager;
 import gui.management.PaintVisitor;
@@ -27,6 +29,7 @@ public class Dashboard extends JPanel implements MouseListener {
 
 	private InputManager input;
 	private Game game;
+	private ContextualMenu menu;
 	private double time = System.nanoTime();
 
 	/**
@@ -37,9 +40,12 @@ public class Dashboard extends JPanel implements MouseListener {
 
 	public Dashboard(Game game) {
 		this.game = game;
-		setPreferredSize(new Dimension(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT));
+		this.menu = new ContextualMenu();
 		setBackground(Color.WHITE);
 		addMouseListener(this);
+
+		setLayout(new BorderLayout());
+		add(BorderLayout.SOUTH, menu);
 	}
 
 	@Override
@@ -68,7 +74,8 @@ public class Dashboard extends JPanel implements MouseListener {
 	private void printSelectables(Graphics2D g2) {
 		SelectableRepository r = SelectableRepository.getInstance();
 		PaintVisitor visitor = new PaintVisitor(g2, SimuPara.DEFAULT_CAMERA);
-		for (Selectable selectable : r.getSelectables()) {
+		// System.out.println(positions.values().size());
+		for (Selectable selectable : r.getPositions().values()) {
 			selectable.accept(visitor);
 		}
 	}
@@ -87,14 +94,14 @@ public class Dashboard extends JPanel implements MouseListener {
 		}
 	}
 
-	/**
-	 * This method provides the {@link CoordinatesInputManager} with the necessary
-	 * information to process a mouse click.
-	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
 
+	/**
+	 * This method provides the {@link CoordinatesInputManager} with the necessary
+	 * information to process a mouse click.
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		int count = e.getClickCount();
@@ -112,6 +119,7 @@ public class Dashboard extends JPanel implements MouseListener {
 
 		input = new CoordinatesInputManager(button, count, point);
 		input.process();
+		menu.update();
 	}
 
 	@Override

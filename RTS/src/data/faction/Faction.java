@@ -55,6 +55,7 @@ public class Faction {
 		this.playerName = playerName;
 		this.researchTree = researchTree;
 		this.description = description;
+		currentResearch = null;
 	}
 
 	public ArrayList<Building> getBuildingList() {
@@ -160,6 +161,12 @@ public class Faction {
 			return false;
 		return true;
 	}
-
-
+	
+	@Override
+	public String toString() {
+		return "Faction [name=" + name + ", playerName=" + playerName + ", buildingList=" + buildingList
+				+ ", unitsList=" + unitsList + ", researchTree=" + researchTree + ", resources=" + resources
+				+ ", description=" + description + ", currentResearch=" + currentResearch + ", Team=" + Team + "]";
+	}
+	
 }

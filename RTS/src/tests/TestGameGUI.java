@@ -3,6 +3,10 @@ package tests;
 import data.Constants;
 import gui.elements.GameGUI;
 
+/**
+ * @author Adel
+ *
+ */
 public class TestGameGUI {
 
 	public static void main(String[] args) {

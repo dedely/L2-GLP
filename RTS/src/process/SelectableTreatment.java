@@ -2,6 +2,9 @@ package process;
 
 import java.util.ArrayList;
 
+import org.hamcrest.core.IsInstanceOf;
+
+import data.Constants;
 import data.Coordinates;
 import data.Selectable;
 import data.building.Building;
@@ -18,7 +21,7 @@ public class SelectableTreatment {
 	public static void receiveDamage(Selectable target, int amount, Unit caster) {
 		target.setCurrentHealth(target.getCurrentHealth() - amount);
 		if (target.getCurrentHealth() <= 0) {
-			System.out.println(target.getName() + " was killed by " + caster.getName());
+			SelectableRepository.getInstance().addDeadUnits(target);
 		}
 
 	}
@@ -26,7 +29,7 @@ public class SelectableTreatment {
 	public static void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
 		target.setCurrentHealth(target.getCurrentHealth() - amount);
 		if (target.getCurrentHealth() <= 0) {
-			System.out.println(target.getName() + " was killed by " + caster.getName());
+			SelectableRepository.getInstance().addDeadUnits(target);
 		}
 
 	}
@@ -38,9 +41,6 @@ public class SelectableTreatment {
 		int armorPoints = target.getArmorPoints();
 		int armorType = target.getArmorType();
 		int calculatedDamage = calculDamage(baseDamage, damageType, armorPoints, armorType);
-		System.out.println("dealing " + calculatedDamage + "damage");
-		System.out.println("base = " + baseDamage + " damageType = " + damageType + " armor = " + armorPoints
-				+ " armorType = " + armorType);
 		receiveDamage(target, calculatedDamage, caster);
 	}
 
@@ -61,11 +61,19 @@ public class SelectableTreatment {
 		if (unit.getPosition().getHeight() < 0) {
 			return false;
 		}
-		if (unit.getWeapon().getTimeLeftToReload() > 0) {
-			return false;
-		}
 
 		return true;
+	}
+
+	public static boolean isReloaded(Unit unit) {
+		if (unit.getWeapon().getTimeLeftToReload() > 0) {
+			return false;
+		} else
+			return true;
+	}
+
+	public static void reloadWeapon(Unit unit) {
+		unit.getWeapon().setTimeLeftToReload(unit.getWeapon().getTimeLeftToReload() - 1);
 	}
 
 	public static void moveToward(Unit unitToMove, Coordinates destination) {
@@ -82,6 +90,8 @@ public class SelectableTreatment {
 		if (canEmbark(unitToEmbark, whereToEmbark)) {
 			whereToEmbark.setUnitSlotsAvailable(unitsSlotsAvailable - unitSize);
 			whereToEmbark.getUnitsIn().add(unitToEmbark);
+			unitToEmbark.getPosition().setHeight(Constants.CARRIED);
+
 		}
 
 	}
@@ -103,8 +113,34 @@ public class SelectableTreatment {
 		if (canEmbark(unitToEmbark, whereToEmbark)) {
 			whereToEmbark.setInfantrySeatsRemaining(unitsSlotsAvailable - unitSize);
 			whereToEmbark.getUnitsIn().add(unitToEmbark);
+			unitToEmbark.getPosition().setHeight(Constants.CARRIED);
 		}
 
+	}
+
+	public static boolean isEmbarkable(Selectable whereToEmbark) {
+		try {
+			((TroopTransport) whereToEmbark).getName();
+			return true;
+
+		} catch (Exception e) {
+
+		}
+		try {
+			((TransportHelicopter) whereToEmbark).getName();
+			return true;
+
+		} catch (Exception e) {
+
+		}
+		try {
+			((GroundUnitWithMountedWeapon) whereToEmbark).getName();
+			return true;
+
+		} catch (Exception e) {
+
+		}
+		return false;
 	}
 
 	public static boolean canEmbark(GroundUnit unitToEmbark, TroopTransport whereToEmbark) {
@@ -120,8 +156,35 @@ public class SelectableTreatment {
 	public static void getIn(GroundUnit unitToEmbark, GroundUnitWithMountedWeapon whereToEmbark) {
 		if (canEmbark(unitToEmbark, whereToEmbark)) {
 			whereToEmbark.setInfanteryIn(unitToEmbark);
+			unitToEmbark.getPosition().setHeight(Constants.OPERATING_TURRET);
 		}
 
+	}
+
+	public static void getIn(Unit unitToEmbark, Selectable whereToEmbark) {
+		if (canEmbark(unitToEmbark, whereToEmbark)) {
+			try {
+				((TroopTransport) whereToEmbark).getName();
+				getIn(unitToEmbark, whereToEmbark);
+
+			} catch (Exception e) {
+
+			}
+			try {
+				((TransportHelicopter) whereToEmbark).getName();
+				getIn(unitToEmbark, whereToEmbark);
+
+			} catch (Exception e) {
+
+			}
+			try {
+				((GroundUnitWithMountedWeapon) whereToEmbark).getName();
+				getIn(unitToEmbark, whereToEmbark);
+
+			} catch (Exception e) {
+
+			}
+		}
 	}
 
 	public static boolean canEmbark(GroundUnit unitToEmbark, GroundUnitWithMountedWeapon whereToEmbark) {
@@ -133,14 +196,67 @@ public class SelectableTreatment {
 		}
 	}
 
+	public static boolean canEmbark(Unit unitToEmbark, Selectable whereToEmbark) {
+
+		try {
+			((TroopTransport) whereToEmbark).getName();
+			return canEmbark(unitToEmbark, whereToEmbark);
+
+		} catch (Exception e) {
+
+		}
+		try {
+			((TransportHelicopter) whereToEmbark).getName();
+			return canEmbark(unitToEmbark, whereToEmbark);
+
+		} catch (Exception e) {
+
+		}
+		try {
+			((GroundUnitWithMountedWeapon) whereToEmbark).getName();
+			return canEmbark(unitToEmbark, whereToEmbark);
+
+		} catch (Exception e) {
+
+		}
+		return false;
+	}
+
 	public static boolean areEnnemies(Selectable caster, Selectable target) {
-		if (caster.getFaction().getTeam()!=target.getFaction().getTeam()) {
+		if (caster.getFaction().getTeam() != target.getFaction().getTeam()) {
 			return true;
 		} else
 			return false;
 	}
 
+	public static boolean haveUnit(ArrayList<Selectable> selectedCollection) {
+		for(Selectable s : selectedCollection) {
+			if(s instanceof Unit) {
+				return true;
+			}
+				
+		}
+		return false;
+	}
 
-
+	public static boolean areUnits(ArrayList<Selectable> selectedCollection) {
+		for(Selectable s : selectedCollection) {
+			if(s instanceof Building) {
+				return false;
+			}
+				
+		}
+		return true;
+	}
+	
+	public static boolean areBuildings(ArrayList<Selectable> selectedCollection) {
+		for(Selectable s : selectedCollection) {
+			if(s instanceof Unit) {
+				return false;
+			}
+				
+		}
+		return true;
+	}
 
 }

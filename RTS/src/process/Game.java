@@ -1,13 +1,10 @@
 package process;
 
-import java.awt.Point;
 import java.util.ArrayList;
 
 import data.Config;
 import data.GameState;
 import data.Selectable;
-import data.faction.Faction;
-import data.unit.Unit;
 import process.managers.SelectableManager;
 
 public class Game {
@@ -37,20 +34,28 @@ public class Game {
 	}
 
 	public void update() {
+		addNewUnits();
 		clearDeadUnits();
 		updatePositions();
 		// updateResearches();
 	}
 
+	private void addNewUnits() {
+		SelectableRepository.getInstance().addNewUnits();
+		// System.out.println(SelectableRepository.getInstance().getNewUnits().size());
+		SelectableRepository.getInstance().clearNewUnits();
+	}
+
 	private void clearDeadUnits() {
 		SelectableRepository.getInstance().removeDeadUnits();
+
 	}
 
 	private void updatePositions() {
 		SelectableRepository r = SelectableRepository.getInstance();
 
 		for (Selectable selected : r.getSelectables()) {
-			OrderTreatment.executeNextOrder((Unit) selected);
+			OrderTreatment.executeNextOrder(selected);
 		}
 		r.updatePosition();
 
@@ -64,4 +69,5 @@ public class Game {
 	 * 
 	 * }
 	 */
+
 }

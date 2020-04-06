@@ -64,6 +64,10 @@ public class Research {
 	public ArrayList<Upgrade> getUpgrades() {
 		return upgrades;
 	}
+	
+	public void setUpgrades (ArrayList<Upgrade> upgrades) {
+		this.upgrades = upgrades;
+	}
 
 	@Override
 	public String toString() {

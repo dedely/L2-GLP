@@ -8,10 +8,12 @@ import java.util.ArrayList;
 import data.Constants;
 import data.Coordinates;
 import data.Selectable;
+import data.order.Attack;
 import data.order.MoveToPosition;
 import gui.management.ShapeRepository;
 import process.OrderTreatment;
 import process.SelectableRepository;
+import process.SelectableTreatment;
 
 /**
  * This class processes coordinates inputs, i.e. clicks on the map.
@@ -41,7 +43,7 @@ public class CoordinatesInputManager implements InputManager {
 			processRightClick();
 			break;
 		default:
-			System.out.println("nope");
+			System.err.println("button not recognized");
 		}
 	}
 
@@ -72,13 +74,34 @@ public class CoordinatesInputManager implements InputManager {
 	}
 
 	private void processRightClick() {
+		ShapeRepository screen = ShapeRepository.getInstance();
 		SelectableRepository r = SelectableRepository.getInstance();
-		ArrayList<Selectable> selectedCollection = r.getSelected();
-		Coordinates coordinates = new Coordinates((int)point.getX(), (int)point.getY());
-		MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
-		for(Selectable selected: selectedCollection) {
-			OrderTreatment.giveOrderStagger(selected, order);
-		}
+		Integer targetId = screen.contains(point);
+		/*if (targetId != null) {
+			ArrayList<Selectable> selectedCollection = r.getSelected();
+			if (SelectableTreatment.areUnits(selectedCollection)) {
+				if (!target.getFaction().equals(selectedCollection.get(0).getFaction())) {
+					Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
+					for (Selectable selected : selectedCollection) {
+						OrderTreatment.giveOrderReplace(selected, order);
+					}
+				} else if (SelectableTreatment.isEmbarkable(target)) {
+					Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
+					for (Selectable selected : selectedCollection) {
+						OrderTreatment.giveOrderReplace(selected, order);
+					}
+				}
+
+			}
+		} else {
+			ArrayList<Selectable> selectedCollection = r.getSelected();
+			Coordinates coordinates = new Coordinates((int) point.getX(), (int) point.getY());
+			MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
+			for (Selectable selected : selectedCollection) {
+				OrderTreatment.giveOrderReplace(selected, order);
+			}
+		}*/
+
 	}
 
 	public int getButton() {
