@@ -1,5 +1,8 @@
 package data.order;
 
+import process.visitor.OrderVisitor;
+import process.visitor.SelectableVisitor;
+
 public abstract class Order {
 	private String type;
 
@@ -11,4 +14,5 @@ public abstract class Order {
 		this.type = type;
 	}
 
+	public abstract <T> T accept(OrderVisitor<T> visitor);
 }

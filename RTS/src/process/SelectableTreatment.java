@@ -19,19 +19,19 @@ import data.unit.Unit;
 public class SelectableTreatment {
 
 	public static void receiveDamage(Selectable target, int amount, Unit caster) {
-		target.setCurrentHealth(target.getCurrentHealth() - amount);
+		/*target.setCurrentHealth(target.getCurrentHealth() - amount);
 		if (target.getCurrentHealth() <= 0) {
 			SelectableRepository.getInstance().addDeadUnits(target);
 		}
-
+		*/
 	}
 
 	public static void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
-		target.setCurrentHealth(target.getCurrentHealth() - amount);
+	/*	target.setCurrentHealth(target.getCurrentHealth() - amount);
 		if (target.getCurrentHealth() <= 0) {
 			SelectableRepository.getInstance().addDeadUnits(target);
 		}
-
+		*/
 	}
 
 	public static void dealDamage(Unit caster, Selectable target) {

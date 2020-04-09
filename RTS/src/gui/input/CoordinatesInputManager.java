@@ -8,12 +8,9 @@ import java.util.ArrayList;
 import data.Constants;
 import data.Coordinates;
 import data.Selectable;
-import data.order.Attack;
 import data.order.MoveToPosition;
 import gui.management.ShapeRepository;
-import process.OrderTreatment;
 import process.SelectableRepository;
-import process.SelectableTreatment;
 
 /**
  * This class processes coordinates inputs, i.e. clicks on the map.
@@ -25,7 +22,7 @@ public class CoordinatesInputManager implements InputManager {
 	private int button;
 	private int count;
 	private Point point;
-	private boolean debug = false;
+	private boolean debug = true;
 
 	public CoordinatesInputManager(int button, int count, Point point) {
 		this.button = button;
@@ -76,7 +73,20 @@ public class CoordinatesInputManager implements InputManager {
 	private void processRightClick() {
 		ShapeRepository screen = ShapeRepository.getInstance();
 		SelectableRepository r = SelectableRepository.getInstance();
-		Integer targetId = screen.contains(point);
+		
+		ArrayList<Integer> selectedCollection = r.getSelected();
+		
+		if(selectedCollection.size() > 0) {
+			int x = point.x /24;
+			int y = point.y /24;
+			Coordinates coordinates = new Coordinates( x, y);
+			MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
+			for (Integer selectedId : selectedCollection) {
+				r.getSelectableManager(selectedId).giveOrder(order);
+			}
+		}
+		
+		//Integer targetId = screen.contains(point);
 		/*if (targetId != null) {
 			ArrayList<Selectable> selectedCollection = r.getSelected();
 			if (SelectableTreatment.areUnits(selectedCollection)) {

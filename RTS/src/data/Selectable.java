@@ -192,7 +192,11 @@ public abstract class Selectable {
 	 *         the list.
 	 */
 	public Order getNextOrder() {
-		return ordersLL.remove();
+		Order order = null;
+		if (ordersLL.size() > 0) {
+			order = ordersLL.remove();
+		}
+		return order;
 	}
 
 	public abstract <T> T accept(SelectableVisitor<T> visitor);

@@ -104,7 +104,7 @@ public class CoordinatesTreatment {
 	}
 
 	public static Selectable closestEnnemySelectable(Unit unit) {
-
+		/*
 		int radius = unit.getWeapon().getRange();
 		radius++;
 
@@ -190,7 +190,7 @@ public class CoordinatesTreatment {
 					}
 				}
 			}
-		}
+		}*/
 		return null;
 	}
 	

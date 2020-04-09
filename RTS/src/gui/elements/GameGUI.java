@@ -3,8 +3,6 @@ package gui.elements;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -16,13 +14,12 @@ import data.Coordinates;
 import data.building.UnitBuilding;
 import data.faction.Faction;
 import data.unit.Unit;
-import gui.elements.menu.ContextualMenu;
-import gui.management.ShapeRepository;
 import process.Game;
 import process.GameUtility;
 import process.SelectableRepository;
 import process.factory.BuildingFactory;
 import process.factory.UnitFactory;
+import process.managers.UnitManager;
 
 /**
  * @author Adel
@@ -31,11 +28,12 @@ import process.factory.UnitFactory;
 public class GameGUI extends JFrame implements Runnable {
 
 	private static final Dimension IDEAL_DASHBOARD_DIMENSION = new Dimension(1920, 900);
-	private static final Dimension IDEAL_MENU_DIMENSION = new Dimension(1920, 180);
+	// private static final Dimension IDEAL_MENU_DIMENSION = new Dimension(1920,
+	// 180);
 
 	private Game game;
 	private Dashboard dashboard;
-	private ContextualMenu menu;
+	// private ContextualMenu menu;
 
 	/**
 	 * 
@@ -83,8 +81,8 @@ public class GameGUI extends JFrame implements Runnable {
 
 		// Uncomment the following instructions to make the game full screen.
 
-		// setExtendedState(JFrame.MAXIMIZED_BOTH);
-		// setUndecorated(true);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		setUndecorated(true);
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
@@ -98,14 +96,13 @@ public class GameGUI extends JFrame implements Runnable {
 	 * The entry point of a game.
 	 */
 	public void run() {
-		long startTime = 0, endTime = 0;
-		// int time = 0;
+		// long startTime = 0, endTime = 0;
 
 		game.start();
-		int loopNumber = 0;
+		// int loopNumber = 0;
 		while (game.isRunning()) {
-			loopNumber++;
-			startTime = System.nanoTime();
+			// loopNumber++;
+			// startTime = System.nanoTime();
 			GameUtility.unitTime();
 
 			game.update();
@@ -113,10 +110,10 @@ public class GameGUI extends JFrame implements Runnable {
 			// System.out.println(SelectableRepository.getInstance().getPositions().values().size());
 
 			dashboard.repaint();
-			// time++;
-			endTime = System.nanoTime();
-			long timeElapsed = endTime - startTime;
-			System.out.println("Execution time in miliseconds : " + timeElapsed / 1000000);
+			// endTime = System.nanoTime();
+			// long timeElapsed = endTime - startTime;
+			// System.out.println("Execution time in miliseconds : " + timeElapsed /
+			// 1000000);
 		}
 
 		// We need a little more time for avoiding printing delay issue.
@@ -133,22 +130,27 @@ public class GameGUI extends JFrame implements Runnable {
 		Iterator<Faction> factionIterator = factions.iterator();
 		SelectableRepository r = SelectableRepository.getInstance();
 		Faction currentFaction = factionIterator.next();
-		Unit playerUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(1600, 500, 0), currentFaction);
-		r.register(playerUnit);
-		Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0),
-				factionIterator.next());
-		r.register(aiUnit);
+		Unit playerUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(40, 22, 0), currentFaction);
+		UnitManager manager = new UnitManager(playerUnit);
+		r.register(manager);
+		manager.start();
+		/*
+		 * Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new
+		 * Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0), factionIterator.next());
+		 * r.register(aiUnit);
+		 */
 	}
 
 	private void addTestBuildings() {
-		ArrayList<Faction> factions = game.getState().getFactions();
-		Iterator<Faction> factionIterator = factions.iterator();
-		SelectableRepository r = SelectableRepository.getInstance();
-		Faction currentFaction = factionIterator.next();
-		UnitBuilding playerHQ = BuildingFactory.createHeadQuaters(
-				new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(), SimuPara.DEFAULT_CAMERA.getPositionY(), 0),
-				currentFaction);
-		r.register(playerHQ);
-		r.addSelectable(playerHQ);
+		/*
+		 * ArrayList<Faction> factions = game.getState().getFactions();
+		 * Iterator<Faction> factionIterator = factions.iterator(); SelectableRepository
+		 * r = SelectableRepository.getInstance(); Faction currentFaction =
+		 * factionIterator.next(); UnitBuilding playerHQ =
+		 * BuildingFactory.createHeadQuaters( new
+		 * Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(),
+		 * SimuPara.DEFAULT_CAMERA.getPositionY(), 0), currentFaction);
+		 * r.register(playerHQ); r.addSelectable(playerHQ);
+		 */
 	}
 }

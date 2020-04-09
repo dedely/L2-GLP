@@ -1,78 +1,24 @@
 package process.visitor;
 
-import java.util.ArrayList;
+import data.order.*;
 
-import data.building.DefenseBuilding;
-import data.building.ResearchBuilding;
-import data.building.ResourceBuilding;
-import data.building.UnitBuilding;
-import data.unit.AttackHelicopter;
-import data.unit.GroundUnit;
-import data.unit.GroundUnitWithMountedWeapon;
-import data.unit.TransportHelicopter;
-import data.unit.TroopTransport;
-import data.unit.Worker;
+public interface OrderVisitor<T> {
 
-public class OrderVisitor implements SelectableVisitor<ArrayList<String>> {
+	T visit(Attack order);
 
-	@Override
-	public ArrayList<String> visit(DefenseBuilding selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	T visit(AttackBuilding order);
 
-	@Override
-	public ArrayList<String> visit(ResearchBuilding selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	T visit(AttackPosition order);
 
-	@Override
-	public ArrayList<String> visit(ResourceBuilding selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	T visit(Build order);
 
-	@Override
-	public ArrayList<String> visit(UnitBuilding selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	T visit(CreateUnit order);
 
-	@Override
-	public ArrayList<String> visit(AttackHelicopter selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	T visit(Defend order);
 
-	@Override
-	public ArrayList<String> visit(GroundUnit selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	T visit(Embark order);
 
-	@Override
-	public ArrayList<String> visit(GroundUnitWithMountedWeapon selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	T visit(MoveToPosition order);
 
-	@Override
-	public ArrayList<String> visit(TransportHelicopter selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<String> visit(TroopTransport selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<String> visit(Worker selectable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	T visit(MoveToTarget order);
 }

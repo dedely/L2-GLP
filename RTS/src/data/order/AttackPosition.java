@@ -3,26 +3,27 @@ package data.order;
 import data.Constants;
 import data.Coordinates;
 import data.Selectable;
+import process.visitor.OrderVisitor;
 
-public class AttackPosition extends Order{
+public class AttackPosition extends Order {
 
 	private int movingBehaviour;
 	private Coordinates targetedPosition;
-	
 
 	public AttackPosition(int movingBehaviour, Coordinates target) {
 		this.movingBehaviour = movingBehaviour;
-		this.targetedPosition= target;
-		if (movingBehaviour==Constants.GO_AT_ALL_COST) {
+		this.targetedPosition = target;
+		if (movingBehaviour == Constants.GO_AT_ALL_COST) {
 			setType(Constants.ATTACK_POS_AAC);
-		}
-		else if (movingBehaviour==Constants.STOP_TO_SHOOT) {
+		} else if (movingBehaviour == Constants.STOP_TO_SHOOT) {
 			setType(Constants.ATTACK_POS_STS);
 		}
 	}
+
 	public int getMovingBehaviour() {
 		return movingBehaviour;
 	}
+
 	public void setMovingBehaviour(int movingBehaviour) {
 		this.movingBehaviour = movingBehaviour;
 	}
@@ -30,13 +31,18 @@ public class AttackPosition extends Order{
 	public Coordinates getTargetedPosition() {
 		return targetedPosition;
 	}
+
 	public void setTargetedPosition(Coordinates targetedPosition) {
 		this.targetedPosition = targetedPosition;
 	}
-	public String toString() {
-		return "Attack [movingBehaviour=" + movingBehaviour
-				+ ", target=" + targetedPosition + "]";
+
+	@Override
+	public <T> T accept(OrderVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
-	
-	
+
+	public String toString() {
+		return "Attack [movingBehaviour=" + movingBehaviour + ", target=" + targetedPosition + "]";
+	}
+
 }

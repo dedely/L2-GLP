@@ -4,42 +4,46 @@ import data.Constants;
 import data.Coordinates;
 import data.Selectable;
 import data.unit.Unit;
+import process.visitor.OrderVisitor;
 
-public class MoveToPosition extends Order{
-	
+public class MoveToPosition extends Order {
+
 	private Coordinates position;
 	private int movingBehaviour;
-	
-	
-	
 
-	public MoveToPosition (Coordinates position, int movingBehaviour) {
+	public MoveToPosition(Coordinates position, int movingBehaviour) {
 		this.movingBehaviour = movingBehaviour;
 		this.position = position;
-		if (movingBehaviour==Constants.GO_AT_ALL_COST) {
+		if (movingBehaviour == Constants.GO_AT_ALL_COST) {
 			setType(Constants.MOVE_TO_POSITION_AAC);
-		}
-		else if (movingBehaviour==Constants.STOP_TO_SHOOT) {
+		} else if (movingBehaviour == Constants.STOP_TO_SHOOT) {
 			setType(Constants.MOVE_TO_POSITION_STS);
 		}
 	}
-	
+
 	public Coordinates getPosition() {
 		return position;
 	}
+
 	public void setPosition(Coordinates position) {
 		this.position = position;
 	}
+
 	public int getMovingBehaviour() {
 		return movingBehaviour;
 	}
+
 	public void setMovingBehaviour(int movingBehaviour) {
 		this.movingBehaviour = movingBehaviour;
+	}
+
+	@Override
+	public <T> T accept(OrderVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 	public String toString() {
 		return "MoveTo [position=" + position + ", moving behaviour=" + movingBehaviour + "]";
 	}
-	
-	
+
 }

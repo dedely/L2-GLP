@@ -34,40 +34,12 @@ public class Game {
 	}
 
 	public void update() {
-		addNewUnits();
-		clearDeadUnits();
-		updatePositions();
-		// updateResearches();
-	}
-
-	private void addNewUnits() {
-		SelectableRepository.getInstance().addNewUnits();
-		// System.out.println(SelectableRepository.getInstance().getNewUnits().size());
-		SelectableRepository.getInstance().clearNewUnits();
-	}
-
-	private void clearDeadUnits() {
-		SelectableRepository.getInstance().removeDeadUnits();
 
 	}
+
 
 	private void updatePositions() {
-		SelectableRepository r = SelectableRepository.getInstance();
 
-		for (Selectable selected : r.getSelectables()) {
-			OrderTreatment.executeNextOrder(selected);
-		}
-		r.updatePosition();
 
 	}
-
-	/*
-	 * private void updateResearches() { for(Faction currentFaction :
-	 * state.getFactions()) {
-	 * 
-	 * }
-	 * 
-	 * }
-	 */
-
 }

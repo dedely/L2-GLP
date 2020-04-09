@@ -14,4 +14,4 @@ public class TestGameGUI {
 		Thread guiTread = new Thread(simulationGUI);
 		guiTread.start();
 	}
-} 
+}

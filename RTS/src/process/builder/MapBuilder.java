@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import data.map.Map;
+import data.map.Tile;
 
 /**
  * This class builds the map based on a text file input. The input file contains
@@ -44,7 +45,7 @@ public class MapBuilder {
 			// Now we can fill our 2 dimensions array.
 			BufferedReader reader = new BufferedReader(new FileReader(fileName));
 
-			int tiles[][] = new int[height][width];
+			int tilesType[][] = new int[height][width];
 			// We reset the tmp variable and use it to count lines.
 			tmp = 0;
 			while ((line = reader.readLine()) != null) {
@@ -52,14 +53,22 @@ public class MapBuilder {
 				for (int index = 0; index < fields.length; index++) {
 					String field = fields[index];
 					int value = Integer.parseInt(field);
-					tiles[tmp][index] = value;
+					tilesType[tmp][index] = value;
 				}
 				++tmp;
 			}
 
 			reader.close();
-
+			
+			Tile tiles[][] = new Tile[height][width];
+			for (int y = 0; y < height; y++) {
+				for (int x = 0; x < width; x++) {
+					Tile tile = new Tile(tilesType[y][x]);
+					tiles[y][x] = tile;
+				}
+			}
 			map = new Map(width, height, tiles);
+			System.out.println("width: " + width + " height: " + height);
 
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());

@@ -30,13 +30,12 @@ public class Dashboard extends JPanel implements MouseListener {
 	private InputManager input;
 	private Game game;
 	private ContextualMenu menu;
-	private double time = System.nanoTime();
 
 	/**
 	 * Showing the grid will make the debug easier.
 	 */
-	private boolean debugGrid = false;
-	private boolean debugMouseInput = false;
+	private boolean debugGrid = true;
+	private boolean debugMouseInput = true;
 
 	public Dashboard(Game game) {
 		this.game = game;
@@ -75,7 +74,7 @@ public class Dashboard extends JPanel implements MouseListener {
 		SelectableRepository r = SelectableRepository.getInstance();
 		PaintVisitor visitor = new PaintVisitor(g2, SimuPara.DEFAULT_CAMERA);
 		// System.out.println(positions.values().size());
-		for (Selectable selectable : r.getPositions().values()) {
+		for (Selectable selectable : r.getSelectables()) {
 			selectable.accept(visitor);
 		}
 	}
@@ -113,8 +112,7 @@ public class Dashboard extends JPanel implements MouseListener {
 			System.out.println(point.toString());
 			System.out.println("Mouse button: " + button);
 			System.out.println("Click count: " + count);
-			System.out.println((System.nanoTime() - time) / 1000000);
-			time = System.nanoTime();
+			System.out.println("x: " + x / 24 + " y: " + y / 24);
 		}
 
 		input = new CoordinatesInputManager(button, count, point);

@@ -8,8 +8,6 @@ import process.SelectableRepository;
 
 public class GameState {
 
-	private Map map;
-
 	private ArrayList<Faction> factions = new ArrayList<Faction>();
 
 	private SelectableRepository selectableRepository = SelectableRepository.getInstance();
@@ -17,13 +15,6 @@ public class GameState {
 	public GameState() {
 	}
 
-	public Map getMap() {
-		return map;
-	}
-
-	public void setMap(Map map) {
-		this.map = map;
-	}
 
 	public ArrayList<Faction> getFactions() {
 		return factions;
@@ -44,10 +35,6 @@ public class GameState {
 		if (factions.contains(faction)) {
 			factions.remove(faction);
 		}
-	}
-	@Override
-	public String toString() {
-		return "GameState [map=" + map + "]";
 	}
 
 }

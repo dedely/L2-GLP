@@ -60,7 +60,7 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	public Void visit(UnitBuilding selectable) {
 		colorStrategy.setColor(graphics, selectable);
 		printSquare(selectable);
-		//printSelected(selectable);
+		// printSelected(selectable);
 		return null;
 	}
 
@@ -103,8 +103,8 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	}
 
 	private void printCircle(Selectable selectable) {
-		Shape shape = new Ellipse2D.Double(selectable.getPositionX() - SimuPara.RADIUS / 2,
-				selectable.getPositionY() - SimuPara.RADIUS / 2, SimuPara.RADIUS, SimuPara.RADIUS);
+		Shape shape = new Ellipse2D.Double((selectable.getPositionX() * SimuPara.RADIUS),
+				(selectable.getPositionY() * SimuPara.RADIUS), SimuPara.RADIUS, SimuPara.RADIUS);
 		graphics.fill(shape);
 		ShapeRepository.getInstance().addShape(selectable, shape);
 	}
@@ -119,8 +119,8 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	private void printSelected(Selectable selectable) {
 		if (selectable.isSelected()) {
 			colorStrategy.setColorSelected(graphics);
-			graphics.drawOval(selectable.getPositionX() - (SimuPara.RADIUS + 10) / 2,
-					selectable.getPositionY() - (SimuPara.RADIUS + 10) / 2, SimuPara.RADIUS + 10, SimuPara.RADIUS + 10);
+			graphics.drawOval((selectable.getPositionX() * SimuPara.RADIUS) - 8/2,
+					(selectable.getPositionY() * SimuPara.RADIUS) - 8/2, SimuPara.RADIUS + 8, SimuPara.RADIUS + 8);
 		}
 	}
 

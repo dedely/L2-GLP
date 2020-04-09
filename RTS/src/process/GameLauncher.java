@@ -28,7 +28,7 @@ public class GameLauncher {
 	public GameState buildGame() {
 		GameState state = new GameState();
 
-		initMap(state);
+		initMap();
 		initFactions(state);
 		// We'll add a initDifficulty(state) method once the AI is supported.
 
@@ -42,10 +42,11 @@ public class GameLauncher {
 
 	}
 
-	private void initMap(GameState state) {
+	private void initMap() {
 		MapBuilder builder = new MapBuilder();
 		Map map = builder.buildMap(InputParameter.MAP_PATH);
-		state.setMap(map);
+		SelectableRepository r = SelectableRepository.getInstance();
+		r.setMap(map);
 	}
 
 }

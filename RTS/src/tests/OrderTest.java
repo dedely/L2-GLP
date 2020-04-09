@@ -31,13 +31,16 @@ public class OrderTest {
 	}
 
 	private static void addTestUnits(Game game) {
-		ArrayList<Faction> factions = game.getState().getFactions();
-		Iterator<Faction> factionIterator = factions.iterator();
-		SelectableRepository.getInstance().register(UnitFactory.createUnit(Constants.TEST_GROUND,
-				new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(), SimuPara.DEFAULT_CAMERA.getPositionY(), 0),
-				factionIterator.next()));
-		SelectableRepository.getInstance().register(UnitFactory.createUnit(Constants.TEST_GROUND,
-				new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0), factionIterator.next()));
+		/*
+		 * ArrayList<Faction> factions = game.getState().getFactions();
+		 * Iterator<Faction> factionIterator = factions.iterator();
+		 * SelectableRepository.getInstance().register(UnitFactory.createUnit(Constants.
+		 * TEST_GROUND, new Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(),
+		 * SimuPara.DEFAULT_CAMERA.getPositionY(), 0), factionIterator.next()));
+		 * SelectableRepository.getInstance().register(UnitFactory.createUnit(Constants.
+		 * TEST_GROUND, new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0),
+		 * factionIterator.next()));
+		 */
 	}
 
 }

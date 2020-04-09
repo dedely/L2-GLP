@@ -16,7 +16,7 @@ import process.visitor.ActionVisitor;
  *
  */
 public class ButtonBuilder {
-	private ArrayList<Selectable> selected = new ArrayList<Selectable>();
+	private ArrayList<Integer> selected = new ArrayList<Integer>();
 
 	/**
 	 * 
@@ -31,7 +31,7 @@ public class ButtonBuilder {
 		Integer size = selected.size();
 
 		if (size == 1) {
-			buttons = buildButtons(selected.get(0));
+			buttons = buildButtons(r.getSelectable(selected.get(0)));
 		}
 
 		return buttons;

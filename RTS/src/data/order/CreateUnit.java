@@ -2,12 +2,12 @@ package data.order;
 
 import data.Constants;
 import data.Coordinates;
+import process.visitor.OrderVisitor;
 
+public class CreateUnit extends Order {
 
-public class CreateUnit extends Order{
-	
 	private String unitToCreate;
-	
+
 	private Coordinates position;
 
 	private int timeUntilConstructed;
@@ -16,11 +16,10 @@ public class CreateUnit extends Order{
 
 		setType(Constants.CREATE_UNIT);
 
-		this.position=position;
-		this.timeUntilConstructed=timeUntilConstructed;
-		this.unitToCreate=unitToCreate;
+		this.position = position;
+		this.timeUntilConstructed = timeUntilConstructed;
+		this.unitToCreate = unitToCreate;
 	}
-
 
 	public String getUnitToCreate() {
 		return unitToCreate;
@@ -44,6 +43,11 @@ public class CreateUnit extends Order{
 
 	public void setTimeUntilConstructed(int timeUntilConstructed) {
 		this.timeUntilConstructed = timeUntilConstructed;
+	}
+
+	@Override
+	public <T> T accept(OrderVisitor<T> visitor) {
+		return visitor.visit(this);
 	}
 
 }

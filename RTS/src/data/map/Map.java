@@ -1,5 +1,7 @@
 package data.map;
 
+import data.Coordinates;
+
 /**
  * This class will store all the map data in a 2 dimensional array. The possible
  * map elements will be represented as integers.
@@ -9,16 +11,15 @@ package data.map;
  */
 public class Map {
 
-	public static final int TILE_SIZE = 32;
+	public static final int TILE_SIZE = 24;
 
 	public static final int CLEAR = 0;
 	public static final int BLOCKED = 1;
 
-	//tiles[height][width]
 	private int width, height;
-	private int tiles[][];
+	private Tile tiles[][];
 
-	public Map(int width, int height, int[][] tiles) {
+	public Map(int width, int height, Tile[][] tiles) {
 		this.width = width;
 		this.height = height;
 		this.tiles = tiles;
@@ -40,12 +41,32 @@ public class Map {
 		this.height = height;
 	}
 
-	public int[][] getTiles() {
+	public Tile[][] getTiles() {
 		return tiles;
 	}
 
-	public void setTiles(int[][] tiles) {
+	public void setTiles(Tile[][] tiles) {
 		this.tiles = tiles;
+	}
+	
+	public void add(Coordinates position, Integer id) {
+		int x = position.getAbsciss();
+		int y = position.getOrdinate();
+		if(position.getHeight() == 0) {
+			tiles[y][x].setGroundId(id);
+		}else {
+			tiles[y][x].setAirId(id);
+		}
+	}
+	
+	public void delete(Coordinates position) {
+		int x = position.getAbsciss();
+		int y = position.getOrdinate();
+		if(position.getHeight() == 0) {
+			tiles[y][x].setGroundId(null);
+		}else {
+			tiles[y][x].setAirId(null);
+		}
 	}
 
 	@Override

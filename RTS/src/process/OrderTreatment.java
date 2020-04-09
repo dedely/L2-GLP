@@ -196,7 +196,7 @@ public class OrderTreatment {
 	}
 
 	public static void executeNextOrder(Building currentBuilding) {
-		Order currentOrder = nextOrder(currentBuilding);
+	/*	Order currentOrder = nextOrder(currentBuilding);
 		if (currentOrder == null) {
 			// System.out.println("no order");
 		} else {
@@ -230,8 +230,8 @@ public class OrderTreatment {
 				
 
 			}
-
-		}
+				
+		}*/
 	}
 		public static void executeNextOrder(Selectable selectable) {
 			if (selectable instanceof Building) {
