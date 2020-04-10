@@ -2,17 +2,15 @@ package gui.elements;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.geom.Point2D;
-import java.util.HashMap;
+
 
 import javax.swing.JPanel;
-import data.Coordinates;
 import data.Selectable;
 import gui.elements.menu.ContextualMenu;
 import gui.input.CoordinatesInputManager;
@@ -93,16 +91,12 @@ public class Dashboard extends JPanel implements MouseListener {
 		}
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-	}
-
 	/**
 	 * This method provides the {@link CoordinatesInputManager} with the necessary
 	 * information to process a mouse click.
 	 */
 	@Override
-	public void mousePressed(MouseEvent e) {
+	public void mouseClicked(MouseEvent e) {
 		int count = e.getClickCount();
 		int x = e.getX();
 		int y = e.getY();
@@ -118,6 +112,10 @@ public class Dashboard extends JPanel implements MouseListener {
 		input = new CoordinatesInputManager(button, count, point);
 		input.process();
 		menu.update();
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
 	}
 
 	@Override

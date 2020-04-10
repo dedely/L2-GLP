@@ -1,5 +1,6 @@
 package process.visitor;
 
+import data.building.Building;
 import data.order.Attack;
 import data.order.AttackBuilding;
 import data.order.AttackPosition;
@@ -9,16 +10,13 @@ import data.order.Defend;
 import data.order.Embark;
 import data.order.MoveToPosition;
 import data.order.MoveToTarget;
-import data.unit.Unit;
 import process.executor.Executor;
-import process.executor.Move;
 
-public class ExecutionVisitor implements OrderVisitor<Executor> {
+public class BuildingExecutionVisitor implements OrderVisitor<Executor> {
+	private Building building;
 
-	private Unit unit;
-
-	public ExecutionVisitor(Unit unit) {
-		this.unit = unit;
+	public BuildingExecutionVisitor(Building building) {
+		this.building = building;
 	}
 
 	@Override
@@ -65,7 +63,8 @@ public class ExecutionVisitor implements OrderVisitor<Executor> {
 
 	@Override
 	public Executor visit(MoveToPosition order) {
-		return new Move(unit, order.getPosition());
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override

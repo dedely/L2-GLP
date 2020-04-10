@@ -5,13 +5,8 @@ import data.order.Order;
 import process.GameUtility;
 
 public abstract class SelectableManager extends Thread {
-	private Selectable selectable;
 	private Order order = null;
 	private boolean exectutingOrder = false;
-
-	public SelectableManager(Selectable selectable) {
-		this.selectable = selectable;
-	}
 
 	@Override
 	public void run() {
@@ -21,29 +16,23 @@ public abstract class SelectableManager extends Thread {
 		}
 	}
 
+	public abstract Selectable getSelectable();
+
 	public abstract void giveOrder(Order order);
 
 	public abstract void executeNextOrder();
 
 	public boolean isDead() {
-		return selectable.getCurrentHealth() <= 0;
+		return getSelectable().getCurrentHealth() <= 0;
 	}
 
 	public boolean isExectutingOrder() {
 		return exectutingOrder;
 	}
 
-	public Selectable getSelectable() {
-		return selectable;
-	}
-
-	public void setSelectable(Selectable selectable) {
-		this.selectable = selectable;
-	}
-
 	public Order getOrder() {
 		if (order == null) {
-			order = selectable.getNextOrder();
+			order = getSelectable().getNextOrder();
 		}
 		return order;
 	}
@@ -53,25 +42,25 @@ public abstract class SelectableManager extends Thread {
 	}
 
 	public boolean isSelected() {
-		return selectable.isSelected();
+		return getSelectable().isSelected();
 	}
 
 	public Integer getSelectableId() {
-		return selectable.getId();
+		return getSelectable().getId();
 	}
 
 	public void select() {
-		selectable.setSelected(true);
+		getSelectable().setSelected(true);
 	}
 
 	public void deselect() {
-		selectable.setSelected(false);
+		getSelectable().setSelected(false);
 	}
 
 	public void setId(Integer id) {
-		selectable.setId(id);
+		getSelectable().setId(id);
 	}
-	
+
 	public void finish() {
 		setOrder(null);
 	}

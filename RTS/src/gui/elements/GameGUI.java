@@ -19,6 +19,7 @@ import process.GameUtility;
 import process.SelectableRepository;
 import process.factory.BuildingFactory;
 import process.factory.UnitFactory;
+import process.managers.BuildingManager;
 import process.managers.UnitManager;
 
 /**
@@ -134,23 +135,25 @@ public class GameGUI extends JFrame implements Runnable {
 		UnitManager manager = new UnitManager(playerUnit);
 		r.register(manager);
 		manager.start();
-		/*
-		 * Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new
-		 * Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0), factionIterator.next());
-		 * r.register(aiUnit);
-		 */
+
+		Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0),
+				factionIterator.next());
+		UnitManager managerAI = new UnitManager(aiUnit);
+		r.register(managerAI);
+		managerAI.start();
+
 	}
 
 	private void addTestBuildings() {
-		/*
-		 * ArrayList<Faction> factions = game.getState().getFactions();
-		 * Iterator<Faction> factionIterator = factions.iterator(); SelectableRepository
-		 * r = SelectableRepository.getInstance(); Faction currentFaction =
-		 * factionIterator.next(); UnitBuilding playerHQ =
-		 * BuildingFactory.createHeadQuaters( new
-		 * Coordinates(SimuPara.DEFAULT_CAMERA.getPositionX(),
-		 * SimuPara.DEFAULT_CAMERA.getPositionY(), 0), currentFaction);
-		 * r.register(playerHQ); r.addSelectable(playerHQ);
-		 */
+		ArrayList<Faction> factions = game.getState().getFactions();
+		Iterator<Faction> factionIterator = factions.iterator();
+		SelectableRepository r = SelectableRepository.getInstance();
+		Faction currentFaction = factionIterator.next();
+		UnitBuilding playerHQ = BuildingFactory.createHeadQuaters(
+				new Coordinates(38, 38, 0),
+				currentFaction);
+		BuildingManager manager = new BuildingManager(playerHQ);
+		r.register(manager);
+		manager.start();
 	}
 }

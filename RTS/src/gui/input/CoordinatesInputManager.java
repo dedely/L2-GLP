@@ -2,7 +2,6 @@ package gui.input;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 import data.Constants;
@@ -30,6 +29,7 @@ public class CoordinatesInputManager implements InputManager {
 		this.point = point;
 	}
 
+	@Override
 	public void process() {
 		switch (button) {
 		case MouseEvent.BUTTON1:
@@ -73,44 +73,38 @@ public class CoordinatesInputManager implements InputManager {
 	private void processRightClick() {
 		ShapeRepository screen = ShapeRepository.getInstance();
 		SelectableRepository r = SelectableRepository.getInstance();
-		
+
 		ArrayList<Integer> selectedCollection = r.getSelected();
-		
-		if(selectedCollection.size() > 0) {
-			int x = point.x /24;
-			int y = point.y /24;
-			Coordinates coordinates = new Coordinates( x, y);
+
+		if (selectedCollection.size() > 0) {
+			int x = point.x / 24;
+			int y = point.y / 24;
+			Coordinates coordinates = new Coordinates(x, y);
 			MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
 			for (Integer selectedId : selectedCollection) {
 				r.getSelectableManager(selectedId).giveOrder(order);
 			}
 		}
-		
-		//Integer targetId = screen.contains(point);
-		/*if (targetId != null) {
-			ArrayList<Selectable> selectedCollection = r.getSelected();
-			if (SelectableTreatment.areUnits(selectedCollection)) {
-				if (!target.getFaction().equals(selectedCollection.get(0).getFaction())) {
-					Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
-					for (Selectable selected : selectedCollection) {
-						OrderTreatment.giveOrderReplace(selected, order);
-					}
-				} else if (SelectableTreatment.isEmbarkable(target)) {
-					Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition()));
-					for (Selectable selected : selectedCollection) {
-						OrderTreatment.giveOrderReplace(selected, order);
-					}
-				}
 
-			}
-		} else {
-			ArrayList<Selectable> selectedCollection = r.getSelected();
-			Coordinates coordinates = new Coordinates((int) point.getX(), (int) point.getY());
-			MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
-			for (Selectable selected : selectedCollection) {
-				OrderTreatment.giveOrderReplace(selected, order);
-			}
-		}*/
+		// Integer targetId = screen.contains(point);
+		/*
+		 * if (targetId != null) { ArrayList<Selectable> selectedCollection =
+		 * r.getSelected(); if (SelectableTreatment.areUnits(selectedCollection)) { if
+		 * (!target.getFaction().equals(selectedCollection.get(0).getFaction())) {
+		 * Attack order = new Attack(Constants.STOP_TO_SHOOT,
+		 * r.getSelectable(target.getPosition())); for (Selectable selected :
+		 * selectedCollection) { OrderTreatment.giveOrderReplace(selected, order); } }
+		 * else if (SelectableTreatment.isEmbarkable(target)) { Attack order = new
+		 * Attack(Constants.STOP_TO_SHOOT, r.getSelectable(target.getPosition())); for
+		 * (Selectable selected : selectedCollection) {
+		 * OrderTreatment.giveOrderReplace(selected, order); } }
+		 * 
+		 * } } else { ArrayList<Selectable> selectedCollection = r.getSelected();
+		 * Coordinates coordinates = new Coordinates((int) point.getX(), (int)
+		 * point.getY()); MoveToPosition order = new MoveToPosition(coordinates,
+		 * Constants.GO_AT_ALL_COST); for (Selectable selected : selectedCollection) {
+		 * OrderTreatment.giveOrderReplace(selected, order); } }
+		 */
 
 	}
 
@@ -122,7 +116,7 @@ public class CoordinatesInputManager implements InputManager {
 		return count;
 	}
 
-	public Point2D getPoint() {
+	public Point getPoint() {
 		return point;
 	}
 

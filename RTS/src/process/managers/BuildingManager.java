@@ -1,24 +1,23 @@
 package process.managers;
 
 import data.Selectable;
+import data.building.Building;
 import data.order.Order;
-import data.unit.Unit;
 import process.executor.Executor;
-import process.visitor.UnitExecutionVisitor;
+import process.visitor.BuildingExecutionVisitor;
 
-public class UnitManager extends SelectableManager {
+public class BuildingManager extends SelectableManager {
+	private Building building;
+	private BuildingExecutionVisitor visitor;
 
-	private Unit unit;
-	private UnitExecutionVisitor visitor;
-
-	public UnitManager(Unit unit) {
-		this.unit = unit;
-		visitor = new UnitExecutionVisitor(unit);
+	public BuildingManager(Building building) {
+		this.building = building;
+		this.visitor = new BuildingExecutionVisitor(building);
 	}
 
 	@Override
 	public Selectable getSelectable() {
-		return unit;
+		return building;
 	}
 
 	@Override
@@ -39,4 +38,5 @@ public class UnitManager extends SelectableManager {
 			}
 		}
 	}
+
 }
