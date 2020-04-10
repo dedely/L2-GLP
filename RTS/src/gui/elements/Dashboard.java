@@ -6,16 +6,19 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 
 import javax.swing.JPanel;
 import data.Selectable;
 import gui.elements.menu.ContextualMenu;
 import gui.input.CoordinatesInputManager;
 import gui.input.InputManager;
+import gui.input.KeyInputManager;
 import gui.management.PaintVisitor;
+import process.Camera;
 import process.Game;
 import process.SelectableRepository;
 
@@ -64,17 +67,26 @@ public class Dashboard extends JPanel implements MouseListener {
 	}
 
 	/**
-	 * This method will be updated later, as we add camera support.
+	 * It's faster to go through all the selectables and check if they're inside the
+	 * viewport than check each map cell within the viewport.
 	 * 
 	 * @param g2
 	 */
 	private void printSelectables(Graphics2D g2) {
 		SelectableRepository r = SelectableRepository.getInstance();
-		PaintVisitor visitor = new PaintVisitor(g2, SimuPara.DEFAULT_CAMERA);
-		// System.out.println(positions.values().size());
+		PaintVisitor visitor = new PaintVisitor(g2, game.getCamera());
 		for (Selectable selectable : r.getSelectables()) {
-			selectable.accept(visitor);
+			if (isInBounds(selectable)) {
+				selectable.accept(visitor);
+			}
 		}
+	}
+
+	private boolean isInBounds(Selectable selectable) {
+		int x = selectable.getPositionX();
+		int y = selectable.getPositionY();
+		Camera camera = game.getCamera();
+		return (x >= camera.getMinX()) && (x < camera.getMaxX()) && (y >= camera.getMinY()) && (y < camera.getMaxY());
 	}
 
 	public void drawDebugGrid(Graphics g) {
@@ -109,7 +121,7 @@ public class Dashboard extends JPanel implements MouseListener {
 			System.out.println("x: " + x / 24 + " y: " + y / 24);
 		}
 
-		input = new CoordinatesInputManager(button, count, point);
+		input = new CoordinatesInputManager(button, count, point, game.getCamera());
 		input.process();
 		menu.update();
 	}

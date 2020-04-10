@@ -9,6 +9,7 @@ import data.Coordinates;
 import data.Selectable;
 import data.order.MoveToPosition;
 import gui.management.ShapeRepository;
+import process.Camera;
 import process.SelectableRepository;
 
 /**
@@ -21,12 +22,14 @@ public class CoordinatesInputManager implements InputManager {
 	private int button;
 	private int count;
 	private Point point;
+	private Camera camera;
 	private boolean debug = true;
 
-	public CoordinatesInputManager(int button, int count, Point point) {
+	public CoordinatesInputManager(int button, int count, Point point, Camera camera) {
 		this.button = button;
 		this.count = count;
 		this.point = point;
+		this.camera = camera;
 	}
 
 	@Override
@@ -77,8 +80,8 @@ public class CoordinatesInputManager implements InputManager {
 		ArrayList<Integer> selectedCollection = r.getSelected();
 
 		if (selectedCollection.size() > 0) {
-			int x = point.x / 24;
-			int y = point.y / 24;
+			int x = (point.x / 24) + camera.getMinX();
+			int y = (point.y / 24) + camera.getMinY();
 			Coordinates coordinates = new Coordinates(x, y);
 			MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
 			for (Integer selectedId : selectedCollection) {

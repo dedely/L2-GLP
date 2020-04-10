@@ -3,6 +3,7 @@ package process.executor;
 import data.Coordinates;
 import data.unit.Unit;
 import process.CoordinatesTreatment;
+import process.SelectableRepository;
 
 public class Move implements Executor {
 
@@ -16,9 +17,21 @@ public class Move implements Executor {
 
 	@Override
 	public boolean execute() {
-		Coordinates newPosition = CoordinatesTreatment.positionNextTick(unit, destination);
-		unit.setPosition(newPosition);
-		return newPosition.equals(destination);
+		SelectableRepository r = SelectableRepository.getInstance();
+		r.updatePosition(this);
+		return unit.getPosition().equals(destination);
+	}
+
+	public Unit getUnit() {
+		return unit;
+	}
+
+	public Coordinates getDestination() {
+		return destination;
+	}
+	
+	public Coordinates getNewPosition() {
+		return CoordinatesTreatment.positionNextTick(unit, destination);
 	}
 
 }

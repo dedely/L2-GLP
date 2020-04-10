@@ -30,11 +30,6 @@ public class SimuPara {
 	 */
 	public static final int SCALE = BASIC * 24;
 
-	/**
-	 * This is a point at the middle of the screen.
-	 */
-	public static final Camera DEFAULT_CAMERA = new Camera(WINDOW_WIDTH / SCALE / 2, WINDOW_HEIGHT / SCALE / 2, SCALE);
-
 	public static final int RADIUS = BASIC * 24;
 
 }

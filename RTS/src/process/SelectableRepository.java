@@ -3,8 +3,12 @@ package process;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import data.Coordinates;
 import data.Selectable;
 import data.map.Map;
+import data.unit.Unit;
+import process.executor.Executor;
+import process.executor.Move;
 import process.managers.SelectableManager;
 
 /**
@@ -16,6 +20,8 @@ import process.managers.SelectableManager;
 
 public class SelectableRepository {
 	private int cpt = 0;
+	
+	private Executor currentExecutor = null;
 
 	private HashMap<Integer, SelectableManager> ids = new HashMap<Integer, SelectableManager>();
 	private ArrayList<Integer> selected = new ArrayList<Integer>();
@@ -146,5 +152,27 @@ public class SelectableRepository {
 		}
 		return selectables;
 	}
+	
+	public synchronized void updatePosition(Move executor) {
+		if(currentExecutor != null) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				System.err.println(e.getMessage());
+			}
+		}
+		currentExecutor = executor;
+		Unit unit =  executor.getUnit();
+		Coordinates newPosition = executor.getNewPosition();
+		map.delete(unit.getPosition());
+		unit.setPosition(newPosition);
+		map.add(newPosition, unit.getId());
+		exit();
+	}
+	
+	public synchronized void exit() {
+		currentExecutor = null;
+		notifyAll();
+	}
 
-}
+} 

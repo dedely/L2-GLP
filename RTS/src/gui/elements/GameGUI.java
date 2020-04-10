@@ -3,6 +3,8 @@ package gui.elements;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -14,6 +16,8 @@ import data.Coordinates;
 import data.building.UnitBuilding;
 import data.faction.Faction;
 import data.unit.Unit;
+import gui.input.InputManager;
+import gui.input.KeyInputManager;
 import process.Game;
 import process.GameUtility;
 import process.SelectableRepository;
@@ -26,7 +30,7 @@ import process.managers.UnitManager;
  * @author Adel
  *
  */
-public class GameGUI extends JFrame implements Runnable {
+public class GameGUI extends JFrame implements Runnable, KeyListener {
 
 	private static final Dimension IDEAL_DASHBOARD_DIMENSION = new Dimension(1920, 900);
 	// private static final Dimension IDEAL_MENU_DIMENSION = new Dimension(1920,
@@ -35,6 +39,8 @@ public class GameGUI extends JFrame implements Runnable {
 	private Game game;
 	private Dashboard dashboard;
 	// private ContextualMenu menu;
+	
+	private InputManager input;
 
 	/**
 	 * 
@@ -91,6 +97,7 @@ public class GameGUI extends JFrame implements Runnable {
 	}
 
 	private void initActions() {
+		addKeyListener(this);
 	}
 
 	/**
@@ -149,11 +156,31 @@ public class GameGUI extends JFrame implements Runnable {
 		Iterator<Faction> factionIterator = factions.iterator();
 		SelectableRepository r = SelectableRepository.getInstance();
 		Faction currentFaction = factionIterator.next();
-		UnitBuilding playerHQ = BuildingFactory.createHeadQuaters(
-				new Coordinates(38, 38, 0),
-				currentFaction);
+		UnitBuilding playerHQ = BuildingFactory.createHeadQuaters(new Coordinates(38, 38, 0), currentFaction);
 		BuildingManager manager = new BuildingManager(playerHQ);
 		r.register(manager);
 		manager.start();
 	}
+	
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int code = e.getKeyCode();
+		System.out.println(code);
+		input = new KeyInputManager(code, game.getCamera());
+		input.process();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
 }

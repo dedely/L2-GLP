@@ -1,20 +1,22 @@
 package process;
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 import data.Config;
 import data.GameState;
-import data.Selectable;
 import process.managers.SelectableManager;
 
 public class Game {
 	private GameState state;
+	private Camera camera;
 	private boolean running = false;
 	private ArrayList<SelectableManager> selectableManagers = new ArrayList<SelectableManager>();
 
 	public Game(Config config) {
 		GameLauncher launcher = new GameLauncher(config);
 		state = launcher.buildGame();
+		camera = new Camera(new Point(20, 40));
 	}
 
 	public GameState getState() {
@@ -37,9 +39,8 @@ public class Game {
 
 	}
 
-
-	private void updatePositions() {
-
-
+	public Camera getCamera() {
+		return camera;
 	}
+	
 }

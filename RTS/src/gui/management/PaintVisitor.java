@@ -16,8 +16,8 @@ import data.unit.GroundUnitWithMountedWeapon;
 import data.unit.TransportHelicopter;
 import data.unit.TroopTransport;
 import data.unit.Worker;
-import gui.elements.Camera;
 import gui.elements.SimuPara;
+import process.Camera;
 import process.visitor.SelectableVisitor;
 
 /**
@@ -29,13 +29,14 @@ import process.visitor.SelectableVisitor;
 public class PaintVisitor implements SelectableVisitor<Void> {
 
 	private Graphics2D graphics;
-	private Camera camera;
-
+	private int offsetX;
+	private int offsetY;
 	private ColorStrategy colorStrategy = new TestColorStrategy();
 
 	public PaintVisitor(Graphics2D graphics, Camera camera) {
 		this.graphics = graphics;
-		this.camera = camera;
+		offsetX = camera.getMinX();
+		offsetY = camera.getMinY();
 	}
 
 	@Override
@@ -103,15 +104,15 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	}
 
 	private void printCircle(Selectable selectable) {
-		Shape shape = new Ellipse2D.Double((selectable.getPositionX() * SimuPara.RADIUS),
-				(selectable.getPositionY() * SimuPara.RADIUS), SimuPara.RADIUS, SimuPara.RADIUS);
+		Shape shape = new Ellipse2D.Double((selectable.getPositionX() - offsetX) * SimuPara.RADIUS,
+				(selectable.getPositionY() - offsetY) * SimuPara.RADIUS, SimuPara.RADIUS, SimuPara.RADIUS);
 		graphics.fill(shape);
 		ShapeRepository.getInstance().addShape(selectable, shape);
 	}
 
 	private void printSquare(UnitBuilding selectable) {
-		Shape shape = new Rectangle2D.Double((selectable.getPositionX() * SimuPara.RADIUS),
-				(selectable.getPositionY() * SimuPara.RADIUS), SimuPara.RADIUS, SimuPara.RADIUS);
+		Shape shape = new Rectangle2D.Double((selectable.getPositionX() - offsetX)  * SimuPara.RADIUS,
+				(selectable.getPositionY() - offsetY) * SimuPara.RADIUS, SimuPara.RADIUS, SimuPara.RADIUS);
 		graphics.fill(shape);
 		ShapeRepository.getInstance().addShape(selectable, shape);
 	}
@@ -119,8 +120,8 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	private void printSelected(Selectable selectable) {
 		if (selectable.isSelected()) {
 			colorStrategy.setColorSelected(graphics);
-			graphics.drawOval((selectable.getPositionX() * SimuPara.RADIUS) - 8 / 2,
-					(selectable.getPositionY() * SimuPara.RADIUS) - 8 / 2, SimuPara.RADIUS + 8, SimuPara.RADIUS + 8);
+			graphics.drawOval(((selectable.getPositionX() - offsetX) * SimuPara.RADIUS) - 8 / 2,
+					((selectable.getPositionY() - offsetY) * SimuPara.RADIUS) - 8 / 2, SimuPara.RADIUS + 8, SimuPara.RADIUS + 8);
 		}
 	}
 
