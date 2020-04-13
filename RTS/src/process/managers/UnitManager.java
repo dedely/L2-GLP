@@ -10,6 +10,8 @@ public class UnitManager extends SelectableManager {
 
 	private Unit unit;
 	private UnitExecutionVisitor visitor;
+	private Executor concreteExecutor = null;
+	private boolean complete = false;
 
 	public UnitManager(Unit unit) {
 		this.unit = unit;
@@ -30,13 +32,23 @@ public class UnitManager extends SelectableManager {
 	public void executeNextOrder() {
 		Order order = getOrder();
 		if (order != null) {
-			Executor concreteExecutor = order.accept(visitor);
-			if (concreteExecutor != null) {
-				boolean complete = concreteExecutor.execute();
-				if (complete) {
+			complete = false;
+			if(concreteExecutor == null) {
+				if((concreteExecutor = order.accept(visitor)) == null) {
+					finish();
+				}
+			}else {
+				complete = concreteExecutor.execute();
+				if(complete) {
+					concreteExecutor = null;
 					finish();
 				}
 			}
 		}
+	}
+
+	@Override
+	public void update() {
+		executeNextOrder();
 	}
 }

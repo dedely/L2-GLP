@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 
 import gui.elements.buttons.OrderButton;
 import gui.management.ButtonBuilder;
+import process.Game;
 
 /**
  * The ContextualMenu is a JPanel used as a container for context dependant
@@ -17,12 +18,13 @@ import gui.management.ButtonBuilder;
  */
 public class ContextualMenu extends JPanel {
 
-	ButtonBuilder builder = new ButtonBuilder();
+	private ButtonBuilder builder;
 
 	private ArrayList<OrderButton> buttons = new ArrayList<OrderButton>();
 
-	public ContextualMenu() {
+	public ContextualMenu(Game game) {
 		super();
+		builder = new ButtonBuilder(game);
 		setLayout(new FlowLayout());
 		initStyle();
 		layoutButtons();
@@ -53,7 +55,7 @@ public class ContextualMenu extends JPanel {
 		for (OrderButton button : buttons) {
 			add(button);
 		}
-		repaint();
 		revalidate();
+		repaint();
 	}
 }

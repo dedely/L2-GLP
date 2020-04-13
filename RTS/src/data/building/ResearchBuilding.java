@@ -3,16 +3,15 @@ package data.building;
 import java.util.ArrayList;
 
 import data.Coordinates;
-import data.faction.Faction;
 import process.visitor.SelectableVisitor;
 
 public class ResearchBuilding extends Building {
 
 	private ArrayList<Integer> unlocksList = new ArrayList<Integer>();
 
-	public ResearchBuilding(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+	public ResearchBuilding(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, Size size, ArrayList<Integer> unlocksList) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, size);
+		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, size);
 		this.unlocksList = unlocksList;
 	}
 

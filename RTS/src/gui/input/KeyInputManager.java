@@ -7,6 +7,7 @@ import process.Camera;
 public class KeyInputManager implements InputManager {
 	private int code;
 	private Camera camera;
+	private boolean debug = true;
 
 	public KeyInputManager(int code, Camera camera) {
 		this.code = code;
@@ -15,6 +16,7 @@ public class KeyInputManager implements InputManager {
 
 	@Override
 	public void process() {
+		if(debug) System.out.println(code);
 		switch (code) {
 		case KeyEvent.VK_LEFT:
 			camera.moveLeft();

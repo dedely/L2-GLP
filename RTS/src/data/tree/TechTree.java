@@ -2,10 +2,10 @@ package data.tree;
 
 import java.util.HashMap;
 
-public class BinaryTree {
+public class TechTree {
 	private HashMap<Integer, Research> researches = new HashMap<Integer, Research>();
 
-	public BinaryTree() {
+	public TechTree() {
 	}
 
 	public HashMap<Integer, Research> getResearches() {

@@ -21,7 +21,7 @@ import data.Coordinates;
 
 public class OrderTreatment {
 
-	public static void giveOrderReplace(Selectable orderReceiver, Order order) {
+	/*public static void giveOrderReplace(Selectable orderReceiver, Order order) {
 		ArrayList<Order> orderList = orderReceiver.getOrders();
 		orderList.clear();
 		orderList.add(order);
@@ -41,7 +41,7 @@ public class OrderTreatment {
 		orderList.remove(0);
 		// System.out.println("\norder complete\n");
 
-	}
+	}*/
 
 	/*
 	 * public void giveOrdre(String type, Unit receiver, Selectable target) {
@@ -70,7 +70,7 @@ public class OrderTreatment {
 		}
 	}*/
 
-	public void giveOrdre(String type, DefenseBuilding receiver, Selectable target) {
+	/*public void giveOrdre(String type, DefenseBuilding receiver, Selectable target) {
 		switch (type) {
 		case Constants.ATTACK_POS_AAC:
 			giveOrderReplace(receiver, new Attack(Constants.GO_AT_ALL_COST, target));
@@ -98,9 +98,9 @@ public class OrderTreatment {
 
 		}
 
-	}
+	}*/
 
-	public static void executeNextOrder(Unit executor) {
+	/*public static void executeNextOrder(Unit executor) {
 		Order currentOrder = nextOrder(executor);
 		if (currentOrder == null) {
 			// System.out.println("no order");
@@ -177,7 +177,7 @@ public class OrderTreatment {
 				}
 			}
 		}
-	}
+	}*/
 
 	public static boolean hasEnemyInRange(Unit unit) {
 		if (CoordinatesTreatment.closestEnnemySelectable(unit) != null) {
@@ -187,13 +187,13 @@ public class OrderTreatment {
 		}
 	}
 
-	public static Order nextOrder(Selectable orderReceiver) {
+	/*public static Order nextOrder(Selectable orderReceiver) {
 		if (!orderReceiver.getOrders().isEmpty()) {
 			return orderReceiver.getOrders().get(0);
 		} else {
 			return null;
 		}
-	}
+	}*/
 
 	public static void executeNextOrder(Building currentBuilding) {
 	/*	Order currentOrder = nextOrder(currentBuilding);

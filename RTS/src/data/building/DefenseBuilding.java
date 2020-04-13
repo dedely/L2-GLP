@@ -1,7 +1,6 @@
 package data.building;
 
 import data.Coordinates;
-import data.faction.Faction;
 import data.unit.Weapon;
 import process.visitor.SelectableVisitor;
 
@@ -13,9 +12,9 @@ public class DefenseBuilding extends Building {
 
 	private Weapon weapon;
 
-	public DefenseBuilding(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+	public DefenseBuilding(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, Size size, Weapon weapon) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, size);
+		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, size);
 		this.weapon = weapon;
 	}
 

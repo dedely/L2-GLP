@@ -74,7 +74,7 @@ public class Map {
 		String tmp = "Map : width=" + width + ", height=" + height + "\n";
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				tmp += tiles[i][j] + " ";
+				tmp += tiles[i][j].getType() + " ";
 			}
 			tmp += "\n";
 		}

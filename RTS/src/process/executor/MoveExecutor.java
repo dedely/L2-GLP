@@ -5,12 +5,12 @@ import data.unit.Unit;
 import process.CoordinatesTreatment;
 import process.SelectableRepository;
 
-public class Move implements Executor {
+public class MoveExecutor implements Executor {
 
 	private Unit unit;
 	private Coordinates destination;
 
-	public Move(Unit unit, Coordinates destination) {
+	public MoveExecutor(Unit unit, Coordinates destination) {
 		this.unit = unit;
 		this.destination = destination;
 	}
@@ -18,7 +18,7 @@ public class Move implements Executor {
 	@Override
 	public boolean execute() {
 		SelectableRepository r = SelectableRepository.getInstance();
-		r.updatePosition(this);
+		//r.updatePosition(this);
 		return unit.getPosition().equals(destination);
 	}
 

@@ -10,7 +10,7 @@ public class TestColorStrategy implements ColorStrategy {
 
 	@Override
 	public void setColor(Graphics graphics, GroundUnit selectable) {
-		if(selectable.getFaction().getPlayerName().equals("ai")) {
+		if(selectable.getPlayerName().equals("ai")) {
 			graphics.setColor(Color.RED);
 		}else {
 			graphics.setColor(Color.BLUE);

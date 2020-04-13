@@ -3,28 +3,19 @@ package gui.elements;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import javax.swing.JFrame;
 
 import data.Config;
-import data.Constants;
-import data.Coordinates;
-import data.building.UnitBuilding;
-import data.faction.Faction;
-import data.unit.Unit;
 import gui.input.InputManager;
 import gui.input.KeyInputManager;
+import process.Camera;
 import process.Game;
 import process.GameUtility;
-import process.SelectableRepository;
-import process.factory.BuildingFactory;
-import process.factory.UnitFactory;
-import process.managers.BuildingManager;
-import process.managers.UnitManager;
+
 
 /**
  * @author Adel
@@ -38,6 +29,7 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 
 	private Game game;
 	private Dashboard dashboard;
+	private Camera camera;
 	// private ContextualMenu menu;
 	
 	private InputManager input;
@@ -55,19 +47,11 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 
 		// We split the work in different private methods and call them in the
 		// constructor.
-		initEngine(config);
+		game = new Game();
 		initStyle();
 		initLayout();
 		initActions();
 
-	}
-
-	private void initEngine(Config config) {
-		game = new Game(config);
-		dashboard = new Dashboard(game);
-		// menu = new ContextualMenu();
-		addTestUnits();
-		addTestBuildings();
 	}
 
 	private void initStyle() {
@@ -80,7 +64,10 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
 		setSize(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT);
-
+		
+		camera = new Camera(new Point(0, 79));
+		//We first display the title screen.
+		dashboard = new TitleScreen(game);
 		dashboard.setPreferredSize(IDEAL_DASHBOARD_DIMENSION);
 		// menu.setPreferredSize(IDEAL_MENU_DIMENSION);
 		contentPane.add(BorderLayout.CENTER, dashboard);
@@ -88,8 +75,8 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 
 		// Uncomment the following instructions to make the game full screen.
 
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
-		setUndecorated(true);
+		//setExtendedState(JFrame.MAXIMIZED_BOTH);
+		//setUndecorated(true);
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
@@ -101,23 +88,28 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 	}
 
 	/**
-	 * The entry point of a game.
+	 * The entry point of our application.
 	 */
 	public void run() {
 		// long startTime = 0, endTime = 0;
 
-		game.start();
 		// int loopNumber = 0;
-		while (game.isRunning()) {
+		while (!game.isStopped()) {
 			// loopNumber++;
 			// startTime = System.nanoTime();
 			GameUtility.unitTime();
 
-			game.update();
-			// menu.update();
-			// System.out.println(SelectableRepository.getInstance().getPositions().values().size());
+			if(game.isReady()) {
+				updateLayout();
+				game.run();
+			}
 
-			dashboard.repaint();
+			if(game.isRunning()) {
+				game.update();
+				dashboard.repaint();
+			}
+
+			
 			// endTime = System.nanoTime();
 			// long timeElapsed = endTime - startTime;
 			// System.out.println("Execution time in miliseconds : " + timeElapsed /
@@ -129,11 +121,20 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 
 	}
 
+	private void updateLayout() {
+		Container contentPane = getContentPane();
+		contentPane.removeAll();
+		dashboard = new GameDashboard(game, camera);
+		contentPane.add(BorderLayout.CENTER, dashboard);
+		contentPane.revalidate();
+		contentPane.repaint();
+	}
+
 	/**
 	 * This method is only used for testing purposes: it adds 1 unit to each
 	 * faction. It will be deleted eventually.
 	 */
-	private void addTestUnits() {
+	/*private void addTestUnits() {
 		ArrayList<Faction> factions = game.getState().getFactions();
 		Iterator<Faction> factionIterator = factions.iterator();
 		SelectableRepository r = SelectableRepository.getInstance();
@@ -141,17 +142,14 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 		Unit playerUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(40, 22, 0), currentFaction);
 		UnitManager manager = new UnitManager(playerUnit);
 		r.register(manager);
-		manager.start();
-
 		Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0),
 				factionIterator.next());
 		UnitManager managerAI = new UnitManager(aiUnit);
 		r.register(managerAI);
-		managerAI.start();
 
-	}
+	}/*
 
-	private void addTestBuildings() {
+	/*private void addTestBuildings() {
 		ArrayList<Faction> factions = game.getState().getFactions();
 		Iterator<Faction> factionIterator = factions.iterator();
 		SelectableRepository r = SelectableRepository.getInstance();
@@ -159,27 +157,23 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 		UnitBuilding playerHQ = BuildingFactory.createHeadQuaters(new Coordinates(38, 38, 0), currentFaction);
 		BuildingManager manager = new BuildingManager(playerHQ);
 		r.register(manager);
-		manager.start();
-	}
+	}*/
 	
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
-		System.out.println(code);
-		input = new KeyInputManager(code, game.getCamera());
+		input = new KeyInputManager(code, camera);
 		input.process();
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 

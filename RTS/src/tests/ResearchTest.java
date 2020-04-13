@@ -1,7 +1,7 @@
 package tests;
 
 import data.faction.Faction;
-import data.tree.BinaryTree;
+import data.tree.TechTree;
 import data.tree.Research;
 import data.tree.Upgrade;
 

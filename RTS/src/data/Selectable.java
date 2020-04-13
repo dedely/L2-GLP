@@ -3,7 +3,6 @@ package data;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import data.faction.Faction;
 import data.order.Order;
 import process.visitor.SelectableVisitor;
 
@@ -17,7 +16,7 @@ public abstract class Selectable {
 	private Integer id = null;
 	private int cost;
 
-	private Faction faction;
+	private String playerName;
 
 	private int maxHealth;
 	private int currentHealth;
@@ -30,8 +29,6 @@ public abstract class Selectable {
 	private String description;
 
 	private Coordinates position;
-
-	private ArrayList<Order> orders = new ArrayList<Order>();
 
 	/**
 	 * We use a FIFO approach to manage orders. Given that we only need to perform
@@ -55,11 +52,11 @@ public abstract class Selectable {
 		return name;
 	}
 
-	public Selectable(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+	public Selectable(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position) {
 		this.name = name;
 		this.cost = cost;
-		this.faction = faction;
+		this.playerName = playerName;
 		this.maxHealth = maxHealth;
 
 		// When a new Selectable is created, its currentHealth equals its maxHealth.
@@ -83,12 +80,12 @@ public abstract class Selectable {
 		this.cost = cost;
 	}
 
-	public Faction getFaction() {
-		return faction;
+	public String getPlayerName() {
+		return playerName;
 	}
 
-	public void setFaction(Faction faction) {
-		this.faction = faction;
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
 	}
 
 	public void setName(String name) {
@@ -171,14 +168,6 @@ public abstract class Selectable {
 		this.id = id;
 	}
 
-	public ArrayList<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(ArrayList<Order> orders) {
-		this.orders = orders;
-	}
-
 	/**
 	 * @param order The order will be placed at the end of our queue, according to
 	 *              the FIFO approach.
@@ -203,9 +192,10 @@ public abstract class Selectable {
 
 	@Override
 	public String toString() {
-		return "name=" + name + "\ncost=" + cost + "\nowner=" + faction + "\nmaxHealth=" + maxHealth
-				+ "\ncurrentHealth=" + currentHealth + "\narmorPoints=" + armorPoints + "\narmorType=" + armorType
-				+ "\nselected=" + selected + "\ndescription=" + description + "\nposition=" + position + "]";
+		return "Selectable [name=" + name + ", id=" + id + ", cost=" + cost + ", playerName=" + playerName
+				+ ", maxHealth=" + maxHealth + ", currentHealth=" + currentHealth + ", armorPoints=" + armorPoints
+				+ ", armorType=" + armorType + ", selected=" + selected + ", description=" + description + ", position="
+				+ position + ", ordersLL=" + ordersLL + "]";
 	}
 
 }

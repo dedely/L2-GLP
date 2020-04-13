@@ -4,19 +4,13 @@ import data.Selectable;
 import data.order.Order;
 import process.GameUtility;
 
-public abstract class SelectableManager extends Thread {
+public abstract class SelectableManager {
 	private Order order = null;
 	private boolean exectutingOrder = false;
 
-	@Override
-	public void run() {
-		while (!isDead()) {
-			GameUtility.unitTime();
-			executeNextOrder();
-		}
-	}
-
 	public abstract Selectable getSelectable();
+	
+	public abstract void update();
 
 	public abstract void giveOrder(Order order);
 

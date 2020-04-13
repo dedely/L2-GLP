@@ -3,8 +3,8 @@ package data;
 import data.building.Size;
 
 public class Constants {
-	public static final String PLAYER = "Player";
-	public static final String ENNEMY = "Ennemy";
+	public static final String PLAYER = "player";
+	public static final String AI = "ai";
 
 	public static final String ATTACK_STS = "Attack stop to shoot";
 	public static final String ATTACK_AAC = "Attack at all cost";

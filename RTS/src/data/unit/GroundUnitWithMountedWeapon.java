@@ -1,7 +1,6 @@
 package data.unit;
 
 import data.Coordinates;
-import data.faction.Faction;
 import process.visitor.SelectableVisitor;
 
 /**
@@ -18,15 +17,15 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 	 */
 	private GroundUnit infanteryIn;
 
-	private boolean mounted;
+	private boolean mounted = false;
 
 	private Weapon mountedWeapon;
 
-	public GroundUnitWithMountedWeapon(String name, int cost, Faction faction, int maxHealth, int armorPoints,
+	public GroundUnitWithMountedWeapon(String name, int cost, String playerName, int maxHealth, int armorPoints,
 			int armorType, String description, Coordinates position, int speed, Weapon weapon, int unitSize,
-			boolean mounted, Weapon mountedWeapon) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSize);
-		this.mounted = mounted;
+			Weapon mountedWeapon) {
+		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon,
+				unitSize);
 		this.mountedWeapon = mountedWeapon;
 	}
 

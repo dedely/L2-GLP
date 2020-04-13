@@ -8,7 +8,7 @@ import data.building.DefenseBuilding;
 import data.unit.Unit;
 
 public class DefenseTreatment {
-
+	/*
 	public Selectable detectClosestEnnemy (Unit caster, HashMap<Coordinates, Selectable> positions) {
 		Selectable closestEnnemy = null;
 		if (caster.getWeapon().isCanShootAtAirTarget()) {
@@ -44,5 +44,5 @@ public class DefenseTreatment {
 		}
 		else {}
 	}
-	
+	*/
 }

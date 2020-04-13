@@ -4,12 +4,13 @@ import data.Config;
 import data.GameState;
 import data.Player;
 import data.map.Map;
+import process.builder.FactionBuilder;
 import process.builder.MapBuilder;
-import process.factory.FactionFactory;
 import tests.input.InputParameter;
 
 /**
- * This class is responsible for building a GameState using the provided Config information.
+ * This class is responsible for building a GameState using the provided Config
+ * information.
  * 
  * @author Adel
  * 
@@ -17,29 +18,31 @@ import tests.input.InputParameter;
 public class GameLauncher {
 
 	private Config config;
+	private Game game;
 
-	public GameLauncher(Config config) {
+	public GameLauncher(Config config, Game game) {
 		this.config = config;
+		this.game = game;
 	}
 
-	/**
-	 * @return the constructed GameState.
-	 */
-	public GameState buildGame() {
-		GameState state = new GameState();
-
+	public void buildGame() {
 		initMap();
-		initFactions(state);
-		// We'll add a initDifficulty(state) method once the AI is supported.
-
-		return state;
+		initFactions();
+		initAI();
+		game.setState(GameState.READY);
 	}
 
-	private void initFactions(GameState state) {
-		for (Player player : config.getPlayers()) {
-			state.addFaction(FactionFactory.createFaction(player.getFactionName(), player.getName(),0));
-		}
+	private void initAI() {
+		// TODO Auto-generated method stub
+		
+	}
 
+	private void initFactions() {
+		FactionBuilder builder = new FactionBuilder();
+		for(Player player: config.getPlayers()) {
+			FactionTest faction = builder.buildFaction(player);
+			game.add(faction);
+		}
 	}
 
 	private void initMap() {

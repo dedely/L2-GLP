@@ -3,7 +3,6 @@ package data.unit;
 import java.util.ArrayList;
 
 import data.Coordinates;
-import data.faction.Faction;
 import process.visitor.SelectableVisitor;
 
 /**
@@ -29,9 +28,10 @@ public class TroopTransport extends GroundUnit {
 	 */
 	private ArrayList<GroundUnit> infanteryIn = new ArrayList<GroundUnit>();
 
-	public TroopTransport(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, Weapon weapon, int unitSlots, int infantrySeats) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, weapon, unitSlots);
+	public TroopTransport(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, Weapon weapon, int unitSize, int infantrySeats) {
+		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon,
+				unitSize);
 		this.infantrySeats = infantrySeats;
 		infantrySeatsRemaining = infantrySeats;
 	}

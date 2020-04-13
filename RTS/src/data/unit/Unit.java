@@ -2,7 +2,6 @@ package data.unit;
 
 import data.Coordinates;
 import data.Selectable;
-import data.faction.Faction;
 
 /**
  * the abstract class representing all mobile objects
@@ -26,9 +25,9 @@ public abstract class Unit extends Selectable {
 
 	private Weapon weapon;
 
-	public Unit(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+	public Unit(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position);
+		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
 		this.weapon = weapon;
 	}

@@ -195,7 +195,7 @@ public class CoordinatesTreatment {
 	}
 	
 
-	public static Selectable closestGroundEnnemySelectable(Unit unit, HashMap<Coordinates, Selectable> positions) {
+	/*public static Selectable closestGroundEnnemySelectable(Unit unit, HashMap<Coordinates, Selectable> positions) {
 
 		int radius = unit.getWeapon().getRange();
 		radius++;
@@ -420,5 +420,5 @@ public class CoordinatesTreatment {
 			}
 		}
 		return null;
-	}
+	}*/
 }

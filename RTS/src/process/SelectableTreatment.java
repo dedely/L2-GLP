@@ -2,8 +2,6 @@ package process;
 
 import java.util.ArrayList;
 
-import org.hamcrest.core.IsInstanceOf;
-
 import data.Constants;
 import data.Coordinates;
 import data.Selectable;
@@ -19,19 +17,17 @@ import data.unit.Unit;
 public class SelectableTreatment {
 
 	public static void receiveDamage(Selectable target, int amount, Unit caster) {
-		/*target.setCurrentHealth(target.getCurrentHealth() - amount);
+		target.setCurrentHealth(target.getCurrentHealth() - amount);
 		if (target.getCurrentHealth() <= 0) {
-			SelectableRepository.getInstance().addDeadUnits(target);
+			SelectableRepository.getInstance().addDeadUnit(target.getId());
 		}
-		*/
 	}
 
 	public static void receiveDamage(Selectable target, int amount, DefenseBuilding caster) {
-	/*	target.setCurrentHealth(target.getCurrentHealth() - amount);
+		target.setCurrentHealth(target.getCurrentHealth() - amount);
 		if (target.getCurrentHealth() <= 0) {
-			SelectableRepository.getInstance().addDeadUnits(target);
+			SelectableRepository.getInstance().addDeadUnit(target.getId());
 		}
-		*/
 	}
 
 	public static void dealDamage(Unit caster, Selectable target) {
@@ -222,12 +218,12 @@ public class SelectableTreatment {
 		return false;
 	}
 
-	public static boolean areEnnemies(Selectable caster, Selectable target) {
+	/*public static boolean areEnnemies(Selectable caster, Selectable target) {
 		if (caster.getFaction().getTeam() != target.getFaction().getTeam()) {
 			return true;
 		} else
 			return false;
-	}
+	}*/
 
 	public static boolean haveUnit(ArrayList<Selectable> selectedCollection) {
 		for(Selectable s : selectedCollection) {

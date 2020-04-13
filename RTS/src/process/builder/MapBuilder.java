@@ -68,7 +68,6 @@ public class MapBuilder {
 				}
 			}
 			map = new Map(width, height, tiles);
-			System.out.println("width: " + width + " height: " + height);
 
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());

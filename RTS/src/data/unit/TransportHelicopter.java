@@ -3,7 +3,6 @@ package data.unit;
 import java.util.ArrayList;
 
 import data.Coordinates;
-import data.faction.Faction;
 import process.visitor.SelectableVisitor;
 
 /**
@@ -29,9 +28,9 @@ public class TransportHelicopter extends Unit {
 	 */
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
 
-	public TransportHelicopter(String name, int cost, Faction faction, int maxHealth, int armorPoints, int armorType,
+	public TransportHelicopter(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon, int unitSlots) {
-		super(name, cost, faction, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 		this.unitSlots = unitSlots;
 		unitSlotsAvailable = unitSlots;
 	}

@@ -1,25 +1,25 @@
 package process.managers;
 
 import data.Selectable;
-import data.building.Building;
+import data.building.UnitBuilding;
 import data.order.Order;
 import process.executor.Executor;
-import process.visitor.BuildingExecutionVisitor;
+import process.visitor.UnitBuildingVisitor;
 
-public class BuildingManager extends SelectableManager {
-	private Building building;
-	private BuildingExecutionVisitor visitor;
+public class UnitBuildingManager extends SelectableManager {
+	private UnitBuilding unitBuilding;
+	private UnitBuildingVisitor visitor;
 	private Executor concreteExecutor = null;
 	private boolean complete = false;
 
-	public BuildingManager(Building building) {
-		this.building = building;
-		this.visitor = new BuildingExecutionVisitor(building);
+	public UnitBuildingManager(UnitBuilding unitBuilding) {
+		this.unitBuilding = unitBuilding;
+		visitor = new UnitBuildingVisitor(unitBuilding);
 	}
 
 	@Override
 	public Selectable getSelectable() {
-		return building;
+		return unitBuilding;
 	}
 
 	@Override
@@ -50,5 +50,4 @@ public class BuildingManager extends SelectableManager {
 	public void update() {
 		executeNextOrder();
 	}
-
 }

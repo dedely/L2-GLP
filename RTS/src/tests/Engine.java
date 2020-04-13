@@ -61,7 +61,7 @@ public class Engine {
 					 * AttackBuilding(closestEnnemy)); }
 					 */
 				}
-				for (Unit currentUnit : factionEntry.getValue().getUnitsList()) {
+				/*for (Unit currentUnit : factionEntry.getValue().getUnitsList()) {
 					Order currentOrder = OrderTreatment.nextOrder(currentUnit);
 					if (currentOrder == null) {
 						System.out.println("no order");
@@ -99,7 +99,7 @@ public class Engine {
 							}
 					
 						}
-					}
+					}*/
 
 					/*
 					 * if(Selectable unitattacked.isdead()){ deadSelectables.add(unitattacked); }
@@ -116,4 +116,3 @@ public class Engine {
 
 	}
 
-}

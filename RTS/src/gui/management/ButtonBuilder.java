@@ -2,8 +2,10 @@ package gui.management;
 
 import java.util.ArrayList;
 
+import data.Constants;
 import data.Selectable;
 import gui.elements.buttons.OrderButton;
+import process.Game;
 import process.SelectableRepository;
 import process.visitor.ActionVisitor;
 
@@ -16,7 +18,12 @@ import process.visitor.ActionVisitor;
  *
  */
 public class ButtonBuilder {
+	private Game game;
 	private ArrayList<Integer> selected = new ArrayList<Integer>();
+
+	public ButtonBuilder(Game game) {
+		this.game = game;
+	}
 
 	/**
 	 * 
@@ -25,7 +32,7 @@ public class ButtonBuilder {
 	 */
 	public ArrayList<OrderButton> getButtons() {
 		SelectableRepository r = SelectableRepository.getInstance();
-		selected = r.getSelected();
+		selected = game.getSelection(Constants.PLAYER);
 
 		ArrayList<OrderButton> buttons = new ArrayList<OrderButton>();
 		Integer size = selected.size();
@@ -39,8 +46,9 @@ public class ButtonBuilder {
 	}
 
 	/**
-	 * This method is called when only one {@link Selectable} is selected.
-	 * It uses the visitor design pattern.
+	 * This method is called when only one {@link Selectable} is selected. It uses
+	 * the visitor design pattern.
+	 * 
 	 * @param selectable
 	 * @return the appropriate button collection.
 	 */
