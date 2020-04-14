@@ -36,14 +36,14 @@ public class FactionBuilder {
 
 	private void initSelectable() {
 		SelectableRepository r = SelectableRepository.getInstance();
-		String type = player.getFactionName();
+		String name = player.getName();
 		Coordinates hQSpawn = getHQSpawn();
 		Coordinates workerSpawn = getWorkerSpawn();
-		UnitBuilding headquaters = BuildingFactory.createHeadQuaters(hQSpawn, type);
+		UnitBuilding headquaters = BuildingFactory.createHeadQuaters(hQSpawn, name);
 		r.register(headquaters);
 		UnitBuildingManager manager = new UnitBuildingManager(headquaters);
 		faction.addSelectableManager(manager);
-		Unit unit = UnitFactory.createUnit(Constants.TEST_GROUND, workerSpawn, type);
+		Unit unit = UnitFactory.createUnit(Constants.TEST_GROUND, workerSpawn, name);
 		r.register(unit);
 		UnitManager unitManager = new UnitManager(unit);
 		faction.addSelectableManager(unitManager);

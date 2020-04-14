@@ -8,6 +8,7 @@ import data.unit.Unit;
 
 public class UnitFactory {
 	public static Unit createUnit(String type, Coordinates spawnPosition, String faction) throws IllegalArgumentException {
+
 		switch (type) {
 		case Constants.TEST_GROUND:
 			return new GroundUnit("Test ground unit", 500, faction, 500, 0, Constants.SUPER_LIGHT,
