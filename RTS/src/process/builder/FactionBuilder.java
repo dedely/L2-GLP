@@ -43,7 +43,7 @@ public class FactionBuilder {
 		r.register(headquaters);
 		UnitBuildingManager manager = new UnitBuildingManager(headquaters);
 		faction.addSelectableManager(manager);
-		Unit unit = UnitFactory.createUnit(Constants.TEST_GROUND, workerSpawn, name);
+		Unit unit = UnitFactory.getInstance().createUnit(Constants.MCM, workerSpawn, name);
 		r.register(unit);
 		UnitManager unitManager = new UnitManager(unit);
 		faction.addSelectableManager(unitManager);

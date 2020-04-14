@@ -12,9 +12,9 @@ public class DefenseBuilding extends Building {
 
 	private Weapon weapon;
 
-	public DefenseBuilding(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
+	public DefenseBuilding(String name, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, Size size, Weapon weapon) {
-		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, size);
+		super(name, playerName, maxHealth, armorPoints, armorType, description, position, size);
 		this.weapon = weapon;
 	}
 

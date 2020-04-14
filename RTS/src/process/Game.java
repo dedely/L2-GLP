@@ -105,4 +105,13 @@ public class Game {
 			throw new NoSuchElementException("Player " + name + " does not exist!");
 		}
 	}
+	
+	public static String getFaction(String name) throws NoSuchElementException {
+		String faction = TeamRepository.getInstance().getPlayer(name).getFactionName();
+		if(faction != null) {
+			return faction;
+		}else {
+			throw new NoSuchElementException("Player " + name + " does not exist!");
+		}
+	}
 }

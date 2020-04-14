@@ -21,13 +21,13 @@ public class BuildingFactory {
 			throws IllegalArgumentException {
 		switch (faction) {
 		case Constants.FEDERATION:
-			return new UnitBuilding(Constants.HEADQUATERS, 0, faction, 1000, 0, Constants.HEAVY, "HQ", spawnPosition,
+			return new UnitBuilding(Constants.HEADQUATERS, faction, 1000, 0, Constants.HEAVY, "HQ", spawnPosition,
 					Constants.DEFAULT_SIZE, spawnPosition);
 		case Constants.UNION:
-			return new UnitBuilding(Constants.HEADQUATERS, 0, faction, 1000, 0, Constants.HEAVY, "HQ", spawnPosition,
+			return new UnitBuilding(Constants.HEADQUATERS, faction, 1000, 0, Constants.HEAVY, "HQ", spawnPosition,
 					Constants.DEFAULT_SIZE, spawnPosition);
 		case Constants.REPUBLIC:
-			return new UnitBuilding(Constants.HEADQUATERS, 0, faction, 1000, 0, Constants.HEAVY, "HQ", spawnPosition,
+			return new UnitBuilding(Constants.HEADQUATERS, faction, 1000, 0, Constants.HEAVY, "HQ", spawnPosition,
 					Constants.DEFAULT_SIZE, spawnPosition);
 		default:
 			throw new IllegalArgumentException("Unknown faction type : " + faction);
