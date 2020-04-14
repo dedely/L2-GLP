@@ -21,10 +21,10 @@ public class GroundUnitWithMountedWeapon extends GroundUnit {
 
 	private Weapon mountedWeapon;
 
-	public GroundUnitWithMountedWeapon(String name, int cost, String playerName, int maxHealth, int armorPoints,
+	public GroundUnitWithMountedWeapon(String name, String playerName, int maxHealth, int armorPoints,
 			int armorType, String description, Coordinates position, int speed, Weapon weapon, int unitSize,
 			Weapon mountedWeapon) {
-		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon,
+		super(name, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon,
 				unitSize);
 		this.mountedWeapon = mountedWeapon;
 	}

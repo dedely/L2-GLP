@@ -66,6 +66,16 @@ public class Constants {
 
 	public static final String TEST_GROUND = "testGround";
 	public static final String TEST_GROUND_EMBARK = "testGroundEmbark";
+	
+	//Union unit
+	public static final String SPECIALIST = "specialist";
+	public static final String AT_SOLDIER = "at_soldier";
+	public static final String ASAV = "asav";
+	public static final String MBT = "mbt";
+	public static final String SPH = "sph";
+	public static final String MCM = "mcm";
+	public static final String HTH = "hth";
+	
 
 	public static final String TEST_GROUND_WEAPON_H = "testGroundWeaponH";
 	public static final String TEST_GROUND_WEAPON_L = "testGroundWeaponL";
@@ -78,5 +88,6 @@ public class Constants {
 	public static final String SPEED = "speedUp";
 	public static final String DAMAGE = "Damage greater";
 	public static final String HEALTH = "Get more health";
+	
 
 }

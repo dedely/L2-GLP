@@ -14,7 +14,6 @@ public abstract class Selectable {
 
 	private String name;
 	private Integer id = null;
-	private int cost;
 
 	private String playerName;
 
@@ -52,10 +51,9 @@ public abstract class Selectable {
 		return name;
 	}
 
-	public Selectable(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
+	public Selectable(String name, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position) {
 		this.name = name;
-		this.cost = cost;
 		this.playerName = playerName;
 		this.maxHealth = maxHealth;
 
@@ -72,13 +70,6 @@ public abstract class Selectable {
 		this.position = position;
 	}
 
-	public int getCost() {
-		return cost;
-	}
-
-	public void setCost(int cost) {
-		this.cost = cost;
-	}
 
 	public String getPlayerName() {
 		return playerName;
@@ -192,7 +183,7 @@ public abstract class Selectable {
 
 	@Override
 	public String toString() {
-		return "Selectable [name=" + name + ", id=" + id + ", cost=" + cost + ", playerName=" + playerName
+		return "Selectable [name=" + name + ", id=" + id + ", playerName=" + playerName
 				+ ", maxHealth=" + maxHealth + ", currentHealth=" + currentHealth + ", armorPoints=" + armorPoints
 				+ ", armorType=" + armorType + ", selected=" + selected + ", description=" + description + ", position="
 				+ position + ", ordersLL=" + ordersLL + "]";
