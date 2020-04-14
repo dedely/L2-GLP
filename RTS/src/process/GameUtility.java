@@ -1,5 +1,6 @@
 package process;
 
+import data.Coordinates;
 import gui.elements.SimuPara;
 
 public class GameUtility {
@@ -23,5 +24,10 @@ public class GameUtility {
 		} catch (InterruptedException e) {
 			System.err.println(e.getMessage());
 		}
+	}
+
+	public static Coordinates convert(Coordinates pixelPosition) {
+		return new Coordinates(pixelPosition.getAbsciss() / SimuPara.SCALE,
+				pixelPosition.getOrdinate() / SimuPara.SCALE, pixelPosition.getHeight());
 	}
 }

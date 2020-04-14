@@ -8,14 +8,17 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.NoSuchElementException;
 
+import data.Constants;
+import data.Coordinates;
 import data.Selectable;
 import gui.elements.menu.ContextualMenu;
 import gui.input.CoordinatesInputManager;
-import gui.input.InputManager;
 import gui.management.PaintVisitor;
 import process.Camera;
 import process.Game;
+import process.GameUtility;
 import process.SelectableRepository;
 
 /**
@@ -38,7 +41,11 @@ public class GameDashboard extends Dashboard implements MouseListener {
 		super(game);
 		this.menu = new ContextualMenu(game);
 		this.camera = camera;
-		input = new CoordinatesInputManager(game);
+		try {
+			input = new CoordinatesInputManager(game.getPlayer(Constants.PLAYER));
+		}catch (NoSuchElementException nsee) {
+			System.err.println(nsee.getMessage());
+		}
 		setBackground(Color.WHITE);
 		addMouseListener(this);
 		setLayout(new BorderLayout());
@@ -80,8 +87,9 @@ public class GameDashboard extends Dashboard implements MouseListener {
 	}
 
 	private boolean isInBounds(Selectable selectable) {
-		int x = selectable.getPositionX();
-		int y = selectable.getPositionY();
+		Coordinates actualPosition = GameUtility.convert(selectable.getPosition());
+		int x = actualPosition.getAbsciss();
+		int y = actualPosition.getOrdinate();
 		return (x >= camera.getMinX()) && (x < camera.getMaxX()) && (y >= camera.getMinY()) && (y < camera.getMaxY());
 	}
 

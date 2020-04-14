@@ -6,6 +6,8 @@ import java.util.HashMap;
 import data.Coordinates;
 import data.Selectable;
 import data.map.Map;
+import data.map.Tile;
+import gui.elements.SimuPara;
 
 /**
  * This class manages the positions of all known selectables on the map.
@@ -63,7 +65,9 @@ public class SelectableRepository {
 		Integer id = nextIdentity();
 		selectable.setId(id);
 		ids.put(id, selectable);
-		map.add(selectable.getPosition(), id);
+		Coordinates pixelPosition = selectable.getPosition();
+		Coordinates actualPosition = GameUtility.convert(pixelPosition);
+		map.add(actualPosition, id);
 	}
 
 	/**
@@ -120,4 +124,30 @@ public class SelectableRepository {
 	public ArrayList<Integer> getDeadSelectables() {
 		return deadSelectables;
 	}
+
+	public void clearDead() {
+		deadSelectables.clear();
+	}
+
+	public Integer getIdByPosition(Coordinates position) {
+		Integer id = null;
+		try {
+			Tile tile = map.getTile(position.getAbsciss(), position.getOrdinate());
+			if (position.getHeight() == 0) {
+				id = tile.getGroundId();
+			}
+			if (position.getHeight() == 1) {
+				id = tile.getAirId();
+			}
+		} catch (IllegalArgumentException iae) {
+			System.err.println(iae.getMessage());
+		}
+		return id;
+	}
+
+	public void updatePosition(Integer id, Coordinates position, Coordinates newPosition) {
+		map.delete(position);
+		map.add(newPosition, id);
+	}
+
 }

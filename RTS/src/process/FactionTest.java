@@ -2,6 +2,7 @@ package process;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 import data.Player;
 import data.resource.Resource;
@@ -67,6 +68,14 @@ public class FactionTest {
 	public void removeSelectableManager(Integer id) {
 		if (managers.containsKey(id)) {
 			managers.remove(id);
+		}
+	}
+	
+	public SelectableManager getSelectableManager(Integer id) throws NoSuchElementException {
+		if (managers.containsKey(id)) {
+			return managers.get(id);
+		}else {
+			throw new NoSuchElementException("Manager of id: " + id + " does not exist!");
 		}
 	}
 	

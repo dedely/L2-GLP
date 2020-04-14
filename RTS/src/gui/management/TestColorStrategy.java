@@ -22,7 +22,11 @@ public class TestColorStrategy implements ColorStrategy {
 		if(selectable.isSelected()) {
 			graphics.setColor(Color.GREEN);
 		}else {
-			graphics.setColor(Color.BLUE);
+			if(selectable.getPlayerName().equals("ai")) {
+				graphics.setColor(Color.RED);
+			}else {
+				graphics.setColor(Color.BLUE);
+			}
 		}
 		
 	}

@@ -48,24 +48,41 @@ public class Map {
 	public void setTiles(Tile[][] tiles) {
 		this.tiles = tiles;
 	}
-	
-	public void add(Coordinates position, Integer id) {
+
+	public void add(Coordinates position, Integer id) throws IllegalArgumentException{
 		int x = position.getAbsciss();
 		int y = position.getOrdinate();
-		if(position.getHeight() == 0) {
-			tiles[y][x].setGroundId(id);
+		if ((x >= 0) && (x < width) && (y >= 0) && (y < height)) {
+			if (position.getHeight() == 0) {
+				tiles[y][x].setGroundId(id);
+			} else {
+				tiles[y][x].setAirId(id);
+			}
 		}else {
-			tiles[y][x].setAirId(id);
+			throw new IllegalArgumentException("Out of bounds: " + x + " " + y);
 		}
 	}
-	
-	public void delete(Coordinates position) {
+
+	public void delete(Coordinates position) throws IllegalArgumentException{
 		int x = position.getAbsciss();
 		int y = position.getOrdinate();
-		if(position.getHeight() == 0) {
-			tiles[y][x].setGroundId(null);
+		if ((x >= 0) && (x < width) && (y >= 0) && (y < height)) {
+			if (position.getHeight() == 0) {
+				tiles[y][x].setGroundId(null);
+			} else {
+				tiles[y][x].setAirId(null);
+			}
 		}else {
-			tiles[y][x].setAirId(null);
+			throw new IllegalArgumentException("Out of bounds: " + x + " " + y);
+		}
+
+	}
+
+	public Tile getTile(int x, int y) throws IllegalArgumentException{
+		if ((x >= 0) && (x < width) && (y >= 0) && (y < height)) {
+			return tiles[x][y];
+		} else {
+			throw new IllegalArgumentException("Out of bounds: " + x + " " + y);
 		}
 	}
 

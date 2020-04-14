@@ -2,6 +2,7 @@ package process;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 import data.Config;
 import data.GameState;
@@ -10,7 +11,7 @@ public class Game {
 	private int state;
 	private HashMap<String, FactionTest> players = new HashMap<String, FactionTest>();
 	private SelectableRepository repository = SelectableRepository.getInstance();
-	
+
 	public Game() {
 		setState(GameState.NEW);
 	}
@@ -60,7 +61,7 @@ public class Game {
 			}
 		}
 	}
-	
+
 	public boolean isReady() {
 		return state == GameState.READY;
 	}
@@ -68,7 +69,7 @@ public class Game {
 	public boolean isRunning() {
 		return state == GameState.RUNNING;
 	}
-	
+
 	public boolean isStopped() {
 		return state == GameState.STOP;
 	}
@@ -79,23 +80,29 @@ public class Game {
 
 	public ArrayList<Integer> getSelection(String name) {
 		ArrayList<Integer> selection = new ArrayList<Integer>();
-		if(players.containsKey(name)) {
+		if (players.containsKey(name)) {
 			selection = players.get(name).getSelection();
 		}
 		return selection;
 	}
-	
+
 	public void select(String name, Integer id) {
-		if(players.containsKey(name)) {
+		if (players.containsKey(name)) {
 			players.get(name).select(id);
 		}
 	}
 
 	public void deselectAll(String name) {
-		if(players.containsKey(name)) {
+		if (players.containsKey(name)) {
 			players.get(name).deselectAll();
 		}
 	}
-	
 
+	public FactionTest getPlayer(String name) throws NoSuchElementException {
+		if (players.containsKey(name)) {
+			return players.get(name);
+		} else {
+			throw new NoSuchElementException("Player " + name + " does not exist!");
+		}
+	}
 }

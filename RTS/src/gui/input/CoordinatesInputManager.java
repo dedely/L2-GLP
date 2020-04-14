@@ -2,6 +2,8 @@ package gui.input;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import data.Constants;
 import data.Coordinates;
@@ -11,7 +13,7 @@ import data.order.MoveToPosition;
 import gui.elements.SimuPara;
 import gui.management.ShapeRepository;
 import process.Camera;
-import process.Game;
+import process.FactionTest;
 import process.SelectableRepository;
 
 /**
@@ -21,15 +23,15 @@ import process.SelectableRepository;
  *
  */
 public class CoordinatesInputManager implements InputManager {
-	private Game game;
+	private FactionTest player;
 	private int button;
 	private int count;
 	private Point point;
 	private Camera camera;
 	private boolean debug = true;
 
-	public CoordinatesInputManager(Game game) {
-		this.game = game;
+	public CoordinatesInputManager(FactionTest player) {
+		this.player = player;
 	}
 
 	@Override
@@ -57,9 +59,9 @@ public class CoordinatesInputManager implements InputManager {
 		SelectableRepository r = SelectableRepository.getInstance();
 		Integer selectionId = screen.contains(point);
 		// Only 1 shape can be selected using a simple click.
-		game.deselectAll(Constants.PLAYER);
+		player.deselectAll();
 		if (selectionId != null) {
-			game.select(Constants.PLAYER, selectionId);
+			player.select(selectionId);
 		}
 
 		// Prints debug messages in the console.
@@ -74,27 +76,45 @@ public class CoordinatesInputManager implements InputManager {
 	}
 
 	private void processRightClick() {
-		/*
-		 * ShapeRepository screen = ShapeRepository.getInstance(); SelectableRepository
-		 * r = SelectableRepository.getInstance();
-		 * 
-		 * ArrayList<Integer> selectedCollection = r.getSelected();
-		 * 
-		 * if (selectedCollection.size() > 0) {
-		 * 
-		 * Integer targetId = screen.contains(point);
-		 * 
-		 * if (targetId != null) { // Add ennemy check later. Attack order = new
-		 * Attack(Constants.STOP_TO_SHOOT, r.getSelectable(targetId)); for (Integer
-		 * selectedId : selectedCollection) {
-		 * r.getSelectableManager(selectedId).giveOrder(order); }
-		 * 
-		 * } else { int x = (point.x / SimuPara.SCALE) + camera.getMinX(); int y =
-		 * (point.y / SimuPara.SCALE) + camera.getMinY(); Coordinates coordinates = new
-		 * Coordinates(x, y); MoveToPosition order = new MoveToPosition(coordinates,
-		 * Constants.GO_AT_ALL_COST); for (Integer selectedId : selectedCollection) {
-		 * r.getSelectableManager(selectedId).giveOrder(order); } } }
-		 */
+
+		ShapeRepository screen = ShapeRepository.getInstance();
+
+		SelectableRepository r = SelectableRepository.getInstance();
+		
+		ArrayList<Integer> selectedCollection = player.getSelection();
+
+		if (selectedCollection.size() > 0) {
+
+			Integer targetId = screen.contains(point);
+
+			if (targetId != null) { // Add ennemy check later.
+				Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(targetId));
+				for (Integer selectedId : selectedCollection) {
+					try {
+						player.getSelectableManager(selectedId).giveOrder(order);
+					} catch (NoSuchElementException nsee) {
+						System.err.println(nsee.getMessage());
+					}
+					
+				}
+
+			} else {
+				int x = point.x + camera.getMinX() * SimuPara.SCALE;
+				int y = point.y + camera.getMinY() * SimuPara.SCALE;
+				Coordinates coordinates = new Coordinates(x, y);
+				System.out.println("move to: " + coordinates);
+				MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
+				for (Integer selectedId : selectedCollection) {
+					try {
+						player.getSelectableManager(selectedId).giveOrder(order);
+					} catch (NoSuchElementException nsee) {
+						System.err.println(nsee.getMessage());
+					}
+					
+				}
+			}
+		}
+
 	}
 
 	public int getButton() {
