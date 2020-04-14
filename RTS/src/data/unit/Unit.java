@@ -25,9 +25,9 @@ public abstract class Unit extends Selectable {
 
 	private Weapon weapon;
 
-	public Unit(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
+	public Unit(String name, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon) {
-		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position);
+		super(name, playerName, maxHealth, armorPoints, armorType, description, position);
 		this.speed = speed;
 		this.weapon = weapon;
 	}

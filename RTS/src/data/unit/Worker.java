@@ -15,11 +15,13 @@ public class Worker extends Unit {
 	 * the space the unit takes
 	 */
 	private int unitSize;
+	private int contenerSize;
 
-	public Worker(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, Weapon weapon, int unitSize) {
-		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+	public Worker(String name, String playerName, int maxHealth, int armorPoints, int armorType,
+			String description, Coordinates position, int speed, Weapon weapon, int unitSize, int contenerSize) {
+		super(name, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 		this.unitSize = unitSize;
+		this.contenerSize = contenerSize;
 	}
 
 	public int getUnitSlots() {

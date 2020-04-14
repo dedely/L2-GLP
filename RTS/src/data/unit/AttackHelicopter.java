@@ -13,9 +13,9 @@ public class AttackHelicopter extends Unit {
 
 	private Weapon secondaryWeapon;
 
-	public AttackHelicopter(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
+	public AttackHelicopter(String name, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon, Weapon secondaryWeapon) {
-		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+		super(name, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 		this.secondaryWeapon = secondaryWeapon;
 	}
 

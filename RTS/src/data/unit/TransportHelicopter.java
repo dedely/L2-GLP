@@ -28,9 +28,9 @@ public class TransportHelicopter extends Unit {
 	 */
 	private ArrayList<Unit> unitsIn = new ArrayList<Unit>();
 
-	public TransportHelicopter(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
+	public TransportHelicopter(String name, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon, int unitSlots) {
-		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+		super(name, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 		this.unitSlots = unitSlots;
 		unitSlotsAvailable = unitSlots;
 	}

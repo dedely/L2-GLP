@@ -16,9 +16,9 @@ public class GroundUnit extends Unit {
 	 */
 	private int unitSize;
 
-	public GroundUnit(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
+	public GroundUnit(String name, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, int speed, Weapon weapon, int unitSize) {
-		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
+		super(name, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 		this.unitSize = unitSize;
 	}
 
