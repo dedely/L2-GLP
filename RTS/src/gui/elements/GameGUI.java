@@ -16,7 +16,6 @@ import process.Camera;
 import process.Game;
 import process.GameUtility;
 
-
 /**
  * @author Adel
  *
@@ -24,14 +23,11 @@ import process.GameUtility;
 public class GameGUI extends JFrame implements Runnable, KeyListener {
 
 	private static final Dimension IDEAL_DASHBOARD_DIMENSION = new Dimension(1920, 900);
-	// private static final Dimension IDEAL_MENU_DIMENSION = new Dimension(1920,
-	// 180);
 
 	private Game game;
 	private Dashboard dashboard;
 	private Camera camera;
-	// private ContextualMenu menu;
-	
+
 	private InputManager input;
 
 	/**
@@ -64,19 +60,20 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
 		setSize(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT);
-		
+
 		camera = new Camera(new Point(0, 79));
-		//We first display the title screen.
+		
+		// We first display the title screen.
 		dashboard = new TitleScreen(game);
 		dashboard.setPreferredSize(IDEAL_DASHBOARD_DIMENSION);
-		// menu.setPreferredSize(IDEAL_MENU_DIMENSION);
+
 		contentPane.add(BorderLayout.CENTER, dashboard);
-		// contentPane.add(BorderLayout.SOUTH, menu);
+
 
 		// Uncomment the following instructions to make the game full screen.
 
-		//setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//setUndecorated(true);
+		// setExtendedState(JFrame.MAXIMIZED_BOTH);
+		// setUndecorated(true);
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
@@ -91,29 +88,25 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 	 * The entry point of our application.
 	 */
 	public void run() {
-		// long startTime = 0, endTime = 0;
+		long startTime = 0, endTime = 0;
 
-		// int loopNumber = 0;
 		while (!game.isStopped()) {
-			// loopNumber++;
-			// startTime = System.nanoTime();
+			startTime = System.nanoTime();
 			GameUtility.unitTime();
 
-			if(game.isReady()) {
+			if (game.isReady()) {
 				updateLayout();
 				game.run();
 			}
 
-			if(game.isRunning()) {
+			if (game.isRunning()) {
 				game.update();
 				dashboard.repaint();
 			}
 
-			
-			// endTime = System.nanoTime();
-			// long timeElapsed = endTime - startTime;
-			// System.out.println("Execution time in miliseconds : " + timeElapsed /
-			// 1000000);
+			endTime = System.nanoTime();
+			long timeElapsed = endTime - startTime;
+			System.out.println("Execution time in miliseconds : " + timeElapsed / 1000000);
 		}
 
 		// We need a little more time for avoiding printing delay issue.
@@ -129,36 +122,6 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 		contentPane.revalidate();
 		contentPane.repaint();
 	}
-
-	/**
-	 * This method is only used for testing purposes: it adds 1 unit to each
-	 * faction. It will be deleted eventually.
-	 */
-	/*private void addTestUnits() {
-		ArrayList<Faction> factions = game.getState().getFactions();
-		Iterator<Faction> factionIterator = factions.iterator();
-		SelectableRepository r = SelectableRepository.getInstance();
-		Faction currentFaction = factionIterator.next();
-		Unit playerUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(40, 22, 0), currentFaction);
-		UnitManager manager = new UnitManager(playerUnit);
-		r.register(manager);
-		Unit aiUnit = UnitFactory.createUnit(Constants.TEST_GROUND, new Coordinates(SimuPara.SCALE, SimuPara.SCALE, 0),
-				factionIterator.next());
-		UnitManager managerAI = new UnitManager(aiUnit);
-		r.register(managerAI);
-
-	}/*
-
-	/*private void addTestBuildings() {
-		ArrayList<Faction> factions = game.getState().getFactions();
-		Iterator<Faction> factionIterator = factions.iterator();
-		SelectableRepository r = SelectableRepository.getInstance();
-		Faction currentFaction = factionIterator.next();
-		UnitBuilding playerHQ = BuildingFactory.createHeadQuaters(new Coordinates(38, 38, 0), currentFaction);
-		BuildingManager manager = new BuildingManager(playerHQ);
-		r.register(manager);
-	}*/
-	
 
 	@Override
 	public void keyTyped(KeyEvent e) {

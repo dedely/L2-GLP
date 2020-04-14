@@ -17,8 +17,8 @@ public class Worker extends Unit {
 	private int unitSize;
 	private int contenerSize;
 
-	public Worker(String name, String playerName, int maxHealth, int armorPoints, int armorType,
-			String description, Coordinates position, int speed, Weapon weapon, int unitSize, int contenerSize) {
+	public Worker(String name, String playerName, int maxHealth, int armorPoints, int armorType, String description,
+			Coordinates position, int speed, Weapon weapon, int unitSize, int contenerSize) {
 		super(name, playerName, maxHealth, armorPoints, armorType, description, position, speed, weapon);
 		this.unitSize = unitSize;
 		this.contenerSize = contenerSize;
@@ -32,6 +32,14 @@ public class Worker extends Unit {
 		this.unitSize = unitSlots;
 	}
 
+	public int getContenerSize() {
+		return contenerSize;
+	}
+
+	public void setContenerSize(int contenerSize) {
+		this.contenerSize = contenerSize;
+	}
+
 	@Override
 	public <T> T accept(SelectableVisitor<T> visitor) {
 		return visitor.visit(this);
@@ -39,7 +47,8 @@ public class Worker extends Unit {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nunit slots" + unitSize;
+		return "Worker [unitSize=" + unitSize + ", contenerSize=" + contenerSize + ", toString()=" + super.toString()
+				+ "]";
 	}
 
 }

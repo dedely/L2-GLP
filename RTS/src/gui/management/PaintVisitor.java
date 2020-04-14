@@ -99,7 +99,9 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(Worker selectable) {
+		colorStrategy.setColor(graphics, selectable);
 		printCircle(selectable);
+		printSelected(selectable);
 		return null;
 	}
 

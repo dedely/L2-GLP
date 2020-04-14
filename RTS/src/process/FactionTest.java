@@ -70,25 +70,27 @@ public class FactionTest {
 			managers.remove(id);
 		}
 	}
-	
+
 	public SelectableManager getSelectableManager(Integer id) throws NoSuchElementException {
 		if (managers.containsKey(id)) {
 			return managers.get(id);
-		}else {
+		} else {
 			throw new NoSuchElementException("Manager of id: " + id + " does not exist!");
 		}
 	}
-	
+
 	public void select(Integer id) {
-		SelectableRepository r = SelectableRepository.getInstance();
-		r.select(id);
-		selection.add(id);
+		if (managers.containsKey(id)) {
+			SelectableRepository r = SelectableRepository.getInstance();
+			r.select(id);
+			selection.add(id);
+		}
 	}
 
 	public void deselectAll() {
-		if(selection.size() > 0) {
+		if (selection.size() > 0) {
 			SelectableRepository r = SelectableRepository.getInstance();
-			for(Integer id: selection) {
+			for (Integer id : selection) {
 				r.deselect(id);
 			}
 			selection.clear();

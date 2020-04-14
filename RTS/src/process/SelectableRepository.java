@@ -7,7 +7,6 @@ import data.Coordinates;
 import data.Selectable;
 import data.map.Map;
 import data.map.Tile;
-import gui.elements.SimuPara;
 
 /**
  * This class manages the positions of all known selectables on the map.

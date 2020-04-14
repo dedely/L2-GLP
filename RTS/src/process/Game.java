@@ -56,9 +56,16 @@ public class Game {
 
 	public void update() {
 		if (isRunning()) {
+			removeDead();
 			for (FactionTest player : players.values()) {
 				player.update();
 			}
+		}
+	}
+
+	private void removeDead() {
+		for(Integer id: repository.getDeadSelectables()) {
+			String player = repository.getSelectable(id).getPlayerName();
 		}
 	}
 

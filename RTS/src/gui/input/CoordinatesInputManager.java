@@ -62,6 +62,7 @@ public class CoordinatesInputManager implements InputManager {
 		player.deselectAll();
 		if (selectionId != null) {
 			player.select(selectionId);
+			System.out.println(selectionId);
 		}
 
 		// Prints debug messages in the console.
