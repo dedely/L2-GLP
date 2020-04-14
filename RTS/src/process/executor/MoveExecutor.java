@@ -18,6 +18,7 @@ public class MoveExecutor implements Executor {
 	@Override
 	public boolean execute() {
 		SelectableRepository r = SelectableRepository.getInstance();
+		
 		//r.updatePosition(this);
 		return unit.getPosition().equals(destination);
 	}

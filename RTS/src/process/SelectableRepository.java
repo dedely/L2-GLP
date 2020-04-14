@@ -3,6 +3,7 @@ package process;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import data.Coordinates;
 import data.Selectable;
 import data.map.Map;
 
@@ -119,5 +120,4 @@ public class SelectableRepository {
 	public ArrayList<Integer> getDeadSelectables() {
 		return deadSelectables;
 	}
-
 }
