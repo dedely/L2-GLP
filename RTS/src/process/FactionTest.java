@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
+import data.Cost;
 import data.Player;
 import data.resource.Resource;
 import process.managers.ResearchManager;
@@ -17,6 +18,8 @@ public class FactionTest {
 	private ResearchManager researcher = null;
 	private HashMap<Integer, SelectableManager> managers = new HashMap<Integer, SelectableManager>();
 	private ArrayList<Integer> selection = new ArrayList<Integer>();
+	private HashMap<String, Cost> costs = new HashMap<String, Cost>();
+	private HashMap<Integer, SelectableManager> newManagers = new HashMap<Integer, SelectableManager>();
 
 	public FactionTest(Player player) {
 		this.player = player.getName();
@@ -24,9 +27,15 @@ public class FactionTest {
 	}
 
 	public void update() {
+		addAllNew();
 		for (SelectableManager manager : managers.values()) {
 			manager.update();
 		}
+	}
+
+	private void addAllNew() {
+		managers.putAll(newManagers);
+		newManagers.clear();
 	}
 
 	public ArrayList<Integer> getSelection() {
@@ -96,4 +105,53 @@ public class FactionTest {
 			selection.clear();
 		}
 	}
+
+	public HashMap<String, Cost> getCosts() {
+		return costs;
+	}
+
+	public void setCosts(HashMap<String, Cost> costs) {
+		this.costs = costs;
+	}
+
+	public Cost getCost(String name) throws NoSuchElementException {
+		Cost cost = null;
+		if (costs.containsKey(name)) {
+			cost = costs.get(name);
+		}
+		if (cost != null) {
+			return cost;
+		} else {
+			throw new NoSuchElementException("Undefined cost for " + name);
+		}
+	}
+
+	public void updateResource(String name, int value) {
+		if (resources.containsKey(name)) {
+			resources.get(name).setResourceCount(value);
+		}
+	}
+
+	public Resource getResource(String name) throws NoSuchElementException {
+		Resource resource = null;
+		if (resources.containsKey(name)) {
+			resource = resources.get(name);
+		}
+		if (resource != null) {
+			return resource;
+		} else {
+			throw new NoSuchElementException("Resource " + name + " does not exist!");
+		}
+	}
+
+	public void addNew(SelectableManager manager) {
+		if (manager != null) {
+			newManagers.put(manager.getSelectableId(), manager);
+		}
+	}
+	
+	public void clearNew() {
+		newManagers.clear();
+	}
+
 }

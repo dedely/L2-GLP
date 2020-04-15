@@ -28,7 +28,7 @@ public class CoordinatesInputManager implements InputManager {
 	private int count;
 	private Point point;
 	private Camera camera;
-	private boolean debug = true;
+	private boolean debug = false;
 
 	public CoordinatesInputManager(FactionTest player) {
 		this.player = player;
@@ -62,7 +62,6 @@ public class CoordinatesInputManager implements InputManager {
 		player.deselectAll();
 		if (selectionId != null) {
 			player.select(selectionId);
-			System.out.println(selectionId);
 		}
 
 		// Prints debug messages in the console.
@@ -103,7 +102,6 @@ public class CoordinatesInputManager implements InputManager {
 				int x = point.x + camera.getMinX() * SimuPara.SCALE;
 				int y = point.y + camera.getMinY() * SimuPara.SCALE;
 				Coordinates coordinates = new Coordinates(x, y);
-				System.out.println("move to: " + coordinates);
 				MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
 				for (Integer selectedId : selectedCollection) {
 					try {

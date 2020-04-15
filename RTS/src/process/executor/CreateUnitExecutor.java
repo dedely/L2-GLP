@@ -1,45 +1,96 @@
 package process.executor;
 
+import java.util.NoSuchElementException;
+
+import data.Constants;
 import data.Coordinates;
+import data.Cost;
+import data.building.UnitBuilding;
 import data.faction.Faction;
+import data.resource.Resource;
 import data.unit.Unit;
+import process.FactionTest;
 import process.SelectableRepository;
+import process.factory.TestFactory;
 import process.factory.UnitFactory;
 import process.managers.UnitManager;
 
 public class CreateUnitExecutor implements Executor {
 
+	private FactionTest testFaction;
+	private UnitBuilding unitBuilding;
 	private String unitToCreate;
-	private Faction faction;
-	private int totalTime;
-	private int timeLeft;
 	private Coordinates position;
+
+	private Cost cost;
+	private int timeLeft;
+	private int totalTime;
 	private boolean complete = false;
 
-	public CreateUnitExecutor(String unitToCreate, int totalTime, Coordinates position, Faction faction) {
+	/**
+	 * The constructor prepares what's needed to create a new unit.
+	 * 
+	 * @param testFaction
+	 * @param unitBuilding
+	 * @param unitToCreate
+	 */
+	public CreateUnitExecutor(FactionTest testFaction, UnitBuilding unitBuilding, String unitToCreate) {
+		this.testFaction = testFaction;
+		this.unitBuilding = unitBuilding;
 		this.unitToCreate = unitToCreate;
-		this.totalTime = totalTime;
-		timeLeft = totalTime;
-		this.position = position;
+		position = unitBuilding.getPosition();
+		try {
+			cost = testFaction.getCost(unitToCreate);
+			totalTime = cost.getTime();
+			timeLeft = totalTime;
+		} catch (NoSuchElementException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 
 	@Override
 	public boolean execute() {
-		/*if(timeLeft == 0) {
-			Unit unit = UnitFactory.createUnit(unitToCreate, position, faction);
-			UnitManager manager = new UnitManager(unit);
-			SelectableRepository r = SelectableRepository.getInstance();
-			r.register(manager);
-		}*/
+		if (timeLeft == totalTime) {
+			try {
+				Resource mats = testFaction.getResource(Constants.MATS);
+				int currentCount = mats.getResourceCount();
+				int price = cost.getCost();
+				int newCount = currentCount - price;
+				if (newCount >= 0) {
+					testFaction.updateResource(Constants.MATS, newCount);
+					timeLeft--;
+				} else {
+					complete = true;
+				}
+			} catch (NoSuchElementException e) {
+				complete = true;
+				System.err.println(e.getMessage());
+			}
+		} else if (timeLeft == 0) {
+			try {
+				SelectableRepository r = SelectableRepository.getInstance();
+				Unit unit = TestFactory.createUnit(unitToCreate, testFaction.getPlayer(), position);
+				Integer id = r.nextIdentity();
+				unit.setId(id);
+				UnitManager manager = new UnitManager(unit);
+				testFaction.addNew(manager);
+				r.addNew(unit);
+			} catch (IllegalArgumentException e) {
+				System.err.println(e.getMessage());
+			}
+			complete = true;
+		} else {
+			timeLeft--;
+		}
 		return complete;
 	}
 
 	public int getProgress() {
 		int progress;
-		if(timeLeft > 0) {
-			progress = 1 - (timeLeft/totalTime);
-		}else {
-			progress = 1;
+		if (timeLeft > 0) {
+			progress = (int) (100 - ((timeLeft * 100.0f) / totalTime));
+		} else {
+			progress = 100;
 		}
 		return progress;
 	}

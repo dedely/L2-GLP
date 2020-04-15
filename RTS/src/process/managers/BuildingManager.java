@@ -51,4 +51,9 @@ public class BuildingManager extends SelectableManager {
 		executeNextOrder();
 	}
 
+	@Override
+	public int getProgress() {
+		return 0;
+	}
+
 }

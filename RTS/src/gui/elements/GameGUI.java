@@ -29,6 +29,11 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 	private Camera camera;
 
 	private InputManager input;
+	
+	private boolean debug = true;
+	private long lastFpsCheck = 0;
+	private int currentFps = 0;
+	private int totalFrames = 0;
 
 	/**
 	 * 
@@ -72,8 +77,8 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 
 		// Uncomment the following instructions to make the game full screen.
 
-		// setExtendedState(JFrame.MAXIMIZED_BOTH);
-		// setUndecorated(true);
+		 setExtendedState(JFrame.MAXIMIZED_BOTH);
+		 setUndecorated(true);
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
@@ -88,10 +93,18 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 	 * The entry point of our application.
 	 */
 	public void run() {
-		long startTime = 0, endTime = 0;
 
 		while (!game.isStopped()) {
-			startTime = System.nanoTime();
+			//fps counter:
+			if(debug) {
+				totalFrames++;
+				if(System.nanoTime() > lastFpsCheck + 1000000000) {
+					lastFpsCheck = System.nanoTime();
+					currentFps = totalFrames;
+					totalFrames = 0;
+					System.out.println("FPS: " + currentFps);
+				}
+			}
 			GameUtility.unitTime();
 
 			if (game.isReady()) {
@@ -104,9 +117,6 @@ public class GameGUI extends JFrame implements Runnable, KeyListener {
 				dashboard.repaint();
 			}
 
-			endTime = System.nanoTime();
-			long timeElapsed = endTime - startTime;
-			System.out.println("Execution time in miliseconds : " + timeElapsed / 1000000);
 		}
 
 		// We need a little more time for avoiding printing delay issue.

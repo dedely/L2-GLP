@@ -94,7 +94,7 @@ public class Constants {
 	public static final String TEST_GROUND_WEAPON_L = "testGroundWeaponL";
 	public static final String TEST_GROUND_WEAPON_SL = "testGroundWeaponSL";
 
-	public static final Config DEFAULT_CONFIG = new Config(1, new Player("player", FEDERATION),
+	public static final Config DEFAULT_CONFIG = new Config(1, new Player("player", UNION),
 			new Player("ai", FEDERATION));
 	public static final Size DEFAULT_SIZE = new Size(3, 3);
 
@@ -102,6 +102,8 @@ public class Constants {
 	public static final String DAMAGE = "Damage greater";
 	public static final String HEALTH = "Get more health";
 
+	
+	public static final String MATS = "mats";
 	
 
 }

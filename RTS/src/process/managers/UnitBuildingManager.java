@@ -3,18 +3,21 @@ package process.managers;
 import data.Selectable;
 import data.building.UnitBuilding;
 import data.order.Order;
+import process.FactionTest;
 import process.executor.Executor;
 import process.visitor.UnitBuildingVisitor;
 
 public class UnitBuildingManager extends SelectableManager {
+	private FactionTest player;
 	private UnitBuilding unitBuilding;
 	private UnitBuildingVisitor visitor;
 	private Executor concreteExecutor = null;
 	private boolean complete = false;
 
-	public UnitBuildingManager(UnitBuilding unitBuilding) {
+	public UnitBuildingManager(UnitBuilding unitBuilding, FactionTest player) {
 		this.unitBuilding = unitBuilding;
-		visitor = new UnitBuildingVisitor(unitBuilding);
+		this.player = player;
+		visitor = new UnitBuildingVisitor(unitBuilding, player);
 	}
 
 	@Override
@@ -50,4 +53,11 @@ public class UnitBuildingManager extends SelectableManager {
 	public void update() {
 		executeNextOrder();
 	}
+
+	@Override
+	public int getProgress() {
+		return concreteExecutor.getProgress();
+
+	}
+
 }

@@ -1,9 +1,13 @@
 package process.builder;
 
+import java.util.HashMap;
+
 import data.Constants;
 import data.Coordinates;
+import data.Cost;
 import data.Player;
 import data.building.UnitBuilding;
+import data.resource.Resource;
 import data.unit.Unit;
 import gui.elements.SimuPara;
 import process.FactionTest;
@@ -26,6 +30,7 @@ public class FactionBuilder {
 		initResources();
 		initResearch();
 		initSelectable();
+		initCosts();
 
 		return faction;
 	}
@@ -42,7 +47,7 @@ public class FactionBuilder {
 		Coordinates workerSpawn = getWorkerSpawn();
 		UnitBuilding headquaters = TestFactory.createUnitBuilding(Constants.HEADQUATERS, name, hQSpawn, hQSpawn);
 		r.register(headquaters);
-		UnitBuildingManager manager = new UnitBuildingManager(headquaters);
+		UnitBuildingManager manager = new UnitBuildingManager(headquaters, faction);
 		faction.addSelectableManager(manager);
 		Unit unit = TestFactory.createUnit(Constants.MCM, name, workerSpawn);
 		r.register(unit);
@@ -51,8 +56,12 @@ public class FactionBuilder {
 	}
 
 	private void initResources() {
-		// TODO Auto-generated method stub
-
+		faction.addResource(new Resource(1000, Constants.MATS));
+	}
+	
+	private void initCosts() {
+		HashMap<String, Cost> costs = CostBuilder.buildCosts(player.getFactionName());
+		faction.setCosts(costs);
 	}
 
 	private Coordinates getHQSpawn() {

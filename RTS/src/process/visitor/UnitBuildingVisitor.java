@@ -10,15 +10,18 @@ import data.order.Defend;
 import data.order.Embark;
 import data.order.MoveToPosition;
 import data.order.MoveToTarget;
+import process.FactionTest;
 import process.executor.CreateUnitExecutor;
 import process.executor.Executor;
 
 public class UnitBuildingVisitor implements OrderVisitor<Executor> {
 
 	private UnitBuilding unitBuilding;
+	private FactionTest player;
 
-	public UnitBuildingVisitor(UnitBuilding unitBuilding) {
+	public UnitBuildingVisitor(UnitBuilding unitBuilding, FactionTest player) {
 		this.unitBuilding = unitBuilding;
+		this.player = player;
 	}
 
 	@Override
@@ -43,7 +46,7 @@ public class UnitBuildingVisitor implements OrderVisitor<Executor> {
 
 	@Override
 	public Executor visit(CreateUnit order) {
-		return null;
+		return new CreateUnitExecutor(player, unitBuilding, order.getUnitToCreate());
 	}
 
 	@Override

@@ -2,7 +2,6 @@ package process.managers;
 
 import data.Selectable;
 import data.order.Order;
-import process.GameUtility;
 
 public abstract class SelectableManager {
 	private Order order = null;
@@ -15,6 +14,8 @@ public abstract class SelectableManager {
 	public abstract void giveOrder(Order order);
 
 	public abstract void executeNextOrder();
+	
+	public abstract int getProgress();
 
 	public boolean isDead() {
 		return getSelectable().getCurrentHealth() <= 0;

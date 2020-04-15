@@ -39,13 +39,11 @@ public class BuildingExecutionVisitor implements OrderVisitor<Executor> {
 
 	@Override
 	public Executor visit(Build order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(CreateUnit order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -7,7 +7,7 @@ import process.Camera;
 public class KeyInputManager implements InputManager {
 	private int code;
 	private Camera camera;
-	private boolean debug = true;
+	private boolean debug = false;
 
 	public KeyInputManager(int code, Camera camera) {
 		this.code = code;

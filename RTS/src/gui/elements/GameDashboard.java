@@ -34,8 +34,8 @@ public class GameDashboard extends Dashboard implements MouseListener {
 	/**
 	 * Showing the grid will make the debug easier.
 	 */
-	private boolean debugGrid = true;
-	private boolean debugMouseInput = true;
+	private boolean debugGrid = false;
+	private boolean debugMouseInput = false;
 
 	public GameDashboard(Game game, Camera camera) {
 		super(game);

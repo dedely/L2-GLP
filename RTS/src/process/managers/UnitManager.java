@@ -33,13 +33,13 @@ public class UnitManager extends SelectableManager {
 		Order order = getOrder();
 		if (order != null) {
 			complete = false;
-			if(concreteExecutor == null) {
-				if((concreteExecutor = order.accept(visitor)) == null) {
+			if (concreteExecutor == null) {
+				if ((concreteExecutor = order.accept(visitor)) == null) {
 					finish();
 				}
-			}else {
+			} else {
 				complete = concreteExecutor.execute();
-				if(complete) {
+				if (complete) {
 					concreteExecutor = null;
 					finish();
 				}
@@ -51,4 +51,10 @@ public class UnitManager extends SelectableManager {
 	public void update() {
 		executeNextOrder();
 	}
+
+	@Override
+	public int getProgress() {
+		return 0;
+	}
+
 }

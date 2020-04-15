@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import data.Constants;
 import data.Coordinates;
@@ -11,9 +12,12 @@ import data.Selectable;
 import data.order.CreateUnit;
 import data.unit.Unit;
 import gui.elements.SimuPara;
+import process.FactionTest;
+import process.GameUtility;
 import process.OrderTreatment;
 import process.SelectableRepository;
 import process.factory.UnitFactory;
+import process.managers.SelectableManager;
 
 /**
  * @author Adel
@@ -21,8 +25,8 @@ import process.factory.UnitFactory;
  */
 public class CreateTestUnitButton extends OrderButton {
 
-	public CreateTestUnitButton(String action) {
-		super(action);
+	public CreateTestUnitButton(FactionTest player, String action) {
+		super(player, action);
 		initStyle();
 		initLayout();
 		initAction();
@@ -50,21 +54,17 @@ public class CreateTestUnitButton extends OrderButton {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			/*
-			 * SelectableRepository r = SelectableRepository.getInstance();
-			 * ArrayList<Selectable> selectedCollection = r.getSelected(); // the position
-			 * of the new selectable should be around the building. the // following is
-			 * artificial. for (Selectable selected : selectedCollection) { Coordinates
-			 * position = new Coordinates(selected.getPositionX() - SimuPara.RADIUS * 4,
-			 * selected.getPositionX() - SimuPara.RADIUS * 4, 0); //CreateUnit order = new
-			 * CreateUnit(Constants.TEST_GROUND, position, 100); Unit newUnit =
-			 * UnitFactory.createUnit(Constants.TEST_GROUND,position,
-			 * selected.getFaction());
-			 * SelectableRepository.getInstance().addNewUnit(newUnit);
-			 * //System.out.println(SelectableRepository.getInstance().getPositions().values
-			 * ().size()); //System.out.println("registered!"); //r.addNewUnit(newUnit);
-			 * //OrderTreatment.giveOrderReplace(selected, order); }
-			 */
+			ArrayList<Integer> selectedCollection = getPlayer().getSelection();
+			for (Integer selectedId : selectedCollection) {
+				try {
+					SelectableManager manager = getPlayer().getSelectableManager(selectedId);
+					CreateUnit order = new CreateUnit(Constants.MCM);
+					manager.giveOrder(order);
+				} catch (NoSuchElementException nsee) {
+					System.err.println(nsee.getMessage());
+				}
+			}
+			 
 		}
 
 	}

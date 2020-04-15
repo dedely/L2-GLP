@@ -28,7 +28,7 @@ public class MoveExecutor implements Executor {
 				unit.setPosition(newPosition);
 				r.updatePosition(unit.getId(), actualPosition, actualNewPosition);
 			}
-		}else {
+		} else {
 			unit.setPosition(newPosition);
 		}
 
@@ -50,6 +50,11 @@ public class MoveExecutor implements Executor {
 
 	public Coordinates getNewPosition() {
 		return CoordinatesTreatment.positionNextTick(unit, destination);
+	}
+
+	@Override
+	public int getProgress() {
+		return 0;
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 
 import data.Config;
 import data.GameState;
+import data.Selectable;
 
 public class Game {
 	private int state;
@@ -57,16 +58,30 @@ public class Game {
 	public void update() {
 		if (isRunning()) {
 			removeDead();
+			addNew();
 			for (FactionTest player : players.values()) {
 				player.update();
 			}
 		}
 	}
 
+	private void addNew() {
+		for(Selectable selectable: repository.getNewSelectables()) {
+			repository.register(selectable);
+		}
+		repository.clearNew();
+	}
+
 	private void removeDead() {
 		for(Integer id: repository.getDeadSelectables()) {
 			String player = repository.getSelectable(id).getPlayerName();
+			try {
+				getPlayer(player).removeSelectableManager(id);
+			}catch(NoSuchElementException nsee) {
+				System.err.println(nsee.getMessage());
+			}
 		}
+		repository.clearDead();
 	}
 
 	public boolean isReady() {

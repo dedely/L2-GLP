@@ -45,8 +45,14 @@ public class AttackExecutor implements Executor {
 			helper.execute();
 		}
 	}
-	
+
 	private boolean isReloaded() {
 		return caster.getWeapon().getTimeLeftToReload() == 0;
 	}
+
+	@Override
+	public int getProgress() {
+		return 0;
+	}
+
 }

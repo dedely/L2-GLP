@@ -7,6 +7,7 @@ import data.Coordinates;
 import data.Selectable;
 import data.map.Map;
 import data.map.Tile;
+import data.unit.Unit;
 
 /**
  * This class manages the positions of all known selectables on the map.
@@ -20,6 +21,7 @@ public class SelectableRepository {
 
 	private HashMap<Integer, Selectable> ids = new HashMap<Integer, Selectable>();
 	private ArrayList<Integer> deadSelectables = new ArrayList<Integer>();
+	private ArrayList<Selectable> newSelectables = new ArrayList<Selectable>();
 	private Map map;
 
 	/**
@@ -61,8 +63,11 @@ public class SelectableRepository {
 	 * @param selected is given an id and registered in the ids HashMap.
 	 */
 	public void register(Selectable selectable) {
-		Integer id = nextIdentity();
-		selectable.setId(id);
+		Integer id = selectable.getId();
+		if (id == null) {
+			id = nextIdentity();
+			selectable.setId(id);
+		}
 		ids.put(id, selectable);
 		Coordinates pixelPosition = selectable.getPosition();
 		Coordinates actualPosition = GameUtility.convert(pixelPosition);
@@ -104,7 +109,7 @@ public class SelectableRepository {
 	/**
 	 * @return a new id.
 	 */
-	private Integer nextIdentity() {
+	public Integer nextIdentity() {
 		return ++cpt;
 	}
 
@@ -147,6 +152,20 @@ public class SelectableRepository {
 	public void updatePosition(Integer id, Coordinates position, Coordinates newPosition) {
 		map.delete(position);
 		map.add(newPosition, id);
+	}
+
+	public void addNew(Unit unit) {
+		if(unit != null) {
+			newSelectables.add(unit);
+		}
+	}
+
+	public ArrayList<Selectable> getNewSelectables() {
+		return newSelectables;
+	}
+	
+	public void clearNew() {
+		newSelectables.clear();
 	}
 
 }
