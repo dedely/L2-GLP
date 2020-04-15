@@ -19,6 +19,7 @@ public class GameLauncher {
 
 	private Config config;
 	private Game game;
+	private TeamRepository teams = TeamRepository.getInstance();
 
 	public GameLauncher(Config config, Game game) {
 		this.config = config;

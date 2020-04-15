@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import data.Constants;
+import data.Coordinates;
 import process.factory.UnitFactory;
 import process.file.FileExtractor;
 
@@ -13,7 +14,7 @@ public class TestFileExtractor {
 		FileExtractor Fe=new FileExtractor();
 		HashMap<String,String> infos = new HashMap<String, String>();
 		try {
-			infos=Fe.readFile("C:\\Users\\awen9\\Documents\\test.txt");
+			infos=Fe.readFile("src/tests/input/wrath.txt");
 		} catch (FileNotFoundException e) {
 			System.out.println("the file specified wasn't found");
 		} catch (IOException e) {
@@ -21,8 +22,8 @@ public class TestFileExtractor {
 		}
 		System.out.println(infos.toString());
 		
-		UnitFactory UnitF = new UnitFactory();
-		UnitF.createUnit(Constants.WRATH, null, null);
+		UnitFactory unitF = UnitFactory.getInstance();
+		unitF.createUnit(Constants.HTH, new Coordinates(15, 15, 0), Constants.PLAYER);
 	}
 	
 	

@@ -1,0 +1,20 @@
+unit
+
+name = Wrath
+cost = 500
+maxHealth = 400
+armorPoints = 10
+armorType = 2
+description = Light heliported rocket platform of the Republic
+speed = 20
+
+weapon
+
+damagePerShot = 200
+typeOfDammage = 3
+timeBeetweenShots = 100
+range = 400
+minimuRange = 50
+canShootAtAirTarget = false
+
+secondaryWeapon = null

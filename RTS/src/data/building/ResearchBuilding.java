@@ -9,9 +9,9 @@ public class ResearchBuilding extends Building {
 
 	private ArrayList<Integer> unlocksList = new ArrayList<Integer>();
 
-	public ResearchBuilding(String name, int cost, String playerName, int maxHealth, int armorPoints, int armorType,
+	public ResearchBuilding(String name, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, Size size, ArrayList<Integer> unlocksList) {
-		super(name, cost, playerName, maxHealth, armorPoints, armorType, description, position, size);
+		super(name, playerName, maxHealth, armorPoints, armorType, description, position, size);
 		this.unlocksList = unlocksList;
 	}
 
