@@ -5,6 +5,8 @@ import data.order.*;
 public interface OrderVisitor<T> {
 
 	T visit(Attack order);
+	
+	T visit(AttackSuicide order);
 
 	T visit(AttackBuilding order);
 

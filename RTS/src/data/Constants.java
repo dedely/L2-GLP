@@ -47,12 +47,6 @@ public class Constants {
 	public static final String FEDERATION = "Federation";
 	public static final String REPUBLIC = "Republic";
 
-	public static final String ARTILLERY = "Artillery";
-	public static final String HElICOPTER = "Helicopter";
-	public static final String GENERIC_INFANTRY = "GenericInfantry";
-	public static final String HEAVY_INFANTRY = "HeavyInfatry";
-	public static final String HEAVY_ARMORED = "HeavyArmored";
-
 	public static final String TROOP_TRANSPORT = "TroopTransport";
 	public static final String WORKER = "Worker";
 
@@ -67,7 +61,7 @@ public class Constants {
 	public static final String TEST_GROUND = "testGround";
 	public static final String TEST_GROUND_EMBARK = "testGroundEmbark";
 	
-	//Union unit
+	//Union units
 	public static final String SPECIALIST = "specialist";
 	public static final String AT_SOLDIER = "at_soldier";
 	public static final String ASAV = "asav";
@@ -75,6 +69,25 @@ public class Constants {
 	public static final String SPH = "sph";
 	public static final String MCM = "mcm";
 	public static final String HTH = "hth";
+	
+	//Federation units
+	public static final String RANGER = "ranger";
+	public static final String HEAVY_INFANTRY = "heavy_infantry";
+	public static final String HARE = "hare";
+	public static final String LION = "lion";
+	public static final String ELEPHANT = "elephant";
+	public static final String TAPIR = "tapir";
+	public static final String NIGHTJAR = "nightjar";
+	
+	//Union units
+	public static final String TROOPER = "trooper";
+	public static final String MARTYR = "martyr";
+	public static final String MORTAR_TEAM = "mortar_team";
+	public static final String UNION_WORKER =  "union_worker";
+	public static final String LIBERATOR = "liberator";
+	public static final String JUSTICE = "justice";
+	public static final String WRATH = "wrath";
+	
 	
 
 	public static final String TEST_GROUND_WEAPON_H = "testGroundWeaponH";
@@ -88,6 +101,7 @@ public class Constants {
 	public static final String SPEED = "speedUp";
 	public static final String DAMAGE = "Damage greater";
 	public static final String HEALTH = "Get more health";
+
 	
 
 }

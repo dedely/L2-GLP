@@ -25,6 +25,21 @@ public class AttackTreatment {
 			}
 		}
 	}
+	public static void attackSuicide(Unit caster, Selectable target) {
+		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) >= caster.getWeapon().getRange()) {
+			MoveToTreatment.moveToward(caster, target.getPosition());
+		} else {
+			if (SelectableTreatment.canShoot(caster, target)) {
+				if(SelectableTreatment.isReloaded(caster)) {
+				SelectableTreatment.dealDamage(caster, target);
+				caster.setCurrentHealth(0);
+				}
+				else {
+					SelectableTreatment.reloadWeapon(caster);
+				}
+			}
+		}
+	}
 
 	public static void attack(DefenseBuilding caster, Selectable target) {
 		if (CoordinatesTreatment.distance(caster.getPosition(), target.getPosition()) <= caster.getWeapon().getRange()) {
