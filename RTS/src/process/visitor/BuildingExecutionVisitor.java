@@ -4,6 +4,7 @@ import data.building.Building;
 import data.order.Attack;
 import data.order.AttackBuilding;
 import data.order.AttackPosition;
+import data.order.AttackSuicide;
 import data.order.Build;
 import data.order.CreateUnit;
 import data.order.Defend;
@@ -67,6 +68,12 @@ public class BuildingExecutionVisitor implements OrderVisitor<Executor> {
 
 	@Override
 	public Executor visit(MoveToTarget order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Executor visit(AttackSuicide order) {
 		// TODO Auto-generated method stub
 		return null;
 	}
