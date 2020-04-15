@@ -9,14 +9,16 @@ public class TreeTreatment {
 		  if (faction.getCurrentResearch() == null){ 
 				  if(faction.getResearchTree().getResearches().get(indice).getLaboratoriesNumber() != 0) { 
 					  if(faction.getResearchTree().getResearches().get(indice).isUnlocked() == true){
-						  if(faction.getResources().get(1).getResourceCount() >=faction.getResearchTree().getResearches().get(indice).getCost()) {
-							  faction.getResources().get(1).setResourceCount(faction.getResources().get(1).getResourceCount()-faction.getResearchTree().getResearches().get(indice).getCost()); 
+						 if (faction.getResources() != null) {
+					/*	 if(faction.getResources().get(0).getResourceCount() >=faction.getResearchTree().getResearches().get(indice).getCost()) {
+							  faction.getResources().get(0).setResourceCount(faction.getResources().get(1).getResourceCount()-faction.getResearchTree().getResearches().get(indice).getCost()); 
 							  addCurrentResearch(faction, indice);
-							  return true;
-						  }
+							  */return true;
+						  //}
+						 }
 					  }
-				  }
-		}
+				 }
+		  }
 		return false;
 	}
 	 
@@ -33,7 +35,7 @@ public class TreeTreatment {
 	  }
 	  
 	  public static void doResearch (Faction faction) {
-		  if (! faction.getCurrentResearch().equals(null)){ 
+		  if (faction.getCurrentResearch() != null){ 
 			  progress(faction.getCurrentResearch());
 		  }
 	  }

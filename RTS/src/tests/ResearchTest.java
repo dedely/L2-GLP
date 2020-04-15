@@ -2,22 +2,16 @@ package tests;
 
 import data.faction.Faction;
 import data.tree.BinaryTree;
-import data.tree.Research;
-import data.tree.Upgrade;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.IOException;
 
 import data.Constants;
-import data.Coordinates;
-import data.building.Building;
-import data.building.Size;
-import process.TreeTreatment;
-import process.factory.BuildingFactory;
+import process.builder.ResearchTreeBuilder;
+import tests.input.InputParameter;
 
 public class ResearchTest {
-	public static void main (String args[]) {
-	Upgrade upgrade1 = new Upgrade(Constants.SPEED, 1);
+	public static void main (String args[]) throws IOException {
+	/*Upgrade upgrade1 = new Upgrade(Constants.SPEED, 1);
 	Upgrade upgrade2 = new Upgrade (Constants.DAMAGE, 1);
 	Upgrade upgrade3 = new Upgrade (Constants.HEALTH, 1);
 	Research research1 = new Research("level1", 2, upgrade1, 10, 2);	
@@ -36,9 +30,17 @@ public class ResearchTest {
 	researches.put(0, research1);
 	researches.put(1, research2);
 	binaryTree.setResearches (researches);
-	System.out.println(binaryTree.toString());
+	*/
+	//System.out.println(binaryTree.toString());
+	Faction faction = new Faction(Constants.FEDERATION, "Awen", null, "description", 0);
 	
-	Faction faction = new Faction(Constants.REPUBLIC, "Awen", binaryTree, "description", 0);
+	BinaryTree binaryTree = ResearchTreeBuilder.BuildTree(faction);
+	faction.setResearchTree(binaryTree);
+	System.out.println(binaryTree.toString());
+	System.out.println("Maitenant les données de la faction :");
+	System.out.println(faction.toString());
+	
+	/*ResearchTreeBuilder.BuildTree(faction, InputParameter.UPGRADES_PATH);
 	System.out.println(faction.toString());
 	ArrayList<Building> buildingList = new ArrayList<Building>();
 		Coordinates positionLab = new Coordinates(20, 20, Constants.GROUND);
@@ -57,6 +59,6 @@ public class ResearchTest {
 	}
 	else {
 		System.out.println("research didn't work");
-	}
+	}*/
 	}
 }

@@ -1,0 +1,10 @@
+SPEED=1;DAMAGE=1;HEALTH=1 recherche1 1 10 true
+SPEED=2;DAMAGE=2;HEALTH=2 recherche2 1 10 true
+SPEED=3;DAMAGE=3;HEALTH=3 recherche3 1 10 true
+SPEED=4;DAMAGE=4;HEALTH=4 recherche4 1 10 false
+SPEED=5;DAMAGE=5;HEALTH=5 recherche5 1 10 false
+SPEED=6;DAMAGE=6;HEALTH=6 recherche6 1 10 false
+SPEED=7;DAMAGE=7;HEALTH=7 recherche7 1 10 false
+SPEED=8;DAMAGE=8;HEALTH=8 recherche8 1 10 false
+SPEED=9;DAMAGE=9;HEALTH=9 recherche9 1 10 false
+SPEED=10;DAMAGE=10;HEALTH=10 recherhe10 1 10 false

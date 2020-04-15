@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Map;
 import data.Constants;
 import data.faction.Faction;
+import data.tree.BinaryTree;
 import data.tree.Research;
 import data.tree.Upgrade;
+import tests.input.InputParameter;
 
 public class ResearchTreeBuilder {
-
 	public String faction;
 	public static final String SEPARATOR = ";";
 	
@@ -19,94 +19,108 @@ public class ResearchTreeBuilder {
 		this.faction = faction;
 	}
 
-	
-	  public void BuildTree (Faction faction, String fileName, String fileResearch) throws IOException {
-		  Map<Integer, Research> treeMap = faction.getResearchTree().getResearches();
-		  for (Map.Entry<Integer, Research> entry : treeMap.entrySet()) {
-			String line, fields[];
-			
+	  public static BinaryTree BuildTree (Faction faction) throws IOException {
+		BinaryTree binaryTree = new BinaryTree();
+
 			try { 
 					if (faction.getName().equals(Constants.UNION)) {
-						BufferedReader upgradesFileUnion = new BufferedReader(new FileReader(fileName));
-						while ((line = upgradesFileUnion.readLine()) != null) {
-							fields = line.split(SEPARATOR);
-							for (String s : fields) {
-								String name = " ";
-								int value = -1;
-								String elements[];
-								elements = s.split(",");
-								name = elements[0];
-								value = Integer.parseInt(elements[1]);
-								addToResearch(entry.getValue(), new Upgrade(name, value));
+						BufferedReader upgradesFile = new BufferedReader(new FileReader(InputParameter.UPGRADES_UNION));
+						String line = "";
+						int index = 0;
+						while ((line = upgradesFile.readLine()) != null) {
+							Research research = new Research(null, -1, null, -1);
+							String researchItem[] = line.split(" ");
+							String tmp[] = researchItem[0].split(SEPARATOR);
+							String upgrade[] = null;
+							research.setName(researchItem[1]);
+							research.setCost(toInt(researchItem[2]));
+							research.setTimeLeft(toInt(researchItem[3]));
+							research.setUnlocked(toBool(researchItem[4]));
+							binaryTree.putResearch(index, research);
+							for (String s : tmp) {
+								Upgrade firstUpgrade = new Upgrade(null, -1);
+								upgrade = s.split("=");
+								firstUpgrade.setName(upgrade[0]);
+								firstUpgrade.setValue(toInt(upgrade[1]));
+								research.addUpgrade(firstUpgrade);
 							}
-							upgradesFileUnion.close();
+							binaryTree.putResearch(index, research);
+							index++;
+							
 						}
+						upgradesFile.close();
 					}
 						else if (faction.getName().equals(Constants.REPUBLIC)) {
-							BufferedReader upgradesFileRepublic = new BufferedReader(new FileReader(fileName));
-							while ((line = upgradesFileRepublic.readLine()) != null) {
-								fields = line.split(SEPARATOR);
-								for (String s : fields) {
-									String name = " ";
-									int value = -1;
-									String elements[];
-									elements = s.split(",");
-									name = elements[0];
-									value = Integer.parseInt(elements[1]);
-									addToResearch(entry.getValue(), new Upgrade(name, value));
+							BufferedReader upgradesFile = new BufferedReader(new FileReader(InputParameter.UPGRADES_REPUBLIC));
+							String line = "";
+							int index = 0;
+							while ((line = upgradesFile.readLine()) != null) {
+								Research research = new Research(null, -1, null, -1);
+								String researchItem[] = line.split(" ");
+								String tmp[] = researchItem[0].split(SEPARATOR);
+								String upgrade[] = null;
+								research.setName(researchItem[1]);
+								research.setCost(toInt(researchItem[2]));
+								research.setTimeLeft(toInt(researchItem[3]));
+								research.setUnlocked(toBool(researchItem[4]));
+								binaryTree.putResearch(index, research);
+								for (String s : tmp) {
+									Upgrade firstUpgrade = new Upgrade(null, -1);
+									upgrade = s.split("=");
+									firstUpgrade.setName(upgrade[0]);
+									firstUpgrade.setValue(toInt(upgrade[1]));
+									research.addUpgrade(firstUpgrade);
 								}
-								upgradesFileRepublic.close();
+								binaryTree.putResearch(index, research);
+								index++;
+								
 							}
+							upgradesFile.close();
 						}
 							else if (faction.getName().equals(Constants.FEDERATION)) {
-								BufferedReader upgradesFileFederation = new BufferedReader(new FileReader(fileName));
-								while ((line = upgradesFileFederation.readLine()) != null) {
-									fields = line.split(SEPARATOR);
-									for (String s : fields) {
-										String name = " ";
-										int value = -1;
-										String elements[];
-										elements = s.split(",");
-										name = elements[0];
-										value = Integer.parseInt(elements[1]);
-										addToResearch(entry.getValue(), new Upgrade(name, value));
+								BufferedReader upgradesFile = new BufferedReader(new FileReader(InputParameter.UPGRADES_FEDERATION));
+								String line = "";
+								int index = 0;
+								while ((line = upgradesFile.readLine()) != null) {
+									Research research = new Research(null, -1, null, -1);
+									String researchItem[] = line.split(" ");
+									String tmp[] = researchItem[0].split(SEPARATOR);
+									String upgrade[] = null;
+									research.setName(researchItem[1]);
+									research.setCost(toInt(researchItem[2]));
+									research.setTimeLeft(toInt(researchItem[3]));
+									research.setUnlocked(toBool(researchItem[4]));
+									binaryTree.putResearch(index, research);
+									for (String s : tmp) {
+										Upgrade firstUpgrade = new Upgrade(null, -1);
+										upgrade = s.split("=");
+										firstUpgrade.setName(upgrade[0]);
+										firstUpgrade.setValue(toInt(upgrade[1]));
+										research.addUpgrade(firstUpgrade);
 									}
-									upgradesFileFederation.close();
-							}
-						
+									binaryTree.putResearch(index, research);
+									index++;
+									
+								}
+								upgradesFile.close();
+							} 
 			}
-			}catch (FileNotFoundException e) {
-				System.err.println(e.getMessage());
-			}catch (IOException e) {
-				System.err.println(e.getMessage());
+			catch (FileNotFoundException e){
+				System.err.println(e);
 			}
-			/*try {
-				
-				BufferedReader researchFileUnion = new BufferedReader(new FileReader (fileResearch));
-				while ((line = researchFileUnion.readLine()) != null) {
-					fields = line.split(SEPARATOR);
-					for (String s : fields) {
-						String name = " ";
-						int cost = -1;
-						boolean unlocked = false;
-						String elements[];
-						elements = s.split(",");
-						name = elements[0];
-						cost = Integer.parseInt(elements[1]);
-						unlocked = Boolean.parseBoolean(elements[2]);
-						
-					}
-				}
-				researchFileUnion.close();
-			}catch (IOException e) {
-				System.err.println(e.getMessage());
-			}
+			finally {}
+		 return binaryTree;
+	  }
+
+		private static int toInt(String string) {
+		    return Integer.parseInt(string);
+		} 
 		
-		  }*/
-	  }
-	  }
-	  
-	  public void addToResearch (Research research, Upgrade upgrade) {
+		private static boolean toBool(String string) {
+		    return Boolean.parseBoolean(string);
+		}
+			  
+	  public static void addToResearch (Research research, Upgrade upgrade) {
 		  research.getUpgrades().add(upgrade);
 	  }
 }

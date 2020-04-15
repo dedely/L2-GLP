@@ -2,6 +2,7 @@ package data.tree;
 
 import java.util.ArrayList;
 
+
 public class Research {
 
 	private String name;
@@ -11,13 +12,12 @@ public class Research {
 	private int timeLeft;
 	private int laboratoriesNumber;
 
-	public Research(String name, int cost, Upgrade upgrade, int timeLeft, int laboratoriesNumber) {
+	public Research(String name, int cost, Upgrade upgrade, int timeLeft) {
 		super();
 		this.name = name;
 		unlocked = false;
 		this.cost = cost;
 		this.timeLeft = timeLeft;
-		this.laboratoriesNumber = laboratoriesNumber;
 	}
 
 	public int getLaboratoriesNumber() {
@@ -60,7 +60,10 @@ public class Research {
 		timeLeft = time;
 	}
 
-	
+	public void addUpgrade (Upgrade upgrade) {
+		upgrades.add(upgrade);
+	}
+
 	public ArrayList<Upgrade> getUpgrades() {
 		return upgrades;
 	}
@@ -71,7 +74,7 @@ public class Research {
 
 	@Override
 	public String toString() {
-		return "Research [name=" + name + ", unlocked=" + unlocked + ", cost=" + cost + ", timeLeft=" + timeLeft + "]";
+		return "Research \n[name = " + name + "\nunlocked = " + unlocked + "\ncost = " + cost + "\ntimeLeft = "+ timeLeft + "\nupgrades = " + upgrades.toString() + " ]";
 	}
 
 }
