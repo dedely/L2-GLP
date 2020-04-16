@@ -95,7 +95,6 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 			g2.drawRect(rectToDraw.x, rectToDraw.y, rectToDraw.width - 1, rectToDraw.height - 1);
 			areaInput.update(rectToDraw);
 			areaInput.process();
-			System.out.println("currentRect : " + currentRect + " rectToDrawn: " + rectToDraw);
 		}
 	}
 
