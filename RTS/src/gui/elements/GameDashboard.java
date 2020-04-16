@@ -175,7 +175,7 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if(e.getButton() == MouseEvent.BUTTON1) {
+		if (e.getButton() == MouseEvent.BUTTON1) {
 			int x = e.getX();
 			int y = e.getY();
 
@@ -244,7 +244,7 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		
+
 	}
 
 	@Override
@@ -253,12 +253,14 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	}
 
 	private void updateSize(MouseEvent e) {
-		int x = e.getX();
-		int y = e.getY();
-		currentRect.setSize(x - currentRect.x, y - currentRect.y);
-		updateDrawableRect(getWidth(), getHeight());
-		Rectangle totalRepaint = rectToDraw.union(previousRectDrawn);
-		repaint(totalRepaint.x, totalRepaint.y, totalRepaint.width, totalRepaint.height);
+		if (currentRect != null) {
+			int x = e.getX();
+			int y = e.getY();
+			currentRect.setSize(x - currentRect.x, y - currentRect.y);
+			updateDrawableRect(getWidth(), getHeight());
+			Rectangle totalRepaint = rectToDraw.union(previousRectDrawn);
+			repaint(totalRepaint.x, totalRepaint.y, totalRepaint.width, totalRepaint.height);
+		}
 	}
 
 	@Override
@@ -292,6 +294,5 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	public void setRectToDraw(Rectangle rectToDraw) {
 		this.rectToDraw = rectToDraw;
 	}
-	
 
 }
