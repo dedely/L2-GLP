@@ -28,9 +28,8 @@ public class TitleScreen extends Dashboard {
 	private JLabel titleLabel = new JLabel("War Never Dies", SwingConstants.CENTER);
 	private JButton playButton = new JButton("New game");
 	private JButton quitButton = new JButton("Quit game");
-	private JPanel optionPanel = new JPanel();
 	private JLabel nameLabel = new JLabel("Your name", SwingConstants.CENTER);
-	private JTextField nameField = new JTextField();
+	private JTextField nameField = new JTextField(SwingConstants.CENTER);
 	private JLabel optionsLabel = new JLabel("Select your faction", SwingConstants.CENTER);
 	private JButton union = new JButton("Union");
 	private JButton federation = new JButton("Federation");
@@ -49,10 +48,7 @@ public class TitleScreen extends Dashboard {
 	}
 
 	private void initLayout() {
-		Dimension dimensionButtons = new Dimension(100, 100);
-		playButton.setMinimumSize(dimensionButtons);
-		quitButton.setMinimumSize(dimensionButtons);
-		setLayout(new GridLayout(3, 1));
+		setLayout(new GridLayout(3, 1, 2, 0));
 		add(titleLabel);
 		add(playButton);
 		add(quitButton);
@@ -69,23 +65,23 @@ public class TitleScreen extends Dashboard {
 
 	private void showOptions() {
 		removeAll();
-		optionPanel.add(nameLabel);
-		optionPanel.add(nameField);
-		optionPanel.add(optionsLabel);
-		optionPanel.add(union);
-		optionPanel.add(federation);
-		optionPanel.add(republic);
-		optionPanel.add(back);
-		add(optionPanel);
-		state++;
-	
+		setLayout(new GridLayout(7, 1, 2, 0));
+		add(nameLabel);
+		add(nameField);
+		add(optionsLabel);
+		add(union);
+		add(federation);
+		add(republic);
+		add(back);
+		revalidate();
+		repaint();
 	}
 
 	private class PlayAction implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//getGame().launch(Constants.DEFAULT_CONFIG);
+			// getGame().launch(Constants.DEFAULT_CONFIG);
 			showOptions();
 		}
 
@@ -109,10 +105,11 @@ public class TitleScreen extends Dashboard {
 			Player player = new Player(nameField.getText(), "Union");
 			players.add(player);
 			config.setPlayers(players);
+			getGame().launch(config);
 		}
 
 	}
-	
+
 	private class FederationChoosen implements ActionListener {
 
 		@Override
@@ -121,10 +118,11 @@ public class TitleScreen extends Dashboard {
 			Player player = new Player(nameField.getText(), "Federation");
 			players.add(player);
 			config.setPlayers(players);
+			getGame().launch(config);
 		}
 
 	}
-	
+
 	private class RepublicChoosen implements ActionListener {
 
 		@Override
@@ -133,6 +131,7 @@ public class TitleScreen extends Dashboard {
 			Player player = new Player(nameField.getText(), "Republic");
 			players.add(player);
 			config.setPlayers(players);
+			getGame().launch(config);
 		}
 
 	}
