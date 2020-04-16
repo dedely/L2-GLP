@@ -35,6 +35,10 @@ public class ShapeRepository {
 	public void removeShape(Integer id) {
 		shapes.remove(id);
 	}
+	
+	public void clear() {
+		shapes.clear();
+	}
 
 	/**
 	 *

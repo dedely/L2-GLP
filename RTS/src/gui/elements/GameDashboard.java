@@ -22,6 +22,7 @@ import gui.input.CoordinatesInputManager;
 import gui.input.KeyInputManager;
 import gui.management.Camera;
 import gui.management.PaintVisitor;
+import gui.management.ShapeRepository;
 import process.Game;
 import process.GameUtility;
 import process.SelectableRepository;
@@ -111,6 +112,8 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	 */
 	private void printSelectables(Graphics2D g2) {
 		SelectableRepository r = SelectableRepository.getInstance();
+		ShapeRepository s = ShapeRepository.getInstance();
+		s.clear();
 		PaintVisitor visitor = new PaintVisitor(g2, camera);
 		for (Selectable selectable : r.getIds().values()) {
 			if (isInBounds(selectable)) {
@@ -234,6 +237,7 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	public void mouseReleased(MouseEvent e) {
 		setCurrentRect(null);
 		setRectToDraw(null);
+		menu.update();
 	}
 
 	@Override
