@@ -3,7 +3,10 @@ package gui.elements;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -24,12 +27,11 @@ import process.Game;
  *
  */
 public class TitleScreen extends Dashboard {
-
+	
+	private JPanel content = new JPanel();
 	private JLabel titleLabel = new JLabel("War Never Dies", SwingConstants.CENTER);
 	private JButton playButton = new JButton("New game");
 	private JButton quitButton = new JButton("Quit game");
-	private JLabel nameLabel = new JLabel("Your name", SwingConstants.CENTER);
-	private JTextField nameField = new JTextField(SwingConstants.CENTER);
 	private JLabel optionsLabel = new JLabel("Select your faction", SwingConstants.CENTER);
 	private JButton union = new JButton("Union");
 	private JButton federation = new JButton("Federation");
@@ -38,20 +40,28 @@ public class TitleScreen extends Dashboard {
 
 	private int state;
 
-	private Config config;
+	private Config config=new Config(10);
 
 	public TitleScreen(Game game) {
 		super(game);
 		state = TitleScreenState.NEW;
+		initBackground();
 		initLayout();
 		initActions();
+		add(content, BorderLayout.CENTER);
 	}
 
+
 	private void initLayout() {
-		setLayout(new GridLayout(3, 1, 2, 0));
-		add(titleLabel);
-		add(playButton);
-		add(quitButton);
+		setLayout(new BorderLayout());
+		content.add(titleLabel);
+		content.add(playButton);
+		content.add(quitButton);
+		
+	}
+	private void initBackground() {
+		ImagePanel background = new ImagePanel("C:\\Users\\awen9\\Pictures\\uni\\projet GL\\titleScreenBackground.png");
+		content=background;
 	}
 
 	private void initActions() {
@@ -60,19 +70,17 @@ public class TitleScreen extends Dashboard {
 		union.addActionListener(new UnionChoosen());
 		federation.addActionListener(new FederationChoosen());
 		republic.addActionListener(new RepublicChoosen());
-
+		back.addActionListener(new BackToTitle());
 	}
 
 	private void showOptions() {
-		removeAll();
-		setLayout(new GridLayout(7, 1, 2, 0));
-		add(nameLabel);
-		add(nameField);
-		add(optionsLabel);
-		add(union);
-		add(federation);
-		add(republic);
-		add(back);
+		content.removeAll();
+		content.setLayout(new FlowLayout());
+		content.add(optionsLabel);
+		content.add(union);
+		content.add(federation);
+		content.add(republic);
+		content.add(back);
 		revalidate();
 		repaint();
 	}
@@ -102,7 +110,7 @@ public class TitleScreen extends Dashboard {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			ArrayList<Player> players = new ArrayList<Player>();
-			Player player = new Player(nameField.getText(), "Union");
+			Player player = new Player(Constants.PLAYER, "Union");
 			players.add(player);
 			config.setPlayers(players);
 			getGame().launch(config);
@@ -115,7 +123,7 @@ public class TitleScreen extends Dashboard {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			ArrayList<Player> players = new ArrayList<Player>();
-			Player player = new Player(nameField.getText(), "Federation");
+			Player player = new Player(Constants.PLAYER, "Federation");
 			players.add(player);
 			config.setPlayers(players);
 			getGame().launch(config);
@@ -128,10 +136,27 @@ public class TitleScreen extends Dashboard {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			ArrayList<Player> players = new ArrayList<Player>();
-			Player player = new Player(nameField.getText(), "Republic");
+			Player player = new Player(Constants.PLAYER, "Republic");
 			players.add(player);
 			config.setPlayers(players);
 			getGame().launch(config);
+		}
+
+	}
+	
+	private class BackToTitle implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			removeAll();
+			state = TitleScreenState.NEW;
+			initBackground();
+			initLayout();
+			initActions();
+			add(content, BorderLayout.CENTER);
+			revalidate();
+			repaint();
+
 		}
 
 	}
