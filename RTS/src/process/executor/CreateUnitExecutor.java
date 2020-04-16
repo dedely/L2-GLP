@@ -13,7 +13,9 @@ import process.FactionTest;
 import process.SelectableRepository;
 import process.factory.TestFactory;
 import process.factory.UnitFactory;
+import process.managers.SelectableManager;
 import process.managers.UnitManager;
+import process.visitor.selectable.ManagerVisitor;
 
 /**
  * @author Adel
@@ -76,7 +78,8 @@ public class CreateUnitExecutor implements Executor {
 				Unit unit = TestFactory.createUnit(unitToCreate, testFaction.getPlayer(), position);
 				Integer id = r.nextIdentity();
 				unit.setId(id);
-				UnitManager manager = new UnitManager(unit);
+				ManagerVisitor visitor = new 
+				SelectableManager manager = new UnitManager(unit);
 				testFaction.addNew(manager);
 				r.addNew(unit);
 			} catch (IllegalArgumentException e) {
