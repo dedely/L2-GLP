@@ -23,6 +23,9 @@ public class UnitManager extends SelectableManager {
 		return unit;
 	}
 
+	/**
+	 * The current order replaced by the new one.
+	 */
 	@Override
 	public void giveOrder(Order order) {
 		if(order != null) {
@@ -30,9 +33,8 @@ public class UnitManager extends SelectableManager {
 				complete = true;
 				finish();
 			}
-			getSelectable().addOrder(order);
+			super.giveOrder(order);
 		}
-
 	}
 
 	@Override

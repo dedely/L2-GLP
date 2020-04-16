@@ -1,5 +1,5 @@
 package process.visitor.selectable;
-
+import data.Selectable;
 import data.building.DefenseBuilding;
 import data.building.ResearchBuilding;
 import data.building.ResourceBuilding;
@@ -20,6 +20,8 @@ import process.managers.UnitManager;
 import process.managers.WorkerManager;
 
 /**
+ * This visitor returns the appropriate manager for a given {@link Selectable}
+ * 
  * @author Adel
  *
  */

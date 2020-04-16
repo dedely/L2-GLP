@@ -23,7 +23,6 @@ public class UnitExVisitor implements OrderVisitor<Executor> {
 
 	private Unit unit;
 
-
 	public UnitExVisitor(Unit unit) {
 		this.unit = unit;
 	}
@@ -35,37 +34,31 @@ public class UnitExVisitor implements OrderVisitor<Executor> {
 
 	@Override
 	public Executor visit(AttackBuilding order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(AttackPosition order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(Build order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(CreateUnit order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(Defend order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(Embark order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -76,15 +69,12 @@ public class UnitExVisitor implements OrderVisitor<Executor> {
 
 	@Override
 	public Executor visit(MoveToTarget order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(AttackSuicide order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 }

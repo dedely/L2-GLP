@@ -12,6 +12,7 @@ import data.order.MoveToPosition;
 import data.order.MoveToTarget;
 import data.unit.Worker;
 import process.executor.Executor;
+import process.executor.MoveExecutor;
 
 /**
  * @author Adel
@@ -67,7 +68,7 @@ public class WorkerExVisitor implements OrderVisitor<Executor> {
 
 	@Override
 	public Executor visit(MoveToPosition order) {
-		return null;
+		return new MoveExecutor(unit, order.getPosition());
 	}
 
 	@Override

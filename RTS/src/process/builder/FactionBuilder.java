@@ -15,8 +15,11 @@ import process.SelectableRepository;
 import process.factory.BuildingFactory;
 import process.factory.TestFactory;
 import process.factory.UnitFactory;
+import process.managers.SelectableManager;
 import process.managers.UnitBuildingManager;
 import process.managers.UnitManager;
+import process.managers.WorkerManager;
+import process.visitor.selectable.ManagerVisitor;
 
 /**
  * @author Adel
@@ -56,7 +59,8 @@ public class FactionBuilder {
 			faction.addSelectableManager(manager);
 			Unit unit = TestFactory.createUnit(Constants.MCM, name, workerSpawn);
 			r.register(unit);
-			UnitManager unitManager = new UnitManager(unit);
+			ManagerVisitor visitor = new ManagerVisitor(faction);
+			SelectableManager unitManager = unit.accept(visitor);
 			faction.addSelectableManager(unitManager);
 		} catch (IllegalArgumentException e) {
 			System.err.println(e.getMessage());

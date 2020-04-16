@@ -89,6 +89,9 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 		printSelectables(g2);
 	}
 
+	/**
+	 * @param g2
+	 */
 	private void processSelectionArea(Graphics2D g2) {
 		if (currentRect != null) {
 			g2.setXORMode(Color.white); // Color of line varies
@@ -179,6 +182,9 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 		menu.update();
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if (e.getButton() == MouseEvent.BUTTON1) {

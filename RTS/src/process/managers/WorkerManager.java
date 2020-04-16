@@ -22,6 +22,17 @@ public class WorkerManager extends SelectableManager {
 	}
 
 	@Override
+	public void giveOrder(Order order) {
+		if(order != null) {
+			if (isExecutingOrder()) {
+				complete = true;
+				finish();
+			}
+			super.giveOrder(order);
+		}
+	}
+
+	@Override
 	public Selectable getSelectable() {
 		return worker;
 	}

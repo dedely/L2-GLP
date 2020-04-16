@@ -23,7 +23,7 @@ public class TestFactory {
 	public static Unit createUnit(String type, String player, Coordinates position) throws IllegalArgumentException{
 		switch (type) {
 		case Constants.MCM:
-			return new Worker(type, player, 100, 10, Constants.SUPER_LIGHT, "Worker", position, 2, null, 1, 5);
+			return new Worker(type, player, 100, 10, Constants.SUPER_LIGHT, "Worker", position, 1, null, 1, 5);
 		default:
 			throw new IllegalArgumentException("Unknown building type : " + type);
 		}
