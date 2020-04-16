@@ -78,7 +78,6 @@ public class CreateUnitExecutor implements Executor {
 				Unit unit = TestFactory.createUnit(unitToCreate, testFaction.getPlayer(), position);
 				Integer id = r.nextIdentity();
 				unit.setId(id);
-				ManagerVisitor visitor = new 
 				SelectableManager manager = new UnitManager(unit);
 				testFaction.addNew(manager);
 				r.addNew(unit);

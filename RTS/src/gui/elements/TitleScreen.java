@@ -1,12 +1,7 @@
 package gui.elements;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -14,7 +9,6 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import data.Config;
@@ -27,7 +21,7 @@ import process.Game;
  *
  */
 public class TitleScreen extends Dashboard {
-	
+
 	private JPanel content = new JPanel();
 	private JLabel titleLabel = new JLabel("War Never Dies", SwingConstants.CENTER);
 	private JButton playButton = new JButton("New game");
@@ -38,30 +32,26 @@ public class TitleScreen extends Dashboard {
 	private JButton republic = new JButton("Republic");
 	private JButton back = new JButton("Go Back to Title Screen");
 
-	private int state;
-
-	private Config config=new Config(10);
-
+	private Config config = new Config(10);
+	
 	public TitleScreen(Game game) {
 		super(game);
-		state = TitleScreenState.NEW;
 		initBackground();
 		initLayout();
 		initActions();
-		add(content, BorderLayout.CENTER);
 	}
-
 
 	private void initLayout() {
 		setLayout(new BorderLayout());
 		content.add(titleLabel);
 		content.add(playButton);
 		content.add(quitButton);
-		
+		add(content, BorderLayout.CENTER);
 	}
+
 	private void initBackground() {
 		ImagePanel background = new ImagePanel("C:\\Users\\awen9\\Pictures\\uni\\projet GL\\titleScreenBackground.png");
-		content=background;
+		content = background;
 	}
 
 	private void initActions() {
@@ -74,6 +64,7 @@ public class TitleScreen extends Dashboard {
 	}
 
 	private void showOptions() {
+
 		content.removeAll();
 		content.setLayout(new FlowLayout());
 		content.add(optionsLabel);
@@ -81,8 +72,10 @@ public class TitleScreen extends Dashboard {
 		content.add(federation);
 		content.add(republic);
 		content.add(back);
+
 		revalidate();
 		repaint();
+
 	}
 
 	private class PlayAction implements ActionListener {
@@ -100,7 +93,6 @@ public class TitleScreen extends Dashboard {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			System.exit(0);
-
 		}
 
 	}
@@ -143,20 +135,18 @@ public class TitleScreen extends Dashboard {
 		}
 
 	}
-	
+
 	private class BackToTitle implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			removeAll();
-			state = TitleScreenState.NEW;
 			initBackground();
 			initLayout();
 			initActions();
 			add(content, BorderLayout.CENTER);
 			revalidate();
 			repaint();
-
 		}
 
 	}
