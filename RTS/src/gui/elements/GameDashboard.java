@@ -157,6 +157,10 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		processClick(e);
+	}
+
+	private void processClick(MouseEvent e) {
 		int count = e.getClickCount();
 		int x = e.getX();
 		int y = e.getY();
@@ -184,6 +188,8 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 			currentRect = new Rectangle(x, y, 0, 0);
 			updateDrawableRect(getWidth(), getHeight());
 			repaint();
+		}else {
+			processClick(e);
 		}
 	}
 
