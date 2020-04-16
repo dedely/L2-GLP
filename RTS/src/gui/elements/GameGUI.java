@@ -24,7 +24,7 @@ public class GameGUI extends JFrame implements Runnable {
 	private Dashboard dashboard;
 	private Camera camera;
 
-	private boolean debug = true;
+	private boolean debug = false;
 	private long lastFpsCheck = 0;
 	private int currentFps = 0;
 	private int totalFrames = 0;

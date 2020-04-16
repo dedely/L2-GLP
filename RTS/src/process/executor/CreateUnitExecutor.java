@@ -7,14 +7,12 @@ import data.Coordinates;
 import data.Cost;
 import data.Resource;
 import data.building.UnitBuilding;
-import data.faction.Faction;
+import data.order.MoveToPosition;
 import data.unit.Unit;
 import process.FactionTest;
 import process.SelectableRepository;
 import process.factory.TestFactory;
-import process.factory.UnitFactory;
 import process.managers.SelectableManager;
-import process.managers.UnitManager;
 import process.visitor.selectable.ManagerVisitor;
 
 /**
@@ -78,9 +76,12 @@ public class CreateUnitExecutor implements Executor {
 				Unit unit = TestFactory.createUnit(unitToCreate, testFaction.getPlayer(), position);
 				Integer id = r.nextIdentity();
 				unit.setId(id);
-				SelectableManager manager = new UnitManager(unit);
-				testFaction.addNew(manager);
+				ManagerVisitor visitor = new ManagerVisitor(testFaction);
+				SelectableManager unitManager = unit.accept(visitor);
+				testFaction.addNew(unitManager);
 				r.addNew(unit);
+				System.out.println(unitBuilding.getRallyPoint());
+				unitManager.giveOrder(new MoveToPosition(unitBuilding.getRallyPoint(), Constants.GO_AT_ALL_COST));
 			} catch (IllegalArgumentException e) {
 				System.err.println(e.getMessage());
 			}

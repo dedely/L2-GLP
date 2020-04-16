@@ -33,7 +33,7 @@ public class MoveExecutor implements Executor {
 				unit.setPosition(newPosition);
 				r.updatePosition(unit.getId(), actualPosition, actualNewPosition);
 				complete = unit.getPosition().equals(destination);
-			}else {
+			} else {
 				complete = true;
 			}
 		} else {
@@ -46,7 +46,9 @@ public class MoveExecutor implements Executor {
 
 	private boolean isFree(Coordinates position) {
 		SelectableRepository r = SelectableRepository.getInstance();
-		return r.getIdByPosition(position) == null;
+		int x = position.getAbsciss();
+		int y = position.getOrdinate();
+		return (r.getIdByPosition(position) == null) && (!r.isBlockedTile(x, y));
 	}
 
 	public Unit getUnit() {

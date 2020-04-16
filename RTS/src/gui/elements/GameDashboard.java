@@ -42,12 +42,12 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	/**
 	 * Showing the grid will make the debug easier.
 	 */
-	private boolean debugGrid = false;
-	private boolean debugMouseInput = false;
+	private boolean debugGrid = true;
+	private boolean debugMouseInput = true;
 
-	Rectangle currentRect = null;
-	Rectangle rectToDraw = null;
-	Rectangle previousRectDrawn = new Rectangle();
+	Rectangle currentArea = null;
+	Rectangle newArea = null;
+	Rectangle previousArea = new Rectangle();
 
 	public GameDashboard(Game game, Camera camera) {
 		super(game);
@@ -93,11 +93,9 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	 * @param g2
 	 */
 	private void processSelectionArea(Graphics2D g2) {
-		if (currentRect != null) {
-			g2.setXORMode(Color.white); // Color of line varies
-										// depending on image colors
-			g2.drawRect(rectToDraw.x, rectToDraw.y, rectToDraw.width - 1, rectToDraw.height - 1);
-			areaInput.update(rectToDraw);
+		if (currentArea != null) {
+			g2.drawRect(newArea.x, newArea.y, newArea.width - 1, newArea.height - 1);
+			areaInput.update(newArea);
 			areaInput.process();
 		}
 	}
@@ -182,17 +180,14 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 		menu.update();
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if (e.getButton() == MouseEvent.BUTTON1) {
 			int x = e.getX();
 			int y = e.getY();
 
-			currentRect = new Rectangle(x, y, 0, 0);
-			updateDrawableRect(getWidth(), getHeight());
+			currentArea = new Rectangle(x, y, 0, 0);
+			updateSelectionArea();
 			repaint();
 		}else {
 			processClick(e);
@@ -200,15 +195,13 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	}
 
 	/**
-	 * 
-	 * @param compWidth
-	 * @param compHeight
+	 * Adapted from the Oracle mouse motion examples
 	 */
-	private void updateDrawableRect(int compWidth, int compHeight) {
-		int x = currentRect.x;
-		int y = currentRect.y;
-		int width = currentRect.width;
-		int height = currentRect.height;
+	private void updateSelectionArea() {
+		int x = currentArea.x;
+		int y = currentArea.y;
+		int width = currentArea.width;
+		int height = currentArea.height;
 
 		// Make the width and height positive, if necessary.
 		if (width < 0) {
@@ -228,27 +221,19 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 			}
 		}
 
-		// The rectangle shouldn't extend past the drawing area.
-		if ((x + width) > compWidth) {
-			width = compWidth - x;
-		}
-		if ((y + height) > compHeight) {
-			height = compHeight - y;
-		}
-
-		// Update rectToDraw after saving old value.
-		if (rectToDraw != null) {
-			previousRectDrawn.setBounds(rectToDraw.x, rectToDraw.y, rectToDraw.width, rectToDraw.height);
-			rectToDraw.setBounds(x, y, width, height);
+		// Update newArea after saving old value.
+		if (newArea != null) {
+			previousArea.setBounds(newArea.x, newArea.y, newArea.width, newArea.height);
+			newArea.setBounds(x, y, width, height);
 		} else {
-			rectToDraw = new Rectangle(x, y, width, height);
+			newArea = new Rectangle(x, y, width, height);
 		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		setCurrentRect(null);
-		setRectToDraw(null);
+		setCurrentArea(null);
+		setNewArea(null);
 		menu.update();
 	}
 
@@ -268,12 +253,12 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	}
 
 	private void updateSize(MouseEvent e) {
-		if (currentRect != null) {
+		if (currentArea != null) {
 			int x = e.getX();
 			int y = e.getY();
-			currentRect.setSize(x - currentRect.x, y - currentRect.y);
-			updateDrawableRect(getWidth(), getHeight());
-			Rectangle totalRepaint = rectToDraw.union(previousRectDrawn);
+			currentArea.setSize(x - currentArea.x, y - currentArea.y);
+			updateSelectionArea();
+			Rectangle totalRepaint = newArea.union(previousArea);
 			repaint(totalRepaint.x, totalRepaint.y, totalRepaint.width, totalRepaint.height);
 		}
 	}
@@ -302,12 +287,12 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 
 	}
 
-	public void setCurrentRect(Rectangle currentRect) {
-		this.currentRect = currentRect;
+	public void setCurrentArea(Rectangle currentArea) {
+		this.currentArea = currentArea;
 	}
 
-	public void setRectToDraw(Rectangle rectToDraw) {
-		this.rectToDraw = rectToDraw;
+	public void setNewArea(Rectangle newArea) {
+		this.newArea = newArea;
 	}
 
 }

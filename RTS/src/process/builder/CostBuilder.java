@@ -18,6 +18,11 @@ public class CostBuilder {
 	public final static String SEPARATOR = ";";
 
 	/**
+	 * This method uses a slightly improved linear search algorithm to build the
+	 * appropriate cost map for the specified faction, based on an input csv file.
+	 * 
+	 * The input file contains information about the build cost and time of each selectable.
+	 * 
 	 * @param factionName
 	 * @return costs
 	 */

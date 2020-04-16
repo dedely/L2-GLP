@@ -1,7 +1,7 @@
 package data;
 
 /**
- * @author Adel
+ * @author Awen
  *
  */
 public class Coordinates {

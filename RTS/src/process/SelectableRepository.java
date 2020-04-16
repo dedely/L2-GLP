@@ -148,6 +148,17 @@ public class SelectableRepository {
 		}
 		return id;
 	}
+	
+	public boolean isBlockedTile(int x, int y) {
+		boolean blocked = false;
+		try {
+			Tile tile = map.getTile(x, y);
+			blocked = (tile.getType() == Map.BLOCKED);
+		}catch (IllegalArgumentException e) {
+			System.err.println(e.getMessage());
+		}
+		return blocked;
+	}
 
 	public void updatePosition(Integer id, Coordinates position, Coordinates newPosition) {
 		map.delete(position);

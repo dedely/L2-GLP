@@ -11,14 +11,13 @@ import data.building.UnitBuilding;
 import data.unit.Unit;
 import gui.elements.SimuPara;
 import process.FactionTest;
+import process.GameUtility;
 import process.SelectableRepository;
 import process.factory.BuildingFactory;
 import process.factory.TestFactory;
 import process.factory.UnitFactory;
 import process.managers.SelectableManager;
 import process.managers.UnitBuildingManager;
-import process.managers.UnitManager;
-import process.managers.WorkerManager;
 import process.visitor.selectable.ManagerVisitor;
 
 /**
@@ -52,8 +51,9 @@ public class FactionBuilder {
 		String name = player.getName();
 		Coordinates hQSpawn = getHQSpawn();
 		Coordinates workerSpawn = getWorkerSpawn();
+		Coordinates rallyPoint = new Coordinates(hQSpawn.getAbsciss() + 3 * SimuPara.SCALE, hQSpawn.getOrdinate());
 		try {
-			UnitBuilding headquaters = TestFactory.createUnitBuilding(Constants.HEADQUATERS, name, hQSpawn, hQSpawn);
+			UnitBuilding headquaters = TestFactory.createUnitBuilding(Constants.HEADQUATERS, name, hQSpawn, rallyPoint);
 			r.register(headquaters);
 			UnitBuildingManager manager = new UnitBuildingManager(headquaters, faction);
 			faction.addSelectableManager(manager);

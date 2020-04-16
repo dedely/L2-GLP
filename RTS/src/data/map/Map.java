@@ -80,7 +80,7 @@ public class Map {
 
 	public Tile getTile(int x, int y) throws IllegalArgumentException{
 		if ((x >= 0) && (x < width) && (y >= 0) && (y < height)) {
-			return tiles[x][y];
+			return tiles[y][x];
 		} else {
 			throw new IllegalArgumentException("Out of bounds: " + x + " " + y);
 		}

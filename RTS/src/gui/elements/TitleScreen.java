@@ -37,6 +37,7 @@ public class TitleScreen extends Dashboard {
 	
 	public TitleScreen(Game game) {
 		super(game);
+		config.addPlayer(new Player(Constants.AI, Constants.UNION));
 		initBackground();
 		initLayout();
 		initActions();
