@@ -48,8 +48,8 @@ public class GameGUI extends JFrame implements Runnable {
 		setSize(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT);
 
 		// We first display the title screen.
-		dashboard = new TitleScreenTest(game);
-		//dashboard = new TitleScreen(game);
+		//dashboard = new TitleScreenTest(game);
+		dashboard = new TitleScreen(game);
 		dashboard.setPreferredSize(IDEAL_DASHBOARD_DIMENSION);
 
 		contentPane.add(BorderLayout.CENTER, dashboard);

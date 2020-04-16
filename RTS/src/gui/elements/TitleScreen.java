@@ -15,6 +15,7 @@ import data.Config;
 import data.Constants;
 import data.Player;
 import process.Game;
+import tests.input.InputParameter;
 
 /**
  * @author Awen
@@ -50,7 +51,7 @@ public class TitleScreen extends Dashboard {
 	}
 
 	private void initBackground() {
-		ImagePanel background = new ImagePanel("C:\\Users\\awen9\\Pictures\\uni\\projet GL\\titleScreenBackground.png");
+		ImagePanel background = new ImagePanel(InputParameter.BACKGROUND);
 		content = background;
 	}
 
