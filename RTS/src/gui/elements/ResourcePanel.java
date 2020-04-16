@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import data.resource.Resource;
+import data.Resource;
 
 /**
  * @author Adel

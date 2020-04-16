@@ -1,4 +1,4 @@
-package process.visitor;
+package process.visitor.order;
 
 import data.order.Attack;
 import data.order.AttackBuilding;
@@ -15,12 +15,16 @@ import process.executor.AttackExecutor;
 import process.executor.Executor;
 import process.executor.MoveExecutor;
 
-public class UnitExecutionVisitor implements OrderVisitor<Executor> {
+/**
+ * @author Adel
+ *
+ */
+public class UnitExVisitor implements OrderVisitor<Executor> {
 
 	private Unit unit;
 
 
-	public UnitExecutionVisitor(Unit unit) {
+	public UnitExVisitor(Unit unit) {
 		this.unit = unit;
 	}
 

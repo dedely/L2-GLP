@@ -7,6 +7,10 @@ import data.building.UnitBuilding;
 import data.unit.GroundUnit;
 import data.unit.Worker;
 
+/**
+ * @author Adel
+ *
+ */
 public interface ColorStrategy {
 	void setColor(Graphics graphics, GroundUnit selectable);
 

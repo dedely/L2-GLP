@@ -17,8 +17,7 @@ import data.unit.TransportHelicopter;
 import data.unit.TroopTransport;
 import data.unit.Worker;
 import gui.elements.SimuPara;
-import process.Camera;
-import process.visitor.SelectableVisitor;
+import process.visitor.selectable.SelectableVisitor;
 
 /**
  * This visitor prints the selectables.

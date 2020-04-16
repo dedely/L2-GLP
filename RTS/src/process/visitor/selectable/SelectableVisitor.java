@@ -1,9 +1,14 @@
-package process.visitor;
+package process.visitor.selectable;
 
 
 import data.building.*;
 import data.unit.*;
 
+/**
+ * @author Adel
+ *
+ * @param <T>
+ */
 public interface SelectableVisitor<T> {
 	T visit(DefenseBuilding selectable);
 

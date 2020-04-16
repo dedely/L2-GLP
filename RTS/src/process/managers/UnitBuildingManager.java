@@ -5,19 +5,19 @@ import data.building.UnitBuilding;
 import data.order.Order;
 import process.FactionTest;
 import process.executor.Executor;
-import process.visitor.UnitBuildingVisitor;
+import process.visitor.order.UnitBuildingExVisitor;
 
 public class UnitBuildingManager extends SelectableManager {
 	private FactionTest player;
 	private UnitBuilding unitBuilding;
-	private UnitBuildingVisitor visitor;
+	private UnitBuildingExVisitor visitor;
 	private Executor concreteExecutor = null;
 	private boolean complete = false;
 
 	public UnitBuildingManager(UnitBuilding unitBuilding, FactionTest player) {
 		this.unitBuilding = unitBuilding;
 		this.player = player;
-		visitor = new UnitBuildingVisitor(unitBuilding, player);
+		visitor = new UnitBuildingExVisitor(unitBuilding, player);
 	}
 
 	@Override
@@ -26,14 +26,10 @@ public class UnitBuildingManager extends SelectableManager {
 	}
 
 	@Override
-	public void giveOrder(Order order) {
-		getSelectable().addOrder(order);
-	}
-
-	@Override
 	public void executeNextOrder() {
 		Order order = getOrder();
 		if (order != null) {
+			setExecutingOrder(true);
 			complete = false;
 			if (concreteExecutor == null) {
 				if ((concreteExecutor = order.accept(visitor)) == null) {
@@ -57,7 +53,16 @@ public class UnitBuildingManager extends SelectableManager {
 	@Override
 	public int getProgress() {
 		return concreteExecutor.getProgress();
+	}
 
+	@Override
+	public boolean isBuilding() {
+		return true;
+	}
+
+	@Override
+	public void setExecutor(Executor executor) {
+		this.concreteExecutor = executor;
 	}
 
 }

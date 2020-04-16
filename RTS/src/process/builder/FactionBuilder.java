@@ -6,8 +6,8 @@ import data.Constants;
 import data.Coordinates;
 import data.Cost;
 import data.Player;
+import data.Resource;
 import data.building.UnitBuilding;
-import data.resource.Resource;
 import data.unit.Unit;
 import gui.elements.SimuPara;
 import process.FactionTest;
@@ -18,6 +18,10 @@ import process.factory.UnitFactory;
 import process.managers.UnitBuildingManager;
 import process.managers.UnitManager;
 
+/**
+ * @author Adel
+ *
+ */
 public class FactionBuilder {
 
 	private Player player;
@@ -45,20 +49,25 @@ public class FactionBuilder {
 		String name = player.getName();
 		Coordinates hQSpawn = getHQSpawn();
 		Coordinates workerSpawn = getWorkerSpawn();
-		UnitBuilding headquaters = TestFactory.createUnitBuilding(Constants.HEADQUATERS, name, hQSpawn, hQSpawn);
-		r.register(headquaters);
-		UnitBuildingManager manager = new UnitBuildingManager(headquaters, faction);
-		faction.addSelectableManager(manager);
-		Unit unit = TestFactory.createUnit(Constants.MCM, name, workerSpawn);
-		r.register(unit);
-		UnitManager unitManager = new UnitManager(unit);
-		faction.addSelectableManager(unitManager);
+		try {
+			UnitBuilding headquaters = TestFactory.createUnitBuilding(Constants.HEADQUATERS, name, hQSpawn, hQSpawn);
+			r.register(headquaters);
+			UnitBuildingManager manager = new UnitBuildingManager(headquaters, faction);
+			faction.addSelectableManager(manager);
+			Unit unit = TestFactory.createUnit(Constants.MCM, name, workerSpawn);
+			r.register(unit);
+			UnitManager unitManager = new UnitManager(unit);
+			faction.addSelectableManager(unitManager);
+		} catch (IllegalArgumentException e) {
+			System.err.println(e.getMessage());
+		}
+
 	}
 
 	private void initResources() {
 		faction.addResource(new Resource(1000, Constants.MATS));
 	}
-	
+
 	private void initCosts() {
 		HashMap<String, Cost> costs = CostBuilder.buildCosts(player.getFactionName());
 		faction.setCosts(costs);
@@ -80,7 +89,7 @@ public class FactionBuilder {
 
 		return spawn;
 	}
-	
+
 	private Coordinates getWorkerSpawn() {
 		Coordinates spawn = null;
 

@@ -1,6 +1,6 @@
-package process.visitor;
+package process.visitor.order;
 
-import data.building.Building;
+import data.building.ResearchBuilding;
 import data.order.Attack;
 import data.order.AttackBuilding;
 import data.order.AttackPosition;
@@ -13,28 +13,35 @@ import data.order.MoveToPosition;
 import data.order.MoveToTarget;
 import process.executor.Executor;
 
-public class BuildingExecutionVisitor implements OrderVisitor<Executor> {
-	private Building building;
+/**
+ * @author Adel
+ *
+ */
+public class ResearchBuildingExVisitor implements OrderVisitor<Executor> {
 
-	public BuildingExecutionVisitor(Building building) {
+	private ResearchBuilding building;
+
+	public ResearchBuildingExVisitor(ResearchBuilding building) {
 		this.building = building;
 	}
 
 	@Override
 	public Executor visit(Attack order) {
-		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Executor visit(AttackSuicide order) {
 		return null;
 	}
 
 	@Override
 	public Executor visit(AttackBuilding order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(AttackPosition order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -50,31 +57,21 @@ public class BuildingExecutionVisitor implements OrderVisitor<Executor> {
 
 	@Override
 	public Executor visit(Defend order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(Embark order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(MoveToPosition order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Executor visit(MoveToTarget order) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Executor visit(AttackSuicide order) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -3,7 +3,7 @@ package data.unit;
 import java.util.ArrayList;
 
 import data.Coordinates;
-import process.visitor.SelectableVisitor;
+import process.visitor.selectable.SelectableVisitor;
 
 /**
  * Class for instantiating transport helis

@@ -6,6 +6,10 @@ import process.CoordinatesTreatment;
 import process.GameUtility;
 import process.SelectableRepository;
 
+/**
+ * @author Adel
+ *
+ */
 public class MoveExecutor implements Executor {
 
 	private Unit unit;
@@ -19,6 +23,7 @@ public class MoveExecutor implements Executor {
 	@Override
 	public boolean execute() {
 		SelectableRepository r = SelectableRepository.getInstance();
+		boolean complete;
 		Coordinates pixelPosition = unit.getPosition();
 		Coordinates actualPosition = GameUtility.convert(pixelPosition);
 		Coordinates newPosition = getNewPosition();
@@ -27,12 +32,16 @@ public class MoveExecutor implements Executor {
 			if (isFree(actualNewPosition)) {
 				unit.setPosition(newPosition);
 				r.updatePosition(unit.getId(), actualPosition, actualNewPosition);
+				complete = unit.getPosition().equals(destination);
+			}else {
+				complete = true;
 			}
 		} else {
 			unit.setPosition(newPosition);
+			complete = unit.getPosition().equals(destination);
 		}
 
-		return unit.getPosition().equals(destination);
+		return complete;
 	}
 
 	private boolean isFree(Coordinates position) {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import data.order.Order;
-import process.visitor.SelectableVisitor;
+import process.visitor.selectable.SelectableVisitor;
 
 /**
  * @author Adel

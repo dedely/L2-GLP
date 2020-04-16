@@ -1,8 +1,8 @@
 package data.building;
 
 import data.Coordinates;
-import data.resource.Resource;
-import process.visitor.SelectableVisitor;
+import data.Resource;
+import process.visitor.selectable.SelectableVisitor;
 
 /**
  * @author Adel

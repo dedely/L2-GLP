@@ -2,6 +2,8 @@ package gui.management;
 
 import java.awt.Shape;
 import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -47,6 +49,16 @@ public class ShapeRepository {
 		for (Entry<Integer, Shape> s : shapes.entrySet()) {
 			if (s.getValue().contains(point)) {
 				selection = s.getKey();
+			}
+		}
+		return selection;
+	}
+	
+	public ArrayList<Integer> intersection(Rectangle2D r){
+		ArrayList<Integer> selection = new ArrayList<Integer>();
+		for (Entry<Integer, Shape> s : shapes.entrySet()) {
+			if (s.getValue().intersects(r)) {
+				selection.add(s.getKey());
 			}
 		}
 		return selection;

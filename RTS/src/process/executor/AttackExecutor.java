@@ -5,6 +5,10 @@ import data.unit.Unit;
 import process.CoordinatesTreatment;
 import process.SelectableTreatment;
 
+/**
+ * @author Adel
+ *
+ */
 public class AttackExecutor implements Executor {
 
 	private Unit caster;

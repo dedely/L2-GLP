@@ -8,6 +8,10 @@ import data.Config;
 import data.GameState;
 import data.Selectable;
 
+/**
+ * @author Adel
+ *
+ */
 public class Game {
 	private int state;
 	private HashMap<String, FactionTest> players = new HashMap<String, FactionTest>();

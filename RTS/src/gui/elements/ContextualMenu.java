@@ -1,4 +1,4 @@
-package gui.elements.menu;
+package gui.elements;
 
 import java.awt.FlowLayout;
 import java.util.ArrayList;

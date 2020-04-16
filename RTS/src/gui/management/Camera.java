@@ -1,7 +1,11 @@
-package process;
+package gui.management;
 
 import java.awt.Point;
 
+/**
+ * @author Adel
+ *
+ */
 public class Camera {
 	private int minX;
 	private int minY;

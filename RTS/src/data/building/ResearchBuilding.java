@@ -3,7 +3,7 @@ package data.building;
 import java.util.ArrayList;
 
 import data.Coordinates;
-import process.visitor.SelectableVisitor;
+import process.visitor.selectable.SelectableVisitor;
 
 public class ResearchBuilding extends Building {
 

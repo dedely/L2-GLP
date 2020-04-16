@@ -5,9 +5,9 @@ import java.util.NoSuchElementException;
 import data.Constants;
 import data.Coordinates;
 import data.Cost;
+import data.Resource;
 import data.building.UnitBuilding;
 import data.faction.Faction;
-import data.resource.Resource;
 import data.unit.Unit;
 import process.FactionTest;
 import process.SelectableRepository;
@@ -15,6 +15,10 @@ import process.factory.TestFactory;
 import process.factory.UnitFactory;
 import process.managers.UnitManager;
 
+/**
+ * @author Adel
+ *
+ */
 public class CreateUnitExecutor implements Executor {
 
 	private FactionTest testFaction;

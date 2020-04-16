@@ -1,7 +1,12 @@
-package process.visitor;
+package process.visitor.order;
 
 import data.order.*;
 
+/**
+ * @author Adel
+ *
+ * @param <T>
+ */
 public interface OrderVisitor<T> {
 
 	T visit(Attack order);

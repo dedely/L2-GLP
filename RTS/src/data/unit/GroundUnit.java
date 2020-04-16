@@ -1,7 +1,7 @@
 package data.unit;
 
 import data.Coordinates;
-import process.visitor.SelectableVisitor;
+import process.visitor.selectable.SelectableVisitor;
 
 /**
  * Abstract class representing the ground units such as foot soldiers or tanks

@@ -2,17 +2,17 @@ package gui.input;
 
 import java.awt.event.KeyEvent;
 
-import process.Camera;
+import gui.management.Camera;
 
+/**
+ * @author Adel
+ *
+ */
 public class KeyInputManager implements InputManager {
 	private int code;
 	private Camera camera;
 	private boolean debug = false;
 
-	public KeyInputManager(int code, Camera camera) {
-		this.code = code;
-		this.camera = camera;
-	}
 
 	@Override
 	public void process() {
@@ -37,6 +37,11 @@ public class KeyInputManager implements InputManager {
 			System.err.println("key not recognized");
 		}
 
+	}
+	
+	public void update(int code, Camera camera) {
+		this.code = code;
+		this.camera = camera;
 	}
 
 }

@@ -7,7 +7,7 @@ import data.Selectable;
 import gui.elements.buttons.OrderButton;
 import process.Game;
 import process.SelectableRepository;
-import process.visitor.ActionVisitor;
+import process.visitor.selectable.ActionVisitor;
 
 /**
  * This is a utility class used to generate a collection {@link OrderButton}

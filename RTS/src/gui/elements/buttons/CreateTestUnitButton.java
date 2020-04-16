@@ -7,16 +7,8 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 import data.Constants;
-import data.Coordinates;
-import data.Selectable;
 import data.order.CreateUnit;
-import data.unit.Unit;
-import gui.elements.SimuPara;
 import process.FactionTest;
-import process.GameUtility;
-import process.OrderTreatment;
-import process.SelectableRepository;
-import process.factory.UnitFactory;
 import process.managers.SelectableManager;
 
 /**

@@ -4,18 +4,18 @@ import data.Selectable;
 import data.order.Order;
 import data.unit.Unit;
 import process.executor.Executor;
-import process.visitor.UnitExecutionVisitor;
+import process.visitor.order.UnitExVisitor;
 
 public class UnitManager extends SelectableManager {
 
 	private Unit unit;
-	private UnitExecutionVisitor visitor;
+	private UnitExVisitor visitor;
 	private Executor concreteExecutor = null;
 	private boolean complete = false;
 
 	public UnitManager(Unit unit) {
 		this.unit = unit;
-		visitor = new UnitExecutionVisitor(unit);
+		visitor = new UnitExVisitor(unit);
 	}
 
 	@Override
@@ -25,13 +25,21 @@ public class UnitManager extends SelectableManager {
 
 	@Override
 	public void giveOrder(Order order) {
-		getSelectable().addOrder(order);
+		if(order != null) {
+			if (isExecutingOrder()) {
+				complete = true;
+				finish();
+			}
+			getSelectable().addOrder(order);
+		}
+
 	}
 
 	@Override
 	public void executeNextOrder() {
 		Order order = getOrder();
 		if (order != null) {
+			setExecutingOrder(true);
 			complete = false;
 			if (concreteExecutor == null) {
 				if ((concreteExecutor = order.accept(visitor)) == null) {
@@ -57,4 +65,14 @@ public class UnitManager extends SelectableManager {
 		return 0;
 	}
 
+	@Override
+	public boolean isBuilding() {
+		return false;
+	}
+
+	@Override
+	public void setExecutor(Executor executor) {
+		this.concreteExecutor = executor;
+	}
+	
 }

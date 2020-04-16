@@ -9,6 +9,10 @@ import data.building.UnitBuilding;
 import data.unit.GroundUnit;
 import data.unit.Worker;
 
+/**
+ * @author Adel
+ *
+ */
 public class TestColorStrategy implements ColorStrategy {
 
 	@Override

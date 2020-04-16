@@ -2,7 +2,7 @@ package data.building;
 
 import data.Coordinates;
 import data.unit.Weapon;
-import process.visitor.SelectableVisitor;
+import process.visitor.selectable.SelectableVisitor;
 
 /**
  * @author Adel

@@ -1,4 +1,4 @@
-package data.resource;
+package data;
 
 public class Resource {
 

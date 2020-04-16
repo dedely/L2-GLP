@@ -1,7 +1,7 @@
 package data.unit;
 
 import data.Coordinates;
-import process.visitor.SelectableVisitor;
+import process.visitor.selectable.SelectableVisitor;
 
 /**
  * Generic TerrestrialVehicle, (basically tanks) but with a machine-gun on top

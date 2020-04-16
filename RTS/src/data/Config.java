@@ -2,6 +2,10 @@ package data;
 
 import java.util.ArrayList;
 
+/**
+ * @author Adel
+ *
+ */
 public class Config {
 	private ArrayList<Player> players = new ArrayList<Player>();
 	private int difficulty;

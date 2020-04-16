@@ -11,8 +11,8 @@ import data.Selectable;
 import data.order.Attack;
 import data.order.MoveToPosition;
 import gui.elements.SimuPara;
+import gui.management.Camera;
 import gui.management.ShapeRepository;
-import process.Camera;
 import process.FactionTest;
 import process.SelectableRepository;
 
@@ -95,7 +95,6 @@ public class CoordinatesInputManager implements InputManager {
 					} catch (NoSuchElementException nsee) {
 						System.err.println(nsee.getMessage());
 					}
-					
 				}
 
 			} else {
@@ -144,6 +143,13 @@ public class CoordinatesInputManager implements InputManager {
 		this.camera = camera;
 	}
 
+	/**
+	 * We do not need to create a new CoordinatesInputManager every time, just update it.
+	 * @param button
+	 * @param count
+	 * @param point
+	 * @param camera
+	 */
 	public void update(int button, int count, Point point, Camera camera) {
 		setButton(button);
 		setCount(count);

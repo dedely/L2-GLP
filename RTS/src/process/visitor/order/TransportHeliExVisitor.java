@@ -1,6 +1,5 @@
-package process.visitor;
+package process.visitor.order;
 
-import data.building.UnitBuilding;
 import data.order.Attack;
 import data.order.AttackBuilding;
 import data.order.AttackPosition;
@@ -11,22 +10,28 @@ import data.order.Defend;
 import data.order.Embark;
 import data.order.MoveToPosition;
 import data.order.MoveToTarget;
-import process.FactionTest;
-import process.executor.CreateUnitExecutor;
+import data.unit.TransportHelicopter;
 import process.executor.Executor;
 
-public class UnitBuildingVisitor implements OrderVisitor<Executor> {
+/**
+ * @author Adel
+ *
+ */
+public class TransportHeliExVisitor implements OrderVisitor<Executor> {
 
-	private UnitBuilding unitBuilding;
-	private FactionTest player;
+	private TransportHelicopter unit;
 
-	public UnitBuildingVisitor(UnitBuilding unitBuilding, FactionTest player) {
-		this.unitBuilding = unitBuilding;
-		this.player = player;
+	public TransportHeliExVisitor(TransportHelicopter unit) {
+		this.unit = unit;
 	}
 
 	@Override
 	public Executor visit(Attack order) {
+		return null;
+	}
+
+	@Override
+	public Executor visit(AttackSuicide order) {
 		return null;
 	}
 
@@ -47,7 +52,7 @@ public class UnitBuildingVisitor implements OrderVisitor<Executor> {
 
 	@Override
 	public Executor visit(CreateUnit order) {
-		return new CreateUnitExecutor(player, unitBuilding, order.getUnitToCreate());
+		return null;
 	}
 
 	@Override
@@ -69,12 +74,5 @@ public class UnitBuildingVisitor implements OrderVisitor<Executor> {
 	public Executor visit(MoveToTarget order) {
 		return null;
 	}
-
-	@Override
-	public Executor visit(AttackSuicide order) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 
 }

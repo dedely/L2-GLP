@@ -10,10 +10,10 @@ public class SimuPara {
 	public static final int SIMULATION_DURATION = 300;
 
 	/**
-	 * The simulation speeds to be set at 16 or lower for the game to run at 60 fps
+	 * The simulation speed needs to be set at 16 or lower for the game to run at 60 fps
 	 * and above.
 	 */
-	public static final int SIMULATION_SPEED = 15;
+	public static final int SIMULATION_SPEED = 16;
 
 	/**
 	 * The WIDTH of a standard screen size for computer games.

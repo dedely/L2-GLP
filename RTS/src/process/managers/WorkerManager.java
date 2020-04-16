@@ -1,36 +1,42 @@
 package process.managers;
 
 import data.Selectable;
-import data.building.Building;
 import data.order.Order;
+import data.unit.Worker;
+import process.FactionTest;
 import process.executor.Executor;
-import process.visitor.BuildingExecutionVisitor;
+import process.visitor.order.WorkerExVisitor;
 
-public class BuildingManager extends SelectableManager {
-	private Building building;
-	private BuildingExecutionVisitor visitor;
+public class WorkerManager extends SelectableManager {
+
+	private FactionTest player;
+	private Worker worker;
+	private WorkerExVisitor visitor;
 	private Executor concreteExecutor = null;
 	private boolean complete = false;
 
-	public BuildingManager(Building building) {
-		this.building = building;
-		this.visitor = new BuildingExecutionVisitor(building);
+	public WorkerManager(FactionTest player, Worker worker) {
+		this.player = player;
+		this.worker = worker;
+		visitor = new WorkerExVisitor(worker);
 	}
 
 	@Override
 	public Selectable getSelectable() {
-		return building;
+		return worker;
 	}
 
 	@Override
-	public void giveOrder(Order order) {
-		getSelectable().addOrder(order);
+	public void update() {
+		executeNextOrder();
+
 	}
 
 	@Override
 	public void executeNextOrder() {
 		Order order = getOrder();
 		if (order != null) {
+			setExecutingOrder(true);
 			complete = false;
 			if (concreteExecutor == null) {
 				if ((concreteExecutor = order.accept(visitor)) == null) {
@@ -47,13 +53,18 @@ public class BuildingManager extends SelectableManager {
 	}
 
 	@Override
-	public void update() {
-		executeNextOrder();
+	public int getProgress() {
+		return 0;
 	}
 
 	@Override
-	public int getProgress() {
-		return 0;
+	public boolean isBuilding() {
+		return false;
+	}
+
+	@Override
+	public void setExecutor(Executor executor) {
+		this.concreteExecutor = executor;
 	}
 
 }

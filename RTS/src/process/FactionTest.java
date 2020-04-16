@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 import data.Cost;
 import data.Player;
-import data.resource.Resource;
+import data.Resource;
 import process.managers.ResearchManager;
 import process.managers.SelectableManager;
 
@@ -20,6 +20,8 @@ public class FactionTest {
 	private ArrayList<Integer> selection = new ArrayList<Integer>();
 	private HashMap<String, Cost> costs = new HashMap<String, Cost>();
 	private HashMap<Integer, SelectableManager> newManagers = new HashMap<Integer, SelectableManager>();
+
+	private int buildings;
 
 	public FactionTest(Player player) {
 		this.player = player.getName();
@@ -149,9 +151,17 @@ public class FactionTest {
 			newManagers.put(manager.getSelectableId(), manager);
 		}
 	}
-	
+
 	public void clearNew() {
 		newManagers.clear();
+	}
+
+	public int getBuildings() {
+		return buildings;
+	}
+
+	public void setBuildings(int buildings) {
+		this.buildings = buildings;
 	}
 
 }

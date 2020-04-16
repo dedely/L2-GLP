@@ -2,8 +2,8 @@ package data.faction;
 
 import java.util.ArrayList;
 
+import data.Resource;
 import data.building.Building;
-import data.resource.Resource;
 import data.tree.TechTree;
 import data.tree.Research;
 import data.unit.Unit;

@@ -3,7 +3,7 @@ package data.order;
 import data.Constants;
 import data.Selectable;
 import data.unit.Unit;
-import process.visitor.OrderVisitor;
+import process.visitor.order.OrderVisitor;
 
 public class Embark extends Order {
 

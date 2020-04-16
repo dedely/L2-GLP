@@ -1,7 +1,7 @@
 package data.unit;
 
 import data.Coordinates;
-import process.visitor.SelectableVisitor;
+import process.visitor.selectable.SelectableVisitor;
 
 /**
  * Class for instantiating attack helis with multiple weapons

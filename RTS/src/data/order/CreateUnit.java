@@ -1,6 +1,6 @@
 package data.order;
 
-import process.visitor.OrderVisitor;
+import process.visitor.order.OrderVisitor;
 
 public class CreateUnit extends Order {
 

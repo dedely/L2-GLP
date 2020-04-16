@@ -3,7 +3,7 @@ package data.order;
 import data.Constants;
 import data.Coordinates;
 import data.building.Building;
-import process.visitor.OrderVisitor;
+import process.visitor.order.OrderVisitor;
 
 public class Build extends Order {
 

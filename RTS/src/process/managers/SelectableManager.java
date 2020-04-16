@@ -2,27 +2,30 @@ package process.managers;
 
 import data.Selectable;
 import data.order.Order;
+import process.executor.Executor;
 
 public abstract class SelectableManager {
 	private Order order = null;
-	private boolean exectutingOrder = false;
+	private boolean executingOrder = false;
 
 	public abstract Selectable getSelectable();
-	
+
 	public abstract void update();
 
-	public abstract void giveOrder(Order order);
-
 	public abstract void executeNextOrder();
-	
+
 	public abstract int getProgress();
+
+	public abstract boolean isBuilding();
+	
+	public abstract void setExecutor(Executor executor);
 
 	public boolean isDead() {
 		return getSelectable().getCurrentHealth() <= 0;
 	}
 
-	public boolean isExectutingOrder() {
-		return exectutingOrder;
+	public void giveOrder(Order order) {
+		getSelectable().addOrder(order);
 	}
 
 	public Order getOrder() {
@@ -58,6 +61,16 @@ public abstract class SelectableManager {
 
 	public void finish() {
 		setOrder(null);
+		setExecutor(null);
+		setExecutingOrder(false);
+	}
+
+	public boolean isExecutingOrder() {
+		return executingOrder;
+	}
+
+	public void setExecutingOrder(boolean executingOrder) {
+		this.executingOrder = executingOrder;
 	}
 
 }

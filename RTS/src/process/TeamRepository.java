@@ -8,10 +8,12 @@ import java.util.NoSuchElementException;
 import data.Player;
 import data.Team;
 
+/**
+ * @author Adel
+ *
+ */
 public class TeamRepository {
-	/**
-	 * There are two ways for variable reference.
-	 */
+
 	private Map<Integer, Team> teams = new HashMap<Integer, Team>();
 	private Map<String, Integer> playerTeam = new HashMap<String, Integer>();
 

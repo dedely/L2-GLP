@@ -3,6 +3,10 @@ package process;
 import data.Coordinates;
 import gui.elements.SimuPara;
 
+/**
+ * @author Adel
+ *
+ */
 public class GameUtility {
 	/**
 	 * Simulates the unit time (for an iteration) defined for the simulation. 

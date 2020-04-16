@@ -1,5 +1,9 @@
 package data;
 
+/**
+ * @author Adel
+ *
+ */
 public class Cost {
 	private int cost;
 	private int time;
