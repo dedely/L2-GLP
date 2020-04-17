@@ -95,8 +95,8 @@ public class UnitFactory {
 		case Constants.MARTYR:
 			unitDatas = datas.get(Constants.MARTYR);
 			return buildGroundUnitSuicide(unitDatas, playerName, spawnPosition);
-		case Constants.UNION_WORKER:
-			unitDatas = datas.get(Constants.UNION_WORKER);
+		case Constants.REPUBLIC_WORKER:
+			unitDatas = datas.get(Constants.REPUBLIC_WORKER);
 			return buildWorker(unitDatas, playerName, spawnPosition);
 		case Constants.LIBERATOR:
 			unitDatas = datas.get(Constants.LIBERATOR);

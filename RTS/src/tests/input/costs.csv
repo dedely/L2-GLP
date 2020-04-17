@@ -1,3 +1,13 @@
-﻿faction;selectable;cost;time
-Union;mcm;100;10
-Union;testGround;0;10
+faction;selectable;cost;time
+union;specialist;100;5
+union;mbt;500;10
+union;mcm;400;12
+union;hth;1100;20
+federation;ranger;150;6
+federation;lion;600;12
+federation;tapir;550;15
+federation;nightjar;1200;20
+republic;trooper;50;3
+republic;justice;250;8
+republic;republic_worker;50;4
+republic;wrath;800;200

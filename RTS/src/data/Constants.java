@@ -79,11 +79,11 @@ public class Constants {
 	public static final String TAPIR = "tapir";
 	public static final String NIGHTJAR = "nightjar";
 	
-	//Union units
+	//Republic units
 	public static final String TROOPER = "trooper";
 	public static final String MARTYR = "martyr";
 	public static final String MORTAR_TEAM = "mortar_team";
-	public static final String UNION_WORKER =  "union_worker";
+	public static final String REPUBLIC_WORKER =  "republic_worker";
 	public static final String LIBERATOR = "liberator";
 	public static final String JUSTICE = "justice";
 	public static final String WRATH = "wrath";
