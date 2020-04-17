@@ -49,8 +49,6 @@ public class FactionBuilder {
 		initSelectable();
 		initCosts();
 		
-		System.out.println(this.faction.getManagers().size());
-
 		return faction;
 	}
 

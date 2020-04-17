@@ -43,7 +43,7 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	/**
 	 * Showing the grid will make the debug easier.
 	 */
-	private boolean debugGrid = true;
+	private boolean debugGrid = false;
 	private boolean debugMouseInput = false;
 
 	Rectangle currentArea = null;
