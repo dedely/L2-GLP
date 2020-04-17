@@ -56,12 +56,12 @@ public class CreateUnitExecutor implements Executor {
 	public boolean execute() {
 		if (timeLeft == totalTime) {
 			try {
-				Resource mats = testFaction.getResource(Constants.MATS);
+				Resource mats = testFaction.getResource(Constants.MATERIALS);
 				int currentCount = mats.getResourceCount();
 				int price = cost.getCost();
 				int newCount = currentCount - price;
 				if (newCount >= 0) {
-					testFaction.updateResource(Constants.MATS, newCount);
+					testFaction.updateResource(Constants.MATERIALS, newCount);
 					timeLeft--;
 				} else {
 					complete = true;

@@ -66,7 +66,7 @@ public class FactionBuilder {
 	}
 
 	private void initResources() {
-		faction.addResource(new Resource(1000, Constants.MATS));
+		faction.addResource(new Resource(1000, Constants.MATERIALS));
 	}
 
 	private void initCosts() {
