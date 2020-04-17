@@ -1,0 +1,12 @@
+building
+
+name = HQ 
+maxHealth = 1800
+armorPoints = 10
+armorType = 1
+description = Head quarter of the Republic
+sizex = 2
+sizey = 2
+
+
+

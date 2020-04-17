@@ -1,0 +1,12 @@
+building
+
+name = HQ 
+maxHealth = 2000
+armorPoints = 10
+armorType = 1
+description = Head quarter of the union
+sizex = 2
+sizey = 2
+
+
+

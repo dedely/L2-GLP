@@ -1,0 +1,12 @@
+unit
+
+name = HQ 
+maxHealth = 2300
+armorPoints = 10
+armorType = 2
+description = Head quarter of the federation
+sizex = 2
+sizey = 2
+
+
+

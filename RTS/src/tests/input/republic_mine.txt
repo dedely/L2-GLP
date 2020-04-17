@@ -1,0 +1,14 @@
+building
+
+name = Mine 
+maxHealth = 800
+armorPoints = 10
+armorType = 1
+description = Mining facility
+sizex = 1
+sizey = 1
+timeToProduce = 5
+numberProduced = 100
+capacity = 2000
+
+
