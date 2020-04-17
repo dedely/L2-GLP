@@ -2,7 +2,6 @@ package data.order;
 
 import data.Constants;
 import data.Coordinates;
-import data.Selectable;
 import process.visitor.order.OrderVisitor;
 
 public class AttackPosition extends Order {

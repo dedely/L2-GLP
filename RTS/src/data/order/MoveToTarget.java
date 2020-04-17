@@ -1,7 +1,6 @@
 package data.order;
 
 import data.Constants;
-import data.Coordinates;
 import data.Selectable;
 import data.unit.Unit;
 import process.visitor.order.OrderVisitor;

@@ -1,6 +1,5 @@
 package process.factory;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import data.Constants;
@@ -19,80 +18,26 @@ import process.builder.FileExtractor;
 public class UnitFactory {
 	private HashMap<String, HashMap<String, String>> datas = new HashMap<String, HashMap<String, String>>();
 
-	private String path = "src/tests/input/";
-	
+	public static final String ROOT_PATH = "src/tests/input/";
+
+	private static final String EXTENSION = ".txt";
+
 	private FileExtractor unitFileExtractor = new FileExtractor();
-	
+
+	private static UnitFactory instance = new UnitFactory();
+
 	private UnitFactory() {
 		initialiseFiles();
 	}
 
 	private void initialiseFiles() {
-		try {
-			datas.put("hth", unitFileExtractor.readFile(path+"hth.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load hth file");
+		for (SelectableNamesEnum name : SelectableNamesEnum.values()) {
+			HashMap<String, String> data = unitFileExtractor.readFile(ROOT_PATH + name.name() + EXTENSION);
+			if (data.size() > 0) {
+				datas.put(name.name(), data);
+			}
 		}
-		try {
-			datas.put("justice", unitFileExtractor.readFile(path+"justice.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load justice file");
-		}
-		try {
-			datas.put("lion", unitFileExtractor.readFile(path+"lion.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load lion file");
-		}
-		try {
-			datas.put("mbt", unitFileExtractor.readFile(path+"mbt.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load mbt file");
-		}
-		try {
-			datas.put("mcm", unitFileExtractor.readFile(path+"mcm.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load mcm file");
-		}
-		try {
-			datas.put("nightjar", unitFileExtractor.readFile(path+"nightjar.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load nightjar file");
-		}
-		try {
-			datas.put("ranger", unitFileExtractor.readFile(path+"ranger.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load ranger file");
-		}
-		try {
-			datas.put("republic_worker", unitFileExtractor.readFile(path+"republic_worker.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load republic_worker file");
-		}
-		try {
-			datas.put("specialist", unitFileExtractor.readFile(path+"specialist.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load specialist file");
-		}
-		try {
-			datas.put("tapir", unitFileExtractor.readFile(path+"tapir.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load tapir file");
-		}
-		try {
-			datas.put("trooper", unitFileExtractor.readFile(path+"trooper.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load trooper file");
-		}
-		try {
-			datas.put("wrath", unitFileExtractor.readFile(path+"wrath.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load wrath file");
-		}
-		
-		
 	}
-
-	private static UnitFactory instance = new UnitFactory();
 
 	public static UnitFactory getInstance() {
 		return instance;
@@ -177,10 +122,9 @@ public class UnitFactory {
 		case Constants.WRATH:
 			unitDatas = datas.get(Constants.WRATH);
 			return buildAttackHelicopter(unitDatas, playerName, spawnPosition);
-		default: 
+		default:
 			throw new IllegalArgumentException("type " + type + " is not implemented or defined");
 		}
-
 
 	}
 

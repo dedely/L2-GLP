@@ -56,7 +56,6 @@ public class CoordinatesInputManager implements InputManager {
 	 */
 	private void processLeftClick() {
 		ShapeRepository screen = ShapeRepository.getInstance();
-		SelectableRepository r = SelectableRepository.getInstance();
 		Integer selectionId = screen.contains(point);
 		// Only 1 shape can be selected using a simple click.
 		player.deselectAll();
