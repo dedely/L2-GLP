@@ -1,4 +1,4 @@
-package gui.elements.buttons;
+package gui.management;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 import data.Constants;
-import data.order.Build;
 import data.order.CreateUnit;
+import gui.elements.buttons.OrderButton;
 import process.Faction;
 import process.managers.SelectableManager;
 
-public class BuildButton extends OrderButton {
-	public BuildButton(Faction player, String action) {
+public class WrathButton extends OrderButton {
+
+	public WrathButton(Faction player, String action) {
 		super(player, action);
 		initStyle();
 		initLayout();
@@ -35,22 +36,25 @@ public class BuildButton extends OrderButton {
 	}
 
 	private void initAction() {
-		getButton().addActionListener(new BuildAction());
+		getButton().addActionListener(new CreateWrathAction());
 	}
 
-	private class BuildAction implements ActionListener {
+	private class CreateWrathAction implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			ArrayList<Integer> selectedCollection = getPlayer().getSelection();
-			if (selectedCollection.size() == 1) {
+			for (Integer selectedId : selectedCollection) {
 				try {
-					SelectableManager manager = getPlayer().getSelectableManager(selectedCollection.get(0));
-					manager.waitForInfo();
+					SelectableManager manager = getPlayer().getSelectableManager(selectedId);
+					CreateUnit order = new CreateUnit(Constants.WRATH);
+					manager.giveOrder(order);
 				} catch (NoSuchElementException nsee) {
 					System.err.println(nsee.getMessage());
 				}
 			}
+
 		}
+
 	}
 }

@@ -11,7 +11,6 @@ import data.unit.TransportHelicopter;
 import data.unit.TroopTransport;
 import data.unit.Worker;
 import process.Faction;
-import process.managers.AttackHeliManager;
 import process.managers.DefenseBuildingManager;
 import process.managers.ResourceBuildingManager;
 import process.managers.SelectableManager;
@@ -55,7 +54,7 @@ public class ManagerVisitor implements SelectableVisitor<SelectableManager> {
 
 	@Override
 	public SelectableManager visit(AttackHelicopter selectable) {
-		return new AttackHeliManager(selectable);
+		return new UnitManager(selectable);
 	}
 
 	@Override
