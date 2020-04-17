@@ -1,8 +1,9 @@
 package gui.elements;
 
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import gui.elements.buttons.OrderButton;
@@ -18,7 +19,6 @@ import process.Faction;
  */
 public class ContextualMenu extends JPanel {
 
-	
 	private Faction player;
 	private ButtonBuilder builder;
 
@@ -27,14 +27,9 @@ public class ContextualMenu extends JPanel {
 	public ContextualMenu(Faction player) {
 		super();
 		this.player = player;
-		builder = new ButtonBuilder(player);
-		setLayout(new FlowLayout());
-		initStyle();
+		builder = new ButtonBuilder(this.player);
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		layoutButtons();
-	}
-
-	private void initStyle() {
-
 	}
 
 	public ArrayList<OrderButton> getButtons() {

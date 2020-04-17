@@ -42,13 +42,12 @@ public class GameGUI extends JFrame implements Runnable {
 	}
 
 	private void initLayout() {
-
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
 		setSize(SimuPara.WINDOW_WIDTH, SimuPara.WINDOW_HEIGHT);
 
 		// We first display the title screen.
-		//dashboard = new TitleScreenTest(game);
+		// dashboard = new TitleScreenTest(game);
 		dashboard = new TitleScreen(game);
 		dashboard.setPreferredSize(IDEAL_DASHBOARD_DIMENSION);
 
@@ -96,11 +95,26 @@ public class GameGUI extends JFrame implements Runnable {
 				dashboard.repaint();
 			}
 
+			if (game.isOver()) {
+				resetLayout();
+			}
+
 		}
 
 		// We need a little more time for avoiding printing delay issue.
 		GameUtility.windowRefreshTime();
 
+	}
+
+	private void resetLayout() {
+		game.reset();
+		Container contentPane = getContentPane();
+		contentPane.removeAll();
+		dashboard = new TitleScreen(game);
+		dashboard.setPreferredSize(IDEAL_DASHBOARD_DIMENSION);
+		contentPane.add(BorderLayout.CENTER, dashboard);
+		contentPane.revalidate();
+		contentPane.repaint();
 	}
 
 	private void updateLayout() {

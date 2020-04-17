@@ -18,29 +18,24 @@ public class BuildingFactory {
 	private static String ROOT_PATH = "src/tests/input/";
 	private static String EXTENSION = ".txt";
 	private FileExtractor buildingFileExtractor = new FileExtractor();
-	
+
 	private static BuildingFactory instance = new BuildingFactory();
 
 	private BuildingFactory() {
 		initialiseFiles();
-
 	}
 
 	private void initialiseFiles() {
-		tryReadAndPutInDatas(Constants.UNION_HQ);
-		tryReadAndPutInDatas(Constants.FEDERATION_HQ);
-		tryReadAndPutInDatas(Constants.REPUBLIC_HQ);
-		tryReadAndPutInDatas(Constants.UNION_FACTORY);
-		tryReadAndPutInDatas(Constants.FEDERATION_FACTORY);
-		tryReadAndPutInDatas(Constants.REPUBLIC_FACTORY);
-		tryReadAndPutInDatas(Constants.UNION_MINE);
-		tryReadAndPutInDatas(Constants.FEDERATION_MINE);
-		tryReadAndPutInDatas(Constants.REPUBLIC_MINE);
+		for (BuildingNamesEnum name : BuildingNamesEnum.values()) {
+			HashMap<String, String> data = buildingFileExtractor.readFile(ROOT_PATH + name.name() + EXTENSION);
+			if (data.size() > 0) {
+				datas.put(name.name(), data);
+			}
+		}
 	}
 
-	private void tryReadAndPutInDatas(String name) {
-		datas.put(name, buildingFileExtractor.readFile(ROOT_PATH + name + EXTENSION));
-
+	public static BuildingFactory getInstance() {
+		return instance;
 	}
 
 	public Building createBuilding(String type, Coordinates spawnPosition, String playerName)
@@ -113,7 +108,4 @@ public class BuildingFactory {
 		return Boolean.parseBoolean(string);
 	}
 
-	public static BuildingFactory getInstance() {
-		return instance;
-	}
 }

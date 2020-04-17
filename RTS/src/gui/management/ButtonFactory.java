@@ -10,6 +10,7 @@ import data.Action;
 import data.Constants;
 import gui.elements.buttons.BuildButton;
 import gui.elements.buttons.HthButton;
+import gui.elements.buttons.JusticeButton;
 import gui.elements.buttons.LionButton;
 import gui.elements.buttons.MCMButton;
 import gui.elements.buttons.NightJarButton;
@@ -18,6 +19,8 @@ import gui.elements.buttons.RWorkerButton;
 import gui.elements.buttons.RangerButton;
 import gui.elements.buttons.SpecialistButton;
 import gui.elements.buttons.TapirButton;
+import gui.elements.buttons.TrooperButton;
+import gui.elements.buttons.WrathButton;
 import process.Faction;
 
 /**

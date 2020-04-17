@@ -1,4 +1,4 @@
-package gui.management;
+package gui.elements.buttons;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -8,7 +8,6 @@ import java.util.NoSuchElementException;
 
 import data.Constants;
 import data.order.CreateUnit;
-import gui.elements.buttons.OrderButton;
 import process.Faction;
 import process.managers.SelectableManager;
 

@@ -7,17 +7,22 @@ import data.Coordinates;
 import data.Cost;
 import data.Player;
 import data.Resource;
-import data.building.UnitBuilding;
+import data.Selectable;
+import data.building.Building;
 import data.unit.Unit;
 import gui.elements.SimuPara;
 import process.Faction;
-import process.factory.TestFactory;
+import process.factory.BuildingFactory;
+import process.factory.UnitFactory;
 import process.managers.SelectableManager;
-import process.managers.UnitBuildingManager;
 import process.repository.SelectableRepository;
 import process.visitor.selectable.ManagerVisitor;
 
 /**
+ * This utility class is responsible for creating each Faction object at the
+ * beginning of a new game. It uses the player's faction choice. At the moment,
+ * the spawn locations are based on hard coded rules.
+ * 
  * @author Adel
  *
  */
@@ -26,14 +31,25 @@ public class FactionBuilder {
 	private Player player;
 	private Faction faction;
 
+	private SelectableRepository r = SelectableRepository.getInstance();
+
+	private BuildingFactory buildingFactory = BuildingFactory.getInstance();
+
+	private UnitFactory unitFactory = UnitFactory.getInstance();
+
+	private ManagerVisitor visitor;
+
 	public Faction buildFaction(Player player) {
 		this.player = player;
 		faction = new Faction(player);
+		visitor = new ManagerVisitor(faction);
 
 		initResources();
 		initResearch();
 		initSelectable();
 		initCosts();
+		
+		System.out.println(this.faction.getManagers().size());
 
 		return faction;
 	}
@@ -44,21 +60,13 @@ public class FactionBuilder {
 	}
 
 	private void initSelectable() {
-		SelectableRepository r = SelectableRepository.getInstance();
 		String name = player.getName();
-		Coordinates hQSpawn = getHQSpawn();
-		Coordinates workerSpawn = getWorkerSpawn();
-		Coordinates rallyPoint = new Coordinates(hQSpawn.getAbsciss() + 3 * SimuPara.SCALE, hQSpawn.getOrdinate());
+		String faction = player.getFactionName();
+
 		try {
-			UnitBuilding headquaters = TestFactory.createUnitBuilding(Constants.HEADQUATERS, name, hQSpawn, rallyPoint);
-			r.register(headquaters);
-			UnitBuildingManager manager = new UnitBuildingManager(headquaters, faction);
-			faction.addSelectableManager(manager);
-			Unit unit = TestFactory.createUnit(Constants.MCM, name, workerSpawn);
-			r.register(unit);
-			ManagerVisitor visitor = new ManagerVisitor(faction);
-			SelectableManager unitManager = unit.accept(visitor);
-			faction.addSelectableManager(unitManager);
+			initHQ(name, faction);
+			initMine(name, faction);
+			initWorker(name, faction);
 		} catch (IllegalArgumentException e) {
 			System.err.println(e.getMessage());
 		}
@@ -74,6 +82,83 @@ public class FactionBuilder {
 		faction.setCosts(costs);
 	}
 
+	private void initHQ(String name, String factionName) throws IllegalArgumentException {
+		Coordinates hQSpawn = getHQSpawn();
+		try {
+			Building headquaters = null;
+			switch (factionName) {
+			case Constants.REPUBLIC:
+				headquaters = buildingFactory.createBuilding(Constants.REPUBLIC_HQ, hQSpawn, name);
+				break;
+			case Constants.UNION:
+				headquaters = buildingFactory.createBuilding(Constants.UNION_HQ, hQSpawn, name);
+				break;
+			case Constants.FEDERATION:
+				headquaters = buildingFactory.createBuilding(Constants.FEDERATION_HQ, hQSpawn, name);
+				break;
+			default:
+				throw new IllegalArgumentException("Unknow factionName: " + factionName);
+			}
+			register(headquaters);
+		} catch (IllegalArgumentException e) {
+			System.err.println(e.getMessage());
+		}
+	}
+
+	private void register(Selectable selectable) {
+		if (selectable != null) {
+			r.register(selectable);
+			SelectableManager manager = selectable.accept(visitor);
+			faction.addSelectableManager(manager);
+		}
+	}
+
+	private void initMine(String name, String factionName) {
+		Coordinates mineSpawn = getMineSpawn();
+		try {
+			Building mine = null;
+			switch (factionName) {
+			case Constants.REPUBLIC:
+				mine = buildingFactory.createBuilding(Constants.REPUBLIC_MINE, mineSpawn, name);
+				break;
+			case Constants.UNION:
+				mine = buildingFactory.createBuilding(Constants.UNION_MINE, mineSpawn, name);
+				break;
+			case Constants.FEDERATION:
+				mine = buildingFactory.createBuilding(Constants.FEDERATION_MINE, mineSpawn, name);
+				break;
+			default:
+				throw new IllegalArgumentException("Unknow factionName: " + factionName);
+			}
+			register(mine);
+		} catch (IllegalArgumentException e) {
+			System.err.println(e.getMessage());
+		}
+	}
+
+	private void initWorker(String name, String factionName) throws IllegalArgumentException {
+		Coordinates workerSpawn = getWorkerSpawn();
+		try {
+			Unit worker = null;
+			switch (factionName) {
+			case Constants.REPUBLIC:
+				worker = unitFactory.createUnit(Constants.REPUBLIC_WORKER, workerSpawn, name);
+				break;
+			case Constants.UNION:
+				worker = unitFactory.createUnit(Constants.MCM, workerSpawn, name);
+				break;
+			case Constants.FEDERATION:
+				worker = unitFactory.createUnit(Constants.TAPIR, workerSpawn, name);
+				break;
+			default:
+				throw new IllegalArgumentException("Unknow factionName: " + factionName);
+			}
+			register(worker);
+		} catch (IllegalArgumentException e) {
+			System.err.println(e.getMessage());
+		}
+	}
+
 	private Coordinates getHQSpawn() {
 		Coordinates spawn = null;
 
@@ -87,7 +172,6 @@ public class FactionBuilder {
 		default:
 			throw new IllegalArgumentException("Unknown name: " + player.getName());
 		}
-
 		return spawn;
 	}
 
@@ -100,6 +184,23 @@ public class FactionBuilder {
 			break;
 		case Constants.AI:
 			spawn = new Coordinates(105 * SimuPara.SCALE, 10 * SimuPara.SCALE, 0);
+			break;
+		default:
+			throw new IllegalArgumentException("Unknown name: " + player.getName());
+		}
+
+		return spawn;
+	}
+	
+	private Coordinates getMineSpawn() {
+		Coordinates spawn = null;
+
+		switch (player.getName()) {
+		case Constants.PLAYER:
+			spawn = new Coordinates(15 * SimuPara.SCALE, 95 * SimuPara.SCALE, 0);
+			break;
+		case Constants.AI:
+			spawn = new Coordinates(110 * SimuPara.SCALE, 10 * SimuPara.SCALE, 0);
 			break;
 		default:
 			throw new IllegalArgumentException("Unknown name: " + player.getName());

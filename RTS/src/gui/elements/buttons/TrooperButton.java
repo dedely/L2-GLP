@@ -1,4 +1,4 @@
-package gui.management;
+package gui.elements.buttons;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -8,12 +8,11 @@ import java.util.NoSuchElementException;
 
 import data.Constants;
 import data.order.CreateUnit;
-import gui.elements.buttons.OrderButton;
 import process.Faction;
 import process.managers.SelectableManager;
 
-public class JusticeButton extends OrderButton{
-	public JusticeButton(Faction player, String action) {
+public class TrooperButton extends OrderButton{
+	public TrooperButton(Faction player, String action) {
 		super(player, action);
 		initStyle();
 		initLayout();
@@ -35,10 +34,10 @@ public class JusticeButton extends OrderButton{
 	}
 
 	private void initAction() {
-		getButton().addActionListener(new CreateJusticeAction());
+		getButton().addActionListener(new CreateTrooperAction());
 	}
 
-	private class CreateJusticeAction implements ActionListener {
+	private class CreateTrooperAction implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -46,7 +45,7 @@ public class JusticeButton extends OrderButton{
 			for (Integer selectedId : selectedCollection) {
 				try {
 					SelectableManager manager = getPlayer().getSelectableManager(selectedId);
-					CreateUnit order = new CreateUnit(Constants.JUSTICE);
+					CreateUnit order = new CreateUnit(Constants.TROOPER);
 					manager.giveOrder(order);
 				} catch (NoSuchElementException nsee) {
 					System.err.println(nsee.getMessage());

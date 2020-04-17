@@ -21,7 +21,6 @@ public class Faction {
 	private ArrayList<Integer> selection = new ArrayList<Integer>();
 	private HashMap<String, Cost> costs = new HashMap<String, Cost>();
 	private HashMap<Integer, SelectableManager> newManagers = new HashMap<Integer, SelectableManager>();
-	private Factory factory;
 
 	private int buildings;
 
@@ -74,6 +73,9 @@ public class Faction {
 
 	public void addSelectableManager(SelectableManager manager) {
 		if (manager != null) {
+			if(manager.isBuilding()) {
+				buildings++;
+			}
 			managers.put(manager.getSelectableId(), manager);
 		}
 	}
@@ -150,6 +152,9 @@ public class Faction {
 
 	public void addNew(SelectableManager manager) {
 		if (manager != null) {
+			if(manager.isBuilding()) {
+				buildings++;
+			}
 			newManagers.put(manager.getSelectableId(), manager);
 		}
 	}
@@ -172,6 +177,10 @@ public class Faction {
 
 	public void setResearcher(ResearchManager researcher) {
 		this.researcher = researcher;
+	}
+	
+	public boolean isLost() {
+		return buildings == 0;
 	}
 
 }

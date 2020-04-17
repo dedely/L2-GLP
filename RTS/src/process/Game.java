@@ -55,6 +55,10 @@ public class Game {
 	public void pause() {
 		setState(GameState.PAUSED);
 	}
+	
+	public void end() {
+		setState(GameState.OVER);
+	}
 
 	public void reset() {
 		players.clear();
@@ -68,6 +72,9 @@ public class Game {
 			addNew();
 			for (Faction player : players.values()) {
 				player.update();
+				if(player.isLost()) {
+					end();
+				}
 			}
 		}
 	}
@@ -101,6 +108,10 @@ public class Game {
 
 	public boolean isStopped() {
 		return state == GameState.STOP;
+	}
+	
+	public boolean isOver() {
+		return state == GameState.OVER;
 	}
 
 	public static boolean isEnemy(String player1, String player2) {
