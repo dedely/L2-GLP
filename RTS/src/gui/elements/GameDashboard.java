@@ -104,7 +104,6 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	}
 
 	private void printMap(Graphics2D g2) {
-		// TODO Auto-generated method stub
 
 	}
 

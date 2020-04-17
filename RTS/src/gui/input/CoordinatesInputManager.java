@@ -14,6 +14,8 @@ import gui.elements.SimuPara;
 import gui.management.Camera;
 import gui.management.ShapeRepository;
 import process.Faction;
+import process.Game;
+import process.GameUtility;
 import process.repository.SelectableRepository;
 
 /**
@@ -79,39 +81,49 @@ public class CoordinatesInputManager implements InputManager {
 		ShapeRepository screen = ShapeRepository.getInstance();
 
 		SelectableRepository r = SelectableRepository.getInstance();
-		
+
 		ArrayList<Integer> selectedCollection = player.getSelection();
 
 		if (selectedCollection.size() > 0) {
 
 			Integer targetId = screen.contains(point);
 
-			if (targetId != null) { // Add ennemy check later.
-				Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(targetId));
-				for (Integer selectedId : selectedCollection) {
-					try {
-						player.getSelectableManager(selectedId).giveOrder(order);
-					} catch (NoSuchElementException nsee) {
-						System.err.println(nsee.getMessage());
+			if (targetId != null) {
+				Selectable selectable = r.getSelectable(targetId);
+				if (Game.isEnemy(player.getName(), selectable.getPlayerName())) {
+					Attack order = new Attack(Constants.STOP_TO_SHOOT, r.getSelectable(targetId));
+					for (Integer selectedId : selectedCollection) {
+						try {
+							player.getSelectableManager(selectedId).giveOrder(order);
+						} catch (NoSuchElementException nsee) {
+							System.err.println(nsee.getMessage());
+						}
 					}
 				}
-
 			} else {
 				int x = point.x + camera.getMinX() * SimuPara.SCALE;
 				int y = point.y + camera.getMinY() * SimuPara.SCALE;
 				Coordinates coordinates = new Coordinates(x, y);
-				MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
-				for (Integer selectedId : selectedCollection) {
-					try {
-						player.getSelectableManager(selectedId).giveOrder(order);
-					} catch (NoSuchElementException nsee) {
-						System.err.println(nsee.getMessage());
+				if (isInBounds(coordinates)) {
+					MoveToPosition order = new MoveToPosition(coordinates, Constants.GO_AT_ALL_COST);
+					for (Integer selectedId : selectedCollection) {
+						try {
+							player.getSelectableManager(selectedId).giveOrder(order);
+						} catch (NoSuchElementException nsee) {
+							System.err.println(nsee.getMessage());
+						}
 					}
-					
 				}
 			}
 		}
 
+	}
+
+	private boolean isInBounds(Coordinates coordinates) {
+		Coordinates actualPosition = GameUtility.convert(coordinates);
+		int x = actualPosition.getAbsciss();
+		int y = actualPosition.getOrdinate();
+		return (x >= camera.getMinX()) && (x < camera.getMaxX()) && (y >= camera.getMinY()) && (y < camera.getMaxY());
 	}
 
 	public int getButton() {
@@ -143,7 +155,9 @@ public class CoordinatesInputManager implements InputManager {
 	}
 
 	/**
-	 * We do not need to create a new CoordinatesInputManager every time, just update it.
+	 * We do not need to create a new CoordinatesInputManager every time, just
+	 * update it.
+	 * 
 	 * @param button
 	 * @param count
 	 * @param point
