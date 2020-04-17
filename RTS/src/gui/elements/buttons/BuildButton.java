@@ -6,9 +6,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
-import data.Constants;
-import data.order.Build;
-import data.order.CreateUnit;
 import process.Faction;
 import process.managers.SelectableManager;
 

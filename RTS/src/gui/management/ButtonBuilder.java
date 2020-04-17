@@ -2,11 +2,9 @@ package gui.management;
 
 import java.util.ArrayList;
 
-import data.Constants;
 import data.Selectable;
 import gui.elements.buttons.OrderButton;
 import process.Faction;
-import process.Game;
 import process.repository.SelectableRepository;
 import process.visitor.selectable.ActionVisitor;
 
