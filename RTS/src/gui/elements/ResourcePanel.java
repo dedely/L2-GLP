@@ -1,12 +1,13 @@
 package gui.elements;
 
 import java.awt.GridLayout;
-import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import data.Constants;
 import data.Resource;
+import process.Faction;
 
 /**
  * @author Adel
@@ -14,15 +15,13 @@ import data.Resource;
  */
 public class ResourcePanel extends JPanel {
 
-	private ArrayList<Resource> resources = new ArrayList<Resource>();
+	private Faction player;
 
-	private JLabel energyLabel = new JLabel("Energy:");
-	private JLabel materialLabel = new JLabel("Materials:");
-
-	private JLabel energyValue = new JLabel("");
+	private JLabel materialLabel = new JLabel("Materials: ");
 	private JLabel materialValue = new JLabel("");
 
-	public ResourcePanel() {
+	public ResourcePanel(Faction player) {
+		this.player = player;
 		initStyle();
 		initLayout();
 	}
@@ -33,14 +32,15 @@ public class ResourcePanel extends JPanel {
 
 	private void initLayout() {
 		setLayout(new GridLayout(2, 1));
+		add(materialLabel);
+		add(materialValue);
 	}
 
-	private void updateValues() {
-		
-	}
-
-	public void setResources(ArrayList<Resource> resources) {
-		this.resources = resources;
+	public void updateValues() {
+		Resource materials = player.getResource(Constants.MATERIALS);
+		int count = materials.getResourceCount();
+		String newTxt = String.valueOf(count);
+		materialValue.setText(newTxt);
 	}
 
 }

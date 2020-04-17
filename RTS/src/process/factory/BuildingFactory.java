@@ -23,7 +23,6 @@ public class BuildingFactory {
 
 	private BuildingFactory() {
 		initialiseFiles();
-
 	}
 
 	private void initialiseFiles() {

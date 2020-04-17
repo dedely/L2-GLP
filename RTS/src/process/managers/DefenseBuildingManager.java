@@ -14,38 +14,29 @@ public class DefenseBuildingManager extends SelectableManager {
 
 	@Override
 	public Selectable getSelectable() {
-		// TODO Auto-generated method stub
-		return null;
+		return building;
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void executeNextOrder() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public int getProgress() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public boolean isBuilding() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public void setExecutor(Executor executor) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

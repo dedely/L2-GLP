@@ -33,7 +33,7 @@ import process.repository.SelectableRepository;
  */
 public class GameDashboard extends Dashboard implements MouseListener, MouseMotionListener, KeyListener {
 
-	private static final Dimension IDEAL_INFO_PANEL_DIMENSION = new Dimension(1920, 288);
+	private static final Dimension IDEAL_INFO_PANEL_DIMENSION = new Dimension(1920, 216);
 	private CoordinatesInputManager coordInput;
 	private AreaInputManager areaInput;
 	private KeyInputManager keyInput = new KeyInputManager();
