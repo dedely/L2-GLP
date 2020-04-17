@@ -26,8 +26,8 @@ public class ResourceBuildingManager extends SelectableManager {
 	private void initMechanism() {
 		resource = building.getResourceProduced();
 		int delay = building.getTimeToProduce();
-		counter = new CyclicCounter(delay, delay, 0);
-		stock = new BoundedCounter(0, building.getCapacity(), 0);
+		counter = new CyclicCounter(delay);
+		stock = new BoundedCounter(building.getCapacity());
 	}
 
 	@Override
@@ -46,9 +46,9 @@ public class ResourceBuildingManager extends SelectableManager {
 	@Override
 	public void update() {
 		if (counter.getValue() == 0) {
-			stock.increment();
+			stock.increase();
 		}
-		counter.decrement();
+		counter.decrease();
 	}
 
 	@Override

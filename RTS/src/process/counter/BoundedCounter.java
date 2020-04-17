@@ -1,42 +1,35 @@
 package process.counter;
 
-/**
- * The bounded counter has a min value and a max value.
- * 
- * We can set freely these two values when creating the bounded counter.
- * 
- * @author Tianxiao.Liu@u-cergy.fr
- **/
 public class BoundedCounter extends Counter {
 	private int max;
-	private int min;
 
-	public BoundedCounter(int value, int max, int min) {
+	public BoundedCounter(int max) {
+		super();
+		this.max = max;
+	}
+
+	public BoundedCounter(int value, int max) {
 		super(value);
 		this.max = max;
-		this.min = min;
 	}
 
-	@Override
-	public void decrement() {
-		if (getValue() > min) {
-			super.decrement();
-		}
+	public void increase() {
+		if (getValue() < max)
+			super.increase();
 	}
 
-	@Override
-	public void increment() {
-		if (getValue() < max) {
-			super.increment();
-		}
+	/*
+	 * public String toString() { return "value: " + getValue(); // + "\tmax: " +
+	 * max; }
+	 */
+	public String toString() {
+		if (getValue() < 10) {
+			return " 0" + getValue();
+		} else
+			return " " + getValue();
 	}
 
 	public int getMax() {
 		return max;
 	}
-
-	public int getMin() {
-		return min;
-	}
-
 }
