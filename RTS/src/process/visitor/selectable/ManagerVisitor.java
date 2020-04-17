@@ -45,7 +45,7 @@ public class ManagerVisitor implements SelectableVisitor<SelectableManager> {
 
 	@Override
 	public SelectableManager visit(ResourceBuilding selectable) {
-		return new ResourceBuildingManager(selectable);
+		return new ResourceBuildingManager(player, selectable);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import data.Constants;
 import data.Selectable;
 import gui.elements.buttons.OrderButton;
+import process.FactionTest;
 import process.Game;
 import process.SelectableRepository;
 import process.visitor.selectable.ActionVisitor;
@@ -18,11 +19,11 @@ import process.visitor.selectable.ActionVisitor;
  *
  */
 public class ButtonBuilder {
-	private Game game;
+	private FactionTest player;
 	private ArrayList<Integer> selected = new ArrayList<Integer>();
 
-	public ButtonBuilder(Game game) {
-		this.game = game;
+	public ButtonBuilder(FactionTest player) {
+		this.player = player;
 	}
 
 	/**
@@ -32,7 +33,7 @@ public class ButtonBuilder {
 	 */
 	public ArrayList<OrderButton> getButtons() {
 		SelectableRepository r = SelectableRepository.getInstance();
-		selected = game.getSelection(Constants.PLAYER);
+		selected = player.getSelection();
 
 		ArrayList<OrderButton> buttons = new ArrayList<OrderButton>();
 		Integer size = selected.size();
@@ -59,7 +60,7 @@ public class ButtonBuilder {
 
 		if (actions != null) {
 			for (String type : actions) {
-				OrderButton button = ButtonFactory.createOrderButton(game.getPlayer(Constants.PLAYER), type);
+				OrderButton button = ButtonFactory.createOrderButton(player, type);
 				buttons.add(button);
 			}
 		}

@@ -34,7 +34,7 @@ public class TitleScreen extends Dashboard {
 	private JButton back = new JButton("Go Back to Title Screen");
 
 	private Config config = new Config(10);
-	
+
 	public TitleScreen(Game game) {
 		super(game);
 		config.addPlayer(new Player(Constants.AI, Constants.UNION));
@@ -84,8 +84,8 @@ public class TitleScreen extends Dashboard {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// getGame().launch(Constants.DEFAULT_CONFIG);
-			showOptions();
+			getGame().launch(Constants.DEFAULT_CONFIG);
+			//showOptions();
 		}
 
 	}
@@ -103,10 +103,8 @@ public class TitleScreen extends Dashboard {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			ArrayList<Player> players = new ArrayList<Player>();
-			Player player = new Player(Constants.PLAYER, "Union");
-			players.add(player);
-			config.setPlayers(players);
+			Player player = new Player(Constants.PLAYER, Constants.UNION);
+			config.addPlayer(player);
 			getGame().launch(config);
 		}
 
@@ -116,10 +114,8 @@ public class TitleScreen extends Dashboard {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			ArrayList<Player> players = new ArrayList<Player>();
-			Player player = new Player(Constants.PLAYER, "Federation");
-			players.add(player);
-			config.setPlayers(players);
+			Player player = new Player(Constants.PLAYER, Constants.FEDERATION);
+			config.addPlayer(player);
 			getGame().launch(config);
 		}
 
@@ -129,10 +125,8 @@ public class TitleScreen extends Dashboard {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			ArrayList<Player> players = new ArrayList<Player>();
-			Player player = new Player(Constants.PLAYER, "Republic");
-			players.add(player);
-			config.setPlayers(players);
+			Player player = new Player(Constants.PLAYER, Constants.REPUBLIC);
+			config.addPlayer(player);
 			getGame().launch(config);
 		}
 

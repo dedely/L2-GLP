@@ -2,22 +2,33 @@ package data.tree;
 
 import java.util.ArrayList;
 
+/**
+ * @author Maria
+ *
+ */
 public class Research {
 
+	private Integer id;
 	private String name;
-	private boolean unlocked;
+	private boolean unlocked = false;
 	private int cost;
-	private ArrayList <Upgrade> upgrades = new ArrayList<Upgrade>();
+	private ArrayList<Upgrade> upgrades = new ArrayList<Upgrade>();
 	private int timeLeft;
 	private int laboratoriesNumber;
 
-	public Research(String name, int cost, Upgrade upgrade, int timeLeft, int laboratoriesNumber) {
-		super();
+	public Research(Integer id, String name, boolean unlocked, int cost, int timeLeft) {
+		this.id = id;
 		this.name = name;
-		unlocked = false;
 		this.cost = cost;
 		this.timeLeft = timeLeft;
-		this.laboratoriesNumber = laboratoriesNumber;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public int getLaboratoriesNumber() {
@@ -43,6 +54,10 @@ public class Research {
 	public void setUnlocked(boolean unlocked) {
 		this.unlocked = unlocked;
 	}
+	
+	public void unlock() {
+		setUnlocked(true);
+	}
 
 	public int getCost() {
 		return cost;
@@ -55,23 +70,31 @@ public class Research {
 	public int getTimeLeft() {
 		return timeLeft;
 	}
-	
-	public void setTimeLeft(int time){
+
+	public void setTimeLeft(int time) {
 		timeLeft = time;
 	}
 
-	
 	public ArrayList<Upgrade> getUpgrades() {
 		return upgrades;
 	}
+
+	public void addUpgrade(Upgrade upgrade) {
+		if(upgrade != null) {
+			upgrades.add(upgrade);
+		}
+	}
 	
-	public void setUpgrades (ArrayList<Upgrade> upgrades) {
-		this.upgrades = upgrades;
+	public void removeUpgrade(Upgrade upgrade) {
+		if(upgrades.contains(upgrade)) {
+			upgrades.remove(upgrade);
+		}
 	}
 
 	@Override
 	public String toString() {
-		return "Research [name=" + name + ", unlocked=" + unlocked + ", cost=" + cost + ", timeLeft=" + timeLeft + "]";
+		return "Research [id=" + id + ", name=" + name + ", unlocked=" + unlocked + ", cost=" + cost + ", upgrades="
+				+ upgrades + ", timeLeft=" + timeLeft + ", laboratoriesNumber=" + laboratoriesNumber + "]";
 	}
 
 }

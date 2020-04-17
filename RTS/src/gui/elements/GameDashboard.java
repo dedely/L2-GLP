@@ -2,7 +2,7 @@ package gui.elements;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -33,10 +33,11 @@ import process.SelectableRepository;
  */
 public class GameDashboard extends Dashboard implements MouseListener, MouseMotionListener, KeyListener {
 
+	private static final Dimension IDEAL_INFO_PANEL_DIMENSION = new Dimension(1920, 288);
 	private CoordinatesInputManager coordInput;
 	private AreaInputManager areaInput;
 	private KeyInputManager keyInput = new KeyInputManager();
-	private ContextualMenu menu;
+	private InfoPanel infoPanel;
 	private Camera camera;
 
 	/**
@@ -51,7 +52,7 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 
 	public GameDashboard(Game game, Camera camera) {
 		super(game);
-		this.menu = new ContextualMenu(game);
+		this.infoPanel = new InfoPanel(game);
 		this.camera = camera;
 		try {
 			coordInput = new CoordinatesInputManager(game.getPlayer(Constants.PLAYER));
@@ -66,8 +67,9 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	private void initLayout() {
 		setFocusable(true);
 		setBackground(Color.WHITE);
+		infoPanel.setPreferredSize(IDEAL_INFO_PANEL_DIMENSION);
 		setLayout(new BorderLayout());
-		add(BorderLayout.SOUTH, menu);
+		add(BorderLayout.SOUTH, infoPanel);
 	}
 
 	private void initActions() {
@@ -177,7 +179,7 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 
 		coordInput.update(button, count, point, camera);
 		coordInput.process();
-		menu.update();
+		infoPanel.update();
 	}
 
 	@Override
@@ -234,7 +236,7 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	public void mouseReleased(MouseEvent e) {
 		setCurrentArea(null);
 		setNewArea(null);
-		menu.update();
+		infoPanel.update();
 	}
 
 	@Override

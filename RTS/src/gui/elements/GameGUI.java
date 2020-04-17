@@ -18,7 +18,7 @@ import process.GameUtility;
  */
 public class GameGUI extends JFrame implements Runnable {
 
-	private static final Dimension IDEAL_DASHBOARD_DIMENSION = new Dimension(1920, 900);
+	private static final Dimension IDEAL_DASHBOARD_DIMENSION = new Dimension(1920, 1080);
 
 	private Game game;
 	private Dashboard dashboard;
@@ -107,6 +107,7 @@ public class GameGUI extends JFrame implements Runnable {
 		Container contentPane = getContentPane();
 		contentPane.removeAll();
 		dashboard = new GameDashboard(game, camera);
+		dashboard.setPreferredSize(IDEAL_DASHBOARD_DIMENSION);
 		contentPane.add(BorderLayout.CENTER, dashboard);
 		// The dashboard needs have to have the focus for key events.
 		dashboard.requestFocusInWindow();

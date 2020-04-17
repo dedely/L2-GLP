@@ -21,6 +21,7 @@ public class FactionTest {
 	private ArrayList<Integer> selection = new ArrayList<Integer>();
 	private HashMap<String, Cost> costs = new HashMap<String, Cost>();
 	private HashMap<Integer, SelectableManager> newManagers = new HashMap<Integer, SelectableManager>();
+	private Factory factory;
 
 	private int buildings;
 

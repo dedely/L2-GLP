@@ -13,14 +13,16 @@ public class ResourceBuilding extends Building {
 	private Resource resourceProduced;
 	private int timeToProduce;
 	private int numberProduced;
+	private int capacity;
 
 	public ResourceBuilding(String name, String playerName, int maxHealth, int armorPoints, int armorType,
 			String description, Coordinates position, Size size, Resource resourceProduced, int timeToProduce,
-			int numberProduced) {
+			int numberProduced, int capacity) {
 		super(name, playerName, maxHealth, armorPoints, armorType, description, position, size);
 		this.resourceProduced = resourceProduced;
 		this.timeToProduce = timeToProduce;
 		this.numberProduced = numberProduced;
+		this.capacity = capacity;
 	}
 
 	public Resource getResourceProduced() {
@@ -47,6 +49,14 @@ public class ResourceBuilding extends Building {
 		this.numberProduced = numberProduced;
 	}
 
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
 	@Override
 	public <T> T accept(SelectableVisitor<T> visitor) {
 		return visitor.visit(this);
@@ -54,8 +64,8 @@ public class ResourceBuilding extends Building {
 
 	@Override
 	public String toString() {
-		return "ResourceFactory [resourceProduced=" + resourceProduced + ", timeToProduce=" + timeToProduce
-				+ ", numberProduced=" + numberProduced + "]";
+		return "ResourceBuilding [resourceProduced=" + resourceProduced + ", timeToProduce=" + timeToProduce
+				+ ", numberProduced=" + numberProduced + ", capacity=" + capacity + "]";
 	}
 
 }
