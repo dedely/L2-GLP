@@ -1,6 +1,6 @@
 unit
 
-name = HTH 
+name = hth
 maxHealth = 600
 armorPoints = 20
 armorType = 3

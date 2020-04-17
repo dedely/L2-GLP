@@ -1,6 +1,6 @@
 unit
 
-name = Worker 
+name = republic_worker 
 maxHealth = 50
 armorPoints = 0
 armorType = 1

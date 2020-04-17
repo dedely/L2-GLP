@@ -1,6 +1,6 @@
 unit
 
-name = Trooper 
+name = trooper 
 maxHealth = 30
 armorPoints = 2
 armorType = 1

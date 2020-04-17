@@ -1,6 +1,6 @@
 unit
 
-name = Main Battle Tank
+name = mbt
 maxHealth = 500
 armorPoints = 20
 armorType = 3

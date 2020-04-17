@@ -1,6 +1,6 @@
 building
 
-name = HQ 
+name = republic_hq 
 maxHealth = 1800
 armorPoints = 10
 armorType = 1

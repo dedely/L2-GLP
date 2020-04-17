@@ -1,10 +1,10 @@
 unit
 
-name = MCM 
+name = tapir 
 maxHealth = 50
 armorPoints = 0
 armorType = 1
-description = Multipurpose Construction Machine of the Union
+description = Construction vehicle of the federation
 speed = 3
 unitSize = 5
 contenerSize = 300

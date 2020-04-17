@@ -1,6 +1,6 @@
 unit
 
-name = NightJar
+name = nightjar
 maxHealth = 800
 armorPoints = 15
 armorType = 2

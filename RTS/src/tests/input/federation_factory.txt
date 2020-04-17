@@ -1,6 +1,6 @@
 building
 
-name = Factory 
+name = federation_factory 
 maxHealth = 1700
 armorPoints = 10
 armorType = 2

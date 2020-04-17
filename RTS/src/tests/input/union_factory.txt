@@ -1,6 +1,6 @@
 building
 
-name = Factory 
+name = union_factory 
 maxHealth = 1600
 armorPoints = 15
 armorType = 1

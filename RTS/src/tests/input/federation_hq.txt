@@ -1,6 +1,6 @@
-unit
+building
 
-name = HQ 
+name =  federation_hq
 maxHealth = 2300
 armorPoints = 10
 armorType = 2

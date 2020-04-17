@@ -1,6 +1,6 @@
 building
 
-name = HQ 
+name = union_hq 
 maxHealth = 2000
 armorPoints = 10
 armorType = 1

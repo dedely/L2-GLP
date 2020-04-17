@@ -1,6 +1,6 @@
 unit
 
-name = Wrath
+name = wrath
 maxHealth = 400
 armorPoints = 10
 armorType = 2

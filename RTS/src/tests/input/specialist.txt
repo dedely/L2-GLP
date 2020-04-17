@@ -1,6 +1,6 @@
 unit
 
-name = Specialist 
+name = specialist 
 maxHealth = 30
 armorPoints = 5
 armorType = 1

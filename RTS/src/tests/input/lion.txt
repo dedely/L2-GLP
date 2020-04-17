@@ -1,6 +1,6 @@
 unit
 
-name = Lion 
+name = lion 
 maxHealth = 600
 armorPoints = 20
 armorType = 3

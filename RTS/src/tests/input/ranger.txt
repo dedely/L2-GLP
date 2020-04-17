@@ -1,6 +1,6 @@
 unit
 
-name = Ranger 
+name = ranger 
 maxHealth = 50
 armorPoints = 5
 armorType = 1
