@@ -1,5 +1,6 @@
 package process.managers;
 
+import data.Constants;
 import data.Resource;
 import data.Selectable;
 import data.building.ResourceBuilding;
@@ -26,8 +27,7 @@ public class ResourceBuildingManager extends SelectableManager {
 	private void initMechanism() {
 		resource = building.getResourceProduced();
 		int delay = building.getTimeToProduce();
-		counter = new CyclicCounter(delay);
-		stock = new BoundedCounter(building.getCapacity());
+		counter = new CyclicCounter(delay * 20);
 	}
 
 	@Override
@@ -46,7 +46,9 @@ public class ResourceBuildingManager extends SelectableManager {
 	@Override
 	public void update() {
 		if (counter.getValue() == 0) {
-			stock.increase();
+			int value = player.getResource(Constants.MATERIALS).getResourceCount();
+			value += building.getNumberProduced();
+			player.updateResource(Constants.MATERIALS, value);
 		}
 		counter.decrease();
 	}
