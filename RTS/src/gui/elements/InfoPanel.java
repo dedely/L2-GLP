@@ -28,8 +28,6 @@ public class InfoPanel extends JPanel {
 		setLayout(new GridLayout(1, 2));
 		menu = new ContextualMenu(game.getPlayer(Constants.PLAYER));
 		add(menu);
-		researchPanel = new ResearchOverview(game.getPlayer(Constants.PLAYER).getResearcher());
-		add(researchPanel);
 	}
 
 	public void update() {

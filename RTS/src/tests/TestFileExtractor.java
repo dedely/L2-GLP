@@ -2,6 +2,7 @@ package tests;
 
 import data.Constants;
 import data.Coordinates;
+import data.building.ResourceBuilding;
 import data.building.UnitBuilding;
 import data.unit.AttackHelicopter;
 import data.unit.Worker;
@@ -13,7 +14,7 @@ public class TestFileExtractor {
 	public static void main(String[] args) {
 		FileExtractor Fe = new FileExtractor();
 		BuildingFactory bf = BuildingFactory.getInstance();
-		UnitBuilding ub = (UnitBuilding) bf.createBuilding(Constants.UNION_FACTORY, new Coordinates(0, 0), Constants.PLAYER);
+		ResourceBuilding ub = (ResourceBuilding) bf.createBuilding(Constants.UNION_MINE, new Coordinates(0, 0), Constants.PLAYER);
 		System.out.println(ub.toString());
 	}
 }

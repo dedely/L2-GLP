@@ -84,7 +84,7 @@ public class BuildingFactory {
 	}
 
 	private Building buildMine(HashMap<String, String> buildingDatas, String playerName, Coordinates spawnPosition) {
-		return new ResourceBuilding(buildingDatas.get("name"), playerName, toInt(buildingDatas.get("maxhealth")),
+		return new ResourceBuilding(buildingDatas.get("name"), playerName, toInt(buildingDatas.get("maxHealth")),
 				toInt(buildingDatas.get("armorPoints")), toInt(buildingDatas.get("armorType")),
 				buildingDatas.get("description"), spawnPosition,
 				new Size(toInt(buildingDatas.get("sizeX")), toInt(buildingDatas.get("sizeY"))),
