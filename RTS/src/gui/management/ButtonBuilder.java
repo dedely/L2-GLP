@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import data.Constants;
 import data.Selectable;
 import gui.elements.buttons.OrderButton;
-import process.FactionTest;
+import process.Faction;
 import process.Game;
 import process.repository.SelectableRepository;
 import process.visitor.selectable.ActionVisitor;
@@ -19,10 +19,10 @@ import process.visitor.selectable.ActionVisitor;
  *
  */
 public class ButtonBuilder {
-	private FactionTest player;
+	private Faction player;
 	private ArrayList<Integer> selected = new ArrayList<Integer>();
 
-	public ButtonBuilder(FactionTest player) {
+	public ButtonBuilder(Faction player) {
 		this.player = player;
 	}
 

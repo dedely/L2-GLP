@@ -11,7 +11,7 @@ import data.order.Defend;
 import data.order.Embark;
 import data.order.MoveToPosition;
 import data.order.MoveToTarget;
-import process.FactionTest;
+import process.Faction;
 import process.executor.CreateUnitExecutor;
 import process.executor.Executor;
 
@@ -22,9 +22,9 @@ import process.executor.Executor;
 public class UnitBuildingExVisitor implements OrderVisitor<Executor> {
 
 	private UnitBuilding unitBuilding;
-	private FactionTest player;
+	private Faction player;
 
-	public UnitBuildingExVisitor(UnitBuilding unitBuilding, FactionTest player) {
+	public UnitBuildingExVisitor(UnitBuilding unitBuilding, Faction player) {
 		this.unitBuilding = unitBuilding;
 		this.player = player;
 	}

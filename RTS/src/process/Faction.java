@@ -12,7 +12,7 @@ import process.managers.ResearchManager;
 import process.managers.SelectableManager;
 import process.repository.SelectableRepository;
 
-public class FactionTest {
+public class Faction {
 
 	private String player;
 	private String name;
@@ -26,7 +26,7 @@ public class FactionTest {
 
 	private int buildings;
 
-	public FactionTest(Player player) {
+	public Faction(Player player) {
 		this.player = player.getName();
 		this.name = player.getFactionName();
 	}

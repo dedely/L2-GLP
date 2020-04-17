@@ -4,6 +4,10 @@ package data;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
+/**
+ * @author Adel
+ *
+ */
 public class Team {
 	private int id;
 	private HashMap<String, Player> players = new HashMap<String, Player>();

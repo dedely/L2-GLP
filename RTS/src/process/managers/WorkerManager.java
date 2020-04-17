@@ -3,19 +3,19 @@ package process.managers;
 import data.Selectable;
 import data.order.Order;
 import data.unit.Worker;
-import process.FactionTest;
+import process.Faction;
 import process.executor.Executor;
 import process.visitor.order.WorkerExVisitor;
 
 public class WorkerManager extends SelectableManager {
 
-	private FactionTest player;
+	private Faction player;
 	private Worker worker;
 	private WorkerExVisitor visitor;
 	private Executor concreteExecutor = null;
 	private boolean complete = false;
 
-	public WorkerManager(FactionTest player, Worker worker) {
+	public WorkerManager(Faction player, Worker worker) {
 		this.player = player;
 		this.worker = worker;
 		visitor = new WorkerExVisitor(worker);

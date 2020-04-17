@@ -2,7 +2,7 @@ package gui.management;
 
 import gui.elements.buttons.CreateTestUnitButton;
 import gui.elements.buttons.OrderButton;
-import process.FactionTest;
+import process.Faction;
 import process.factory.UnitFactory;
 
 /**
@@ -23,7 +23,7 @@ public class ButtonFactory {
 
 	public static final String TEST_BUTTON = "create unit";
 
-	public static OrderButton createOrderButton(FactionTest player, String type) throws IllegalArgumentException {
+	public static OrderButton createOrderButton(Faction player, String type) throws IllegalArgumentException {
 		switch (type) {
 		case TEST_BUTTON:
 			return new CreateTestUnitButton(player, type);

@@ -3,7 +3,7 @@ package gui.elements.buttons;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import process.FactionTest;
+import process.Faction;
 
 /**
  * @author Adel
@@ -11,11 +11,11 @@ import process.FactionTest;
  */
 public abstract class OrderButton extends JPanel {
 
-	private FactionTest player;
+	private Faction player;
 	private String action;
 	private JButton button;
 
-	public OrderButton(FactionTest player, String action) {
+	public OrderButton(Faction player, String action) {
 		this.player = player;
 		this.action = action;
 		button = new JButton("action");
@@ -33,7 +33,7 @@ public abstract class OrderButton extends JPanel {
 		this.button = button;
 	}
 
-	public FactionTest getPlayer() {
+	public Faction getPlayer() {
 		return player;
 	}
 

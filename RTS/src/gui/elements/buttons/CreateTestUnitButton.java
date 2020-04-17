@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 
 import data.Constants;
 import data.order.CreateUnit;
-import process.FactionTest;
+import process.Faction;
 import process.managers.SelectableManager;
 
 /**
@@ -17,7 +17,7 @@ import process.managers.SelectableManager;
  */
 public class CreateTestUnitButton extends OrderButton {
 
-	public CreateTestUnitButton(FactionTest player, String action) {
+	public CreateTestUnitButton(Faction player, String action) {
 		super(player, action);
 		initStyle();
 		initLayout();

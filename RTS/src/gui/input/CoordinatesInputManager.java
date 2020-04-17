@@ -13,7 +13,7 @@ import data.order.MoveToPosition;
 import gui.elements.SimuPara;
 import gui.management.Camera;
 import gui.management.ShapeRepository;
-import process.FactionTest;
+import process.Faction;
 import process.repository.SelectableRepository;
 
 /**
@@ -23,14 +23,14 @@ import process.repository.SelectableRepository;
  *
  */
 public class CoordinatesInputManager implements InputManager {
-	private FactionTest player;
+	private Faction player;
 	private int button;
 	private int count;
 	private Point point;
 	private Camera camera;
 	private boolean debug = false;
 
-	public CoordinatesInputManager(FactionTest player) {
+	public CoordinatesInputManager(Faction player) {
 		this.player = player;
 	}
 

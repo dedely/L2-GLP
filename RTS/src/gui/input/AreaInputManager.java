@@ -4,14 +4,14 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import gui.management.ShapeRepository;
-import process.FactionTest;
+import process.Faction;
 
 public class AreaInputManager implements InputManager {
 
-	private FactionTest player;
+	private Faction player;
 	private Rectangle area = null;
 
-	public AreaInputManager(FactionTest player) {
+	public AreaInputManager(Faction player) {
 		this.player = player;
 	}
 
