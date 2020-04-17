@@ -31,13 +31,10 @@ public class ContextualMenu extends JPanel {
 		this.player = player;
 		builder = new ButtonBuilder(player);
 		setLayout(new GridLayout(2,1));
-		initStyle();
+		add(buttonsPanel);
 		layoutButtons();
 	}
 
-	private void initStyle() {
-
-	}
 
 	public ArrayList<OrderButton> getButtons() {
 		return buttons;

@@ -31,27 +31,16 @@ public class UnitFactory {
 	}
 
 	private void initialiseFiles() {
-		tryReadAndPutInDatas(Constants.HTH);
-		tryReadAndPutInDatas(Constants.JUSTICE);
-		tryReadAndPutInDatas(Constants.LION);
-		tryReadAndPutInDatas(Constants.MBT);
-		tryReadAndPutInDatas(Constants.MCM);
-		tryReadAndPutInDatas(Constants.NIGHTJAR);
-		tryReadAndPutInDatas(Constants.RANGER);
-		tryReadAndPutInDatas(Constants.REPUBLIC_WORKER);
-		tryReadAndPutInDatas(Constants.SPECIALIST);
-		tryReadAndPutInDatas(Constants.TAPIR);
-		tryReadAndPutInDatas(Constants.TROOPER);
-		tryReadAndPutInDatas(Constants.WRATH);
+		for (SelectableNamesEnum name : SelectableNamesEnum.values()) {
+			HashMap<String, String> data = unitFileExtractor.readFile(ROOT_PATH + name.name() + EXTENSION);
+			if (data.size() > 0) {
+				datas.put(name.name(), data);
+			}
+		}
 	}
 
 	public static UnitFactory getInstance() {
 		return instance;
-	}
-
-	private void tryReadAndPutInDatas(String name) {
-		datas.put(name, unitFileExtractor.readFile(ROOT_PATH+name+EXTENSION));
-		
 	}
 
 	public Unit createUnit(String type, Coordinates spawnPosition, String playerName) throws IllegalArgumentException {

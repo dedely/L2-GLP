@@ -1,6 +1,6 @@
 package gui.elements;
 
-import java.awt.GridLayout;
+import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -31,7 +31,7 @@ public class ResourcePanel extends JPanel {
 	}
 
 	private void initLayout() {
-		setLayout(new GridLayout(2, 1));
+		setLayout(new FlowLayout());
 		add(materialLabel);
 		add(materialValue);
 	}

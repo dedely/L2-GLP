@@ -37,8 +37,11 @@ public class InfoPanel extends JPanel {
 		
 		Faction player = game.getPlayer(Constants.PLAYER);
 		resourcePanel = new ResourcePanel(player);
+		generalPanel.add(resourcePanel);
 		//researchPanel = new ResearchOverview(player.getResearcher());
 		//generalPanel.add(researchPanel);
+		
+		add(generalPanel);
 	}
 
 	public void update() {
