@@ -1,6 +1,5 @@
 package process.factory;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import data.Constants;
@@ -10,14 +9,14 @@ import data.building.Building;
 import data.building.ResourceBuilding;
 import data.building.Size;
 import data.building.UnitBuilding;
-import data.unit.Unit;
+import gui.elements.SimuPara;
 import process.builder.FileExtractor;
 
 public class BuildingFactory {
 	private HashMap<String, HashMap<String, String>> datas = new HashMap<String, HashMap<String, String>>();
 
 	private static String ROOT_PATH = "src/tests/input/";
-	private static String  EXTENSION = ".txt";
+	private static String EXTENSION = ".txt";
 	private FileExtractor buildingFileExtractor = new FileExtractor();
 
 	private BuildingFactory() {
@@ -38,8 +37,8 @@ public class BuildingFactory {
 	}
 
 	private void tryReadAndPutInDatas(String name) {
-		datas.put(name, buildingFileExtractor.readFile(ROOT_PATH+name+EXTENSION));
-		
+		datas.put(name, buildingFileExtractor.readFile(ROOT_PATH + name + EXTENSION));
+
 	}
 
 	public Building createBuilding(String type, Coordinates spawnPosition, String playerName)
@@ -83,13 +82,12 @@ public class BuildingFactory {
 	}
 
 	private Building buildMine(HashMap<String, String> buildingDatas, String playerName, Coordinates spawnPosition) {
-		// TODO Auto-generated method stub
 		return new ResourceBuilding(buildingDatas.get("name"), playerName, toInt(buildingDatas.get("maxhealth")),
 				toInt(buildingDatas.get("armorPoints")), toInt(buildingDatas.get("armorType")),
 				buildingDatas.get("description"), spawnPosition,
-				new Size(toInt(buildingDatas.get("sizeX")), toInt(buildingDatas.get("sizeY"))), new Resource(0, Constants.MATERIALS),
-				toInt(buildingDatas.get("timeToProduce")), toInt(buildingDatas.get("numberProduced")),
-				toInt(buildingDatas.get("capacity")));
+				new Size(toInt(buildingDatas.get("sizeX")), toInt(buildingDatas.get("sizeY"))),
+				new Resource(0, Constants.MATERIALS), toInt(buildingDatas.get("timeToProduce")),
+				toInt(buildingDatas.get("numberProduced")), toInt(buildingDatas.get("capacity")));
 	}
 
 	private Building buildUnitBuilding(HashMap<String, String> buildingDatas, String playerName,
@@ -102,8 +100,7 @@ public class BuildingFactory {
 	}
 
 	private Coordinates offsetPosition(Coordinates spawnPosition) {
-		// TODO Auto-generated method stub
-		return new Coordinates(spawnPosition.getAbsciss() + 10, spawnPosition.getOrdinate());
+		return new Coordinates(spawnPosition.getAbsciss() + 5 * SimuPara.SCALE, spawnPosition.getOrdinate());
 	}
 
 	private int toInt(String string) {
