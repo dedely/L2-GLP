@@ -1,0 +1,22 @@
+unit
+
+name = Trooper 
+maxHealth = 30
+armorPoints = 2
+armorType = 1
+description = Basically a fanatic with a gun
+speed = 2
+unitSize = 1
+
+weapon
+
+damagePerShot = 12
+typeOfDammage = 1
+timeBeetweenShots = 40
+range = 150
+minimuRange = 0
+canShootAtAirTarget = true
+
+
+
+

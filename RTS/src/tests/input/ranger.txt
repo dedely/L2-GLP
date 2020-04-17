@@ -1,0 +1,22 @@
+unit
+
+name = Ranger 
+maxHealth = 50
+armorPoints = 5
+armorType = 1
+description = foot soldier of the federation
+speed = 2
+unitSize = 1
+
+weapon
+
+damagePerShot = 10
+typeOfDammage = 1
+timeBeetweenShots = 10
+range = 250
+minimuRange = 0
+canShootAtAirTarget = true
+
+
+
+

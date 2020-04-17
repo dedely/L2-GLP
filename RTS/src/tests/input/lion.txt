@@ -1,0 +1,22 @@
+unit
+
+name = Lion 
+maxHealth = 600
+armorPoints = 20
+armorType = 3
+description = Heavy armored tank of the Union
+speed = 5
+unitSize = 5
+
+weapon
+
+damagePerShot = 120
+typeOfDammage = 3
+timeBeetweenShots = 240
+range = 400
+minimuRange = 10
+canShootAtAirTarget = false
+
+
+
+

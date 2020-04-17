@@ -1,0 +1,13 @@
+unit
+
+name = HTH 
+maxHealth = 600
+armorPoints = 20
+armorType = 3
+description = Heavy Transport Helicopter of the Union
+speed = 7
+unitSlots = 12
+
+
+
+

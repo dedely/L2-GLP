@@ -1,0 +1,29 @@
+unit
+
+name = Main Battle Tank
+maxHealth = 500
+armorPoints = 20
+armorType = 3
+description = Heavy armored tank of the Union
+speed = 5
+unitSize = 5
+
+weapon
+
+damagePerShot = 100
+typeOfDammage = 3
+timeBeetweenShots = 180
+range = 400
+minimuRange = 10
+canShootAtAirTarget = false
+
+mWeapon
+mwDamagePerShot = 20
+mwTypeOfDammage = 2
+mwTimeBeetweenShots = 60
+mwRange = 30
+mwMinimuRange = 0
+mwCanShootAtAirTarget = true
+
+
+

@@ -1,0 +1,22 @@
+unit
+
+name = Specialist 
+maxHealth = 30
+armorPoints = 5
+armorType = 1
+description = advanced long-range soldier of the union
+speed = 2
+unitSize = 1
+
+weapon
+
+damagePerShot = 30
+typeOfDammage = 2
+timeBeetweenShots = 80
+range = 300
+minimuRange = 10
+canShootAtAirTarget = false
+
+
+
+

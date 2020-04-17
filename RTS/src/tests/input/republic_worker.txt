@@ -1,0 +1,23 @@
+unit
+
+name = Worker 
+maxHealth = 50
+armorPoints = 0
+armorType = 1
+description = worker of the republic
+speed = 2
+unitSize = 1
+contenerSize = 50
+
+weapon
+
+damagePerShot = 50
+typeOfDammage = -1
+timeBeetweenShots = 120
+range = 10
+minimuRange = 0
+canShootAtAirTarget = false
+
+
+
+

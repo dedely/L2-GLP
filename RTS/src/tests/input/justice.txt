@@ -1,0 +1,22 @@
+unit
+
+name = Justice 
+maxHealth = 200
+armorPoints = 5
+armorType = 3
+description = Light tank of the Republic
+speed = 5
+unitSize = 5
+
+weapon
+
+damagePerShot = 90
+typeOfDammage = 3
+timeBeetweenShots = 240
+range = 300
+minimuRange = 10
+canShootAtAirTarget = false
+
+
+
+

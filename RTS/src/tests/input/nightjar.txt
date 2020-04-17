@@ -1,0 +1,27 @@
+unit
+
+name = NightJar
+maxHealth = 800
+armorPoints = 15
+armorType = 2
+description = Assault helicopter of the federation
+speed = 10
+
+weapon
+
+damagePerShot = 50
+typeOfDammage = 2
+timeBeetweenShots = 30
+range = 600
+minimuRange = 10
+canShootAtAirTarget = false
+
+weapon 2
+
+secDamagePerShot = 300
+secTypeOfDammage = 3
+secTimeBeetweenShots = 600
+secRange = 600
+secMinimuRange = 200
+secCanShootAtAirTarget = false
+

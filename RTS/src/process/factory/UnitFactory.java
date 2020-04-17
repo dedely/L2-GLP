@@ -150,9 +150,9 @@ public class UnitFactory {
 						toInt(unitDatas.get("timeBeetweenShots")), toInt(unitDatas.get("range")),
 						toInt(unitDatas.get("minimuRange")), toBool(unitDatas.get("canShootAtAirTarget"))),
 				toInt(unitDatas.get("unitSize")),
-				new Weapon(toInt(unitDatas.get("MWdamagePerShot")), toInt(unitDatas.get("MWtypeOfDammage")),
-						toInt(unitDatas.get("MWtimeBeetweenShots")), toInt(unitDatas.get("MWrange")),
-						toInt(unitDatas.get("MWminimuRange")), toBool(unitDatas.get("MWcanShootAtAirTarget"))));
+				new Weapon(toInt(unitDatas.get("mwDamagePerShot")), toInt(unitDatas.get("mwTypeOfDammage")),
+						toInt(unitDatas.get("mwTimeBeetweenShots")), toInt(unitDatas.get("mwRange")),
+						toInt(unitDatas.get("mwMinimuRange")), toBool(unitDatas.get("mwCanShootAtAirTarget"))));
 	}
 
 	private Unit buildWorker(HashMap<String, String> unitDatas, String playerName, Coordinates spawnPosition) {
@@ -184,9 +184,9 @@ public class UnitFactory {
 				new Weapon(toInt(unitDatas.get("damagePerShot")), toInt(unitDatas.get("typeOfDammage")),
 						toInt(unitDatas.get("timeBeetweenShots")), toInt(unitDatas.get("range")),
 						toInt(unitDatas.get("minimuRange")), toBool(unitDatas.get("canShootAtAirTarget"))),
-				new Weapon(toInt(unitDatas.get("SecdamagePerShot")), toInt(unitDatas.get("SectypeOfDammage")),
-						toInt(unitDatas.get("SectimeBeetweenShots")), toInt(unitDatas.get("Secrange")),
-						toInt(unitDatas.get("SecminimuRange")), toBool(unitDatas.get("SeccanShootAtAirTarget"))));
+				new Weapon(toInt(unitDatas.get("secDamagePerShot")), toInt(unitDatas.get("secTypeOfDammage")),
+						toInt(unitDatas.get("secTimeBeetweenShots")), toInt(unitDatas.get("secRange")),
+						toInt(unitDatas.get("secMinimuRange")), toBool(unitDatas.get("secCanShootAtAirTarget"))));
 	}
 
 	private Unit buildGroundUnitSuicide(HashMap<String, String> unitDatas, String playerName,

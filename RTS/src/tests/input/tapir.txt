@@ -1,0 +1,23 @@
+unit
+
+name = MCM 
+maxHealth = 50
+armorPoints = 0
+armorType = 1
+description = Multipurpose Construction Machine of the Union
+speed = 3
+unitSize = 5
+contenerSize = 300
+
+weapon
+
+damagePerShot = 30
+typeOfDammage = -1
+timeBeetweenShots = 100
+range = 10
+minimuRange = 0
+canShootAtAirTarget = false
+
+
+
+
