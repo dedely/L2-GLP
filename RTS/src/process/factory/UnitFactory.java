@@ -179,9 +179,10 @@ public class UnitFactory {
 		case Constants.WRATH:
 			unitDatas = datas.get(Constants.WRATH);
 			return buildAttackHelicopter(unitDatas, playerName, spawnPosition);
+		default: 
+			throw new IllegalArgumentException("type " + type + " is not implemented or defined");
 		}
 
-		throw new IllegalArgumentException("type " + type + " is not implemented or defined");
 
 	}
 
