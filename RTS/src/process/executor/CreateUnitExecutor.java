@@ -10,9 +10,9 @@ import data.building.UnitBuilding;
 import data.order.MoveToPosition;
 import data.unit.Unit;
 import process.FactionTest;
-import process.SelectableRepository;
 import process.factory.TestFactory;
 import process.managers.SelectableManager;
+import process.repository.SelectableRepository;
 import process.visitor.selectable.ManagerVisitor;
 
 /**

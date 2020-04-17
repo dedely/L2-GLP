@@ -2,9 +2,9 @@ package process.executor;
 
 import data.Coordinates;
 import data.unit.Unit;
-import process.CoordinatesTreatment;
 import process.GameUtility;
-import process.SelectableRepository;
+import process.repository.SelectableRepository;
+import process.treatment.CoordinatesTreatment;
 
 /**
  * @author Adel

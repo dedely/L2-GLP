@@ -1,11 +1,10 @@
-package process;
+package process.treatment;
 
-import data.faction.Faction;
 import data.tree.Research;
 
 public class TreeTreatment {
 		 	 
-	  public static Boolean startResearch (Faction faction, int indice) { 
+	/*  public static Boolean startResearch (Faction faction, int indice) { 
 		  if (faction.getCurrentResearch() == null){ 
 				  if(faction.getResearchTree().getResearches().get(indice).getLaboratoriesNumber() != 0) { 
 					  if(faction.getResearchTree().getResearches().get(indice).isUnlocked() == true){
@@ -41,5 +40,5 @@ public class TreeTreatment {
 	  public static void addCurrentResearch (Faction faction, int indice) {
 		  faction.setCurrentResearch(faction.getResearchTree().getResearches().get(indice));
 	  }
-	  
+	  */
 }

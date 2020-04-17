@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import data.Constants;
 import data.Coordinates;
-import data.faction.Faction;
 import data.unit.AttackHelicopter;
 import data.unit.GroundUnit;
 import data.unit.GroundUnitSuicide;
@@ -15,18 +14,21 @@ import data.unit.TroopTransport;
 import data.unit.Unit;
 import data.unit.Weapon;
 import data.unit.Worker;
-import process.file.FileExtractor;
+import process.builder.FileExtractor;
 
 public class UnitFactory {
 	private HashMap<String, HashMap<String, String>> datas = new HashMap<String, HashMap<String, String>>();
 
-	private String path = "src/tests/input/";
-	
+	public static final String ROOT_PATH = "src/tests/input/";
+
+	private static final String EXTENSION = ".txt";
+
 	private FileExtractor unitFileExtractor = new FileExtractor();
-	
+
+	private static UnitFactory instance = new UnitFactory();
+
 	private UnitFactory() {
 		initialiseFiles();
-
 	}
 
 	private void initialiseFiles() {
@@ -44,21 +46,12 @@ public class UnitFactory {
 		tryReadAndPutInDatas(Constants.WRATH);
 	}
 
-	private static UnitFactory instance = new UnitFactory();
-
 	public static UnitFactory getInstance() {
 		return instance;
 	}
 
-	public void setDatas(HashMap<String, HashMap<String, String>> datas) {
-		this.datas = datas;
-	}
 	private void tryReadAndPutInDatas(String name) {
-		try {
-			datas.put(name, unitFileExtractor.readFile(path+name+".txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load "+name+" file");
-		}
+		datas.put(name, unitFileExtractor.readFile(ROOT_PATH+name+EXTENSION));
 		
 	}
 
@@ -137,9 +130,9 @@ public class UnitFactory {
 		case Constants.WRATH:
 			unitDatas = datas.get(Constants.WRATH);
 			return buildAttackHelicopter(unitDatas, playerName, spawnPosition);
+		default:
+			throw new IllegalArgumentException("type " + type + " is not implemented or defined");
 		}
-
-		throw new IllegalArgumentException("type " + type + " is not implemented or defined");
 
 	}
 

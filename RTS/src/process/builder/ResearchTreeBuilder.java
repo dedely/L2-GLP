@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
 import data.Constants;
-import data.faction.Faction;
 import data.tree.Research;
 import data.tree.Upgrade;
 
@@ -19,7 +18,7 @@ public class ResearchTreeBuilder {
 		this.faction = faction;
 	}
 
-	
+	/*
 	  public void BuildTree (Faction faction, String fileName, String fileResearch) throws IOException {
 		  Map<Integer, Research> treeMap = faction.getResearchTree().getResearches();
 		  for (Map.Entry<Integer, Research> entry : treeMap.entrySet()) {
@@ -103,9 +102,9 @@ public class ResearchTreeBuilder {
 			}
 		
 		  }*/
+	 /* }
 	  }
-	  }
-	  
+	  */
 	  public void addToResearch (Research research, Upgrade upgrade) {
 		  research.getUpgrades().add(upgrade);
 	  }

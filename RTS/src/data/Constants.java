@@ -43,9 +43,9 @@ public class Constants {
 	public static final int RESSOURCE = -1;
 	public static final int NO_MAIN_WEAPON = 0;
 
-	public static final String UNION = "Union";
-	public static final String FEDERATION = "Federation";
-	public static final String REPUBLIC = "Republic";
+	public static final String UNION = "union";
+	public static final String FEDERATION = "federation";
+	public static final String REPUBLIC = "republic";
 
 	public static final String TROOP_TRANSPORT = "TroopTransport";
 	public static final String WORKER = "Worker";

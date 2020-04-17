@@ -7,7 +7,7 @@ import data.Selectable;
 import gui.elements.buttons.OrderButton;
 import process.FactionTest;
 import process.Game;
-import process.SelectableRepository;
+import process.repository.SelectableRepository;
 import process.visitor.selectable.ActionVisitor;
 
 /**

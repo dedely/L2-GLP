@@ -1,4 +1,4 @@
-package process;
+package process.repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +8,7 @@ import data.Selectable;
 import data.map.Map;
 import data.map.Tile;
 import data.unit.Unit;
+import process.GameUtility;
 
 /**
  * This class manages the positions of all known selectables on the map.

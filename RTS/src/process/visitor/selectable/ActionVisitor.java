@@ -81,8 +81,9 @@ public class ActionVisitor implements SelectableVisitor<ArrayList<String>> {
 
 	@Override
 	public ArrayList<String> visit(Worker selectable) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> actions = new ArrayList<String>();
+		actions.add(ButtonFactory.TEST_BUTTON);
+		return actions;
 	}
 
 }

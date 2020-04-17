@@ -1,32 +1,25 @@
 package process.counter;
 
-/**
- * The cyclic counter is a bounded counter with cyclic value change.
- * 
- * @author Tianxiao.Liu@u-cergy.fr
- **/
 public class CyclicCounter extends BoundedCounter {
-
-	public CyclicCounter(int value, int max, int min) {
-		super(value, max, min); 
+	public CyclicCounter(int max) {
+		super(max);
 	}
 
-	@Override
-	public void decrement() {
-		if (getValue() > getMin()) {
-			super.decrement();
-		} else {
+	public CyclicCounter(int value, int max) {
+		super(value, max);
+	}
+
+	public void increase() {
+		if (getValue() == getMax())
+			setValue(0);
+		else
+			super.increase();
+	}
+
+	public void decrease() {
+		if (getValue() == 0)
 			setValue(getMax());
-		}
+		else
+			super.decrease();
 	}
-
-	@Override
-	public void increment() {
-		if (getValue() < getMax()) {
-			super.increment();
-		} else {
-			setValue(getMin());
-		}
-	}
-
 }

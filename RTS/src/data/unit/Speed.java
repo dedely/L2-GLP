@@ -1,4 +1,4 @@
-package process;
+package data.unit;
 
 public class Speed {
 

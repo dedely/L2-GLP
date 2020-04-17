@@ -10,6 +10,7 @@ import data.Player;
 import data.Resource;
 import process.managers.ResearchManager;
 import process.managers.SelectableManager;
+import process.repository.SelectableRepository;
 
 public class FactionTest {
 
@@ -164,6 +165,14 @@ public class FactionTest {
 
 	public void setBuildings(int buildings) {
 		this.buildings = buildings;
+	}
+
+	public ResearchManager getResearcher() {
+		return researcher;
+	}
+
+	public void setResearcher(ResearchManager researcher) {
+		this.researcher = researcher;
 	}
 
 }

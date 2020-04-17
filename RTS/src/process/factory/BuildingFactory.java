@@ -11,13 +11,13 @@ import data.building.ResourceBuilding;
 import data.building.Size;
 import data.building.UnitBuilding;
 import data.unit.Unit;
-import process.file.FileExtractor;
+import process.builder.FileExtractor;
 
 public class BuildingFactory {
 	private HashMap<String, HashMap<String, String>> datas = new HashMap<String, HashMap<String, String>>();
 
-	private String path = "src/tests/input/";
-
+	private static String ROOT_PATH = "src/tests/input/";
+	private static String  EXTENSION = ".txt";
 	private FileExtractor buildingFileExtractor = new FileExtractor();
 
 	private BuildingFactory() {
@@ -38,12 +38,8 @@ public class BuildingFactory {
 	}
 
 	private void tryReadAndPutInDatas(String name) {
-		try {
-			datas.put(name, buildingFileExtractor.readFile(path + name + ".txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load " + name + " file");
-		}
-
+		datas.put(name, buildingFileExtractor.readFile(ROOT_PATH+name+EXTENSION));
+		
 	}
 
 	public Building createBuilding(String type, Coordinates spawnPosition, String playerName)

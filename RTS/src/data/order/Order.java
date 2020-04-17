@@ -1,7 +1,6 @@
 package data.order;
 
 import process.visitor.order.OrderVisitor;
-import process.visitor.selectable.SelectableVisitor;
 
 public abstract class Order {
 	private String type;

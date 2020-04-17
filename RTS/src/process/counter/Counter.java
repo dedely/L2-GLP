@@ -1,14 +1,11 @@
 package process.counter;
 
-/**
- * This is the basic counter implementation. The counter has a integer value that can be incremented or decremented. 
- * 
- * We can only increment or decrement the value by 1 each time.
- * 
- * @author tliu@u-cergy.fr
- **/
 public class Counter {
 	private int value;
+
+	public Counter() {
+		value = 0;
+	}
 
 	public Counter(int value) {
 		this.value = value;
@@ -18,16 +15,22 @@ public class Counter {
 		return value;
 	}
 
-	public void increment() {
+	public void setValue(int value) {
+		if (value >= 0)
+			this.value = value;
+	}
+
+	public void increase() {
 		value++;
 	}
 
-	public void decrement() {
-		value--;
+	public void decrease() {
+		if (value > 0) {
+			value--;
+		}
 	}
 
-	protected void setValue(int value) {
-		this.value = value;
+	public String toString() {
+		return "value: " + value + "\t";
 	}
-
 }

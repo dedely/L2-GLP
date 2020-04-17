@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -84,8 +83,8 @@ public class TitleScreen extends Dashboard {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			getGame().launch(Constants.DEFAULT_CONFIG);
-			//showOptions();
+			//getGame().launch(Constants.DEFAULT_CONFIG);
+			showOptions();
 		}
 
 	}

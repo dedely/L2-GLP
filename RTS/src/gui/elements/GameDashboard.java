@@ -25,7 +25,7 @@ import gui.management.PaintVisitor;
 import gui.management.ShapeRepository;
 import process.Game;
 import process.GameUtility;
-import process.SelectableRepository;
+import process.repository.SelectableRepository;
 
 /**
  * @author Adel
@@ -44,7 +44,7 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	 * Showing the grid will make the debug easier.
 	 */
 	private boolean debugGrid = true;
-	private boolean debugMouseInput = true;
+	private boolean debugMouseInput = false;
 
 	Rectangle currentArea = null;
 	Rectangle newArea = null;
@@ -81,6 +81,7 @@ public class GameDashboard extends Dashboard implements MouseListener, MouseMoti
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		infoPanel.repaint();
 		// We used Graphic2D for more draw options.
 		Graphics2D g2 = (Graphics2D) g;
 		if (debugGrid) {

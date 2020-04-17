@@ -1,11 +1,13 @@
-package process;
+package process.builder;
 
 import data.Config;
 import data.GameState;
 import data.Player;
 import data.map.Map;
-import process.builder.FactionBuilder;
-import process.builder.MapBuilder;
+import process.FactionTest;
+import process.Game;
+import process.repository.SelectableRepository;
+import process.repository.TeamRepository;
 import tests.input.InputParameter;
 
 /**

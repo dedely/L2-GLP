@@ -2,8 +2,8 @@ package process.executor;
 
 import data.Selectable;
 import data.unit.Unit;
-import process.CoordinatesTreatment;
-import process.SelectableTreatment;
+import process.treatment.CoordinatesTreatment;
+import process.treatment.SelectableTreatment;
 
 /**
  * @author Adel
