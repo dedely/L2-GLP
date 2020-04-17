@@ -1,9 +1,11 @@
 package gui.management;
 
+import java.util.HashMap;
+
+import data.Actions;
 import gui.elements.buttons.CreateTestUnitButton;
 import gui.elements.buttons.OrderButton;
 import process.Faction;
-import process.factory.UnitFactory;
 
 /**
  * @author Adel
@@ -11,8 +13,14 @@ import process.factory.UnitFactory;
  */
 public class ButtonFactory {
 	
+	private HashMap<String, Actions> actions = new HashMap<String, Actions>();
+	
 	private ButtonFactory() {
+		initActions();
+	}
 
+	private void initActions() {
+		
 	}
 
 	private static ButtonFactory instance = new ButtonFactory();
