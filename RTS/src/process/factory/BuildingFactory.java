@@ -1,36 +1,120 @@
 package process.factory;
 
+import java.io.IOException;
+import java.util.HashMap;
+
 import data.Constants;
 import data.Coordinates;
+import data.Resource;
 import data.building.Building;
+import data.building.ResourceBuilding;
+import data.building.Size;
 import data.building.UnitBuilding;
+import data.unit.Unit;
+import process.file.FileExtractor;
 
 public class BuildingFactory {
+	private HashMap<String, HashMap<String, String>> datas = new HashMap<String, HashMap<String, String>>();
 
-	public static Building createBuilding(String type, Coordinates spawnPosition, String faction)
-			throws IllegalArgumentException {
-		switch (type) {
-		case Constants.HEADQUATERS:
-			return createHeadQuaters(spawnPosition, faction);
-		default:
-			throw new IllegalArgumentException("Unknown building type : " + type);
-		}
+	private String path = "src/tests/input/";
+
+	private FileExtractor buildingFileExtractor = new FileExtractor();
+
+	private BuildingFactory() {
+		initialiseFiles();
+
 	}
 
-	public static UnitBuilding createHeadQuaters(Coordinates spawnPosition, String faction)
-			throws IllegalArgumentException {
-		switch (faction) {
-		case Constants.FEDERATION:
-			return new UnitBuilding(Constants.HEADQUATERS, faction, 1000, 0, Constants.HEAVY, "HQ", spawnPosition,
-					Constants.DEFAULT_SIZE, spawnPosition);
-		case Constants.UNION:
-			return new UnitBuilding(Constants.HEADQUATERS, faction, 1000, 0, Constants.HEAVY, "HQ", spawnPosition,
-					Constants.DEFAULT_SIZE, spawnPosition);
-		case Constants.REPUBLIC:
-			return new UnitBuilding(Constants.HEADQUATERS, faction, 1000, 0, Constants.HEAVY, "HQ", spawnPosition,
-					Constants.DEFAULT_SIZE, spawnPosition);
-		default:
-			throw new IllegalArgumentException("Unknown faction type : " + faction);
+	private void initialiseFiles() {
+		tryReadAndPutInDatas(Constants.UNION_HQ);
+		tryReadAndPutInDatas(Constants.FEDERATION_HQ);
+		tryReadAndPutInDatas(Constants.REPUBLIC_HQ);
+		tryReadAndPutInDatas(Constants.UNION_FACTORY);
+		tryReadAndPutInDatas(Constants.FEDERATION_FACTORY);
+		tryReadAndPutInDatas(Constants.REPUBLIC_FACTORY);
+		tryReadAndPutInDatas(Constants.UNION_MINE);
+		tryReadAndPutInDatas(Constants.FEDERATION_MINE);
+		tryReadAndPutInDatas(Constants.REPUBLIC_MINE);
+	}
+
+	private void tryReadAndPutInDatas(String name) {
+		try {
+			datas.put(name, buildingFileExtractor.readFile(path + name + ".txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load " + name + " file");
 		}
+
+	}
+
+	public Building createBuilding(String type, Coordinates spawnPosition, String playerName)
+			throws IllegalArgumentException {
+		HashMap<String, String> buidingDatas;
+		switch (type) {
+		// Union buidings
+		case Constants.UNION_HQ:
+			buidingDatas = datas.get(Constants.UNION_HQ);
+			return buildUnitBuilding(buidingDatas, playerName, spawnPosition);
+		case Constants.UNION_FACTORY:
+			buidingDatas = datas.get(Constants.UNION_FACTORY);
+			return buildUnitBuilding(buidingDatas, playerName, spawnPosition);
+		case Constants.UNION_MINE:
+			buidingDatas = datas.get(Constants.UNION_MINE);
+			return buildMine(buidingDatas, playerName, spawnPosition);
+		// Union buidings
+		case Constants.FEDERATION_HQ:
+			buidingDatas = datas.get(Constants.FEDERATION_HQ);
+			return buildUnitBuilding(buidingDatas, playerName, spawnPosition);
+		case Constants.FEDERATION_FACTORY:
+			buidingDatas = datas.get(Constants.FEDERATION_FACTORY);
+			return buildUnitBuilding(buidingDatas, playerName, spawnPosition);
+		case Constants.FEDERATION_MINE:
+			buidingDatas = datas.get(Constants.FEDERATION_MINE);
+			return buildMine(buidingDatas, playerName, spawnPosition);
+		// Union buidings
+		case Constants.REPUBLIC_HQ:
+			buidingDatas = datas.get(Constants.REPUBLIC_HQ);
+			return buildUnitBuilding(buidingDatas, playerName, spawnPosition);
+		case Constants.REPUBLIC_FACTORY:
+			buidingDatas = datas.get(Constants.REPUBLIC_FACTORY);
+			return buildUnitBuilding(buidingDatas, playerName, spawnPosition);
+		case Constants.REPUBLIC_MINE:
+			buidingDatas = datas.get(Constants.REPUBLIC_MINE);
+			return buildMine(buidingDatas, playerName, spawnPosition);
+		}
+
+		throw new IllegalArgumentException("type " + type + " is not implemented or defined");
+
+	}
+
+	private Building buildMine(HashMap<String, String> buildingDatas, String playerName, Coordinates spawnPosition) {
+		// TODO Auto-generated method stub
+		return new ResourceBuilding(buildingDatas.get("name"), playerName, toInt(buildingDatas.get("maxhealth")),
+				toInt(buildingDatas.get("armorPoints")), toInt(buildingDatas.get("armorType")),
+				buildingDatas.get("description"), spawnPosition,
+				new Size(toInt(buildingDatas.get("sizeX")), toInt(buildingDatas.get("sizeY"))), new Resource(0, Constants.MATERIALS),
+				toInt(buildingDatas.get("timeToProduce")), toInt(buildingDatas.get("numberProduced")),
+				toInt(buildingDatas.get("capacity")));
+	}
+
+	private Building buildUnitBuilding(HashMap<String, String> buildingDatas, String playerName,
+			Coordinates spawnPosition) {
+		return new UnitBuilding(buildingDatas.get("name"), playerName, toInt(buildingDatas.get("maxhealth")),
+				toInt(buildingDatas.get("armorPoints")), toInt(buildingDatas.get("armorType")),
+				buildingDatas.get("description"), spawnPosition,
+				new Size(toInt(buildingDatas.get("sizeX")), toInt(buildingDatas.get("sizeY"))),
+				offsetPosition(spawnPosition));
+	}
+
+	private Coordinates offsetPosition(Coordinates spawnPosition) {
+		// TODO Auto-generated method stub
+		return new Coordinates(spawnPosition.getAbsciss() + 10, spawnPosition.getOrdinate());
+	}
+
+	private int toInt(String string) {
+		return Integer.parseInt(string);
+	}
+
+	private boolean toBool(String string) {
+		return Boolean.parseBoolean(string);
 	}
 }

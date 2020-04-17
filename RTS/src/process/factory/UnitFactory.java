@@ -30,68 +30,18 @@ public class UnitFactory {
 	}
 
 	private void initialiseFiles() {
-		try {
-			datas.put("hth", unitFileExtractor.readFile(path+"hth.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load hth file");
-		}
-		try {
-			datas.put("justice", unitFileExtractor.readFile(path+"justice.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load justice file");
-		}
-		try {
-			datas.put("lion", unitFileExtractor.readFile(path+"lion.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load lion file");
-		}
-		try {
-			datas.put("mbt", unitFileExtractor.readFile(path+"mbt.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load mbt file");
-		}
-		try {
-			datas.put("mcm", unitFileExtractor.readFile(path+"mcm.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load mcm file");
-		}
-		try {
-			datas.put("nightjar", unitFileExtractor.readFile(path+"nightjar.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load nightjar file");
-		}
-		try {
-			datas.put("ranger", unitFileExtractor.readFile(path+"ranger.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load ranger file");
-		}
-		try {
-			datas.put("republic_worker", unitFileExtractor.readFile(path+"republic_worker.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load republic_worker file");
-		}
-		try {
-			datas.put("specialist", unitFileExtractor.readFile(path+"specialist.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load specialist file");
-		}
-		try {
-			datas.put("tapir", unitFileExtractor.readFile(path+"tapir.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load tapir file");
-		}
-		try {
-			datas.put("trooper", unitFileExtractor.readFile(path+"trooper.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load trooper file");
-		}
-		try {
-			datas.put("wrath", unitFileExtractor.readFile(path+"wrath.txt"));
-		} catch (IOException e) {
-			System.err.println("couldn't load wrath file");
-		}
-		
-		
+		tryReadAndPutInDatas(Constants.HTH);
+		tryReadAndPutInDatas(Constants.JUSTICE);
+		tryReadAndPutInDatas(Constants.LION);
+		tryReadAndPutInDatas(Constants.MBT);
+		tryReadAndPutInDatas(Constants.MCM);
+		tryReadAndPutInDatas(Constants.NIGHTJAR);
+		tryReadAndPutInDatas(Constants.RANGER);
+		tryReadAndPutInDatas(Constants.REPUBLIC_WORKER);
+		tryReadAndPutInDatas(Constants.SPECIALIST);
+		tryReadAndPutInDatas(Constants.TAPIR);
+		tryReadAndPutInDatas(Constants.TROOPER);
+		tryReadAndPutInDatas(Constants.WRATH);
 	}
 
 	private static UnitFactory instance = new UnitFactory();
@@ -102,6 +52,14 @@ public class UnitFactory {
 
 	public void setDatas(HashMap<String, HashMap<String, String>> datas) {
 		this.datas = datas;
+	}
+	private void tryReadAndPutInDatas(String name) {
+		try {
+			datas.put(name, unitFileExtractor.readFile(path+name+".txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load "+name+" file");
+		}
+		
 	}
 
 	public Unit createUnit(String type, Coordinates spawnPosition, String playerName) throws IllegalArgumentException {

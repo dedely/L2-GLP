@@ -83,10 +83,28 @@ public class Constants {
 	public static final String TROOPER = "trooper";
 	public static final String MARTYR = "martyr";
 	public static final String MORTAR_TEAM = "mortar_team";
-	public static final String REPUBLIC_WORKER =  "republic_worker";
-	public static final String LIBERATOR = "liberator";
+		public static final String REPUBLIC_WORKER =  "republic_worker";
+		public static final String LIBERATOR = "liberator";
 	public static final String JUSTICE = "justice";
 	public static final String WRATH = "wrath";
+	
+	//Buildings
+	public static final String UNION_HQ = "union_hq";
+	public static final String FEDERATION_HQ = "federation_hq";
+	public static final String REPUBLIC_HQ = "republic_hq";
+	
+	public static final String UNION_FACTORY = "union_factory";
+	public static final String FEDERATION_FACTORY = "federation_factory";
+	public static final String REPUBLIC_FACTORY = "republic_factory";
+	
+	public static final String UNION_MINE = "union_mine";
+	public static final String FEDERATION_MINE = "federation_mine";
+	public static final String REPUBLIC_MINE = "republic_mine";
+	
+	
+
+
+
 	
 	
 
@@ -103,7 +121,7 @@ public class Constants {
 	public static final String HEALTH = "Get more health";
 
 	
-	public static final String MATS = "mats";
+	public static final String MATERIALS = "materials";
 	
 
 }
