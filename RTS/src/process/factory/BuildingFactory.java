@@ -18,6 +18,8 @@ public class BuildingFactory {
 	private static String ROOT_PATH = "src/tests/input/";
 	private static String EXTENSION = ".txt";
 	private FileExtractor buildingFileExtractor = new FileExtractor();
+	
+	private static BuildingFactory instance = new BuildingFactory();
 
 	private BuildingFactory() {
 		initialiseFiles();
@@ -92,7 +94,7 @@ public class BuildingFactory {
 
 	private Building buildUnitBuilding(HashMap<String, String> buildingDatas, String playerName,
 			Coordinates spawnPosition) {
-		return new UnitBuilding(buildingDatas.get("name"), playerName, toInt(buildingDatas.get("maxhealth")),
+		return new UnitBuilding(buildingDatas.get("name"), playerName, toInt(buildingDatas.get("maxHealth")),
 				toInt(buildingDatas.get("armorPoints")), toInt(buildingDatas.get("armorType")),
 				buildingDatas.get("description"), spawnPosition,
 				new Size(toInt(buildingDatas.get("sizeX")), toInt(buildingDatas.get("sizeY"))),
@@ -109,5 +111,9 @@ public class BuildingFactory {
 
 	private boolean toBool(String string) {
 		return Boolean.parseBoolean(string);
+	}
+
+	public static BuildingFactory getInstance() {
+		return instance;
 	}
 }

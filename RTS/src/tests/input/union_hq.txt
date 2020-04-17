@@ -5,8 +5,8 @@ maxHealth = 2000
 armorPoints = 10
 armorType = 1
 description = Head quarter of the union
-sizex = 2
-sizey = 2
+sizeX = 2
+sizeY = 2
 
 
 

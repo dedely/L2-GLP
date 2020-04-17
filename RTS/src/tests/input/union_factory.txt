@@ -5,8 +5,8 @@ maxHealth = 1600
 armorPoints = 15
 armorType = 1
 description = Training center and vehicle factory
-sizex = 1
-sizey = 1
+sizeX = 1
+sizeY = 1
 
 
 
