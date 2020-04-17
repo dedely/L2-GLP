@@ -3,12 +3,23 @@ package gui.management;
 import gui.elements.buttons.CreateTestUnitButton;
 import gui.elements.buttons.OrderButton;
 import process.FactionTest;
+import process.factory.UnitFactory;
 
 /**
  * @author Adel
  *
  */
 public class ButtonFactory {
+	
+	private ButtonFactory() {
+
+	}
+
+	private static ButtonFactory instance = new ButtonFactory();
+
+	public static ButtonFactory getInstance() {
+		return instance;
+	}
 
 	public static final String TEST_BUTTON = "create unit";
 

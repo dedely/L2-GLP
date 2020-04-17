@@ -84,8 +84,8 @@ public class TitleScreen extends Dashboard {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			getGame().launch(Constants.DEFAULT_CONFIG);
-			//showOptions();
+			//getGame().launch(Constants.DEFAULT_CONFIG);
+			showOptions();
 		}
 
 	}

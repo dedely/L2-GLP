@@ -1,5 +1,7 @@
 package gui.elements;
 
+import java.awt.Color;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -31,6 +33,8 @@ public class ResearchOverview extends JPanel {
 	public ResearchOverview(ResearchManager manager) {
 		this.manager = manager;
 		initLayout();
+		
+		setBackground(Color.BLUE);
 	}
 
 	private void initLayout() {

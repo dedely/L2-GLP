@@ -166,4 +166,12 @@ public class FactionTest {
 		this.buildings = buildings;
 	}
 
+	public ResearchManager getResearcher() {
+		return researcher;
+	}
+
+	public void setResearcher(ResearchManager researcher) {
+		this.researcher = researcher;
+	}
+
 }
