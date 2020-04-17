@@ -4,6 +4,7 @@ import data.Config;
 import data.GameState;
 import data.Player;
 import data.map.Map;
+import gui.management.ButtonFactory;
 import process.Faction;
 import process.Game;
 import process.repository.SelectableRepository;
@@ -22,6 +23,7 @@ public class GameLauncher {
 	private Config config;
 	private Game game;
 	private TeamRepository teams = TeamRepository.getInstance();
+	private ButtonFactory factory = ButtonFactory.getInstance();
 
 	public GameLauncher(Config config, Game game) {
 		this.config = config;
