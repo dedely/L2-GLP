@@ -48,6 +48,8 @@ public class FactionBuilder {
 		initResearch();
 		initSelectable();
 		initCosts();
+		
+		System.out.println(this.faction.getManagers().size());
 
 		return faction;
 	}
@@ -111,8 +113,27 @@ public class FactionBuilder {
 		}
 	}
 
-	private void initMine(String name, String faction) {
-
+	private void initMine(String name, String factionName) {
+		Coordinates mineSpawn = getMineSpawn();
+		try {
+			Building mine = null;
+			switch (factionName) {
+			case Constants.REPUBLIC:
+				mine = buildingFactory.createBuilding(Constants.REPUBLIC_MINE, mineSpawn, name);
+				break;
+			case Constants.UNION:
+				mine = buildingFactory.createBuilding(Constants.UNION_MINE, mineSpawn, name);
+				break;
+			case Constants.FEDERATION:
+				mine = buildingFactory.createBuilding(Constants.FEDERATION_MINE, mineSpawn, name);
+				break;
+			default:
+				throw new IllegalArgumentException("Unknow factionName: " + factionName);
+			}
+			register(mine);
+		} catch (IllegalArgumentException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 
 	private void initWorker(String name, String factionName) throws IllegalArgumentException {

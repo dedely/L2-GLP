@@ -3,6 +3,7 @@ package gui.elements;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import gui.elements.buttons.OrderButton;
@@ -18,23 +19,18 @@ import process.Faction;
  */
 public class ContextualMenu extends JPanel {
 
-	
 	private Faction player;
 	private ButtonBuilder builder;
 
 	private ArrayList<OrderButton> buttons = new ArrayList<OrderButton>();
-	
-	private JPanel buttonsPanel = new JPanel();
 
 	public ContextualMenu(Faction player) {
 		super();
 		this.player = player;
-		builder = new ButtonBuilder(player);
-		setLayout(new GridLayout(2,1));
-		add(buttonsPanel);
+		builder = new ButtonBuilder(this.player);
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		layoutButtons();
 	}
-
 
 	public ArrayList<OrderButton> getButtons() {
 		return buttons;
@@ -50,17 +46,14 @@ public class ContextualMenu extends JPanel {
 	public void update() {
 		buttons = builder.getButtons();
 		layoutButtons();
-		
-		revalidate();
-		repaint();
 	}
 
 	private void layoutButtons() {
-		buttonsPanel.removeAll();
+		removeAll();
 		for (OrderButton button : buttons) {
-			buttonsPanel.add(button);
+			add(button);
 		}
-		buttonsPanel.revalidate();
-		buttonsPanel.repaint();
+		revalidate();
+		repaint();
 	}
 }

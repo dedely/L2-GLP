@@ -40,11 +40,15 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(DefenseBuilding selectable) {
+		colorStrategy.setColor(graphics, selectable);
+		printSquare(selectable);
 		return null;
 	}
 
 	@Override
 	public Void visit(ResearchBuilding selectable) {
+		colorStrategy.setColor(graphics, selectable);
+		printSquare(selectable);
 		return null;
 	}
 
@@ -63,6 +67,9 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(AttackHelicopter selectable) {
+		colorStrategy.setColor(graphics, selectable);
+		printCircle(selectable);
+		printSelected(selectable);
 		return null;
 	}
 
@@ -76,16 +83,25 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(GroundUnitWithMountedWeapon selectable) {
+		colorStrategy.setColor(graphics, selectable);
+		printCircle(selectable);
+		printSelected(selectable);
 		return null;
 	}
 
 	@Override
 	public Void visit(TransportHelicopter selectable) {
+		colorStrategy.setColor(graphics, selectable);
+		printCircle(selectable);
+		printSelected(selectable);
 		return null;
 	}
 
 	@Override
 	public Void visit(TroopTransport selectable) {
+		colorStrategy.setColor(graphics, selectable);
+		printCircle(selectable);
+		printSelected(selectable);
 		return null;
 	}
 
@@ -104,7 +120,7 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 		ShapeRepository.getInstance().addShape(selectable, shape);
 	}
 
-	private void printSquare(UnitBuilding selectable) {
+	private void printSquare(Selectable selectable) {
 		Shape shape = new Rectangle2D.Double(selectable.getPositionX() - offsetX  * SimuPara.SCALE,
 				selectable.getPositionY() - offsetY * SimuPara.SCALE, SimuPara.RADIUS, SimuPara.RADIUS);
 		graphics.fill(shape);

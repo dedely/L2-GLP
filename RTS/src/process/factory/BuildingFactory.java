@@ -18,8 +18,6 @@ public class BuildingFactory {
 	private static String ROOT_PATH = "src/tests/input/";
 	private static String EXTENSION = ".txt";
 	private FileExtractor buildingFileExtractor = new FileExtractor();
-	
-	private static BuildingFactory instance = new BuildingFactory();
 
 	private static BuildingFactory instance = new BuildingFactory();
 
@@ -110,7 +108,4 @@ public class BuildingFactory {
 		return Boolean.parseBoolean(string);
 	}
 
-	public static BuildingFactory getInstance() {
-		return instance;
-	}
 }
