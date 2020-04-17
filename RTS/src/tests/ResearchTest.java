@@ -1,6 +1,5 @@
 package tests;
 
-import data.faction.Faction;
 import data.tree.TechTree;
 import data.tree.Research;
 import data.tree.Upgrade;
@@ -12,8 +11,8 @@ import data.Constants;
 import data.Coordinates;
 import data.building.Building;
 import data.building.Size;
-import process.TreeTreatment;
 import process.factory.BuildingFactory;
+import process.treatment.TreeTreatment;
 
 public class ResearchTest {
 	/*public static void main (String args[]) {

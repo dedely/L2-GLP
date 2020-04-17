@@ -25,7 +25,7 @@ import gui.management.PaintVisitor;
 import gui.management.ShapeRepository;
 import process.Game;
 import process.GameUtility;
-import process.SelectableRepository;
+import process.repository.SelectableRepository;
 
 /**
  * @author Adel

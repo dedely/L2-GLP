@@ -14,7 +14,7 @@ import gui.elements.SimuPara;
 import gui.management.Camera;
 import gui.management.ShapeRepository;
 import process.FactionTest;
-import process.SelectableRepository;
+import process.repository.SelectableRepository;
 
 /**
  * This class processes coordinates inputs, i.e. clicks on the map.

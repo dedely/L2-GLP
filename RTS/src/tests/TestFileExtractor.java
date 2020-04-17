@@ -8,8 +8,8 @@ import data.Constants;
 import data.Coordinates;
 import data.unit.AttackHelicopter;
 import data.unit.Worker;
+import process.builder.FileExtractor;
 import process.factory.UnitFactory;
-import process.file.FileExtractor;
 
 public class TestFileExtractor {
 	public static void main(String[] args) {

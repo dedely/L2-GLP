@@ -10,6 +10,7 @@ import data.Player;
 import data.Resource;
 import process.managers.ResearchManager;
 import process.managers.SelectableManager;
+import process.repository.SelectableRepository;
 
 public class FactionTest {
 

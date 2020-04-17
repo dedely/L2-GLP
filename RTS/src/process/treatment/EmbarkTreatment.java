@@ -1,5 +1,5 @@
 
-package process;
+package process.treatment;
 
 import data.Coordinates;
 import data.Selectable;

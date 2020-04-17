@@ -1,4 +1,4 @@
-package process;
+package process.treatment;
 
 import java.util.ArrayList;
 import java.util.HashMap;

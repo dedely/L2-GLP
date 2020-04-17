@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import data.Constants;
 import data.Coordinates;
-import data.faction.Faction;
 import data.unit.AttackHelicopter;
 import data.unit.GroundUnit;
 import data.unit.GroundUnitSuicide;
@@ -15,7 +14,7 @@ import data.unit.TroopTransport;
 import data.unit.Unit;
 import data.unit.Weapon;
 import data.unit.Worker;
-import process.file.FileExtractor;
+import process.builder.FileExtractor;
 
 public class UnitFactory {
 	private HashMap<String, HashMap<String, String>> datas = new HashMap<String, HashMap<String, String>>();
@@ -26,7 +25,6 @@ public class UnitFactory {
 	
 	private UnitFactory() {
 		initialiseFiles();
-
 	}
 
 	private void initialiseFiles() {

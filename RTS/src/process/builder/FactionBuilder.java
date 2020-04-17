@@ -12,12 +12,12 @@ import data.unit.Unit;
 import gui.elements.SimuPara;
 import process.FactionTest;
 import process.GameUtility;
-import process.SelectableRepository;
 import process.factory.BuildingFactory;
 import process.factory.TestFactory;
 import process.factory.UnitFactory;
 import process.managers.SelectableManager;
 import process.managers.UnitBuildingManager;
+import process.repository.SelectableRepository;
 import process.visitor.selectable.ManagerVisitor;
 
 /**

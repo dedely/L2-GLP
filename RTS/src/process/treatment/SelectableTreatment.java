@@ -1,4 +1,4 @@
-package process;
+package process.treatment;
 
 import java.util.ArrayList;
 
@@ -13,6 +13,7 @@ import data.unit.GroundUnitWithMountedWeapon;
 import data.unit.TroopTransport;
 import data.unit.TransportHelicopter;
 import data.unit.Unit;
+import process.repository.SelectableRepository;
 
 public class SelectableTreatment {
 
