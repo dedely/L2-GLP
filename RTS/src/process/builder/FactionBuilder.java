@@ -10,7 +10,7 @@ import data.Resource;
 import data.building.UnitBuilding;
 import data.unit.Unit;
 import gui.elements.SimuPara;
-import process.FactionTest;
+import process.Faction;
 import process.factory.TestFactory;
 import process.managers.SelectableManager;
 import process.managers.UnitBuildingManager;
@@ -24,11 +24,11 @@ import process.visitor.selectable.ManagerVisitor;
 public class FactionBuilder {
 
 	private Player player;
-	private FactionTest faction;
+	private Faction faction;
 
-	public FactionTest buildFaction(Player player) {
+	public Faction buildFaction(Player player) {
 		this.player = player;
-		faction = new FactionTest(player);
+		faction = new Faction(player);
 
 		initResources();
 		initResearch();
@@ -66,7 +66,7 @@ public class FactionBuilder {
 	}
 
 	private void initResources() {
-		faction.addResource(new Resource(1000, Constants.MATS));
+		faction.addResource(new Resource(1000, Constants.MATERIALS));
 	}
 
 	private void initCosts() {

@@ -9,7 +9,7 @@ import data.Resource;
 import data.building.UnitBuilding;
 import data.order.MoveToPosition;
 import data.unit.Unit;
-import process.FactionTest;
+import process.Faction;
 import process.factory.TestFactory;
 import process.managers.SelectableManager;
 import process.repository.SelectableRepository;
@@ -21,7 +21,7 @@ import process.visitor.selectable.ManagerVisitor;
  */
 public class CreateUnitExecutor implements Executor {
 
-	private FactionTest testFaction;
+	private Faction testFaction;
 	private UnitBuilding unitBuilding;
 	private String unitToCreate;
 	private Coordinates position;
@@ -38,7 +38,7 @@ public class CreateUnitExecutor implements Executor {
 	 * @param unitBuilding
 	 * @param unitToCreate
 	 */
-	public CreateUnitExecutor(FactionTest testFaction, UnitBuilding unitBuilding, String unitToCreate) {
+	public CreateUnitExecutor(Faction testFaction, UnitBuilding unitBuilding, String unitToCreate) {
 		this.testFaction = testFaction;
 		this.unitBuilding = unitBuilding;
 		this.unitToCreate = unitToCreate;
@@ -56,12 +56,12 @@ public class CreateUnitExecutor implements Executor {
 	public boolean execute() {
 		if (timeLeft == totalTime) {
 			try {
-				Resource mats = testFaction.getResource(Constants.MATS);
+				Resource mats = testFaction.getResource(Constants.MATERIALS);
 				int currentCount = mats.getResourceCount();
 				int price = cost.getCost();
 				int newCount = currentCount - price;
 				if (newCount >= 0) {
-					testFaction.updateResource(Constants.MATS, newCount);
+					testFaction.updateResource(Constants.MATERIALS, newCount);
 					timeLeft--;
 				} else {
 					complete = true;

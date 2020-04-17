@@ -2,6 +2,7 @@ package process.visitor.selectable;
 
 import java.util.ArrayList;
 
+import data.Action;
 import data.building.DefenseBuilding;
 import data.building.ResearchBuilding;
 import data.building.ResourceBuilding;
@@ -23,67 +24,65 @@ import gui.management.ButtonFactory;
  */
 public class ActionVisitor implements SelectableVisitor<ArrayList<String>> {
 
+	ButtonFactory factory = ButtonFactory.getInstance();
+
 	@Override
 	public ArrayList<String> visit(DefenseBuilding selectable) {
-		// TODO Auto-generated method stub
-		return null;
+		return getActions(selectable.getName());
 	}
 
 	@Override
 	public ArrayList<String> visit(ResearchBuilding selectable) {
-		// TODO Auto-generated method stub
-		return null;
+		return getActions(selectable.getName());
 	}
 
 	@Override
 	public ArrayList<String> visit(ResourceBuilding selectable) {
-		// TODO Auto-generated method stub
-		return null;
+		return getActions(selectable.getName());
 	}
 
 	@Override
 	public ArrayList<String> visit(UnitBuilding selectable) {
-		ArrayList<String> actions = new ArrayList<String>();
-		actions.add(ButtonFactory.TEST_BUTTON);
-		return actions;
+
+		return getActions(selectable.getName());
 	}
 
 	@Override
 	public ArrayList<String> visit(AttackHelicopter selectable) {
-		// TODO Auto-generated method stub
-		return null;
+		return getActions(selectable.getName());
 	}
 
 	@Override
 	public ArrayList<String> visit(GroundUnit selectable) {
-		ArrayList<String> actions = new ArrayList<String>();
-		//actions.add("");
-		return actions;
+		return getActions(selectable.getName());
 	}
 
 	@Override
 	public ArrayList<String> visit(GroundUnitWithMountedWeapon selectable) {
-		// TODO Auto-generated method stub
-		return null;
+		return getActions(selectable.getName());
 	}
 
 	@Override
 	public ArrayList<String> visit(TransportHelicopter selectable) {
-		// TODO Auto-generated method stub
-		return null;
+		return getActions(selectable.getName());
 	}
 
 	@Override
 	public ArrayList<String> visit(TroopTransport selectable) {
-		// TODO Auto-generated method stub
-		return null;
+		return getActions(selectable.getName());
 	}
 
 	@Override
 	public ArrayList<String> visit(Worker selectable) {
-		ArrayList<String> actions = new ArrayList<String>();
-		actions.add(ButtonFactory.TEST_BUTTON);
-		return actions;
+		return getActions(selectable.getName());
 	}
 
+	private ArrayList<String> getActions(String name) {
+		ArrayList<String> actions = null;
+		Action action = factory.getAction(name);
+		if (action != null) {
+			actions = action.getActions();
+		}
+		return actions;
+	}
 }

@@ -6,18 +6,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
-import data.Constants;
-import data.order.CreateUnit;
 import process.Faction;
 import process.managers.SelectableManager;
 
-/**
- * @author Adel
- *
- */
-public class CreateTestUnitButton extends OrderButton {
-
-	public CreateTestUnitButton(Faction player, String action) {
+public class BuildButton extends OrderButton {
+	public BuildButton(Faction player, String action) {
 		super(player, action);
 		initStyle();
 		initLayout();
@@ -39,25 +32,22 @@ public class CreateTestUnitButton extends OrderButton {
 	}
 
 	private void initAction() {
-		getButton().addActionListener(new CreateTestUnitAction());
+		getButton().addActionListener(new BuildAction());
 	}
 
-	private class CreateTestUnitAction implements ActionListener {
+	private class BuildAction implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			ArrayList<Integer> selectedCollection = getPlayer().getSelection();
-			for (Integer selectedId : selectedCollection) {
+			if (selectedCollection.size() == 1) {
 				try {
-					SelectableManager manager = getPlayer().getSelectableManager(selectedId);
-					CreateUnit order = new CreateUnit(Constants.MCM);
-					manager.giveOrder(order);
+					SelectableManager manager = getPlayer().getSelectableManager(selectedCollection.get(0));
+					manager.waitForInfo();
 				} catch (NoSuchElementException nsee) {
 					System.err.println(nsee.getMessage());
 				}
 			}
-			 
 		}
-
 	}
 }

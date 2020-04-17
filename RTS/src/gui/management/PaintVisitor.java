@@ -40,19 +40,16 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(DefenseBuilding selectable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Void visit(ResearchBuilding selectable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Void visit(ResourceBuilding selectable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -66,7 +63,6 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(AttackHelicopter selectable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -80,19 +76,16 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(GroundUnitWithMountedWeapon selectable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Void visit(TransportHelicopter selectable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Void visit(TroopTransport selectable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

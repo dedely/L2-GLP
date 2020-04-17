@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 import data.Config;
-import data.Constants;
 import data.GameState;
 import data.Selectable;
 import process.builder.GameLauncher;
@@ -18,7 +17,7 @@ import process.repository.TeamRepository;
  */
 public class Game {
 	private int state;
-	private HashMap<String, FactionTest> players = new HashMap<String, FactionTest>();
+	private HashMap<String, Faction> players = new HashMap<String, Faction>();
 	private SelectableRepository repository = SelectableRepository.getInstance();
 
 	public Game() {
@@ -33,11 +32,11 @@ public class Game {
 		this.state = state;
 	}
 
-	public HashMap<String, FactionTest> getPlayers() {
+	public HashMap<String, Faction> getPlayers() {
 		return players;
 	}
 
-	public void add(FactionTest faction) {
+	public void add(Faction faction) {
 		if (faction != null) {
 			players.put(faction.getPlayer(), faction);
 		}
@@ -67,7 +66,7 @@ public class Game {
 		if (isRunning()) {
 			removeDead();
 			addNew();
-			for (FactionTest player : players.values()) {
+			for (Faction player : players.values()) {
 				player.update();
 			}
 		}
@@ -128,7 +127,7 @@ public class Game {
 		}
 	}
 
-	public FactionTest getPlayer(String name) throws NoSuchElementException {
+	public Faction getPlayer(String name) throws NoSuchElementException {
 		if (players.containsKey(name)) {
 			return players.get(name);
 		} else {

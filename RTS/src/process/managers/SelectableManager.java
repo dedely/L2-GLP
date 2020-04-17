@@ -5,8 +5,11 @@ import data.order.Order;
 import process.executor.Executor;
 
 public abstract class SelectableManager {
+	private static final int WAIT_FOR_INFO = 1;
+	private static final int DEFAULT = 0;
 	private Order order = null;
 	private boolean executingOrder = false;
+	private int state = DEFAULT;
 
 	public abstract Selectable getSelectable();
 
@@ -17,15 +20,23 @@ public abstract class SelectableManager {
 	public abstract int getProgress();
 
 	public abstract boolean isBuilding();
-	
+
 	public abstract void setExecutor(Executor executor);
 
 	public boolean isDead() {
 		return getSelectable().getCurrentHealth() <= 0;
 	}
 
+	/**
+	 * 
+	 * Some orders take several steps to input
+	 * 
+	 * @param order
+	 */
 	public void giveOrder(Order order) {
-		getSelectable().addOrder(order);
+		if (!isWaiting()) {
+			getSelectable().addOrder(order);
+		}
 	}
 
 	public Order getOrder() {
@@ -73,4 +84,23 @@ public abstract class SelectableManager {
 		this.executingOrder = executingOrder;
 	}
 
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
+	public void waitForInfo() {
+		setState(SelectableManager.WAIT_FOR_INFO);
+	}
+
+	public boolean isWaiting() {
+		return state == WAIT_FOR_INFO;
+	}
+
+	public void stopWaiting() {
+		setState(SelectableManager.DEFAULT);
+	}
 }

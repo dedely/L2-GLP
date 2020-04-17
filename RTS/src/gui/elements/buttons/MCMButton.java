@@ -11,13 +11,8 @@ import data.order.CreateUnit;
 import process.Faction;
 import process.managers.SelectableManager;
 
-/**
- * @author Adel
- *
- */
-public class CreateTestUnitButton extends OrderButton {
-
-	public CreateTestUnitButton(Faction player, String action) {
+public class MCMButton extends OrderButton{
+	public MCMButton(Faction player, String action) {
 		super(player, action);
 		initStyle();
 		initLayout();
@@ -39,10 +34,10 @@ public class CreateTestUnitButton extends OrderButton {
 	}
 
 	private void initAction() {
-		getButton().addActionListener(new CreateTestUnitAction());
+		getButton().addActionListener(new CreateMCMAction());
 	}
 
-	private class CreateTestUnitAction implements ActionListener {
+	private class CreateMCMAction implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {

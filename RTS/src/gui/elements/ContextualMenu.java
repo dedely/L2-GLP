@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 import gui.elements.buttons.OrderButton;
 import gui.management.ButtonBuilder;
-import process.FactionTest;
+import process.Faction;
 
 /**
  * The ContextualMenu is a JPanel used as a container for context dependant
@@ -19,12 +19,12 @@ import process.FactionTest;
 public class ContextualMenu extends JPanel {
 
 	
-	private FactionTest player;
+	private Faction player;
 	private ButtonBuilder builder;
 
 	private ArrayList<OrderButton> buttons = new ArrayList<OrderButton>();
 
-	public ContextualMenu(FactionTest player) {
+	public ContextualMenu(Faction player) {
 		super();
 		this.player = player;
 		builder = new ButtonBuilder(player);

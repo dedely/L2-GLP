@@ -1,4 +1,4 @@
-package gui.elements.buttons;
+package gui.management;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -8,16 +8,13 @@ import java.util.NoSuchElementException;
 
 import data.Constants;
 import data.order.CreateUnit;
+import gui.elements.buttons.OrderButton;
 import process.Faction;
 import process.managers.SelectableManager;
 
-/**
- * @author Adel
- *
- */
-public class CreateTestUnitButton extends OrderButton {
+public class WrathButton extends OrderButton {
 
-	public CreateTestUnitButton(Faction player, String action) {
+	public WrathButton(Faction player, String action) {
 		super(player, action);
 		initStyle();
 		initLayout();
@@ -39,10 +36,10 @@ public class CreateTestUnitButton extends OrderButton {
 	}
 
 	private void initAction() {
-		getButton().addActionListener(new CreateTestUnitAction());
+		getButton().addActionListener(new CreateWrathAction());
 	}
 
-	private class CreateTestUnitAction implements ActionListener {
+	private class CreateWrathAction implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -50,13 +47,13 @@ public class CreateTestUnitButton extends OrderButton {
 			for (Integer selectedId : selectedCollection) {
 				try {
 					SelectableManager manager = getPlayer().getSelectableManager(selectedId);
-					CreateUnit order = new CreateUnit(Constants.MCM);
+					CreateUnit order = new CreateUnit(Constants.WRATH);
 					manager.giveOrder(order);
 				} catch (NoSuchElementException nsee) {
 					System.err.println(nsee.getMessage());
 				}
 			}
-			 
+
 		}
 
 	}

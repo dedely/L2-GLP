@@ -4,7 +4,7 @@ import data.Config;
 import data.GameState;
 import data.Player;
 import data.map.Map;
-import process.FactionTest;
+import process.Faction;
 import process.Game;
 import process.repository.SelectableRepository;
 import process.repository.TeamRepository;
@@ -43,7 +43,7 @@ public class GameLauncher {
 	private void initFactions() {
 		FactionBuilder builder = new FactionBuilder();
 		for(Player player: config.getPlayers()) {
-			FactionTest faction = builder.buildFaction(player);
+			Faction faction = builder.buildFaction(player);
 			game.add(faction);
 		}
 	}

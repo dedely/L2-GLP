@@ -11,13 +11,8 @@ import data.order.CreateUnit;
 import process.Faction;
 import process.managers.SelectableManager;
 
-/**
- * @author Adel
- *
- */
-public class CreateTestUnitButton extends OrderButton {
-
-	public CreateTestUnitButton(Faction player, String action) {
+public class NightJarButton extends OrderButton{
+	public NightJarButton(Faction player, String action) {
 		super(player, action);
 		initStyle();
 		initLayout();
@@ -39,10 +34,10 @@ public class CreateTestUnitButton extends OrderButton {
 	}
 
 	private void initAction() {
-		getButton().addActionListener(new CreateTestUnitAction());
+		getButton().addActionListener(new CreateNightJarAction());
 	}
 
-	private class CreateTestUnitAction implements ActionListener {
+	private class CreateNightJarAction implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -50,7 +45,7 @@ public class CreateTestUnitButton extends OrderButton {
 			for (Integer selectedId : selectedCollection) {
 				try {
 					SelectableManager manager = getPlayer().getSelectableManager(selectedId);
-					CreateUnit order = new CreateUnit(Constants.MCM);
+					CreateUnit order = new CreateUnit(Constants.NIGHTJAR);
 					manager.giveOrder(order);
 				} catch (NoSuchElementException nsee) {
 					System.err.println(nsee.getMessage());

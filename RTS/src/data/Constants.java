@@ -60,8 +60,8 @@ public class Constants {
 
 	public static final String TEST_GROUND = "testGround";
 	public static final String TEST_GROUND_EMBARK = "testGroundEmbark";
-	
-	//Union units
+
+	// Union units
 	public static final String SPECIALIST = "specialist";
 	public static final String AT_SOLDIER = "at_soldier";
 	public static final String ASAV = "asav";
@@ -69,8 +69,8 @@ public class Constants {
 	public static final String SPH = "sph";
 	public static final String MCM = "mcm";
 	public static final String HTH = "hth";
-	
-	//Federation units
+
+	// Federation units
 	public static final String RANGER = "ranger";
 	public static final String HEAVY_INFANTRY = "heavy_infantry";
 	public static final String HARE = "hare";
@@ -78,35 +78,28 @@ public class Constants {
 	public static final String ELEPHANT = "elephant";
 	public static final String TAPIR = "tapir";
 	public static final String NIGHTJAR = "nightjar";
-	
-	//Republic units
+
+	// Republic units
 	public static final String TROOPER = "trooper";
 	public static final String MARTYR = "martyr";
 	public static final String MORTAR_TEAM = "mortar_team";
-		public static final String REPUBLIC_WORKER =  "republic_worker";
-		public static final String LIBERATOR = "liberator";
+	public static final String REPUBLIC_WORKER = "republic_worker";
+	public static final String LIBERATOR = "liberator";
 	public static final String JUSTICE = "justice";
 	public static final String WRATH = "wrath";
-	
-	//Buildings
+
+	// Buildings
 	public static final String UNION_HQ = "union_hq";
 	public static final String FEDERATION_HQ = "federation_hq";
 	public static final String REPUBLIC_HQ = "republic_hq";
-	
+
 	public static final String UNION_FACTORY = "union_factory";
 	public static final String FEDERATION_FACTORY = "federation_factory";
 	public static final String REPUBLIC_FACTORY = "republic_factory";
-	
+
 	public static final String UNION_MINE = "union_mine";
 	public static final String FEDERATION_MINE = "federation_mine";
 	public static final String REPUBLIC_MINE = "republic_mine";
-	
-	
-
-
-
-	
-	
 
 	public static final String TEST_GROUND_WEAPON_H = "testGroundWeaponH";
 	public static final String TEST_GROUND_WEAPON_L = "testGroundWeaponL";
@@ -120,8 +113,6 @@ public class Constants {
 	public static final String DAMAGE = "Damage greater";
 	public static final String HEALTH = "Get more health";
 
-	
 	public static final String MATERIALS = "materials";
-	
 
 }

@@ -3,18 +3,18 @@ package process.managers;
 import data.Selectable;
 import data.building.UnitBuilding;
 import data.order.Order;
-import process.FactionTest;
+import process.Faction;
 import process.executor.Executor;
 import process.visitor.order.UnitBuildingExVisitor;
 
 public class UnitBuildingManager extends SelectableManager {
-	private FactionTest player;
+	private Faction player;
 	private UnitBuilding unitBuilding;
 	private UnitBuildingExVisitor visitor;
 	private Executor concreteExecutor = null;
 	private boolean complete = false;
 
-	public UnitBuildingManager(UnitBuilding unitBuilding, FactionTest player) {
+	public UnitBuildingManager(UnitBuilding unitBuilding, Faction player) {
 		this.unitBuilding = unitBuilding;
 		this.player = player;
 		visitor = new UnitBuildingExVisitor(unitBuilding, player);

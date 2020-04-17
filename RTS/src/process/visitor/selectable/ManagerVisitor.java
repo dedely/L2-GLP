@@ -10,8 +10,7 @@ import data.unit.GroundUnitWithMountedWeapon;
 import data.unit.TransportHelicopter;
 import data.unit.TroopTransport;
 import data.unit.Worker;
-import process.FactionTest;
-import process.managers.AttackHeliManager;
+import process.Faction;
 import process.managers.DefenseBuildingManager;
 import process.managers.ResourceBuildingManager;
 import process.managers.SelectableManager;
@@ -27,9 +26,9 @@ import process.managers.WorkerManager;
  */
 public class ManagerVisitor implements SelectableVisitor<SelectableManager> {
 
-	private FactionTest player;
+	private Faction player;
 
-	public ManagerVisitor(FactionTest player) {
+	public ManagerVisitor(Faction player) {
 		this.player = player;
 	}
 
@@ -55,7 +54,7 @@ public class ManagerVisitor implements SelectableVisitor<SelectableManager> {
 
 	@Override
 	public SelectableManager visit(AttackHelicopter selectable) {
-		return new AttackHeliManager(selectable);
+		return new UnitManager(selectable);
 	}
 
 	@Override

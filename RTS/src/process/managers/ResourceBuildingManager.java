@@ -4,20 +4,20 @@ import data.Resource;
 import data.Selectable;
 import data.building.ResourceBuilding;
 import data.order.Order;
-import process.FactionTest;
+import process.Faction;
 import process.counter.BoundedCounter;
 import process.counter.CyclicCounter;
 import process.executor.Executor;
 
 public class ResourceBuildingManager extends SelectableManager {
 
-	private FactionTest player;
+	private Faction player;
 	private ResourceBuilding building;
 	private Resource resource;
 	private CyclicCounter counter;
 	private BoundedCounter stock;
 
-	public ResourceBuildingManager(FactionTest player, ResourceBuilding building) {
+	public ResourceBuildingManager(Faction player, ResourceBuilding building) {
 		this.player = player;
 		this.building = building;
 		initMechanism();
