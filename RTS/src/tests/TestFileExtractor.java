@@ -6,6 +6,8 @@ import java.util.HashMap;
 
 import data.Constants;
 import data.Coordinates;
+import data.unit.AttackHelicopter;
+import data.unit.Worker;
 import process.factory.UnitFactory;
 import process.file.FileExtractor;
 
@@ -23,7 +25,10 @@ public class TestFileExtractor {
 		System.out.println(infos.toString());
 		
 		UnitFactory unitF = UnitFactory.getInstance();
-		unitF.createUnit(Constants.HTH, new Coordinates(15, 15, 0), Constants.PLAYER);
+		AttackHelicopter testAttk =(AttackHelicopter) unitF.createUnit(Constants.WRATH, new Coordinates(15, 15, 0), Constants.PLAYER);
+		System.out.println(testAttk.toString());
+		Worker testWorker = (Worker) unitF.createUnit(Constants.TAPIR, new Coordinates(15, 15, 0), Constants.PLAYER);
+		System.out.println("\n\n\n"+testWorker.toString());
 	}
 	
 	

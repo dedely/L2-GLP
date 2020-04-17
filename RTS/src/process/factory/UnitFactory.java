@@ -1,5 +1,6 @@
 package process.factory;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import data.Constants;
@@ -14,12 +15,83 @@ import data.unit.TroopTransport;
 import data.unit.Unit;
 import data.unit.Weapon;
 import data.unit.Worker;
+import process.file.FileExtractor;
 
 public class UnitFactory {
 	private HashMap<String, HashMap<String, String>> datas = new HashMap<String, HashMap<String, String>>();
 
+	private String path = "src/tests/input/";
+	
+	private FileExtractor unitFileExtractor = new FileExtractor();
+	
 	private UnitFactory() {
+		initialiseFiles();
 
+	}
+
+	private void initialiseFiles() {
+		try {
+			datas.put("hth", unitFileExtractor.readFile(path+"hth.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load hth file");
+		}
+		try {
+			datas.put("justice", unitFileExtractor.readFile(path+"justice.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load justice file");
+		}
+		try {
+			datas.put("lion", unitFileExtractor.readFile(path+"lion.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load lion file");
+		}
+		try {
+			datas.put("mbt", unitFileExtractor.readFile(path+"mbt.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load mbt file");
+		}
+		try {
+			datas.put("mcm", unitFileExtractor.readFile(path+"mcm.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load mcm file");
+		}
+		try {
+			datas.put("nightjar", unitFileExtractor.readFile(path+"nightjar.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load nightjar file");
+		}
+		try {
+			datas.put("ranger", unitFileExtractor.readFile(path+"ranger.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load ranger file");
+		}
+		try {
+			datas.put("republic_worker", unitFileExtractor.readFile(path+"republic_worker.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load republic_worker file");
+		}
+		try {
+			datas.put("specialist", unitFileExtractor.readFile(path+"specialist.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load specialist file");
+		}
+		try {
+			datas.put("tapir", unitFileExtractor.readFile(path+"tapir.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load tapir file");
+		}
+		try {
+			datas.put("trooper", unitFileExtractor.readFile(path+"trooper.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load trooper file");
+		}
+		try {
+			datas.put("wrath", unitFileExtractor.readFile(path+"wrath.txt"));
+		} catch (IOException e) {
+			System.err.println("couldn't load wrath file");
+		}
+		
+		
 	}
 
 	private static UnitFactory instance = new UnitFactory();
