@@ -1,6 +1,6 @@
 building
 
-name = republic_mine 
+name = republic_mine
 maxHealth = 800
 armorPoints = 10
 armorType = 1

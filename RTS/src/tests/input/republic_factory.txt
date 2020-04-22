@@ -1,12 +1,9 @@
 building
 
-name = republic_factory 
+name = republic_factory
 maxHealth = 1200
 armorPoints = 8
 armorType = 1
 description = Training center and vehicle factory
 sizeX = 1
 sizeY = 1
-
-
-

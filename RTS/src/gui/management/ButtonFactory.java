@@ -41,6 +41,9 @@ public class ButtonFactory {
 
 	private ButtonFactory() {
 		initActions();
+		for (Action action: actions.values()) {
+			System.out.println("name: " + action.getSelectableName() + " Actions : " + action.getActions());
+		}
 	}
 
 	/**

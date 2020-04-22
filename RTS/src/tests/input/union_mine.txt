@@ -1,6 +1,6 @@
 building
 
-name = union_mine 
+name = union_mine
 maxHealth = 1200
 armorPoints = 10
 armorType = 2

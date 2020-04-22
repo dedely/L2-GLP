@@ -1,6 +1,6 @@
 building
 
-name = federation_mine 
+name = federation_mine
 maxHealth = 1200
 armorPoints = 10
 armorType = 2

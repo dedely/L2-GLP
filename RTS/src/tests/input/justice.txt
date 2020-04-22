@@ -1,6 +1,6 @@
 unit
 
-name = justice 
+name = justice
 maxHealth = 200
 armorPoints = 5
 armorType = 3

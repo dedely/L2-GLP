@@ -1,6 +1,6 @@
 unit
 
-name = mcm 
+name = mcm
 maxHealth = 50
 armorPoints = 0
 armorType = 1

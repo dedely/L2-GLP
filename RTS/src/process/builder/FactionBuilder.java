@@ -49,6 +49,10 @@ public class FactionBuilder {
 		initSelectable();
 		initCosts();
 		
+		for (Selectable selectable : r.getIds().values()) {
+			System.out.println(selectable.toString());
+		}
+		
 		return faction;
 	}
 
