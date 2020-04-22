@@ -146,13 +146,13 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 	private void printHealth(Selectable selectable) {
 		int ratio = (int) (selectable.getCurrentHealth() * 100.0f) / selectable.getMaxHealth();
 		int x = selectable.getPositionX() - offsetX * SimuPara.SCALE;
-		int y = (selectable.getPositionY() - offsetY * SimuPara.SCALE) - 15;
+		int y = (selectable.getPositionY() - offsetY * SimuPara.SCALE) - 10;
 
 		Rectangle healthBar = new Rectangle(x, y, SimuPara.RADIUS, 5);
 		graphics.setColor(Color.black);
 		graphics.fillRect(x, y, SimuPara.RADIUS, 5);
 		graphics.setColor(Color.green);
-		graphics.fillRect(x, y, ratio, 5);
+		graphics.fillRect(x, y, (SimuPara.RADIUS * ratio / 100), 5);
 		graphics.draw(healthBar);
 	}
 

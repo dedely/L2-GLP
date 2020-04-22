@@ -112,7 +112,6 @@ public class FactionBuilder {
 
 	private void initMine(String name, String factionName) {
 		Coordinates mineSpawn = getMineSpawn();
-		System.out.println(mineSpawn);
 		try {
 			Building mine = null;
 			switch (factionName) {
@@ -136,7 +135,6 @@ public class FactionBuilder {
 
 	private void initWorker(String name, String factionName) throws IllegalArgumentException {
 		Coordinates workerSpawn = getWorkerSpawn();
-		System.out.println("work: " + workerSpawn);
 		try {
 			Unit worker = null;
 			switch (factionName) {
