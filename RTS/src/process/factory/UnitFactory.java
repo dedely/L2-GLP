@@ -87,6 +87,9 @@ public class UnitFactory {
 			unitDatas = datas.get(Constants.HARE);
 			return buildTroopTransport(unitDatas, playerName, spawnPosition);
 		// heavy tank
+		case Constants.LION:
+			unitDatas = datas.get(Constants.LION);
+			return buildGroundUnit(unitDatas, playerName, spawnPosition);
 		case Constants.ELEPHANT:
 			unitDatas = datas.get(Constants.ELEPHANT);
 			return buildGroundUnit(unitDatas, playerName, spawnPosition);
