@@ -12,7 +12,7 @@ weapon
 
 damagePerShot = 30
 typeOfDammage = 2
-timeBeetweenShots = 80
+timeBeetweenShots = 50
 range = 300
 minimuRange = 10
 canShootAtAirTarget = false

@@ -73,7 +73,7 @@ public class Faction {
 
 	public void addSelectableManager(SelectableManager manager) {
 		if (manager != null) {
-			if(manager.isBuilding()) {
+			if (manager.isBuilding()) {
 				buildings++;
 			}
 			managers.put(manager.getSelectableId(), manager);
@@ -82,6 +82,10 @@ public class Faction {
 
 	public void removeSelectableManager(Integer id) {
 		if (managers.containsKey(id)) {
+			//Update building count if necessary.
+			if (managers.get(id).isBuilding()) {
+				buildings--;
+			}
 			managers.remove(id);
 		}
 	}
@@ -152,7 +156,7 @@ public class Faction {
 
 	public void addNew(SelectableManager manager) {
 		if (manager != null) {
-			if(manager.isBuilding()) {
+			if (manager.isBuilding()) {
 				buildings++;
 			}
 			newManagers.put(manager.getSelectableId(), manager);
@@ -178,7 +182,7 @@ public class Faction {
 	public void setResearcher(ResearchManager researcher) {
 		this.researcher = researcher;
 	}
-	
+
 	public boolean isLost() {
 		return buildings == 0;
 	}

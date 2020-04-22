@@ -11,6 +11,7 @@ import data.order.MoveToPosition;
 import data.unit.Unit;
 import process.Faction;
 import process.factory.TestFactory;
+import process.factory.UnitFactory;
 import process.managers.SelectableManager;
 import process.repository.SelectableRepository;
 import process.visitor.selectable.ManagerVisitor;
@@ -25,6 +26,7 @@ public class CreateUnitExecutor implements Executor {
 	private UnitBuilding unitBuilding;
 	private String unitToCreate;
 	private Coordinates position;
+	private UnitFactory factory = UnitFactory.getInstance();
 
 	private Cost cost;
 	private int timeLeft;
@@ -73,7 +75,7 @@ public class CreateUnitExecutor implements Executor {
 		} else if (timeLeft == 0) {
 			try {
 				SelectableRepository r = SelectableRepository.getInstance();
-				Unit unit = TestFactory.createUnit(unitToCreate, testFaction.getPlayer(), position);
+				Unit unit = factory.createUnit(unitToCreate, position, testFaction.getPlayer());
 				Integer id = r.nextIdentity();
 				unit.setId(id);
 				ManagerVisitor visitor = new ManagerVisitor(testFaction);

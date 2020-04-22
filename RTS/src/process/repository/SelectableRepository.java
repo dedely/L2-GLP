@@ -8,6 +8,7 @@ import data.Selectable;
 import data.map.Map;
 import data.map.Tile;
 import data.unit.Unit;
+import gui.elements.SimuPara;
 import process.GameUtility;
 
 /**
@@ -83,7 +84,10 @@ public class SelectableRepository {
 	public void remove(Integer id) {
 		Selectable selectable;
 		if ((selectable = getSelectable(id)) != null) {
-			map.delete(selectable.getPosition());
+			int x = selectable.getPositionX()/SimuPara.SCALE;
+			int y = selectable.getPositionY()/SimuPara.SCALE;
+			Coordinates actualPosition = new Coordinates(x, y);
+			map.delete(actualPosition);
 			ids.remove(id);
 		}
 	}

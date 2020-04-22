@@ -1,6 +1,8 @@
 package gui.management;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
@@ -54,6 +56,8 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 
 	@Override
 	public Void visit(ResourceBuilding selectable) {
+		colorStrategy.setColor(graphics, selectable);
+		printSquare(selectable);
 		return null;
 	}
 
@@ -118,21 +122,38 @@ public class PaintVisitor implements SelectableVisitor<Void> {
 				selectable.getPositionY() - offsetY * SimuPara.SCALE, SimuPara.RADIUS, SimuPara.RADIUS);
 		graphics.fill(shape);
 		ShapeRepository.getInstance().addShape(selectable, shape);
+		printHealth(selectable);
 	}
 
 	private void printSquare(Selectable selectable) {
-		Shape shape = new Rectangle2D.Double(selectable.getPositionX() - offsetX  * SimuPara.SCALE,
+		Shape shape = new Rectangle2D.Double(selectable.getPositionX() - offsetX * SimuPara.SCALE,
 				selectable.getPositionY() - offsetY * SimuPara.SCALE, SimuPara.RADIUS, SimuPara.RADIUS);
 		graphics.fill(shape);
 		ShapeRepository.getInstance().addShape(selectable, shape);
+		printHealth(selectable);
+
 	}
 
 	private void printSelected(Selectable selectable) {
 		if (selectable.isSelected()) {
 			colorStrategy.setColorSelected(graphics);
 			graphics.drawOval((selectable.getPositionX() - offsetX * SimuPara.SCALE) - 8 / 2,
-					(selectable.getPositionY() - offsetY * SimuPara.SCALE) - 8 / 2, SimuPara.RADIUS + 8, SimuPara.RADIUS + 8);
+					(selectable.getPositionY() - offsetY * SimuPara.SCALE) - 8 / 2, SimuPara.RADIUS + 8,
+					SimuPara.RADIUS + 8);
 		}
+	}
+
+	private void printHealth(Selectable selectable) {
+		int ratio = (int) (selectable.getCurrentHealth() * 100.0f) / selectable.getMaxHealth();
+		int x = selectable.getPositionX() - offsetX * SimuPara.SCALE;
+		int y = (selectable.getPositionY() - offsetY * SimuPara.SCALE) - 15;
+
+		Rectangle healthBar = new Rectangle(x, y, SimuPara.RADIUS, 5);
+		graphics.setColor(Color.black);
+		graphics.fillRect(x, y, SimuPara.RADIUS, 5);
+		graphics.setColor(Color.green);
+		graphics.fillRect(x, y, ratio, 5);
+		graphics.draw(healthBar);
 	}
 
 }

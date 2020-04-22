@@ -8,7 +8,7 @@ description = Mining facility
 sizeX = 1
 sizeY = 1
 timeToProduce = 15
-numberProduced = 300
+numberProduced = 10
 capacity = 2000
 
 

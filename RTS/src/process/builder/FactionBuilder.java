@@ -48,11 +48,6 @@ public class FactionBuilder {
 		initResearch();
 		initSelectable();
 		initCosts();
-		
-		for (Selectable selectable : r.getIds().values()) {
-			System.out.println(selectable.toString());
-		}
-		
 		return faction;
 	}
 
@@ -117,6 +112,7 @@ public class FactionBuilder {
 
 	private void initMine(String name, String factionName) {
 		Coordinates mineSpawn = getMineSpawn();
+		System.out.println(mineSpawn);
 		try {
 			Building mine = null;
 			switch (factionName) {
@@ -140,6 +136,7 @@ public class FactionBuilder {
 
 	private void initWorker(String name, String factionName) throws IllegalArgumentException {
 		Coordinates workerSpawn = getWorkerSpawn();
+		System.out.println("work: " + workerSpawn);
 		try {
 			Unit worker = null;
 			switch (factionName) {

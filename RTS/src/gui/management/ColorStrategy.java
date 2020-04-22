@@ -3,8 +3,10 @@ package gui.management;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import data.Selectable;
 import data.building.DefenseBuilding;
 import data.building.ResearchBuilding;
+import data.building.ResourceBuilding;
 import data.building.UnitBuilding;
 import data.unit.AttackHelicopter;
 import data.unit.GroundUnit;
@@ -16,7 +18,7 @@ import data.unit.Worker;
  *
  */
 public interface ColorStrategy {
-	void setColor(Graphics graphics, GroundUnit selectable);
+	void setColor(Graphics graphics, ResourceBuilding selectable);
 
 	void setColor(Graphics graphics, UnitBuilding selectable);
 
@@ -31,4 +33,7 @@ public interface ColorStrategy {
 	void setColor(Graphics2D graphics, AttackHelicopter selectable);
 
 	void setColor(Graphics2D graphics, DefenseBuilding selectable);
+
+	void setColor(Graphics2D graphics, GroundUnit selectable);
+
 }

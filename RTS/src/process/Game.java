@@ -91,6 +91,7 @@ public class Game {
 			String player = repository.getSelectable(id).getPlayerName();
 			try {
 				getPlayer(player).removeSelectableManager(id);
+				repository.remove(id);
 			}catch(NoSuchElementException nsee) {
 				System.err.println(nsee.getMessage());
 			}

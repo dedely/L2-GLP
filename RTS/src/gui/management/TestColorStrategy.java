@@ -5,8 +5,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import data.Constants;
+import data.Selectable;
 import data.building.DefenseBuilding;
 import data.building.ResearchBuilding;
+import data.building.ResourceBuilding;
 import data.building.UnitBuilding;
 import data.unit.AttackHelicopter;
 import data.unit.GroundUnit;
@@ -18,15 +20,6 @@ import data.unit.Worker;
  *
  */
 public class TestColorStrategy implements ColorStrategy {
-
-	@Override
-	public void setColor(Graphics graphics, GroundUnit selectable) {
-		if (selectable.getPlayerName().equals(Constants.AI)) {
-			graphics.setColor(Color.RED);
-		} else {
-			graphics.setColor(Color.BLUE);
-		}
-	}
 
 	@Override
 	public void setColor(Graphics graphics, UnitBuilding selectable) {
@@ -99,6 +92,28 @@ public class TestColorStrategy implements ColorStrategy {
 			}
 		}
 
+	}
+
+	@Override
+	public void setColor(Graphics graphics, ResourceBuilding selectable) {
+		if (selectable.isSelected()) {
+			graphics.setColor(Color.GREEN);
+		} else {
+			if (selectable.getPlayerName().equals(Constants.AI)) {
+				graphics.setColor(Color.RED);
+			} else {
+				graphics.setColor(Color.BLUE);
+			}
+		}
+	}
+
+	@Override
+	public void setColor(Graphics2D graphics, GroundUnit selectable) {
+		if (selectable.getPlayerName().equals(Constants.AI)) {
+			graphics.setColor(Color.RED);
+		} else {
+			graphics.setColor(Color.BLUE);
+		}
 	}
 
 }

@@ -1,9 +1,8 @@
 package gui.elements;
 
-import java.awt.GridLayout;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import gui.elements.buttons.OrderButton;
@@ -28,7 +27,7 @@ public class ContextualMenu extends JPanel {
 		super();
 		this.player = player;
 		builder = new ButtonBuilder(this.player);
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		setLayout(new FlowLayout());
 		layoutButtons();
 	}
 
