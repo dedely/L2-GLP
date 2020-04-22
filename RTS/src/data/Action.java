@@ -11,9 +11,7 @@ public class Action {
 	}
 
 	public void add(String action) {
-		if (!actions.contains(action)) {
 			actions.add(action);
-		}
 	}
 
 	public void remove(String action) {

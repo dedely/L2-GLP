@@ -58,7 +58,7 @@ public class ButtonBuilder {
 
 		if (actions != null) {
 			for (String type : actions) {
-				OrderButton button = ButtonFactory.createOrderButton(player, type);
+				OrderButton button = ButtonFactory.getInstance().createOrderButton(player, type);
 				buttons.add(button);
 			}
 		}

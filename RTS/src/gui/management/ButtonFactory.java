@@ -74,7 +74,7 @@ public class ButtonFactory {
 		return instance;
 	}
 
-	public static OrderButton createOrderButton(Faction player, String type) throws IllegalArgumentException {
+	public  OrderButton createOrderButton(Faction player, String type) throws IllegalArgumentException {
 		switch (type) {
 		case BUILD:
 			return new BuildButton(player, type);
